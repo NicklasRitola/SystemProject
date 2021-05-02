@@ -9,7 +9,7 @@ using System.Net.Sockets;
 
 namespace ServerSide
 {
-    class Prog
+    class ServerProg
     {
         static void Main(string[] args)
         {

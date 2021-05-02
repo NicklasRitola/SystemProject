@@ -8,7 +8,7 @@ using System.Net.Sockets;
 
 namespace ClientSide
 {
-    class Prog
+    class ClientProg
     {
         static void Main(string[] args)
         {
