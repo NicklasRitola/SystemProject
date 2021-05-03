@@ -6,12 +6,15 @@ namespace Classes
 {
     public class TeamMember : Participants
     {
-
-        public TeamMember(string firstName, string surName, int gender)
+        public TeamMember()
+        { 
+        }
+        public TeamMember(string firstName, string surName, int gender, int Age) //register member
         {
             last = surName;
             first = firstName;
             gend = gender;
+            age = Age;
 
         }
         public void RegisterDive()
