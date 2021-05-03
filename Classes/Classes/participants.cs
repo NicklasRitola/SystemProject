@@ -4,7 +4,26 @@ using System.Text;
 
 namespace Classes
 {
-    class participants
+    public class participants
     {
+
+        public Person()
+        {
+            firstName = "unknown";
+            surName = "unknown";
+
+        }
+        public Person(string firstname, string surname)
+        {
+            firstName = firstname;
+            surname = surname;
+        }
+
+        public string firstName { get; }
+        public string surName { get; }
+        public override string ToString()
+        {
+            return firstName;
+        }
     }
 }
