@@ -4,30 +4,30 @@ using System.Text;
 
 namespace Classes
 {
-    public class administrator
+    public class Administrator
     {
         
-        public void registerDiver()
+        public void RegisterDiver()
         {
 
         }
 
-        public void updateDiver()
+        public void UpdateDiver()
         {
 
         }
 
-        public void nextDive()
+        public void NextDive()
         {
 
         }
 
-        public void createCompetition() 
+        public void CreateCompetition() 
         {
         
         }
 
-        public void createSchedule()
+        public void CreateSchedule()
         {
 
         }
