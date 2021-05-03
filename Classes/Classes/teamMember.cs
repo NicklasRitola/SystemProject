@@ -4,7 +4,15 @@ using System.Text;
 
 namespace Classes
 {
-    class teamMember
+    public class teamMember : participants
     {
+        public void registerDiver()
+        {
+
+        }
+        public void registerDive()
+        {
+
+        }
     }
 }
