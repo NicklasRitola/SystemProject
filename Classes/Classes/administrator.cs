@@ -4,7 +4,33 @@ using System.Text;
 
 namespace Classes
 {
-    class administrator
+    public class administrator
     {
+        
+        public void registerDiver()
+        {
+
+        }
+
+        public void updateDiver()
+        {
+
+        }
+
+        public void nextDive()
+        {
+
+        }
+
+        public void createCompetition() 
+        {
+        
+        }
+
+        public void createSchedule()
+        {
+
+        }
+
     }
 }
