@@ -17,9 +17,10 @@ namespace Classes
             age = Age;
 
         }
-        public void RegisterDive()
+        public Dive RegisterDive(string comp, int ID, int diveGroup, string athlete)
         {
-
+            Dive createdDive = new Dive(comp, ID, diveGroup, athlete);
+            return createdDive;
         }
     }
 }

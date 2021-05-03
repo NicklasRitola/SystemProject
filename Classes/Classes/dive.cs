@@ -7,14 +7,21 @@ namespace Classes
     public class Dive 
     {
         public float score;
-        public int diverID;
-        public string diveGroups;
-        public string performer; //inte med i nuvarande UML diagram. La till då dive måste kopplas till en hoppare.
+        public string competition;  //used to know what competition
+        public int nrDive;          //used to track what jump
+        public int diveGroups;       // used to rate the jumps score
+        public string performer;    //inte med i nuvarande UML diagram. La till då dive måste kopplas till en hoppare.
 
         public Dive()
         {
-            score = 0;
-
+        }
+        public Dive(string comp, int ID, int diveGroup, string athlete) 
+        {
+            //creating a dive. The score is set from another function from the judge.
+            competition = comp; 
+            nrDive = ID;
+            diveGroups = diveGroup;
+            performer = athlete;
         }
     }
 }
