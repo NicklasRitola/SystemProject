@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Classes
 {
-    public class diver : teamMember
+    public class Diver : TeamMember
     {
-        dive* madeDive;
+        public Dive ADive;
     }
 }

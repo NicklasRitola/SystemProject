@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Classes
 {
-    public class coach : teamMember
+    public class Coach : TeamMember
     {
     }
 }

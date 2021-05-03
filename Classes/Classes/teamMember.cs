@@ -4,13 +4,14 @@ using System.Text;
 
 namespace Classes
 {
-    public class teamMember : participants
+    public class TeamMember : Participants
     {
-        public void registerDiver()
+        
+        public void RegisterDiver()
         {
 
         }
-        public void registerDive()
+        public void RegisterDive()
         {
 
         }
