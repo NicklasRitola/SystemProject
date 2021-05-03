@@ -8,10 +8,14 @@ namespace Classes
     {
 
 
-        private string first;
-        private string last;
-        private int gend;
+        public string first;
+        public string last;
+        public int gend;
 
+        public Participants()
+        {
+
+        }
         public Participants(string firstName, string surName, int gender)
         {
             last = surName;
