@@ -38,10 +38,10 @@ namespace ClientUI
             // 
             // Administrator
             // 
-            this.Administrator.Location = new System.Drawing.Point(283, 475);
+            this.Administrator.Location = new System.Drawing.Point(384, 242);
             this.Administrator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Administrator.Name = "Administrator";
-            this.Administrator.Size = new System.Drawing.Size(101, 53);
+            this.Administrator.Size = new System.Drawing.Size(155, 72);
             this.Administrator.TabIndex = 1;
             this.Administrator.Text = "Administrator";
             this.Administrator.UseVisualStyleBackColor = true;
@@ -49,10 +49,10 @@ namespace ClientUI
             // 
             // Diver
             // 
-            this.Diver.Location = new System.Drawing.Point(513, 475);
+            this.Diver.Location = new System.Drawing.Point(545, 242);
             this.Diver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Diver.Name = "Diver";
-            this.Diver.Size = new System.Drawing.Size(101, 53);
+            this.Diver.Size = new System.Drawing.Size(155, 72);
             this.Diver.TabIndex = 2;
             this.Diver.Text = "Diver";
             this.Diver.UseVisualStyleBackColor = true;
@@ -60,10 +60,10 @@ namespace ClientUI
             // 
             // Coach
             // 
-            this.Coach.Location = new System.Drawing.Point(734, 475);
+            this.Coach.Location = new System.Drawing.Point(706, 242);
             this.Coach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Coach.Name = "Coach";
-            this.Coach.Size = new System.Drawing.Size(101, 53);
+            this.Coach.Size = new System.Drawing.Size(155, 72);
             this.Coach.TabIndex = 3;
             this.Coach.Text = "Coach";
             this.Coach.UseVisualStyleBackColor = true;
@@ -71,10 +71,10 @@ namespace ClientUI
             // 
             // Spectator
             // 
-            this.Spectator.Location = new System.Drawing.Point(71, 475);
+            this.Spectator.Location = new System.Drawing.Point(62, 242);
             this.Spectator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Spectator.Name = "Spectator";
-            this.Spectator.Size = new System.Drawing.Size(101, 53);
+            this.Spectator.Size = new System.Drawing.Size(155, 72);
             this.Spectator.TabIndex = 5;
             this.Spectator.Text = "Spectator";
             this.Spectator.UseVisualStyleBackColor = true;
@@ -82,16 +82,16 @@ namespace ClientUI
             // 
             // Judge
             // 
-            this.Judge.Location = new System.Drawing.Point(446, 300);
+            this.Judge.Location = new System.Drawing.Point(223, 242);
             this.Judge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Judge.Name = "Judge";
-            this.Judge.Size = new System.Drawing.Size(101, 53);
+            this.Judge.Size = new System.Drawing.Size(155, 72);
             this.Judge.TabIndex = 6;
             this.Judge.Text = "Judge";
             this.Judge.UseVisualStyleBackColor = true;
             this.Judge.Click += new System.EventHandler(this.Judge_Click);
             // 
-            // StartForm
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,7 +103,7 @@ namespace ClientUI
             this.Controls.Add(this.Diver);
             this.Controls.Add(this.Administrator);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "StartForm";
+            this.Name = "Form1";
             this.Text = "Swimming competition";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
