@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace ClientUI
 {
-    public partial class Spectator : Form
+    public partial class Administrator : Form
     {
-        public Spectator()
+        public Administrator()
         {
             InitializeComponent();
         }
