@@ -42,7 +42,7 @@ namespace ClientUI
             // 
             // RegisterDive
             // 
-            this.RegisterDive.Location = new System.Drawing.Point(37, 94);
+            this.RegisterDive.Location = new System.Drawing.Point(42, 80);
             this.RegisterDive.Name = "RegisterDive";
             this.RegisterDive.Size = new System.Drawing.Size(136, 54);
             this.RegisterDive.TabIndex = 6;
@@ -52,14 +52,14 @@ namespace ClientUI
             // 
             // textBoxTower
             // 
-            this.textBoxTower.Location = new System.Drawing.Point(316, 152);
+            this.textBoxTower.Location = new System.Drawing.Point(321, 138);
             this.textBoxTower.Name = "textBoxTower";
             this.textBoxTower.Size = new System.Drawing.Size(274, 23);
             this.textBoxTower.TabIndex = 7;
             // 
             // textBoxDiveGrp
             // 
-            this.textBoxDiveGrp.Location = new System.Drawing.Point(316, 94);
+            this.textBoxDiveGrp.Location = new System.Drawing.Point(321, 80);
             this.textBoxDiveGrp.Name = "textBoxDiveGrp";
             this.textBoxDiveGrp.Size = new System.Drawing.Size(274, 23);
             this.textBoxDiveGrp.TabIndex = 8;
@@ -67,7 +67,7 @@ namespace ClientUI
             // labelDive
             // 
             this.labelDive.AutoSize = true;
-            this.labelDive.Location = new System.Drawing.Point(208, 97);
+            this.labelDive.Location = new System.Drawing.Point(213, 83);
             this.labelDive.Name = "labelDive";
             this.labelDive.Size = new System.Drawing.Size(66, 15);
             this.labelDive.TabIndex = 9;
@@ -77,7 +77,7 @@ namespace ClientUI
             // labelComp
             // 
             this.labelComp.AutoSize = true;
-            this.labelComp.Location = new System.Drawing.Point(208, 68);
+            this.labelComp.Location = new System.Drawing.Point(213, 54);
             this.labelComp.Name = "labelComp";
             this.labelComp.Size = new System.Drawing.Size(74, 15);
             this.labelComp.TabIndex = 10;
@@ -85,7 +85,7 @@ namespace ClientUI
             // 
             // textBoxDifficulty
             // 
-            this.textBoxDifficulty.Location = new System.Drawing.Point(316, 123);
+            this.textBoxDifficulty.Location = new System.Drawing.Point(321, 109);
             this.textBoxDifficulty.Name = "textBoxDifficulty";
             this.textBoxDifficulty.Size = new System.Drawing.Size(274, 23);
             this.textBoxDifficulty.TabIndex = 11;
@@ -94,7 +94,7 @@ namespace ClientUI
             // labelDifficulty
             // 
             this.labelDifficulty.AutoSize = true;
-            this.labelDifficulty.Location = new System.Drawing.Point(208, 126);
+            this.labelDifficulty.Location = new System.Drawing.Point(213, 112);
             this.labelDifficulty.Name = "labelDifficulty";
             this.labelDifficulty.Size = new System.Drawing.Size(55, 15);
             this.labelDifficulty.TabIndex = 12;
@@ -102,7 +102,7 @@ namespace ClientUI
             // 
             // textBoxComp
             // 
-            this.textBoxComp.Location = new System.Drawing.Point(316, 65);
+            this.textBoxComp.Location = new System.Drawing.Point(321, 51);
             this.textBoxComp.Name = "textBoxComp";
             this.textBoxComp.Size = new System.Drawing.Size(274, 23);
             this.textBoxComp.TabIndex = 13;
@@ -110,7 +110,7 @@ namespace ClientUI
             // labelTower
             // 
             this.labelTower.AutoSize = true;
-            this.labelTower.Location = new System.Drawing.Point(208, 155);
+            this.labelTower.Location = new System.Drawing.Point(213, 141);
             this.labelTower.Name = "labelTower";
             this.labelTower.Size = new System.Drawing.Size(38, 15);
             this.labelTower.TabIndex = 14;

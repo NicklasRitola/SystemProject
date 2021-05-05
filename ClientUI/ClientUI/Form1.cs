@@ -32,6 +32,16 @@ namespace ClientUI
         private void Diver_Click(object sender, EventArgs e)
         {
 
+            this.Hide();
+            Login loginForm = new Login();
+            loginForm.Show();
+            /*
+             
+            this.Hide();
+            Diver diveForm = new Diver();
+            diveForm.Show();*/
+
+
         }
 
         private void Coach_Click(object sender, EventArgs e)
@@ -51,6 +61,14 @@ namespace ClientUI
 
         private void Judge_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void CreateDiver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CreateProfile createForm = new CreateProfile();
+            createForm.Show();
 
         }
     }

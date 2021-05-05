@@ -95,6 +95,7 @@ namespace ClientUI
             this.CreateDiver.TabIndex = 7;
             this.CreateDiver.Text = "Create a dive profile";
             this.CreateDiver.UseVisualStyleBackColor = true;
+            this.CreateDiver.Click += new System.EventHandler(this.CreateDiver_Click);
             // 
             // Form1
             // 
