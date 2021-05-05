@@ -34,6 +34,7 @@ namespace ClientUI
             this.Coach = new System.Windows.Forms.Button();
             this.Spectator = new System.Windows.Forms.Button();
             this.Judge = new System.Windows.Forms.Button();
+            this.CreateDiver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Administrator
@@ -86,12 +87,22 @@ namespace ClientUI
             this.Judge.UseVisualStyleBackColor = true;
             this.Judge.Click += new System.EventHandler(this.Judge_Click);
             // 
+            // CreateDiver
+            // 
+            this.CreateDiver.Location = new System.Drawing.Point(477, 242);
+            this.CreateDiver.Name = "CreateDiver";
+            this.CreateDiver.Size = new System.Drawing.Size(136, 54);
+            this.CreateDiver.TabIndex = 7;
+            this.CreateDiver.Text = "Create a dive profile";
+            this.CreateDiver.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CreateDiver);
             this.Controls.Add(this.Judge);
             this.Controls.Add(this.Spectator);
             this.Controls.Add(this.Coach);
@@ -111,6 +122,7 @@ namespace ClientUI
         private System.Windows.Forms.Button Coach;
         private System.Windows.Forms.Button Spectator;
         private System.Windows.Forms.Button Judge;
+        private System.Windows.Forms.Button CreateDiver;
     }
 }
 
