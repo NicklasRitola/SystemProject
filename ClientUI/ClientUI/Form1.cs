@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ClientUI
 {
-    public partial class StartForm : Form
+    public partial class Form1 : SuperForm
     {
-        public StartForm()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -21,8 +21,6 @@ namespace ClientUI
         {
 
         }
-
-
 
 
 
@@ -43,9 +41,17 @@ namespace ClientUI
 
         private void Spectator_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            /*this.Hide();
             SpectatorForm specForm = new SpectatorForm();
-            specForm.Show();
+            specForm.Show();*/
+
+            Form1 startForm = new Form1();
+            OpenForm(startForm, this);
+        }
+
+        private void Judge_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

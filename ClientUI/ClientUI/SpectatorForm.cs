@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ClientUI
 {
-    public partial class SpectatorForm : Form
+    public partial class SpectatorForm : System.Windows.Forms.Form
     {
         public SpectatorForm()
         {
@@ -23,7 +23,7 @@ namespace ClientUI
         private void mainMenu_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StartForm startForm = new StartForm();
+            Form1 startForm = new Form1();
             startForm.Show();
         }
     }
