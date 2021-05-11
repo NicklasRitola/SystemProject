@@ -10,6 +10,7 @@ namespace ClientUI
 {
     public partial class Login : Form
     {
+
         public Login()
         {
             InitializeComponent();
@@ -18,10 +19,34 @@ namespace ClientUI
         public void LoginButton_Click(object sender, EventArgs e)
         {
              //Fixa så den kollar lösen + namn med databas (så att det existerar).
-            Administrator adminForm = new Administrator();
-            
-            adminForm.Show();
-            
+
+
+            string loginName = Username.Text;
+            string loginPassword = Password.Text;
+
+
+            if(LoginGlobalString.GlobalString == "Admin")
+            {
+                Administrator adminForm = new Administrator();
+                adminForm.Show();
+            }
+            if (LoginGlobalString.GlobalString == "Judge")
+            {
+                Judge judgeForm = new Judge();
+                judgeForm.Show();
+            }
+            if (LoginGlobalString.GlobalString == "Diver")
+            {
+                Diver diverForm = new Diver();
+                diverForm.Show();
+            }
+            if (LoginGlobalString.GlobalString == "Coach")
+            {
+                Coach coachForm = new Coach();
+                coachForm.Show();
+            }
+
+
             this.Hide();
             
         }

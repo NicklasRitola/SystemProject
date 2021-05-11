@@ -8,8 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ClientUI
 {
+
+
     public partial class Form1 : SuperForm
     {
         public Form1()
@@ -21,11 +24,13 @@ namespace ClientUI
         {
              
         }
-
+        
 
 
         private void Administrator_Click(object sender, EventArgs e)
         {
+            LoginGlobalString.GlobalString = "Admin";
+
             this.Hide();
             Login loginForm = new Login();
             loginForm.Show();
@@ -33,9 +38,10 @@ namespace ClientUI
 
         }
 
+
         private void Diver_Click(object sender, EventArgs e)
         {
-
+            LoginGlobalString.GlobalString = "Diver";
             this.Hide();
             Login loginForm = new Login();
             loginForm.Show();
@@ -50,7 +56,10 @@ namespace ClientUI
 
         private void Coach_Click(object sender, EventArgs e)
         {
-
+            LoginGlobalString.GlobalString = "Coach";
+            this.Hide();
+            Login loginForm = new Login();
+            loginForm.Show();
         }
 
         private void Spectator_Click(object sender, EventArgs e)
@@ -65,7 +74,10 @@ namespace ClientUI
 
         private void Judge_Click(object sender, EventArgs e)
         {
-
+            LoginGlobalString.GlobalString = "Judge";
+            this.Hide();
+            Login loginForm = new Login();
+            loginForm.Show();
         }
 
         private void CreateDiver_Click(object sender, EventArgs e)
