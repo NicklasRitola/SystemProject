@@ -24,7 +24,7 @@ namespace ServerSide
 
         private void receiveMessage(Client client)
         {
-            //TODO: Implement
+            //TODO: Implement method that receives a message from the client and sends it to the message dispatcher
         }
     }
 }

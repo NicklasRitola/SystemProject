@@ -11,6 +11,7 @@ namespace ClientSide
 {
     class ClientChannel
     {
+        JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
         IPHostEntry ipHost = null;
         IPAddress ipAddr = null;
         IPEndPoint localEndPoint = null;
@@ -56,6 +57,36 @@ namespace ClientSide
             }
 
             return socket;
+        }
+
+        public void CloseConnection(Socket socket)
+        {
+            socket.Shutdown(SocketShutdown.Both);
+            socket.Close();
+        }
+
+        public void transaction(Request request)
+        {
+            // Socket socket = socketHandler.connectToServer();
+
+            //SENDING
+            //TODO: Implement a sendAsync method that takes a message, calls the Encode method and .Send method
+            byte[] requestToSend = messageProtocol.Encode(request);
+            int byteSent = socket.Send(requestToSend);
+
+            //TODO: Implement a receiver
+            byte[] messageReceived = new byte[1024];
+            string data = null;
+            int byteRecv = 0;
+            byteRecv = socket.Receive(messageReceived, messageReceived.Length, 0);
+            data += Encoding.ASCII.GetString(messageReceived, 0, byteRecv);
+
+            Response response = messageProtocol.DecodeResponse(data);
+
+
+            Console.WriteLine("Response from server:\n" +
+                "{0}\n" +
+                "{1}", response.responseId, response.message);
         }
     }
 }

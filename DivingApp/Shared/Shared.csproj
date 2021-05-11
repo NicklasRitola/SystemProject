@@ -129,6 +129,8 @@
     <Compile Include="Message.cs" />
     <Compile Include="participants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="Response.cs" />
     <Compile Include="spectator.cs" />
     <Compile Include="teamMember.cs" />
     <Compile Include="user.cs" />
