@@ -12,7 +12,7 @@ namespace Shared
         public int requestId;
         public string message;
 
-        Request()
+        public Request()
         {
             requestId = 1;
             message = "This is a request";

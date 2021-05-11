@@ -12,7 +12,7 @@ namespace Shared
         public int responseId;
         public string message;
 
-        Response()
+        public Response()
         {
             responseId = 1;
             message = "This is a response";
