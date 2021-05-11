@@ -1,5 +1,8 @@
 ﻿
 using System;
+using ServerSide;
+using ClientSide;
+using Shared;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestProject2
