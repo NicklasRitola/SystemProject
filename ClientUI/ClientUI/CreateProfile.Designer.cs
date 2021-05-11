@@ -42,6 +42,7 @@ namespace ClientUI
             this.textBoxTeam = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.ErrorMessages = new System.Windows.Forms.Label();
+            this.buttonMainMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Gender
@@ -158,12 +159,23 @@ namespace ClientUI
             this.ErrorMessages.Size = new System.Drawing.Size(0, 15);
             this.ErrorMessages.TabIndex = 28;
             // 
+            // buttonMainMenu
+            // 
+            this.buttonMainMenu.Location = new System.Drawing.Point(12, 12);
+            this.buttonMainMenu.Name = "buttonMainMenu";
+            this.buttonMainMenu.Size = new System.Drawing.Size(76, 35);
+            this.buttonMainMenu.TabIndex = 29;
+            this.buttonMainMenu.Text = "Main Menu";
+            this.buttonMainMenu.UseVisualStyleBackColor = true;
+            this.buttonMainMenu.Click += new System.EventHandler(this.buttonMainMenu_Click);
+            // 
             // CreateProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(637, 240);
+            this.Controls.Add(this.buttonMainMenu);
             this.Controls.Add(this.ErrorMessages);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxTeam);
@@ -200,5 +212,6 @@ namespace ClientUI
         private System.Windows.Forms.TextBox textBoxTeam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ErrorMessages;
+        private System.Windows.Forms.Button buttonMainMenu;
     }
 }

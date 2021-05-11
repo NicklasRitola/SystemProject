@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ClientUI
 {
-    public partial class CreateProfile : Form
+    public partial class CreateProfile : SuperForm
     {
         public CreateProfile()
         {
@@ -51,6 +51,13 @@ namespace ClientUI
 
         private void textBoxDifficulty_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void buttonMainMenu_Click(object sender, EventArgs e)
+        {
+            Form1 form1Form = new Form1();
+            OpenForm(form1Form, this);
 
         }
     }

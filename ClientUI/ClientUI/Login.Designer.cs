@@ -34,6 +34,7 @@ namespace ClientUI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
+            this.buttonMainMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Username
@@ -78,12 +79,23 @@ namespace ClientUI
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
+            // buttonMainMenu
+            // 
+            this.buttonMainMenu.Location = new System.Drawing.Point(12, 12);
+            this.buttonMainMenu.Name = "buttonMainMenu";
+            this.buttonMainMenu.Size = new System.Drawing.Size(76, 35);
+            this.buttonMainMenu.TabIndex = 30;
+            this.buttonMainMenu.Text = "Main Menu";
+            this.buttonMainMenu.UseVisualStyleBackColor = true;
+            this.buttonMainMenu.Click += new System.EventHandler(this.buttonMainMenu_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(276, 270);
+            this.Controls.Add(this.buttonMainMenu);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -104,5 +116,6 @@ namespace ClientUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Button buttonMainMenu;
     }
 }

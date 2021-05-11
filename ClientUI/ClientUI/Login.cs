@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ClientUI
 {
-    public partial class Login : Form
+    public partial class Login : SuperForm
     {
 
         public Login()
@@ -49,6 +49,12 @@ namespace ClientUI
 
             this.Hide();
             
+        }
+
+        private void buttonMainMenu_Click(object sender, EventArgs e)
+        {
+            Form1 form1Form = new Form1();
+            OpenForm(form1Form, this);
         }
     }
 }

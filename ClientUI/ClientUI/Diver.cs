@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ClientUI
 {
-    public partial class Diver : Form
+    public partial class Diver : SuperForm
     {
         public Diver()
         {
@@ -36,6 +36,12 @@ namespace ClientUI
             string diverGroup = textBoxDiveGrp.Text;
             string diverDifficulty = textBoxDifficulty.Text;
             string diverTower = textBoxTower.Text;
+        }
+
+        private void buttonMainMenu_Click(object sender, EventArgs e)
+        {
+            Form1 form1Form = new Form1();
+            OpenForm(form1Form, this);
         }
     }
 }

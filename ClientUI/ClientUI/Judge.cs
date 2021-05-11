@@ -8,11 +8,17 @@ using System.Windows.Forms;
 
 namespace ClientUI
 {
-    public partial class Judge : Form
+    public partial class Judge : SuperForm
     {
         public Judge()
         {
             InitializeComponent();
+        }
+
+        private void buttonMainMenu_Click(object sender, EventArgs e)
+        {
+            Form1 form1Form = new Form1();
+            OpenForm(form1Form, this);
         }
     }
 }

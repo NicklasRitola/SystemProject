@@ -20,9 +20,11 @@ namespace ClientUI
 
         }
 
+
         public void OpenForm(SuperForm NewForm, SuperForm CurrentForm)
         {
             CurrentForm.Hide();
+            
             NewForm.Show();
         }
         
