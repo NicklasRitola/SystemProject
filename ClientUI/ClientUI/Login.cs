@@ -14,5 +14,16 @@ namespace ClientUI
         {
             InitializeComponent();
         }
+
+        public void LoginButton_Click(object sender, EventArgs e)
+        {
+             //Fixa så den kollar lösen + namn med databas (så att det existerar).
+            Administrator adminForm = new Administrator();
+            
+            adminForm.Show();
+            
+            this.Hide();
+            
+        }
     }
 }
