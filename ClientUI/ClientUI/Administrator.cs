@@ -20,5 +20,28 @@ namespace ClientUI
             Form1 form1Form = new Form1();
             OpenForm(form1Form, this);
         }
+
+        private void CreateSchedule_Click(object sender, EventArgs e)
+        {
+            CreateSchedule scheduleForm = new CreateSchedule();
+            OpenForm(scheduleForm, this);
+
+        }
+
+        private void CreateCompetition_Click(object sender, EventArgs e)
+        {
+            CreateCompetition compForm = new CreateCompetition();
+            OpenForm(compForm, this);
+
+        }
+
+        private void NextDive_Click(object sender, EventArgs e)
+        {
+            CurrentCompetition currentCompForm = new CurrentCompetition();
+            OpenForm(currentCompForm, this);
+
+        }
+
+
     }
 }

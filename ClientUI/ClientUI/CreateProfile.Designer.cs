@@ -50,9 +50,9 @@ namespace ClientUI
             this.Gender.AutoSize = true;
             this.Gender.Location = new System.Drawing.Point(210, 168);
             this.Gender.Name = "Gender";
-            this.Gender.Size = new System.Drawing.Size(45, 15);
+            this.Gender.Size = new System.Drawing.Size(48, 15);
             this.Gender.TabIndex = 23;
-            this.Gender.Text = "Gender";
+            this.Gender.Text = "Gender:";
             // 
             // textBoxFirst
             // 
@@ -66,9 +66,9 @@ namespace ClientUI
             this.labelAge.AutoSize = true;
             this.labelAge.Location = new System.Drawing.Point(210, 139);
             this.labelAge.Name = "labelAge";
-            this.labelAge.Size = new System.Drawing.Size(28, 15);
+            this.labelAge.Size = new System.Drawing.Size(31, 15);
             this.labelAge.TabIndex = 21;
-            this.labelAge.Text = "Age";
+            this.labelAge.Text = "Age:";
             this.labelAge.Click += new System.EventHandler(this.labelDifficulty_Click);
             // 
             // textBoxAge
@@ -84,18 +84,18 @@ namespace ClientUI
             this.labelName.AutoSize = true;
             this.labelName.Location = new System.Drawing.Point(210, 81);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(62, 15);
+            this.labelName.Size = new System.Drawing.Size(65, 15);
             this.labelName.TabIndex = 19;
-            this.labelName.Text = "First name";
+            this.labelName.Text = "First name:";
             // 
             // labelSur
             // 
             this.labelSur.AutoSize = true;
             this.labelSur.Location = new System.Drawing.Point(210, 110);
             this.labelSur.Name = "labelSur";
-            this.labelSur.Size = new System.Drawing.Size(54, 15);
+            this.labelSur.Size = new System.Drawing.Size(57, 15);
             this.labelSur.TabIndex = 18;
-            this.labelSur.Text = "Surname";
+            this.labelSur.Text = "Surname:";
             // 
             // textBoxSur
             // 
@@ -146,9 +146,9 @@ namespace ClientUI
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(210, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 15);
+            this.label1.Size = new System.Drawing.Size(38, 15);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Team";
+            this.label1.Text = "Team:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ErrorMessages
