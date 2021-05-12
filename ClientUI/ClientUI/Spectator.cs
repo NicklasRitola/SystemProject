@@ -29,6 +29,7 @@ namespace ClientUI
             viewSchedule.Rows[index].Cells[2].Value = 2;
             viewSchedule.Rows[index].Cells[3].Value = "Superflip";
 
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

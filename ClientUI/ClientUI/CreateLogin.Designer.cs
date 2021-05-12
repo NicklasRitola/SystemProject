@@ -159,6 +159,7 @@ namespace ClientUI
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.RegisterProfile);
             this.Name = "CreateLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateLogin";
             this.ResumeLayout(false);
             this.PerformLayout();
