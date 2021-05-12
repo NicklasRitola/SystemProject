@@ -31,7 +31,6 @@ namespace ClientUI
         {
             this.Administrator = new System.Windows.Forms.Button();
             this.Diver = new System.Windows.Forms.Button();
-            this.Coach = new System.Windows.Forms.Button();
             this.Spectator = new System.Windows.Forms.Button();
             this.Judge = new System.Windows.Forms.Button();
             this.CreateDiver = new System.Windows.Forms.Button();
@@ -57,16 +56,6 @@ namespace ClientUI
             this.Diver.UseVisualStyleBackColor = true;
             this.Diver.Click += new System.EventHandler(this.Diver_Click);
             // 
-            // Coach
-            // 
-            this.Coach.Location = new System.Drawing.Point(618, 182);
-            this.Coach.Name = "Coach";
-            this.Coach.Size = new System.Drawing.Size(136, 54);
-            this.Coach.TabIndex = 3;
-            this.Coach.Text = "Coach";
-            this.Coach.UseVisualStyleBackColor = true;
-            this.Coach.Click += new System.EventHandler(this.Coach_Click);
-            // 
             // Spectator
             // 
             this.Spectator.Location = new System.Drawing.Point(54, 182);
@@ -89,7 +78,7 @@ namespace ClientUI
             // 
             // CreateDiver
             // 
-            this.CreateDiver.Location = new System.Drawing.Point(477, 242);
+            this.CreateDiver.Location = new System.Drawing.Point(619, 182);
             this.CreateDiver.Name = "CreateDiver";
             this.CreateDiver.Size = new System.Drawing.Size(136, 54);
             this.CreateDiver.TabIndex = 7;
@@ -106,7 +95,6 @@ namespace ClientUI
             this.Controls.Add(this.CreateDiver);
             this.Controls.Add(this.Judge);
             this.Controls.Add(this.Spectator);
-            this.Controls.Add(this.Coach);
             this.Controls.Add(this.Diver);
             this.Controls.Add(this.Administrator);
             this.Name = "Form1";
@@ -120,7 +108,6 @@ namespace ClientUI
         #endregion
         private System.Windows.Forms.Button Administrator;
         private System.Windows.Forms.Button Diver;
-        private System.Windows.Forms.Button Coach;
         private System.Windows.Forms.Button Spectator;
         private System.Windows.Forms.Button Judge;
         private System.Windows.Forms.Button CreateDiver;

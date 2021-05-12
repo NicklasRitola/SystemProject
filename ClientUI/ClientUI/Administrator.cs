@@ -42,6 +42,10 @@ namespace ClientUI
 
         }
 
-
+        private void buttonCreateProfile_Click(object sender, EventArgs e)
+        {
+            CreateLogin createLoginForm = new CreateLogin();
+            OpenForm(createLoginForm, this);
+        }
     }
 }
