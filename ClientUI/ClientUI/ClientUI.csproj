@@ -6,4 +6,9 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\DivingApp\ClientSideLibrary\ClientSide.csproj" />
+    <ProjectReference Include="..\..\DivingApp\SharedLibrary\Shared.csproj" />
+  </ItemGroup>
+
 </Project>
