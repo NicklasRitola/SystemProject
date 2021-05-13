@@ -11,6 +11,11 @@ namespace Server
         {
             SocketServer server = new SocketServer();
             server.executeServer();
+
+
+            //DatabaseHandler db = new DatabaseHandler();
+            //string test = db.SQLExecuteQuery("select * from competition;");
+            //Console.WriteLine("\nCompetition: \n" + test);
         }
     }
 }
