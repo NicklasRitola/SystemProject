@@ -9,27 +9,22 @@ using System.Threading.Tasks;
 
 namespace ServerSide
 {
-    class Server
+    public class SocketServer
     {
         public ClientHandler clientHandler = new ClientHandler();
         public short Port = 11111;
 
-        //public async Task Main(string[] args)
-        //{
-        //    await executeServerAsync();
-        //}
-
-
-
-        public async Task executeServerAsync()
+        public void executeServer()
         {
 
             SocketHandler socketHandler = new SocketHandler();
-            Socket listener = await socketHandler.startListener();
+            Socket listener = socketHandler.startListener();
             JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
 
             while (true)
             {
+                //TODO: Detects new connection and starts a new Task that handles that connection
+
                 Console.WriteLine("Waiting connection ...");
 
                 Socket clientSocket = listener.Accept();

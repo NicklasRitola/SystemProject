@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace ServerSide
 {
-    class ClientHandler
+    public class ClientHandler
     {
-        public static List<Client> Clients = new List<Client>();
+        static List<Client> Clients = new List<Client>();
 
         public void AddClient(Socket socket)
         {
             Clients.Add(new Client(socket, Clients.Count));
-
+            //Start receiving/responding
         }
 
         public void RemoveClient(int id)

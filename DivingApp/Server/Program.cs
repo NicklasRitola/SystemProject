@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ServerSide;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Server
 {
@@ -6,7 +9,8 @@ namespace Server
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SocketServer server = new SocketServer();
+            server.executeServer();
         }
     }
 }

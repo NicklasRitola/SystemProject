@@ -18,13 +18,13 @@ namespace ServerSide
         private Socket listener = null;
         private JsonMessageProtocol messageCoder = null;
 
-        public async Task<Socket> startListener()
+        public Socket startListener()
         {
             // Establish local endpoint
             // Creation TCP/IP socket
 
             clientHandler = new ClientHandler();
-            ipHost = await Dns.GetHostEntryAsync(Dns.GetHostName());
+            ipHost = Dns.GetHostEntry(Dns.GetHostName());
             ipAddr = ipHost.AddressList[0];
             localEndPoint = new IPEndPoint(ipAddr, 11111);
             listener = new Socket(ipAddr.AddressFamily,
