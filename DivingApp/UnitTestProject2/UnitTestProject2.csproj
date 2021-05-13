@@ -162,10 +162,6 @@
       <Project>{98b14851-4fad-44ec-862f-faead1fbdd34}</Project>
       <Name>ClientSide</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ServerSide\ServerSide.csproj">
-      <Project>{dd206afc-4678-427c-9d14-378e2b9486a4}</Project>
-      <Name>ServerSide</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{72e26b96-9e06-4ec1-bfe9-9fd5b6d08464}</Project>
       <Name>Shared</Name>
