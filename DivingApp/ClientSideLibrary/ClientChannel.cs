@@ -82,7 +82,7 @@ namespace ClientSide
             byteRecv = socket.Receive(messageReceived, messageReceived.Length, 0);
             data += Encoding.ASCII.GetString(messageReceived, 0, byteRecv);
 
-            Message response = messageProtocol.DecodeResponse(data);
+            //Message response = messageProtocol.DecodeResponse(data);
 
             //Console.WriteLine("Response from server:\n" +
             //    "{0}\n" +

@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Shared;
 
-namespace ServerSide
+namespace Server
 {
-    class MessageDispatcher
+    public class MessageDispatcher
     {
         public void DispatchMessage(Message message)
         {
-            //Finds the type of the message and sends it to the appropriate handler method
+            Console.WriteLine("This was a request!");
         }
     }
 }

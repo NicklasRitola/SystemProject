@@ -1,4 +1,4 @@
-﻿using ServerSide;
+﻿using Server;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +12,8 @@ namespace Server
             SocketServer server = new SocketServer();
             server.executeServer();
 
+            Console.WriteLine("Server is running");
+            Console.ReadLine();
 
             //DatabaseHandler db = new DatabaseHandler();
             //string test = db.SQLExecuteQuery("select * from competition;");
