@@ -40,11 +40,7 @@ namespace ClientUI
                 Diver diverForm = new Diver();
                 diverForm.Show();
             }
-            if (LoginGlobalString.GlobalString == "Coach")
-            {
-                Coach coachForm = new Coach();
-                coachForm.Show();
-            }
+
 
 
             this.Hide();

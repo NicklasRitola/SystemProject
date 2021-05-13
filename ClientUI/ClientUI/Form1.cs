@@ -46,12 +46,6 @@ namespace ClientUI
 
         }
 
-        private void Coach_Click(object sender, EventArgs e)
-        {
-            LoginGlobalString.GlobalString = "Coach";
-            Login loginForm = new Login();
-            OpenForm(loginForm, this);
-        }
 
         private void Spectator_Click(object sender, EventArgs e)
         {
