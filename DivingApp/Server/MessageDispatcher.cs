@@ -9,9 +9,15 @@ namespace ServerSide
 {
     class MessageDispatcher
     {
-        public void DispatchMessage(Message message)
+        //Finds the type of the message and sends it to the appropriate handler method
+        public void DispatchMessage(Request request)
         {
-            //Finds the type of the message and sends it to the appropriate handler method
+            
+        }
+        
+        public void DispatchMessage<T>(T request)
+        {
+
         }
     }
 }

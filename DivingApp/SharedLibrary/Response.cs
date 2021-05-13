@@ -9,13 +9,13 @@ namespace Shared
     public class Response : Message
     {
         //Example properties
-        public int responseId;
-        public string message;
+        //public int responseId;
+        //public string message;
 
         public Response()
         {
-            responseId = 1;
-            message = "This is a response";
+            //responseId = 1;
+            //message = "This is a response";
         }
     }
 }
