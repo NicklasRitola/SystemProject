@@ -3,26 +3,41 @@ using System.Collections.Generic;
 using System.Text;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using Shared;
 
 namespace Server
 {
     class DatabaseHandler
     {
-        public MySqlConnection databaseConnection;
+        protected MySqlConnection databaseConnection;
+        protected string IP = "89.160.69.12";
         public DatabaseHandler() //Constructor
         {
-            this.databaseConnection = this.ConnectToDatabase(); // Creates a new connect to the database
-            //Console.WriteLine("Constructor");
+            try
+            {
+                this.databaseConnection = this.ConnectToDatabase(); // Creates a new connect to the database
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error - " + e);
+            }
+            
         }
         ~DatabaseHandler() //Destructor
         {
-            this.CloseConnectionToDatabase(this.databaseConnection); //Close the connection to the database
-            //Console.WriteLine("Destructor");
+            try
+            {
+                this.CloseConnectionToDatabase(this.databaseConnection); //Close the connection to the database
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error - " + e);
+            }
         }
 
         private MySqlConnection ConnectToDatabase()
         {
-            string connectionString = @"server=89.160.69.12;user id=DefaultUser;password=123;database=simhopp_db;persistsecurityinfo=True";
+            string connectionString = @"server=" + IP + ";user id=DefaultUser;password=123;database=simhopp_db;persistsecurityinfo=True";
 
             try
             {
@@ -33,7 +48,7 @@ namespace Server
             }
             catch (Exception e)
             {
-                Console.WriteLine("\nERROR - " + e.Message);
+                Console.WriteLine("\nError - " + e.Message);
                 return null;
             }
         }
@@ -46,7 +61,7 @@ namespace Server
             }
             catch (Exception e)
             {
-                Console.WriteLine("\nERROR - " + e.Message);
+                Console.WriteLine("\nError - " + e.Message);
             }
         }
 
@@ -94,21 +109,107 @@ namespace Server
 
         }
 
-        public void SendJudgePointToDatabase(int Dive, int Point, string Judge)
+        public bool CreateCompetitionInDatabase(CreateCompetitionRequest data)
         {
             try
             {
-                string query = "insert into Give_Points values (" + Dive + "," + Point + ",'" + Judge + "');";
+                string query = "insert into Competition values (" + data.ID + "," + data.Location + ",'" + data.Start_Date + "','" + data.End_Date + "'); ";
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 dataReader.Close();
+                Console.WriteLine("Database - Competition has been created");
+                return true;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error - " + e);
+                return false;
+            }
+        }
 
-                Console.WriteLine("Judge point has been sent to the database");
+        public bool RegisterDiverInDatabase(RegisterDiverRequest data)
+        {
+            try
+            {
+                string query = "insert into Diver values ('" + data.SSN + "','" + data.FirstName + "','" + data.Surname + "','" + data.Gender + "'," + data.Age + ",); ";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database - Diver has been registerd");
+                return true;
             }
             catch (Exception e)
             {
-                Console.WriteLine("ERROR - " + e.Message);
-
+                Console.WriteLine("Error - " + e);
+                return false;
+            }
+        }
+        public bool RegisterDiveInDatabase(RegisterDiveRequest data)
+        {
+            try
+            {
+                string query = "insert into Dive values (" + data.Dive_ID + "," + data.Score + "'," + data.Difficulty + "," + data.Tower + "," + data.In_Competition + ",'" + data.Diver + "'); ";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database - Dive has been registerd");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error - " + e);
+                return false;
+            }
+        }
+        public bool RegisterTeamInDatabase(RegisterTeamRequest data)
+        {
+            try
+            {
+                string query = "insert into Team values (" + data.Team_ID + ",'" + data.Name + "'); ";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database - Team has been registerd");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error - " + e);
+                return false;
+            }
+        }
+        public virtual bool RegisterJudgeInDatabase(RegisterJudgeRequest data)
+        {
+            try
+            {
+                string query = "insert into Judge values ('" + data.SSN + "','" + data.FirstName + "','" + data.Surname + "'," + data.In_Competition + ",); ";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database - Judge has been registerd");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error - " + e);
+                return false;
+            }
+        }
+        public bool SendJudgePointToDatabase(JudgePointRequest data)
+        {
+            try
+            {
+                string query = "insert into Give_Points values (" + data.Dive + "," + data.Point + ",'" + data.Judge + "');";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database - Judge point has been received");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error - " + e.Message);
+                return false;
             }
         }
     }
