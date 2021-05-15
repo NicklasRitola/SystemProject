@@ -55,7 +55,7 @@ namespace Shared
     public class RegisterDiveRequest : Request
     {
         public int Dive_ID;
-        public float Score;
+        public float? Score = null; //Can be empty in database
         public float Difficulty;
         public int Tower;
         public int In_Competition;
@@ -72,6 +72,7 @@ namespace Shared
         public string FirstName;
         public string Surname;
         public string Gender;
+        public int In_Competition;
         public string Password;
     }
     public class RegisterAdminRequest : Request
@@ -86,7 +87,9 @@ namespace Shared
     //Judge
     public class JudgePointRequest : Request
     {
+        public int Dive;
         public int Point;
+        public string Judge;
     }
 
     //Spectator
