@@ -14,7 +14,7 @@ namespace Shared
 
         public Response()
         {
-            messageType = "Response";
+            messageType = "response";
             //responseId = 1;
             //message = "This is a response";
         }
@@ -24,4 +24,5 @@ namespace Shared
     {
 
     }
+
 }

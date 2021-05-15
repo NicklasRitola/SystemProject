@@ -49,10 +49,17 @@ namespace Shared
     public class CreateScheduleRequest : Request
     {
         public List<string> Dive;
+        public CreateScheduleRequest()
+        {
+            messageType = "createschedulerequest";
+        }
     }
     public class NextDiverRequest : Request
     {
-
+        public NextDiverRequest()
+        {
+            messageType = "nextdiverrequest";
+        }
     }
     public class RegisterDiverRequest : Request
     {
@@ -62,6 +69,10 @@ namespace Shared
         public string Gender;
         public int Age;
         public int Team;
+        public RegisterDiverRequest()
+        {
+            messageType = "registerdiverrequest";
+        }
     }
     public class RegisterDiveRequest : Request
     {
@@ -71,11 +82,19 @@ namespace Shared
         public int Tower;
         public int In_Competition;
         public string Diver;
+        public RegisterDiveRequest()
+        {
+            messageType = "registerdiverequest";
+        }
     }
     public class RegisterTeamRequest : Request
     {
         public int Team_ID;
         public string Name;
+        public RegisterTeamRequest()
+        {
+            messageType = "registerteamrequest";
+        }
     }
     public class RegisterJudgeRequest : Request
     {
@@ -85,6 +104,10 @@ namespace Shared
         public string Gender;
         public int In_Competition;
         public string Password;
+        public RegisterJudgeRequest()
+        {
+            messageType = "registerjudgerequest";
+        }
     }
     public class RegisterAdminRequest : Request
     {
@@ -93,6 +116,10 @@ namespace Shared
         public string Surname;
         public string Gender;
         public string Password;
+        public RegisterAdminRequest()
+        {
+            messageType = "registeradminrequest";
+        }
     }
 
     //Judge
@@ -101,19 +128,32 @@ namespace Shared
         public int Dive;
         public int Point;
         public string Judge;
+        public JudgePointRequest()
+        {
+            messageType = "judgepointrequest";
+        }
     }
 
     //Spectator
     public class ViewScheduleRequest : Request
     {
-
+        public ViewScheduleRequest()
+        {
+            messageType = "viewschedulerequest";
+        }
     }
     public class ViewCurrentDiverRequest : Request
     {
-
+        public ViewCurrentDiverRequest()
+        {
+            messageType = "viewcurrentdiverrequest";
+        }
     }
     public class ViewScoreTableRequest : Request
     {
-
+        public ViewScoreTableRequest()
+        {
+            messageType = "viewscoretablerequest";
+        }
     }
 }

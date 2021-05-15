@@ -18,22 +18,63 @@ namespace Server
 
         public void DispatchMessage(JObject message)
         {
-            switch(message.Value<string>("messageType"))
+            string JSONString = JsonConvert.SerializeObject(message);
+
+            switch (message.Value<string>("messageType"))
             {
                 case "createcompetitionrequest":
-                    string JSONString = JsonConvert.SerializeObject(message);
-                    CreateCompetitionRequest req = JsonConvert.DeserializeObject<CreateCompetitionRequest>(JSONString);
-                    DispatchMessage(req);
+                    CreateCompetitionRequest CreCompReq = JsonConvert.DeserializeObject<CreateCompetitionRequest>(JSONString);
+                    DispatchMessage(CreCompReq);
                     break;
-                case "testmessage":
-                    Console.WriteLine("Test message received");
+                case "createschedulerequest":
+                    CreateScheduleRequest CreSchReq = JsonConvert.DeserializeObject<CreateScheduleRequest>(JSONString);
+                    DispatchMessage(CreSchReq);
+                    break;
+                case "nextdiverrequest":
+                    NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
+                    DispatchMessage(NexDivReq);
+                    break;
+                case "registerdiverrequest":
+                    RegisterDiverRequest RegDiverReq = JsonConvert.DeserializeObject<RegisterDiverRequest>(JSONString);
+                    DispatchMessage(RegDiverReq);
+                    break;
+                case "registerdiverequest":
+                    RegisterDiveRequest RegDiveReq = JsonConvert.DeserializeObject<RegisterDiveRequest>(JSONString);
+                    DispatchMessage(RegDiveReq);
+                    break;
+                case "registerteamrequest":
+                    RegisterTeamRequest RegTeamReq = JsonConvert.DeserializeObject<RegisterTeamRequest>(JSONString);
+                    DispatchMessage(RegTeamReq);
+                    break;
+                case "registerjudgerequest":
+                    RegisterJudgeRequest RegJudgeReq = JsonConvert.DeserializeObject<RegisterJudgeRequest>(JSONString);
+                    DispatchMessage(RegJudgeReq);
+                    break;
+                case "registeradminrequest":
+                    RegisterAdminRequest RegAdminReq = JsonConvert.DeserializeObject<RegisterAdminRequest>(JSONString);
+                    DispatchMessage(RegAdminReq);
+                    break;
+                case "judgepointrequest":
+                    JudgePointRequest JudgePointReq = JsonConvert.DeserializeObject<JudgePointRequest>(JSONString);
+                    DispatchMessage(JudgePointReq);
+                    break;
+                case "viewschedulerequest":
+                    ViewScheduleRequest ViewSchReq = JsonConvert.DeserializeObject<ViewScheduleRequest>(JSONString);
+                    DispatchMessage(ViewSchReq);
+                    break;
+                case "viewcurrentdiverrequest":
+                    ViewCurrentDiverRequest ViewCurrDiverReq = JsonConvert.DeserializeObject<ViewCurrentDiverRequest>(JSONString);
+                    DispatchMessage(ViewCurrDiverReq);
+                    break;
+                case "viewscoretablerequest":
+                    ViewScoreTableRequest ViewScoTableReq = JsonConvert.DeserializeObject<ViewScoreTableRequest>(JSONString);
+                    DispatchMessage(ViewScoTableReq);
                     break;
             }
         }
 
         public void DispatchMessage(CreateCompetitionRequest request)
         {
-            Console.WriteLine("Create competition request");
             if (database.CreateCompetitionInDatabase(request))
             {
                 //Successfully created
