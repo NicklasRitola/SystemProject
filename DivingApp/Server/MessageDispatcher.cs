@@ -25,6 +25,9 @@ namespace Server
                     CreateCompetitionRequest req = JsonConvert.DeserializeObject<CreateCompetitionRequest>(JSONString);
                     DispatchMessage(req);
                     break;
+                case "testmessage":
+                    Console.WriteLine("Test message received");
+                    break;
             }
         }
 

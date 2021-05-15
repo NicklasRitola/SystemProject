@@ -19,4 +19,9 @@ namespace Shared
             //message = "This is a response";
         }
     }
+
+    public class ScheduleResponse : Response
+    {
+
+    }
 }

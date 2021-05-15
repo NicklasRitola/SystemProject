@@ -10,7 +10,7 @@ using Shared;
 
 namespace Server
 {
-    public class Channel : IDisposable
+    public class Channel// : IDisposable
     {
         protected bool disposed = false;
         protected bool closed = false;
@@ -69,22 +69,22 @@ namespace Server
             }
         }
 
-        ~Channel() => Dispose(false);
-        public void Dispose() => Dispose(true);
-        protected void Dispose(bool isDisposing)
-        {
-            if (!disposed)
-            {
-                Console.WriteLine("A channel was disposed");
-                disposed = true;
+        //~Channel() => Dispose(false);
+        //public void Dispose() => Dispose(true);
+        //protected void Dispose(bool isDisposing)
+        //{
+        //    if (!disposed)
+        //    {
+        //        Console.WriteLine("A channel was disposed");
+        //        disposed = true;
 
-                Close();
-                //TODO: Clean up socket, stream, etc.
-                stream?.Dispose();
+        //        Close();
+        //        //TODO: Clean up socket, stream, etc.
+        //        stream?.Dispose();
 
-                if (isDisposing)
-                    GC.SuppressFinalize(this);
-            }
-        }
+        //        if (isDisposing)
+        //            GC.SuppressFinalize(this);
+        //    }
+        //}
     }
 }
