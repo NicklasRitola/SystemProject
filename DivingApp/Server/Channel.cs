@@ -9,13 +9,16 @@ using Shared;
 
 namespace Server
 {
-    public class Channel
+    public class Channel : IDisposable
     {
-        JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
-        CancellationTokenSource cancel = new CancellationTokenSource();
-        MessageDispatcher messageDispatcher = new MessageDispatcher();
+        protected bool disposed = false;
+        protected bool closed = false;
 
-        Func<Message, Task> callback;
+        readonly JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
+        readonly CancellationTokenSource cancel = new CancellationTokenSource();
+        readonly MessageDispatcher messageDispatcher = new MessageDispatcher();
+
+        //Func<Message, Task> callback;
         NetworkStream stream;
         Task receiverTask;
 
@@ -25,13 +28,17 @@ namespace Server
             receiverTask = Task.Run(ReceiverLoop, cancel.Token);
         }
 
-        public void OnMessage(Func<Message, Task> callbackHandler)
-            => callback = callbackHandler;
+        //public void OnMessage(Func<Message, Task> callbackHandler)
+            //=> callback = callbackHandler;
 
         public void Close()
         {
-            cancel.Cancel();
-            stream?.Close();
+            if (!closed)
+            {
+                closed = true;
+                cancel.Cancel();
+                stream?.Close();
+            }
         }
 
         public async Task SendAsync(Message message)
@@ -41,11 +48,43 @@ namespace Server
 
         protected virtual async Task ReceiverLoop()
         {
-            while(!cancel.Token.IsCancellationRequested)
+            try
             {
-                Message request = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
-                //TODO: Send request to message dispatcher
-                messageDispatcher.DispatchMessage(request);
+                while (!cancel.Token.IsCancellationRequested)
+                {
+                    Message request = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
+                    //TODO: Send request to message dispatcher
+                    await messageDispatcher.DispatchMessage(request);
+                }
+            }
+            catch(System.IO.IOException)
+            {
+                Console.WriteLine("Channel closed by client");
+                Close();
+            }
+
+            catch(Exception e)
+            {
+                Console.WriteLine("Channel error: " + e);
+                Close();
+            }
+        }
+
+        ~Channel() => Dispose(false);
+        public void Dispose() => Dispose(true);
+        protected void Dispose(bool isDisposing)
+        {
+            if (!disposed)
+            {
+                Console.WriteLine("A channel was disposed");
+                disposed = true;
+
+                Close();
+                //TODO: Clean up socket, stream, etc.
+                stream?.Dispose();
+
+                if (isDisposing)
+                    GC.SuppressFinalize(this);
             }
         }
     }

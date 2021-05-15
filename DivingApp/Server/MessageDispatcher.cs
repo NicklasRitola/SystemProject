@@ -10,12 +10,12 @@ namespace Server
     public class MessageDispatcher
     {
         //Finds the type of the message and sends it to the appropriate handler method
-        public void DispatchMessage(Request request)
+        public async Task DispatchMessage(Message message)
         {
-            
+            Console.WriteLine("A message was received");
         }
         
-        public void DispatchMessage<T>(T request)
+        public async Task DispatchMessage<T>(T request)
         {
             //Finds the type of the message and sends it to the appropriate handler method
         }

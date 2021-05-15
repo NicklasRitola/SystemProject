@@ -38,7 +38,7 @@ namespace Server
 
                 var channel = new Channel();
                 channel.AttachSocket(clientSocket);
-                while (true) { }
+                //while (true) { }
 
                 //Socket clientSocket = listener.Accept();
                 //byte[] bytes = new byte[1024];

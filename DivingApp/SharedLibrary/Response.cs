@@ -8,6 +8,7 @@ namespace Shared
 {
     public class Response : Message
     {
+        string messageType = "Response";
         //Example properties
         //public int responseId;
         //public string message;

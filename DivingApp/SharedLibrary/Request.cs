@@ -9,6 +9,7 @@ namespace Shared
     public class Request : Message
     {
         //Example properties
+        string messageType = "Request";
         //public int requestId;
         //public string message;
 
