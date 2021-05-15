@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Shared
 {
-    public abstract class Message
+    public class Message
     {
         //Superclass that allows requests and responses to be passed into the messagecoder as messages
-        string messageType;
+        public string messageType;
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Shared;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace Server
 {
@@ -14,12 +16,21 @@ namespace Server
         private DatabaseHandler database = new DatabaseHandler(); 
         private DatabaseHandler password_database = new PasswordDatabaseHandler();
 
-        public void DispatchMessage(LoginRequest request)
+        public void DispatchMessage(JObject message)
         {
-            
+            switch(message.Value<string>("messageType"))
+            {
+                case "createcompetitionrequest":
+                    string JSONString = JsonConvert.SerializeObject(message);
+                    CreateCompetitionRequest req = JsonConvert.DeserializeObject<CreateCompetitionRequest>(JSONString);
+                    DispatchMessage(req);
+                    break;
+            }
         }
+
         public void DispatchMessage(CreateCompetitionRequest request)
         {
+            Console.WriteLine("Create competition request");
             if (database.CreateCompetitionInDatabase(request))
             {
                 //Successfully created
@@ -114,12 +125,9 @@ namespace Server
         }
         public void DispatchMessage(ViewScoreTableRequest request)
         {
-            Console.WriteLine("A message was received");
+            
         }
         
-        public async Task DispatchMessage<T>(T request)
-
-
         /*public void DispatchMessage<T>(T request)
         {
             //Finds the type of the message and sends it to the appropriate handler method

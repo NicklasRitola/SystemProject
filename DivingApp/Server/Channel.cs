@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -21,7 +22,7 @@ namespace Server
         //Func<Message, Task> callback;
         NetworkStream stream;
         Task receiverTask;
-
+        
         public void AttachSocket(Socket socket)
         {
             stream = new NetworkStream(socket, true);
@@ -52,9 +53,8 @@ namespace Server
             {
                 while (!cancel.Token.IsCancellationRequested)
                 {
-                    Message request = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
-                    //TODO: Send request to message dispatcher
-                    await messageDispatcher.DispatchMessage(request);
+                    JObject message = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
+                    messageDispatcher.DispatchMessage(message);
                 }
             }
             catch(System.IO.IOException)
@@ -62,7 +62,6 @@ namespace Server
                 Console.WriteLine("Channel closed by client");
                 Close();
             }
-
             catch(Exception e)
             {
                 Console.WriteLine("Channel error: " + e);

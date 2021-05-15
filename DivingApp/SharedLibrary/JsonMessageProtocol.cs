@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
@@ -11,7 +12,7 @@ namespace Shared
     public class JsonMessageProtocol
     {
         //Encodes a message type object and returns the byte-array representation that can be sent over the socket.
-        public byte[] Encode(Message message)
+        public byte[] Encode<T>(T message)
         {
             string JSONString = JsonConvert.SerializeObject(message);
             string encodedMessage = Convert.ToBase64String(Encoding.ASCII.GetBytes(JSONString));
@@ -19,11 +20,11 @@ namespace Shared
         }
 
         //Decodes a byte-array representation of a request into a request object.
-        public Message Decode(string dataString)
+        public JObject Decode(string dataString)
         {
             string JSONString = Encoding.ASCII.GetString(Convert.FromBase64String(dataString));
-            Message receivedMessage = JsonConvert.DeserializeObject<Request>(JSONString);
-            return receivedMessage;
+            JObject receivedObject = JsonConvert.DeserializeObject<JObject>(JSONString);
+            return receivedObject;
         }
 
         public async Task SendAsync(NetworkStream stream, Message message)
@@ -32,7 +33,7 @@ namespace Shared
             await stream.WriteAsync(bytes, 0, bytes.Length);
         }
 
-        public async Task<Message> ReceiveAsync(NetworkStream stream)
+        public async Task<JObject> ReceiveAsync(NetworkStream stream)
         {
             byte[] bytes = new byte[1024];
             int bytesRead = 0;
@@ -42,16 +43,8 @@ namespace Shared
                 throw new Exception("Connection has closed");
             }
             string data = Encoding.UTF8.GetString(bytes, 0, bytesRead);
-            Message message = Decode(data);
+            JObject message = Decode(data);
             return message;
         }
-
-        //Decodes a byte-array representation of a response into a response object.
-        //public Response DecodeResponse(string dataString)
-        //{
-        //    string JSONString = Encoding.ASCII.GetString(Convert.FromBase64String(dataString));
-        //    Response receivedResponse = JsonConvert.DeserializeObject<Response>(JSONString);
-        //    return receivedResponse;
-        //}
     }
 }

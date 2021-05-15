@@ -9,12 +9,14 @@ namespace Shared
     public class Request : Message
     {
         //Example properties
-        string messageType = "Request";
         //public int requestId;
         //public string message;
+        int test;
 
         public Request()
         {
+            messageType = "request";
+            test = 1;
             //requestId = 1;
             //message = "This is a request";
         }
@@ -25,6 +27,10 @@ namespace Shared
         public string SSN;
         public string Password;
 
+        public LoginRequest()
+        {
+            messageType = "loginrequest";
+        }
     }
 
     //Admin
@@ -34,6 +40,11 @@ namespace Shared
         public string Location;
         public string Start_Date;
         public string End_Date;
+
+        public CreateCompetitionRequest()
+        {
+            messageType = "createcompetitionrequest";
+        }
     }
     public class CreateScheduleRequest : Request
     {
