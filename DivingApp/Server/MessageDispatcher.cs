@@ -14,7 +14,7 @@ namespace Server
     {
         //Finds the type of the message and sends it to the appropriate handler method
 
-        private DatabaseHandler database = new DatabaseHandler(); 
+        private DatabaseHandler database = new DatabaseHandler();
         private DatabaseHandler password_database = new PasswordDatabaseHandler();
         private ResponseBuilder responseBuilder = new ResponseBuilder();
 

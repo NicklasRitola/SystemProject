@@ -17,12 +17,17 @@ namespace Server
 
         readonly JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
         readonly CancellationTokenSource cancel = new CancellationTokenSource();
-        readonly MessageDispatcher messageDispatcher = new MessageDispatcher();
+        readonly MessageDispatcher messageDispatcher = null;
 
         //Func<Message, Task> callback;
         NetworkStream stream;
         Task receiverTask;
         
+        public Channel(MessageDispatcher messageDispatcher)
+        {
+            this.messageDispatcher = messageDispatcher;
+        }
+
         public void AttachSocket(Socket socket)
         {
             stream = new NetworkStream(socket, true);

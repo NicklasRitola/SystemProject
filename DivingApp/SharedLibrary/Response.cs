@@ -8,15 +8,9 @@ namespace Shared
 {
     public class Response : Message
     {
-        //Example properties
-        //public int responseId;
-        //public string message;
-
         public Response()
         {
             messageType = "response";
-            //responseId = 1;
-            //message = "This is a response";
         }
     }
 

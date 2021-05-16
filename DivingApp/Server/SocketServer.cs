@@ -12,10 +12,10 @@ namespace Server
 {
     public class SocketServer
     {
-        public ClientHandler clientHandler = new ClientHandler();
-        
+        private ClientHandler clientHandler = new ClientHandler();
+        private MessageDispatcher messageDispatcher = new MessageDispatcher();
         //Server class will not need a message protocol object as that will be handled in the messagedispatcher class
-        JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
+        //JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
 
         public void executeServer()
         {
@@ -36,7 +36,7 @@ namespace Server
                     new Func<IAsyncResult, Socket>(listener.EndAccept),
                     null).ConfigureAwait(false);
 
-                var channel = new Channel();
+                var channel = new Channel(messageDispatcher);
                 channel.AttachSocket(clientSocket);
                 //while (true) { }
 
