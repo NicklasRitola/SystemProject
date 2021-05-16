@@ -54,7 +54,7 @@ namespace Server
                 while (!cancel.Token.IsCancellationRequested)
                 {
                     JObject message = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
-                    messageDispatcher.DispatchMessage(message);
+                    messageDispatcher.DispatchMessage(stream, message);
                 }
             }
             catch(System.IO.IOException)

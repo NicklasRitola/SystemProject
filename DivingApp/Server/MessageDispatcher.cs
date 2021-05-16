@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Shared;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using System.Net.Sockets;
 
 namespace Server
 {
@@ -16,7 +17,7 @@ namespace Server
         private DatabaseHandler database = new DatabaseHandler(); 
         private DatabaseHandler password_database = new PasswordDatabaseHandler();
 
-        public void DispatchMessage(JObject message)
+        public void DispatchMessage(NetworkStream stream, JObject message)
         {
             string JSONString = JsonConvert.SerializeObject(message);
 
@@ -24,56 +25,56 @@ namespace Server
             {
                 case "createcompetitionrequest":
                     CreateCompetitionRequest CreCompReq = JsonConvert.DeserializeObject<CreateCompetitionRequest>(JSONString);
-                    DispatchMessage(CreCompReq);
+                    DispatchMessage(stream, CreCompReq);
                     break;
                 case "createschedulerequest":
                     CreateScheduleRequest CreSchReq = JsonConvert.DeserializeObject<CreateScheduleRequest>(JSONString);
-                    DispatchMessage(CreSchReq);
+                    DispatchMessage(stream, CreSchReq);
                     break;
                 case "nextdiverrequest":
                     NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
-                    DispatchMessage(NexDivReq);
+                    DispatchMessage(stream, NexDivReq);
                     break;
                 case "registerdiverrequest":
                     RegisterDiverRequest RegDiverReq = JsonConvert.DeserializeObject<RegisterDiverRequest>(JSONString);
-                    DispatchMessage(RegDiverReq);
+                    DispatchMessage(stream, RegDiverReq);
                     break;
                 case "registerdiverequest":
                     RegisterDiveRequest RegDiveReq = JsonConvert.DeserializeObject<RegisterDiveRequest>(JSONString);
-                    DispatchMessage(RegDiveReq);
+                    DispatchMessage(stream, RegDiveReq);
                     break;
                 case "registerteamrequest":
                     RegisterTeamRequest RegTeamReq = JsonConvert.DeserializeObject<RegisterTeamRequest>(JSONString);
-                    DispatchMessage(RegTeamReq);
+                    DispatchMessage(stream, RegTeamReq);
                     break;
                 case "registerjudgerequest":
                     RegisterJudgeRequest RegJudgeReq = JsonConvert.DeserializeObject<RegisterJudgeRequest>(JSONString);
-                    DispatchMessage(RegJudgeReq);
+                    DispatchMessage(stream, RegJudgeReq);
                     break;
                 case "registeradminrequest":
                     RegisterAdminRequest RegAdminReq = JsonConvert.DeserializeObject<RegisterAdminRequest>(JSONString);
-                    DispatchMessage(RegAdminReq);
+                    DispatchMessage(stream, RegAdminReq);
                     break;
                 case "judgepointrequest":
                     JudgePointRequest JudgePointReq = JsonConvert.DeserializeObject<JudgePointRequest>(JSONString);
-                    DispatchMessage(JudgePointReq);
+                    DispatchMessage(stream, JudgePointReq);
                     break;
                 case "viewschedulerequest":
                     ViewScheduleRequest ViewSchReq = JsonConvert.DeserializeObject<ViewScheduleRequest>(JSONString);
-                    DispatchMessage(ViewSchReq);
+                    DispatchMessage(stream, ViewSchReq);
                     break;
                 case "viewcurrentdiverrequest":
                     ViewCurrentDiverRequest ViewCurrDiverReq = JsonConvert.DeserializeObject<ViewCurrentDiverRequest>(JSONString);
-                    DispatchMessage(ViewCurrDiverReq);
+                    DispatchMessage(stream, ViewCurrDiverReq);
                     break;
                 case "viewscoretablerequest":
                     ViewScoreTableRequest ViewScoTableReq = JsonConvert.DeserializeObject<ViewScoreTableRequest>(JSONString);
-                    DispatchMessage(ViewScoTableReq);
+                    DispatchMessage(stream, ViewScoTableReq);
                     break;
             }
         }
 
-        public void DispatchMessage(CreateCompetitionRequest request)
+        public void DispatchMessage(NetworkStream stream, CreateCompetitionRequest request)
         {
             if (database.CreateCompetitionInDatabase(request))
             {
@@ -85,15 +86,15 @@ namespace Server
                 //Should send back to client that something went wrong 
             }
         }
-        public void DispatchMessage(CreateScheduleRequest request)
+        public void DispatchMessage(NetworkStream stream, CreateScheduleRequest request)
         {
 
         }
-        public void DispatchMessage(NextDiverRequest request)
+        public void DispatchMessage(NetworkStream stream, NextDiverRequest request)
         {
 
         }
-        public void DispatchMessage(RegisterDiverRequest request)
+        public void DispatchMessage(NetworkStream stream, RegisterDiverRequest request)
         {
             if (database.RegisterDiverInDatabase(request))
             {
@@ -105,7 +106,7 @@ namespace Server
                 //Should send back to client that something went wrong 
             }
         } 
-        public void DispatchMessage(RegisterDiveRequest request)
+        public void DispatchMessage(NetworkStream stream, RegisterDiveRequest request)
         {
             if (database.RegisterDiveInDatabase(request))
             {
@@ -117,7 +118,7 @@ namespace Server
                 //Should send back to client that something went wrong 
             }
         }        
-        public void DispatchMessage(RegisterTeamRequest request)
+        public void DispatchMessage(NetworkStream stream, RegisterTeamRequest request)
         {
             if (database.RegisterTeamInDatabase(request))
             {
@@ -129,7 +130,7 @@ namespace Server
                 //Should send back to client that something went wrong 
             }
         }
-        public void DispatchMessage(RegisterJudgeRequest request)
+        public void DispatchMessage(NetworkStream stream, RegisterJudgeRequest request)
         {
             if (database.RegisterJudgeInDatabase(request))
             {
@@ -149,11 +150,11 @@ namespace Server
                 //Should send back to client that something went wrong 
             }
         }
-        public void DispatchMessage(RegisterAdminRequest request)
+        public void DispatchMessage(NetworkStream stream, RegisterAdminRequest request)
         {
 
         }
-        public void DispatchMessage(JudgePointRequest request)
+        public void DispatchMessage(NetworkStream stream, JudgePointRequest request)
         {
             if (database.SendJudgePointToDatabase(request))
             {
@@ -168,15 +169,15 @@ namespace Server
                 //Should send back to client that something went wrong 
             }
         }
-        public void DispatchMessage(ViewScheduleRequest request)
+        public void DispatchMessage(NetworkStream stream, ViewScheduleRequest request)
         {
 
         }
-        public void DispatchMessage(ViewCurrentDiverRequest request)
+        public void DispatchMessage(NetworkStream stream, ViewCurrentDiverRequest request)
         {
 
         }
-        public void DispatchMessage(ViewScoreTableRequest request)
+        public void DispatchMessage(NetworkStream stream, ViewScoreTableRequest request)
         {
             
         }
