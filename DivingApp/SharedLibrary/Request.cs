@@ -128,6 +128,7 @@ namespace Shared
         public int Dive;
         public int Point;
         public string Judge;
+        public int In_Competition;
         public JudgePointRequest()
         {
             messageType = "judgepointrequest";

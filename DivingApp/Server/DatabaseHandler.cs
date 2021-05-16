@@ -17,9 +17,9 @@ namespace Server
             {
                 this.databaseConnection = this.ConnectToDatabase(); // Creates a new connect to the database
             }
-            catch(Exception e)
+            catch(Exception err)
             {
-                Console.WriteLine("Error - " + e);
+                Console.WriteLine("Error - " + err);
             }
             
         }
@@ -29,9 +29,9 @@ namespace Server
             {
                 this.CloseConnectionToDatabase(this.databaseConnection); //Close the connection to the database
             }
-            catch(Exception e)
+            catch(Exception err)
             {
-                Console.WriteLine("Error - " + e);
+                Console.WriteLine("Error - " + err);
             }
         }
 
@@ -43,12 +43,12 @@ namespace Server
             {
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
                 databaseConnection.Open();
-                Console.WriteLine("Connection to database open!");
+                //Console.WriteLine("Connection to database open!");
                 return databaseConnection;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                Console.WriteLine("\nError - " + e.Message);
+                Console.WriteLine("\nError - " + err.Message);
                 return null;
             }
         }
@@ -59,9 +59,9 @@ namespace Server
                 databaseConnection.Close();
                 Console.WriteLine("Connection to database has been closed!");
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                Console.WriteLine("\nError - " + e.Message);
+                Console.WriteLine("\nError - " + err.Message);
             }
         }
 
@@ -101,9 +101,9 @@ namespace Server
                 }
 
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                Console.Out.WriteLine("\nERROR - " + e.Message);
+                Console.Out.WriteLine("\nERROR - " + err.Message);
                 return "";
             }
 
@@ -120,13 +120,12 @@ namespace Server
                 Console.WriteLine("Database - Competition has been created");
                 return true;
             }
-            catch(Exception e)
+            catch(Exception err)
             {
-                Console.WriteLine("Error - " + e);
+                Console.WriteLine("Error - " + err);
                 return false;
             }
         }
-
         public bool RegisterDiverInDatabase(RegisterDiverRequest data)
         {
             try
@@ -138,9 +137,9 @@ namespace Server
                 Console.WriteLine("Database - Diver has been registerd");
                 return true;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                Console.WriteLine("Error - " + e);
+                Console.WriteLine("Error - " + err);
                 return false;
             }
         }
@@ -155,9 +154,9 @@ namespace Server
                 Console.WriteLine("Database - Dive has been registerd");
                 return true;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                Console.WriteLine("Error - " + e);
+                Console.WriteLine("Error - " + err);
                 return false;
             }
         }
@@ -172,9 +171,9 @@ namespace Server
                 Console.WriteLine("Database - Team has been registerd");
                 return true;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                Console.WriteLine("Error - " + e);
+                Console.WriteLine("Error - " + err);
                 return false;
             }
         }
@@ -189,9 +188,9 @@ namespace Server
                 Console.WriteLine("Database - Judge has been registerd");
                 return true;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                Console.WriteLine("Error - " + e);
+                Console.WriteLine("Error - " + err);
                 return false;
             }
         }
@@ -206,10 +205,88 @@ namespace Server
                 Console.WriteLine("Database - Judge point has been received");
                 return true;
             }
-            catch (Exception e)
+            catch (Exception err)
             {
-                Console.WriteLine("Error - " + e.Message);
+                Console.WriteLine("Error - " + err.Message);
                 return false;
+            }
+        }
+        public int GetCompetitionType(int CompetitionID)
+        {
+            try
+            {
+                string query = "select type from competition where ID = " + CompetitionID + ";";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    int output = 0;
+                    while (dataReader.Read())
+                    {
+                        output = Int32.Parse("" + dataReader.GetValue(0));
+                    }
+                    dataReader.Close();
+                    return output;
+                }
+                dataReader.Close();
+                return 0; 
+
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("Error - " + err.Message);
+                return 0;
+            }
+        }
+
+        public bool SendDiveScoreToDatabase(float? DiveScore, int Dive_ID)
+        {
+            try
+            {
+                string query = "update dive set score = " + DiveScore + " where Dive_ID = " + Dive_ID + ");"; 
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database - Dive score has been sent to database");
+
+                return true;
+            }
+            catch(Exception err)
+            {
+                Console.WriteLine("Error - " + err.Message);
+                return false;
+            }
+        }
+        public List<int> CollectPointsForDiveFromJudges(int Dive_ID)
+        {
+            try
+            {
+                string query = "select Point from Give_Points where dive = " + Dive_ID + ";";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    List<int> points = null;
+                    while (dataReader.Read())
+                    {
+                        for (int i = 0; i < dataReader.FieldCount; i++)
+                        {
+                            points.Add(Int32.Parse("" + dataReader.GetValue(i)));
+                        }
+                    }
+                    dataReader.Close();
+                    return points;
+                }
+                dataReader.Close();
+                return null;
+
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("Error - " + err.Message);
+                return null;
             }
         }
     }

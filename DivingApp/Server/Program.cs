@@ -14,10 +14,6 @@ namespace Server
 
             Console.WriteLine("Server is running");
             Console.ReadLine();
-
-            //DatabaseHandler db = new DatabaseHandler();
-            //string test = db.SQLExecuteQuery("select * from competition;");
-            //Console.WriteLine("\nCompetition: \n" + test);
         }
     }
 }

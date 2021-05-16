@@ -20,7 +20,7 @@ namespace Server
         {
             string JSONString = JsonConvert.SerializeObject(message);
 
-            switch (message.Value<string>("messageType"))
+            switch (message.Value<string>("messageType")) // Extracts the message type
             {
                 case "createcompetitionrequest":
                     CreateCompetitionRequest CreCompReq = JsonConvert.DeserializeObject<CreateCompetitionRequest>(JSONString);
@@ -82,6 +82,7 @@ namespace Server
             else
             {
                 //Failed to create 
+                //Should send back to client that something went wrong 
             }
         }
         public void DispatchMessage(CreateScheduleRequest request)
@@ -101,6 +102,7 @@ namespace Server
             else
             {
                 //Failed to registered 
+                //Should send back to client that something went wrong 
             }
         } 
         public void DispatchMessage(RegisterDiveRequest request)
@@ -112,6 +114,7 @@ namespace Server
             else
             {
                 //Failed to registered 
+                //Should send back to client that something went wrong 
             }
         }        
         public void DispatchMessage(RegisterTeamRequest request)
@@ -123,6 +126,7 @@ namespace Server
             else
             {
                 //Failed to registered 
+                //Should send back to client that something went wrong 
             }
         }
         public void DispatchMessage(RegisterJudgeRequest request)
@@ -142,6 +146,7 @@ namespace Server
             else
             {
                 //Failed to registered 
+                //Should send back to client that something went wrong 
             }
         }
         public void DispatchMessage(RegisterAdminRequest request)
@@ -153,10 +158,14 @@ namespace Server
             if (database.SendJudgePointToDatabase(request))
             {
                 //Successfully registered 
+
+                CompetitionMaintainer CM = new CompetitionMaintainer(request.In_Competition);
+                CM.DiveScoreCalculater(request.Dive); //Tries to calculate dive score
             }
             else
             {
                 //Failed to registered 
+                //Should send back to client that something went wrong 
             }
         }
         public void DispatchMessage(ViewScheduleRequest request)
@@ -171,11 +180,5 @@ namespace Server
         {
             
         }
-        
-        /*public void DispatchMessage<T>(T request)
-        {
-            //Finds the type of the message and sends it to the appropriate handler method
-            
-        }*/
     }
 }

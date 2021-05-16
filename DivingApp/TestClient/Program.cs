@@ -16,7 +16,10 @@ namespace TestClient
             JsonMessageProtocol jsonMessageProtocol = new JsonMessageProtocol();
             ClientChannel socketHandler = new ClientChannel();
 
-            Message request = new TestMessage();
+
+            //CreateCompetitionRequest request = new CreateCompetitionRequest();
+            JudgePointRequest request = new JudgePointRequest();
+            //Message request = new TestMessage();
             Message response = new Response();
 
             while (true)

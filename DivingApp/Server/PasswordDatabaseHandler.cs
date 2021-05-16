@@ -28,7 +28,7 @@ namespace Server
             {
                 MySqlConnection databaseConnection = new MySqlConnection(connectionString);
                 databaseConnection.Open();
-                Console.WriteLine("Connection to password database open!");
+                //Console.WriteLine("Connection to password database open!");
                 return databaseConnection;
             }
             catch (Exception e)
