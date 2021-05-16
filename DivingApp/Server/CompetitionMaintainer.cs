@@ -11,9 +11,9 @@ namespace Server
         private int CompetitionID;
         private int CompetitionType;
 
-        public CompetitionMaintainer(int ID)
+        public CompetitionMaintainer(int ID, DatabaseHandler DB)
         {
-            this.database = new DatabaseHandler();
+            this.database = DB;
             this.CompetitionID = ID;
             this.CompetitionType = database.GetCompetitionType(CompetitionID);
 

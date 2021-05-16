@@ -148,7 +148,7 @@ namespace Server
             {
                 //Successfully registered 
 
-                CompetitionMaintainer CM = new CompetitionMaintainer(request.In_Competition);
+                CompetitionMaintainer CM = new CompetitionMaintainer(request.In_Competition, database);
                 CM.DiveScoreCalculater(request.Dive); //Tries to calculate dive score
             }
             else
