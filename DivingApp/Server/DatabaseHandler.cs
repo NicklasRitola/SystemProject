@@ -268,12 +268,12 @@ namespace Server
 
                 if (dataReader.HasRows)
                 {
-                    List<int> points = null;
+                    List<int> points = new List<int>();
                     while (dataReader.Read())
                     {
                         for (int i = 0; i < dataReader.FieldCount; i++)
                         {
-                            points.Add(Int32.Parse("" + dataReader.GetValue(i)));
+                            points.Add(Int32.Parse(("" + dataReader.GetValue(i))));
                         }
                     }
                     dataReader.Close();
