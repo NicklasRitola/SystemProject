@@ -10,7 +10,7 @@ using Shared;
 
 namespace Server
 {
-    public class Channel// : IDisposable
+    public class Channel //: IDisposable
     {
         protected bool disposed = false;
         protected bool closed = false;
