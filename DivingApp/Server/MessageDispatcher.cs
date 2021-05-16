@@ -16,146 +16,134 @@ namespace Server
 
         private DatabaseHandler database = new DatabaseHandler(); 
         private DatabaseHandler password_database = new PasswordDatabaseHandler();
+        private ResponseBuilder responseBuilder = new ResponseBuilder();
 
-        public async Task DispatchMessage(NetworkStream stream, JObject message)
+        public async Task<Response> DispatchMessage(NetworkStream stream, JObject message)
         {
             string JSONString = JsonConvert.SerializeObject(message);
+            Response response = null;
 
             switch (message.Value<string>("messageType")) // Extracts the message type
             {
                 case "createcompetitionrequest":
                     CreateCompetitionRequest CreCompReq = JsonConvert.DeserializeObject<CreateCompetitionRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, CreCompReq));
+                    response = await DispatchMessage(CreCompReq);
                     break;
                 case "createschedulerequest":
                     CreateScheduleRequest CreSchReq = JsonConvert.DeserializeObject<CreateScheduleRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, CreSchReq));
+                    //TODO: Implement a response and response builder for schedule creation requests
+                    //response = await DispatchMessage(CreSchReq);
                     break;
                 case "nextdiverrequest":
                     NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, NexDivReq));
+                    //TODO: Implement a response and response builder for next diver requests
+                    //response = await DispatchMessage(NexDivReq);
                     break;
                 case "registerdiverrequest":
                     RegisterDiverRequest RegDiverReq = JsonConvert.DeserializeObject<RegisterDiverRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, RegDiverReq));
+                    response = await DispatchMessage(RegDiverReq);
                     break;
                 case "registerdiverequest":
                     RegisterDiveRequest RegDiveReq = JsonConvert.DeserializeObject<RegisterDiveRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, RegDiveReq));
+                    response = await DispatchMessage(RegDiveReq);
                     break;
                 case "registerteamrequest":
                     RegisterTeamRequest RegTeamReq = JsonConvert.DeserializeObject<RegisterTeamRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, RegTeamReq));
+                    response = await DispatchMessage(RegTeamReq);
                     break;
                 case "registerjudgerequest":
                     RegisterJudgeRequest RegJudgeReq = JsonConvert.DeserializeObject<RegisterJudgeRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, RegJudgeReq));
+                    response = await DispatchMessage(RegJudgeReq);
                     break;
                 case "registeradminrequest":
                     RegisterAdminRequest RegAdminReq = JsonConvert.DeserializeObject<RegisterAdminRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, RegAdminReq));
+                    response = await DispatchMessage(RegAdminReq);
                     break;
                 case "judgepointrequest":
                     JudgePointRequest JudgePointReq = JsonConvert.DeserializeObject<JudgePointRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, JudgePointReq));
+                    response = await DispatchMessage(JudgePointReq);
                     break;
                 case "viewschedulerequest":
                     ViewScheduleRequest ViewSchReq = JsonConvert.DeserializeObject<ViewScheduleRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, ViewSchReq));
+                    //TODO: Implement response for schedule request
+                    //response = await DispatchMessage(ViewSchReq);
                     break;
                 case "viewcurrentdiverrequest":
                     ViewCurrentDiverRequest ViewCurrDiverReq = JsonConvert.DeserializeObject<ViewCurrentDiverRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, ViewCurrDiverReq));
+                    //TODO: Implement response for current diver
+                    //response = await DispatchMessage(ViewCurrDiverReq);
                     break;
                 case "viewscoretablerequest":
                     ViewScoreTableRequest ViewScoTableReq = JsonConvert.DeserializeObject<ViewScoreTableRequest>(JSONString);
-                    Task.Run(() => DispatchMessage(stream, ViewScoTableReq));
+                    //TODO: Implement response for score table response
+                    //response = await DispatchMessage(ViewScoTableReq);
                     break;
             }
+            return response;
         }
 
-        public async Task DispatchMessage(NetworkStream stream, CreateCompetitionRequest request)
+        public async Task<ResultResponse> DispatchMessage(CreateCompetitionRequest request)
         {
-            if (database.CreateCompetitionInDatabase(request))
-            {
-                //Successfully created
-            }
-            else
-            {
-                //Failed to create 
-                //Should send back to client that something went wrong 
-            }
+            return await responseBuilder.CreateCompetitionResponse(database.CreateCompetitionInDatabase(request));
         }
-        public async Task DispatchMessage(NetworkStream stream, CreateScheduleRequest request)
+        public async Task/*<ResultResponse>*/ DispatchMessage(CreateScheduleRequest request)
+        {
+            //TODO: return  result response with following call:
+            //return await responseBuilder.CreateScheduleResponse(INSERT DATABASE FUNCTION WHICH RETURNS BOOL);
+        }
+        public async Task DispatchMessage(NextDiverRequest request)
         {
 
         }
-        public async Task DispatchMessage(NetworkStream stream, NextDiverRequest request)
+        public async Task<ResultResponse> DispatchMessage(RegisterDiverRequest request)
         {
-
-        }
-        public async Task DispatchMessage(NetworkStream stream, RegisterDiverRequest request)
-        {
-            if (database.RegisterDiverInDatabase(request))
-            {
-                //Successfully registered 
-            }
-            else
-            {
-                //Failed to registered 
-                //Should send back to client that something went wrong 
-            }
+            return await responseBuilder.RegisterDiverResponse(database.RegisterDiverInDatabase(request));
         } 
-        public async Task DispatchMessage(NetworkStream stream, RegisterDiveRequest request)
+        public async Task<ResultResponse> DispatchMessage(RegisterDiveRequest request)
         {
-            if (database.RegisterDiveInDatabase(request))
-            {
-                //Successfully registered 
-            }
-            else
-            {
-                //Failed to registered 
-                //Should send back to client that something went wrong 
-            }
+            return await responseBuilder.RegisterDiveResponse(database.RegisterDiveInDatabase(request));
         }        
-        public async Task DispatchMessage(NetworkStream stream, RegisterTeamRequest request)
+        public async Task<ResultResponse> DispatchMessage(RegisterTeamRequest request)
         {
-            if (database.RegisterTeamInDatabase(request))
-            {
-                //Successfully registered 
-            }
-            else
-            {
-                //Failed to registered 
-                //Should send back to client that something went wrong 
-            }
+            return await responseBuilder.RegisterTeamResponse(database.RegisterTeamInDatabase(request));
         }
-        public async Task DispatchMessage(NetworkStream stream, RegisterJudgeRequest request)
+        public async Task<ResultResponse> DispatchMessage(RegisterJudgeRequest request)
         {
-            if (database.RegisterJudgeInDatabase(request))
+            bool dataRegistered = false;
+            bool passwordRegistered = false;
+            if (database.RegisterJudgeInDatabase(request)) //Data
             {
-                //Successfully registered 
-            }
-            else
-            {
-                //Failed to registered 
+                //Registration succeeded
+                dataRegistered = true;
             }
             if (password_database.RegisterJudgeInDatabase(request)) //Password
             {
-                //Successfully registered 
+                //Registration succeeded
+                passwordRegistered = true;
             }
-            else
-            {
-                //Failed to registered 
-                //Should send back to client that something went wrong 
-            }
+            return await responseBuilder.RegisterJudgeResponse(dataRegistered, passwordRegistered);
         }
-        public async Task DispatchMessage(NetworkStream stream, RegisterAdminRequest request)
+        public async Task<ResultResponse> DispatchMessage(RegisterAdminRequest request)
         {
-
+            bool dataRegistered = false;
+            bool passwordRegistered = false;
+            //Fill in with admind database registration as done with RegisterJudge
+            //if ()) //Data
+            //{
+            //    //Registration succeeded
+            //    dataRegistered = true;
+            //}
+            //if () //Password
+            //{
+            //    //Registration succeeded
+            //    passwordRegistered = true;
+            //}
+            return await responseBuilder.RegisterAdminResponse(dataRegistered, passwordRegistered);
         }
-        public async Task DispatchMessage(NetworkStream stream, JudgePointRequest request)
+        public async Task<ResultResponse> DispatchMessage(JudgePointRequest request)
         {
+            //TODO: Calculate score, and register, store result in "result" boolean
+            bool result = false;
             if (database.SendJudgePointToDatabase(request))
             {
                 //Successfully registered 
@@ -168,16 +156,17 @@ namespace Server
                 //Failed to registered 
                 //Should send back to client that something went wrong 
             }
+            return await responseBuilder.JudgePointResponse(result);
         }
-        public async Task DispatchMessage(NetworkStream stream, ViewScheduleRequest request)
+        public async Task DispatchMessage(ViewScheduleRequest request)
         {
 
         }
-        public async Task DispatchMessage(NetworkStream stream, ViewCurrentDiverRequest request)
+        public async Task DispatchMessage(ViewCurrentDiverRequest request)
         {
 
         }
-        public async Task DispatchMessage(NetworkStream stream, ViewScoreTableRequest request)
+        public async Task DispatchMessage(ViewScoreTableRequest request)
         {
             
         }

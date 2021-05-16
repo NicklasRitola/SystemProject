@@ -31,6 +31,20 @@ namespace Shared
             else
                 message = type + " failed.";
         }
+
+        public ResultResponse(string type1, string type2, bool result1, bool result2)
+        {
+            message = type1;
+            if (result1)
+                message += "succeeded!\n";
+            else
+                message += "failed.\n";
+            message += type2;
+            if (result2)
+                message += "succeeded!";
+            else
+                message += "failed.";
+        }
     }
 
     public class ScheduleResponse : Response
