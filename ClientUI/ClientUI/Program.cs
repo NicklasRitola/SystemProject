@@ -8,11 +8,15 @@ using Shared;
 
 namespace ClientUI
 {
-    static class Program
+    class Program
     {
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        /// 
+        static MessageDispatcher messageDispatcher = new ClientMessageDispatcher();
+        static ClientChannel channel = new ClientChannel(messageDispatcher);
+
         [STAThread]
         static void Main()
         {

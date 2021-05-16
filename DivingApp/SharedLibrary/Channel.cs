@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Shared;
 
-namespace Server
+namespace Shared
 {
     public class Channel //: IDisposable
     {
@@ -17,7 +17,7 @@ namespace Server
 
         readonly JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
         readonly CancellationTokenSource cancel = new CancellationTokenSource();
-        readonly MessageDispatcher messageDispatcher = null;
+        public MessageDispatcher messageDispatcher = null;
 
         //Func<Message, Task> callback;
         NetworkStream stream;
@@ -59,7 +59,7 @@ namespace Server
                 while (!cancel.Token.IsCancellationRequested)
                 {
                     JObject message = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
-                    Response response = await messageDispatcher.DispatchMessage(stream, message);
+                    Response response = await messageDispatcher.DispatchMessage(message);
                     await messageProtocol.SendAsync(stream, response).ConfigureAwait(false);
                 }
             }

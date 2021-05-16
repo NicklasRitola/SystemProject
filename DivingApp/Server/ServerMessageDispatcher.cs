@@ -10,7 +10,7 @@ using System.Net.Sockets;
 
 namespace Server
 {
-    public class MessageDispatcher
+    public class ServerMessageDispatcher : MessageDispatcher
     {
         //Finds the type of the message and sends it to the appropriate handler method
 
@@ -18,13 +18,17 @@ namespace Server
         private DatabaseHandler password_database = new PasswordDatabaseHandler();
         private ResponseBuilder responseBuilder = new ResponseBuilder();
 
-        public async Task<Response> DispatchMessage(NetworkStream stream, JObject message)
+        public override async Task<Response> DispatchMessage(JObject message)
         {
             string JSONString = JsonConvert.SerializeObject(message);
             Response response = null;
 
             switch (message.Value<string>("messageType")) // Extracts the message type
             {
+                case "testrequest":
+                    TestRequest testReq = JsonConvert.DeserializeObject<TestRequest>(JSONString);
+                    response = await DispatchMessage(testReq);
+                    break;
                 case "createcompetitionrequest":
                     CreateCompetitionRequest CreCompReq = JsonConvert.DeserializeObject<CreateCompetitionRequest>(JSONString);
                     response = await DispatchMessage(CreCompReq);
@@ -82,6 +86,11 @@ namespace Server
             return response;
         }
 
+
+        public async Task<TestResponse> DispatchMessage(TestRequest request)
+        {
+            return await responseBuilder.CreateTestResponse();
+        }
         public async Task<ResultResponse> DispatchMessage(CreateCompetitionRequest request)
         {
             return await responseBuilder.CreateCompetitionResponse(database.CreateCompetitionInDatabase(request));
