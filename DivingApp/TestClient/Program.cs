@@ -19,6 +19,11 @@ namespace TestClient
 
             //CreateCompetitionRequest request = new CreateCompetitionRequest();
             JudgePointRequest request = new JudgePointRequest();
+            request.Dive = 43;
+            request.Point = 8;
+            request.In_Competition = 5;
+            request.Judge = "950308-1234";
+
             //Message request = new TestMessage();
             Message response = new Response();
 

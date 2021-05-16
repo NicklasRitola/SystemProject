@@ -21,7 +21,6 @@ namespace Server
         public void DiveScoreCalculater(int Dive_ID)
         {
             List<int> points = CollectPointsFromJudge(Dive_ID);
-
             if(points != null)
             {
                 float? DiveScore = null;
