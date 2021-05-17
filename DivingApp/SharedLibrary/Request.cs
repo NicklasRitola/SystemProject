@@ -40,6 +40,7 @@ namespace Shared
         public string Location;
         public string Start_Date;
         public string End_Date;
+        public int Type;
 
         public CreateCompetitionRequest()
         {

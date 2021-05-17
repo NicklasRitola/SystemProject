@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Shared;
 
 namespace ClientUI
 {
@@ -75,12 +76,21 @@ namespace ClientUI
         private void RegisterProfile_Click(object sender, EventArgs e)
         {
             if (int.Parse(textBoxNumberOfJudge.Text)==3 || int.Parse(textBoxNumberOfJudge.Text) == 7) 
-            { 
-            string compLocation = textBoxLocation.Text;
-            string compDate = textBoxDate.Text;
-            string compName = textBoxName.Text;
-            string compID = textBoxID.Text;
-            int NumberOfJudge = int.Parse(textBoxNumberOfJudge.Text);
+            {
+                CreateCompetitionRequest request = new CreateCompetitionRequest();
+                request.Location = textBoxLocation.Text;
+                request.Start_Date = textBoxDate.Text; //
+                //request.Name = textBoxName.Text;
+                request.ID = Int32.Parse(textBoxID.Text);
+                if ()
+                {
+                    request.Type = 1; //Local comp
+                }
+                else
+                {
+                    request.Type = 2; //Global comp
+                }
+
         
             }
         }
