@@ -158,9 +158,9 @@ namespace ClientUI
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(197, 174);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 15);
+            this.label3.Size = new System.Drawing.Size(76, 15);
             this.label3.TabIndex = 47;
-            this.label3.Text = "Can be 3, 7 or 11";
+            this.label3.Text = "Can be 3 or 7";
             // 
             // CreateCompetition
             // 
