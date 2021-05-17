@@ -97,14 +97,10 @@ namespace ClientUI
                 request.Start_Date = textBoxDate.Text; //
                 //request.Name = textBoxName.Text;
                 request.ID = Int32.Parse(textBoxID.Text);
-                if ()
-                {
-                    request.Type = checkType; //Local comp
-                }
-                else
-                {
-                    request.Type = checkType; //Global comp
-                }
+
+                request.Type = checkType; //Local comp
+
+
 
        
         }
