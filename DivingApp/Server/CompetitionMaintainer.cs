@@ -11,7 +11,7 @@ namespace Server
         private int CompetitionID;
         private int CompetitionType;
 
-        public CompetitionMaintainer(int ID, DatabaseHandler DB)
+        public CompetitionMaintainer(int ID, DatabaseHandler DB) //Constructor
         {
             this.database = DB;
             this.CompetitionID = ID;
@@ -72,7 +72,6 @@ namespace Server
                 return null;
             }
         }
-
         private float CompetitionType_1_Calculation(List<int> points)
         {
             return 0;

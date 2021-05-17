@@ -194,6 +194,10 @@ namespace Server
                 return false;
             }
         }
+        public virtual bool RegisterAdminInDatabase()
+        {
+            return true;
+        }
         public bool SendJudgePointToDatabase(JudgePointRequest data)
         {
             try
@@ -239,7 +243,6 @@ namespace Server
                 return 0;
             }
         }
-
         public bool SendDiveScoreToDatabase(float? DiveScore, int Dive_ID)
         {
             try
