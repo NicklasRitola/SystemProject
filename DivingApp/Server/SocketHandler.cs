@@ -15,7 +15,6 @@ namespace Server
         private static IPAddress ipAddr = null;
         private static IPEndPoint localEndPoint = null;
         private Socket listener = null;
-        private JsonMessageProtocol messageCoder = null;
 
         public Socket startListener()
         {
@@ -23,18 +22,15 @@ namespace Server
             // Creation TCP/IP socket
 
             ipHost = Dns.GetHostEntry(Dns.GetHostName());
-            ipAddr = ipHost.AddressList[0];
-            localEndPoint = new IPEndPoint(ipAddr, 11111);
-            listener = new Socket(ipAddr.AddressFamily,
+            //ipAddr = ipHost.AddressList[0];
+            localEndPoint = new IPEndPoint(IPAddress.Loopback, 11111);
+            listener = new Socket(localEndPoint.AddressFamily,
                     SocketType.Stream, ProtocolType.Tcp);
-            messageCoder = new JsonMessageProtocol();
-
-
 
             try
             {
                 listener.Bind(localEndPoint);
-                listener.Listen(10);
+                listener.Listen(1000);
             }
 
             catch (Exception e)

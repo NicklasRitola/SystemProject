@@ -14,6 +14,14 @@ namespace ClientSide
         }
 
         public void ClientCreateCompetition(CreateCompetitionRequest request)
+
+        private ClientChannel channel;
+
+        public ClientHandler(ClientChannel channel)
+        {
+            this.channel = channel;
+        }
+        public void CreateCompetition()
         {
 
         }
