@@ -23,7 +23,7 @@ namespace Server
             string JSONString = JsonConvert.SerializeObject(message);
             Response response = null;
 
-            switch (message.Value<string>("messageType")) // Extracts the message type
+            switch ((message.Value<string>("messageType")).ToLower()) // Extracts the message type
             {
                 case "testrequest":
                     TestRequest testReq = JsonConvert.DeserializeObject<TestRequest>(JSONString);
@@ -93,6 +93,7 @@ namespace Server
         }
         public async Task<ResultResponse> DispatchMessage(CreateCompetitionRequest request)
         {
+            Console.WriteLine("SERVER RECEIVED: " + request.Location);
             return await responseBuilder.CreateCompetitionResponse(database.CreateCompetitionInDatabase(request));
         }
         public async Task/*<ResultResponse>*/ DispatchMessage(CreateScheduleRequest request)

@@ -54,7 +54,7 @@ namespace Shared
 
         public ScheduleResponse()
         {
-            messageType = "ScheduleResponse";
+            messageType = "scheduleresponse";
         }
     }
 
@@ -71,7 +71,16 @@ namespace Shared
 
         public DiverInfoResponse()
         {
-            messageType = "DiverInfoResponse";
+            messageType = "diverinforesponse";
+        }
+    }
+
+    public class ScoreTableResponse : Response
+    {
+
+        public ScoreTableResponse()
+        {
+            messageType = "scoretableresponse";
         }
     }
 
@@ -81,7 +90,7 @@ namespace Shared
 
         public LoginResponse()
         {
-            messageType = "LoginResponse";
+            messageType = "loginresponse";
         }
     }
 

@@ -15,12 +15,54 @@ namespace ClientSide
             string JSONString = JsonConvert.SerializeObject(message);
             Response response = null;
             //TODO: Do stuff
-            switch(message.Value<string>("messageType"))
+            switch((message.Value<string>("messageType")).ToLower())
             {
-                case "":
+                //Response
+                case "resultresponse":
+                    ResultResponse ResResp = JsonConvert.DeserializeObject<ResultResponse>(JSONString);
+                    /*response =*/ await DispatchMessage(ResResp);
+                    break;
+                case "scheduleresponse":
+                    ScheduleResponse SchResp = JsonConvert.DeserializeObject<ScheduleResponse>(JSONString);
+                    /*response =*/ await DispatchMessage(SchResp);
+                    break;
+                case "diverinforesponse":
+                    ScoreTableResponse ScoreTableResp = JsonConvert.DeserializeObject<ScoreTableResponse>(JSONString);
+                    /*response =*/await DispatchMessage(ScoreTableResp);
+                    break;
+                case "scoretableresponse":
+                    DiverInfoResponse DiverInfoResp = JsonConvert.DeserializeObject<DiverInfoResponse>(JSONString);
+                    /*response =*/
+                    await DispatchMessage(DiverInfoResp);
+                    break;
+                case "loginresponse":
+                    LoginResponse LoginResp = JsonConvert.DeserializeObject<LoginResponse>(JSONString);
+                    /*response =*/ await DispatchMessage(LoginResp);
                     break;
             }
             return response;
+        }
+
+        // Response messages from server
+        public async Task DispatchMessage(ResultResponse response)
+        {
+
+        }
+        public async Task DispatchMessage(ScheduleResponse response)
+        {
+
+        }
+        public async Task DispatchMessage(DiverInfoResponse response)
+        {
+
+        }
+        public async Task DispatchMessage(ScoreTableResponse response)
+        {
+
+        }
+        public async Task DispatchMessage(LoginResponse response)
+        {
+
         }
     }
 }
