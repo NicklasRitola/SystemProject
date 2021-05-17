@@ -12,9 +12,10 @@ namespace ClientUI
     public partial class Login : ClientHandler
     {
 
-        public Login(ClientChannel channel) : base(channel)
+        public Login(ClientChannel channel)
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         public void LoginButton_Click(object sender, EventArgs e)

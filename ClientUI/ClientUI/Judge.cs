@@ -11,9 +11,10 @@ namespace ClientUI
 {
     public partial class Judge : ClientHandler
     {
-        public Judge(ClientChannel channel) : base(channel)
+        public Judge(ClientChannel channel) 
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         private void buttonMainMenu_Click(object sender, EventArgs e)

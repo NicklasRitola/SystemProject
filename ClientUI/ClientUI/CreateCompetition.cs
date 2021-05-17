@@ -12,9 +12,10 @@ namespace ClientUI
 {
     public partial class CreateCompetition : ClientHandler
     {
-        public CreateCompetition(ClientChannel channel) : base(channel)
+        public CreateCompetition(ClientChannel channel) 
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         private void AdminMenu_Click(object sender, EventArgs e)

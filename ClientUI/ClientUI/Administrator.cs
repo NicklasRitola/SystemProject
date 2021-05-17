@@ -11,9 +11,10 @@ namespace ClientUI
 {
     public partial class Administrator : ClientHandler
     {
-        public Administrator(ClientChannel channel) : base(channel)
+        public Administrator(ClientChannel channel) 
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         private void buttonMainMenu_Click(object sender, EventArgs e)

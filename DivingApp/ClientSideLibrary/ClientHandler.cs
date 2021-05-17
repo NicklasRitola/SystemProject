@@ -7,17 +7,20 @@ namespace ClientSide
 {
     public class ClientHandler : System.Windows.Forms.Form
     {
+        protected ClientChannel channel;
+        /*public ClientHandler(ClientChannel channel)
+        {
+            this.channel = channel;
+        }*/
+        public ClientHandler()
+        {
+            //this.channel = null;
+        }
+
         public void OpenForm(ClientHandler NewForm, ClientHandler CurrentForm)
         {
             CurrentForm.Hide();
             NewForm.Show();
-        }
-
-        protected ClientChannel channel;
-
-        public ClientHandler(ClientChannel channel)
-        {
-            this.channel = channel;
         }
     }
 

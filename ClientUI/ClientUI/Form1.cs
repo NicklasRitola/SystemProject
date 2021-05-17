@@ -16,9 +16,10 @@ namespace ClientUI
 
     public partial class Form1 : ClientHandler
     {
-        public Form1(ClientChannel channel) : base(channel)
+        public Form1(ClientChannel channel)
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         private void Form1_Load(object sender, EventArgs e)

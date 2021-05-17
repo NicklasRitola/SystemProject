@@ -11,9 +11,10 @@ namespace ClientUI
 {
     public partial class CurrentCompetition : ClientHandler
     {
-        public CurrentCompetition(ClientChannel channel) : base(channel)
+        public CurrentCompetition(ClientChannel channel)
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         private void AdminMenu_Click(object sender, EventArgs e)

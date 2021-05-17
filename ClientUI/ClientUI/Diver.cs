@@ -11,9 +11,10 @@ namespace ClientUI
 {
     public partial class Diver : ClientHandler
     {
-        public Diver(ClientChannel channel) : base(channel)
+        public Diver(ClientChannel channel) 
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         private void label1_Click(object sender, EventArgs e)

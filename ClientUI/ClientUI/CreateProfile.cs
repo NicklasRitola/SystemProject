@@ -11,9 +11,10 @@ namespace ClientUI
 {
     public partial class CreateProfile : ClientHandler
     {
-        public CreateProfile(ClientChannel channel) : base(channel)
+        public CreateProfile(ClientChannel channel) 
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         private void labelDifficulty_Click(object sender, EventArgs e)

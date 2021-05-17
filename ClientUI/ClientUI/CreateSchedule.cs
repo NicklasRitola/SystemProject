@@ -11,9 +11,10 @@ namespace ClientUI
 {
     public partial class CreateSchedule : ClientHandler
     {
-        public CreateSchedule(ClientChannel channel) : base(channel)
+        public CreateSchedule(ClientChannel channel) 
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         private void AdminMenu_Click(object sender, EventArgs e)

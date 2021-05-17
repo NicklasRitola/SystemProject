@@ -11,9 +11,10 @@ namespace ClientUI
 {
     public partial class Spectator : ClientHandler
     {
-        public Spectator(ClientChannel channel) : base(channel)
+        public Spectator(ClientChannel channel) 
         {
             InitializeComponent();
+            this.channel = channel;
         }
 
         private void buttonMainMenu_Click(object sender, EventArgs e)

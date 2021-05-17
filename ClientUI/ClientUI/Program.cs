@@ -24,23 +24,29 @@ namespace ClientUI
         [STAThread]
         static async Task Main()
         {
-            // ------ Test connection ------
-            IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ip = ipHost.AddressList[0];
-            localEndPoint = new IPEndPoint(ip, 11111);
+            await ConnectToServer();
 
-            await channel.ConnectAsync(localEndPoint);
-            CreateCompetitionRequest request = new CreateCompetitionRequest();
-            request.Location = "test";
-            await channel.SendAsync(request);
 
             // ------ Forms ------
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1(channel));
 
 
+        }
+        static async Task ConnectToServer()
+        {
+            try
+            {
+                var endpoint = new IPEndPoint(IPAddress.Loopback, 11111);
+                await channel.ConnectAsync(endpoint).ConfigureAwait(false);
+                Console.WriteLine("Client Running");
+            }
+            catch (Exception _e)
+            {
+                Console.WriteLine($"Client Exception: {_e}");
+            }
         }
     }
 }
