@@ -16,7 +16,7 @@ namespace ClientUI
 
     public partial class Form1 : ClientHandler
     {
-        public Form1()
+        public Form1(ClientChannel channel) : base(channel)
         {
             InitializeComponent();
         }
@@ -32,7 +32,7 @@ namespace ClientUI
         {
             LoginGlobalString.GlobalString = "Admin";
 
-            Login loginForm = new Login();
+            Login loginForm = new Login(channel);
             OpenForm(loginForm, this);
 
         }
@@ -42,7 +42,7 @@ namespace ClientUI
         {
             LoginGlobalString.GlobalString = "Diver";
 
-            Login loginForm = new Login();
+            Login loginForm = new Login(channel);
             OpenForm(loginForm, this);
 
         }
@@ -50,21 +50,21 @@ namespace ClientUI
 
         private void Spectator_Click(object sender, EventArgs e)
         {
-            Spectator specForm = new Spectator();
+            Spectator specForm = new Spectator(channel);
             OpenForm(specForm, this);
         }
 
         private void Judge_Click(object sender, EventArgs e)
         {
             LoginGlobalString.GlobalString = "Judge";
-            Login loginForm = new Login();
+            Login loginForm = new Login(channel);
             OpenForm(loginForm, this);
         }
 
         private void CreateDiver_Click(object sender, EventArgs e)
         {
 
-            CreateProfile createForm = new CreateProfile();
+            CreateProfile createForm = new CreateProfile(channel);
             OpenForm(createForm, this);
 
         }

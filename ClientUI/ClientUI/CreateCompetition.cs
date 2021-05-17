@@ -12,14 +12,14 @@ namespace ClientUI
 {
     public partial class CreateCompetition : ClientHandler
     {
-        public CreateCompetition()
+        public CreateCompetition(ClientChannel channel) : base(channel)
         {
             InitializeComponent();
         }
 
         private void AdminMenu_Click(object sender, EventArgs e)
         {
-            Administrator adminForm = new Administrator();
+            Administrator adminForm = new Administrator(channel);
             OpenForm(adminForm, this);
         }
 
@@ -92,7 +92,6 @@ namespace ClientUI
 
         private void RegisterProfile_Click(object sender, EventArgs e)
         {
-
             CreateCompetitionRequest request = new CreateCompetitionRequest();
             request.Location = textBoxLocation.Text;
             request.Start_Date = textBoxDate.Text;

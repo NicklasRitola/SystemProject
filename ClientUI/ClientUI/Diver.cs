@@ -11,7 +11,7 @@ namespace ClientUI
 {
     public partial class Diver : ClientHandler
     {
-        public Diver()
+        public Diver(ClientChannel channel) : base(channel)
         {
             InitializeComponent();
         }
@@ -41,7 +41,7 @@ namespace ClientUI
 
         private void buttonMainMenu_Click(object sender, EventArgs e)
         {
-            Form1 form1Form = new Form1();
+            Form1 form1Form = new Form1(channel);
             OpenForm(form1Form, this);
         }
     }

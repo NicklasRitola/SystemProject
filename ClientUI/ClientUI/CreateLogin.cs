@@ -12,28 +12,28 @@ namespace ClientUI
 {
     public partial class CreateLogin : ClientHandler
     {
-        public CreateLogin()
+        public CreateLogin(ClientChannel channel) : base(channel)
         {
             InitializeComponent();
         }
 
         private void buttonMainMenu_Click(object sender, EventArgs e)
         {
-            Administrator adminForm = new Administrator();
+            Administrator adminForm = new Administrator(channel);
             OpenForm(adminForm, this);
         }
         private int checkCounter;
         private string loginType;
 
 
-        private void RegisterProfile_Click(object sender, EventArgs e)
+        private async void RegisterProfile_Click(object sender, EventArgs e)
         {
             RegisterJudgeRequest judge = new RegisterJudgeRequest();
             judge.SSN = textBoxUsername.Text;
             judge.Password = textBoxPassword.Text;
             judge.FirstName = textboxFirstName.Text;
             judge.Surname = textboxSurname.Text;
-            ClientRegisterJudge(judge);
+            await channel.SendAsync(judge);
         }
         private void checkCounterFunction(object sender, EventArgs e)
         {// Increase or decrease the check counter

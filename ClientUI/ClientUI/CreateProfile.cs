@@ -11,7 +11,7 @@ namespace ClientUI
 {
     public partial class CreateProfile : ClientHandler
     {
-        public CreateProfile()
+        public CreateProfile(ClientChannel channel) : base(channel)
         {
             InitializeComponent();
         }
@@ -73,7 +73,7 @@ namespace ClientUI
 
         private void buttonMainMenu_Click(object sender, EventArgs e)
         {
-            Form1 form1Form = new Form1();
+            Form1 form1Form = new Form1(channel);
             OpenForm(form1Form, this);
 
         }

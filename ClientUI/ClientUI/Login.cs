@@ -12,7 +12,7 @@ namespace ClientUI
     public partial class Login : ClientHandler
     {
 
-        public Login()
+        public Login(ClientChannel channel) : base(channel)
         {
             InitializeComponent();
         }
@@ -28,17 +28,17 @@ namespace ClientUI
 
             if(LoginGlobalString.GlobalString == "Admin")
             {
-                Administrator adminForm = new Administrator();
+                Administrator adminForm = new Administrator(channel);
                 adminForm.Show();
             }
             if (LoginGlobalString.GlobalString == "Judge")
             {
-                Judge judgeForm = new Judge();
+                Judge judgeForm = new Judge(channel);
                 judgeForm.Show();
             }
             if (LoginGlobalString.GlobalString == "Diver")
             {
-                Diver diverForm = new Diver();
+                Diver diverForm = new Diver(channel);
                 diverForm.Show();
             }
 
@@ -50,7 +50,7 @@ namespace ClientUI
 
         private void buttonMainMenu_Click(object sender, EventArgs e)
         {
-            Form1 form1Form = new Form1();
+            Form1 form1Form = new Form1(channel);
             this.Hide();
             form1Form.Show();
         }

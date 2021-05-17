@@ -13,22 +13,11 @@ namespace ClientSide
             NewForm.Show();
         }
 
-        public void ClientCreateCompetition(CreateCompetitionRequest request)
-
-        private ClientChannel channel;
+        protected ClientChannel channel;
 
         public ClientHandler(ClientChannel channel)
         {
             this.channel = channel;
-        }
-        public void CreateCompetition()
-        {
-
-        }
-
-        public void ClientRegisterJudge(RegisterJudgeRequest request)
-        {
-            //Send message to server
         }
     }
 

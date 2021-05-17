@@ -11,14 +11,14 @@ namespace ClientUI
 {
     public partial class CurrentCompetition : ClientHandler
     {
-        public CurrentCompetition()
+        public CurrentCompetition(ClientChannel channel) : base(channel)
         {
             InitializeComponent();
         }
 
         private void AdminMenu_Click(object sender, EventArgs e)
         {
-            Administrator adminForm = new Administrator();
+            Administrator adminForm = new Administrator(channel);
             OpenForm(adminForm, this);
         }
 
