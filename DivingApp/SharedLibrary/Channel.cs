@@ -34,9 +34,6 @@ namespace Shared
             receiverTask = Task.Run(ReceiverLoop, cancel.Token);
         }
 
-        //public void OnMessage(Func<Message, Task> callbackHandler)
-            //=> callback = callbackHandler;
-
         public void Close()
         {
             if (!closed)
