@@ -181,7 +181,7 @@ namespace Server
         {
             try
             {
-                string query = "insert into Judge values ('" + data.SSN + "','" + data.FirstName + "','" + data.Surname + "',); ";
+                string query = "insert into Judge values ('" + data.SSN + "','" + data.FirstName + "','" + data.Surname + "'); ";
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 dataReader.Close();

@@ -41,7 +41,7 @@ namespace ClientUI
             this.buttonMainMenu.Location = new System.Drawing.Point(14, 16);
             this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
-            this.buttonMainMenu.Size = new System.Drawing.Size(87, 34);
+            this.buttonMainMenu.Size = new System.Drawing.Size(87, 51);
             this.buttonMainMenu.TabIndex = 30;
             this.buttonMainMenu.Text = "Main Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
