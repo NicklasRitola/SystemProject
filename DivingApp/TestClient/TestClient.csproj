@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\ClientUI\ClientUI\ClientUI.csproj" />
     <ProjectReference Include="..\SharedLibrary\Shared.csproj" />
   </ItemGroup>
 

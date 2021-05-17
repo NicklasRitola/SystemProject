@@ -1,5 +1,4 @@
-﻿using ClientSide;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Shared;
 using System;
@@ -7,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using ClientUI;
 
 namespace TestClient
 {

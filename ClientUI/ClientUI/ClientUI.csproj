@@ -10,4 +10,10 @@
     <ProjectReference Include="..\..\DivingApp\SharedLibrary\Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ClientHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

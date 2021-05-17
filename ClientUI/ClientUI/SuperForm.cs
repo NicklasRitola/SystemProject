@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using Shared;
-using ClientSide;
 
 namespace ClientUI
 {

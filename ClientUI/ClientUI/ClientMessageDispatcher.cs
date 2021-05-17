@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Shared;
 
-namespace ClientSide
+namespace ClientUI
 {
     public class ClientMessageDispatcher : MessageDispatcher
     {

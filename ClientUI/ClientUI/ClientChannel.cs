@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Shared;
 
-namespace ClientSide
+namespace ClientUI
 {
     public class ClientChannel : Channel
     {
