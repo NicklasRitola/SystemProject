@@ -12,10 +12,7 @@ namespace Server
 {
     public class SocketServer
     {
-        private ClientHandler clientHandler = new ClientHandler();
-        private MessageDispatcher messageDispatcher = new MessageDispatcher();
-        //Server class will not need a message protocol object as that will be handled in the messagedispatcher class
-        //JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
+        private ServerMessageDispatcher messageDispatcher = new ServerMessageDispatcher();
 
         public void executeServer()
         {
@@ -28,7 +25,7 @@ namespace Server
         {
             do
             {
-                //TODO: Detects new connection and starts a new Task that handles that connection
+                //Detects new connection and starts a new Task that handles that connection
 
                 Console.WriteLine("Waiting connection ...");
                 var clientSocket = await Task.Factory.FromAsync(

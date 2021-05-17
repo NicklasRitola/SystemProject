@@ -14,6 +14,14 @@ namespace Shared
         }
     }
 
+    public class TestResponse : Response
+    {
+        public TestResponse()
+        {
+            messageType = "testresponse";
+        }
+    }
+
     public class ResultResponse : Response //A response that tells the client if the request succeded/failed
     {
         string message;

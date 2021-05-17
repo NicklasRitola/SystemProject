@@ -10,6 +10,11 @@ namespace Server
     class ResponseBuilder
     {
         //Takes a request and a stream, creates a response, sends response back
+
+        public async Task<TestResponse> CreateTestResponse()
+        {
+            return new TestResponse();
+        }
         public async Task<ResultResponse> CreateCompetitionResponse(bool result)
         {
             ResultResponse response = new ResultResponse("Competition creation request", result);

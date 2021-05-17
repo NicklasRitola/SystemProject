@@ -8,12 +8,17 @@ namespace Shared
 {
     public class Request : Message
     {
-        int test;
-
         public Request()
         {
             messageType = "request";
-            test = 1;
+        }
+    }
+
+    public class TestRequest : Request
+    {
+        public TestRequest()
+        {
+            messageType = "testrequest";
         }
     }
 
