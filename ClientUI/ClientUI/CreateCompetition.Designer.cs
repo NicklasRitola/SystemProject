@@ -36,12 +36,13 @@ namespace ClientUI
             this.labelAge = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
-            this.labelSur = new System.Windows.Forms.Label();
-            this.textBoxName = new System.Windows.Forms.TextBox();
             this.RegisterProfile = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxNumberOfJudge = new System.Windows.Forms.TextBox();
+            this.textBoxEndDate = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.checkBoxGlobal = new System.Windows.Forms.CheckBox();
+            this.checkBoxLocal = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AdminMenu
@@ -103,28 +104,10 @@ namespace ClientUI
             this.labelName.AutoSize = true;
             this.labelName.Location = new System.Drawing.Point(197, 72);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(34, 15);
+            this.labelName.Size = new System.Drawing.Size(61, 15);
             this.labelName.TabIndex = 35;
-            this.labelName.Text = "Date:";
+            this.labelName.Text = "Start Date:";
             this.labelName.Click += new System.EventHandler(this.labelName_Click);
-            // 
-            // labelSur
-            // 
-            this.labelSur.AutoSize = true;
-            this.labelSur.Location = new System.Drawing.Point(197, 101);
-            this.labelSur.Name = "labelSur";
-            this.labelSur.Size = new System.Drawing.Size(42, 15);
-            this.labelSur.TabIndex = 34;
-            this.labelSur.Text = "Name:";
-            this.labelSur.Click += new System.EventHandler(this.labelSur_Click);
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Location = new System.Drawing.Point(305, 98);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(274, 23);
-            this.textBoxName.TabIndex = 33;
-            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxSur_TextChanged);
             // 
             // RegisterProfile
             // 
@@ -139,28 +122,58 @@ namespace ClientUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(197, 159);
+            this.label2.Location = new System.Drawing.Point(305, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 15);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Number of Judges:";
+            this.label2.Size = new System.Drawing.Size(209, 15);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Write date as \"YYYY-MM-DD TT:TT:TT\"";
             // 
-            // textBoxNumberOfJudge
+            // textBoxEndDate
             // 
-            this.textBoxNumberOfJudge.Location = new System.Drawing.Point(305, 156);
-            this.textBoxNumberOfJudge.Name = "textBoxNumberOfJudge";
-            this.textBoxNumberOfJudge.Size = new System.Drawing.Size(274, 23);
-            this.textBoxNumberOfJudge.TabIndex = 45;
-            this.textBoxNumberOfJudge.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxEndDate.Location = new System.Drawing.Point(305, 98);
+            this.textBoxEndDate.Name = "textBoxEndDate";
+            this.textBoxEndDate.Size = new System.Drawing.Size(274, 23);
+            this.textBoxEndDate.TabIndex = 46;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(197, 174);
+            this.label3.Location = new System.Drawing.Point(197, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 15);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "Can be 3 or 7";
+            this.label3.Size = new System.Drawing.Size(57, 15);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "End Date:";
+            // 
+            // checkBoxGlobal
+            // 
+            this.checkBoxGlobal.AutoSize = true;
+            this.checkBoxGlobal.Location = new System.Drawing.Point(305, 157);
+            this.checkBoxGlobal.Name = "checkBoxGlobal";
+            this.checkBoxGlobal.Size = new System.Drawing.Size(60, 19);
+            this.checkBoxGlobal.TabIndex = 47;
+            this.checkBoxGlobal.Text = "Global";
+            this.checkBoxGlobal.UseVisualStyleBackColor = true;
+            this.checkBoxGlobal.CheckedChanged += new System.EventHandler(this.checkBoxGlobal_CheckedChanged);
+            // 
+            // checkBoxLocal
+            // 
+            this.checkBoxLocal.AutoSize = true;
+            this.checkBoxLocal.Location = new System.Drawing.Point(395, 156);
+            this.checkBoxLocal.Name = "checkBoxLocal";
+            this.checkBoxLocal.Size = new System.Drawing.Size(54, 19);
+            this.checkBoxLocal.TabIndex = 48;
+            this.checkBoxLocal.Text = "Local";
+            this.checkBoxLocal.UseVisualStyleBackColor = true;
+            this.checkBoxLocal.CheckedChanged += new System.EventHandler(this.checkBoxLocal_CheckedChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(197, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 15);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "Type:";
             // 
             // CreateCompetition
             // 
@@ -168,17 +181,18 @@ namespace ClientUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(631, 226);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.checkBoxLocal);
+            this.Controls.Add(this.checkBoxGlobal);
+            this.Controls.Add(this.textBoxEndDate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxNumberOfJudge);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxLocation);
             this.Controls.Add(this.textBoxDate);
             this.Controls.Add(this.labelAge);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.labelSur);
-            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.RegisterProfile);
             this.Controls.Add(this.AdminMenu);
             this.Name = "CreateCompetition";
@@ -198,11 +212,12 @@ namespace ClientUI
         private System.Windows.Forms.Label labelAge;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label labelName;
-        private System.Windows.Forms.Label labelSur;
-        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Button RegisterProfile;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxNumberOfJudge;
+        private System.Windows.Forms.TextBox textBoxEndDate;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBoxGlobal;
+        private System.Windows.Forms.CheckBox checkBoxLocal;
+        private System.Windows.Forms.Label label4;
     }
 }

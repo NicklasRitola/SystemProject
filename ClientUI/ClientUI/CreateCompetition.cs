@@ -72,11 +72,26 @@ namespace ClientUI
         {
 
         }
+        private int checkCounter;
+        private int checkType;
+        private void checkCounterFunction(object sender, EventArgs e)
+        {// Increase or decrease the check counter
+            CheckBox box = (CheckBox)sender;
+            if (box.Checked)
+                checkCounter++;
+            else
+                checkCounter--;
+            // prevent checking
+            if (checkCounter == 2)
+            {
+                MessageBox.Show("Chose one", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                box.Checked = false;
+            }
+        }
 
         private void RegisterProfile_Click(object sender, EventArgs e)
         {
-            if (int.Parse(textBoxNumberOfJudge.Text)==3 || int.Parse(textBoxNumberOfJudge.Text) == 7) 
-            {
+
                 CreateCompetitionRequest request = new CreateCompetitionRequest();
                 request.Location = textBoxLocation.Text;
                 request.Start_Date = textBoxDate.Text; //
@@ -84,20 +99,31 @@ namespace ClientUI
                 request.ID = Int32.Parse(textBoxID.Text);
                 if ()
                 {
-                    request.Type = 1; //Local comp
+                    request.Type = checkType; //Local comp
                 }
                 else
                 {
-                    request.Type = 2; //Global comp
+                    request.Type = checkType; //Global comp
                 }
 
-        
-            }
+       
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBoxGlobal_CheckedChanged(object sender, EventArgs e)
+        {
+            checkCounterFunction(sender, e);
+            checkType = 2;
+        }
+
+        private void checkBoxLocal_CheckedChanged(object sender, EventArgs e)
+        {
+            checkCounterFunction(sender, e);
+            checkType = 1;
         }
     }
 }
