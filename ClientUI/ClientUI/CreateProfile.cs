@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Shared;
 
 namespace ClientUI
 {
@@ -14,6 +15,11 @@ namespace ClientUI
         {
             InitializeComponent();
             this.channel = channel;
+        }
+
+        private void ShowMessage(String caption, String body)
+        {
+            MessageBox.Show(body, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void labelDifficulty_Click(object sender, EventArgs e)
@@ -42,13 +48,14 @@ namespace ClientUI
         }
         private void RegisterProfile_Click(object sender, EventArgs e)
         {
-
-            string diverFirst = textBoxFirst.Text;
-            string diverSur = textBoxSur.Text;
-            string diverAge = textBoxAge.Text;
-            string diverTeam = textBoxTeam.Text;
-            string chosenUsername = textBoxUsername.Text;
-            string chosenPassword = textBoxPassword.Text;
+            RegisterDiverRequest request = new RegisterDiverRequest();
+            request.FirstName = textBoxFirst.Text;
+            request.Surname = textBoxSur.Text;
+            request.Age = Int32.Parse(textBoxAge.Text);
+            request.Team = Int32.Parse(textBoxTeam.Text);
+            request.Gender = checkGender;
+            // = textBoxUsername.Text;
+            // = textBoxPassword.Text;
 
             if (textBoxUsername.Text == "")
             {
@@ -62,8 +69,6 @@ namespace ClientUI
             {
                 MessageBox.Show("Password does not match!");
             }
-
-
         }
 
         private void textBoxDifficulty_TextChanged(object sender, EventArgs e)

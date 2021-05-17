@@ -10,7 +10,7 @@ using Shared;
 
 namespace Shared
 {
-    public class Channel //: IDisposable
+    public class Channel
     {
         protected bool disposed = false;
         protected bool closed = false;
@@ -19,16 +19,15 @@ namespace Shared
         public CancellationTokenSource cancel = new CancellationTokenSource();
         public MessageDispatcher messageDispatcher = null;
 
-        //Func<Message, Task> callback;
         public NetworkStream stream;
-        Task receiverTask;
+        public Task receiverTask;
         
         public Channel(MessageDispatcher messageDispatcher)
         {
             this.messageDispatcher = messageDispatcher;
         }
 
-        public void AttachSocket(Socket socket)
+        public virtual void AttachSocket(Socket socket)
         {
             stream = new NetworkStream(socket, true);
             receiverTask = Task.Run(ReceiverLoop, cancel.Token);
@@ -71,23 +70,5 @@ namespace Shared
                 Close();
             }
         }
-
-        //~Channel() => Dispose(false);
-        //public void Dispose() => Dispose(true);
-        //protected void Dispose(bool isDisposing)
-        //{
-        //    if (!disposed)
-        //    {
-        //        Console.WriteLine("A channel was disposed");
-        //        disposed = true;
-
-        //        Close();
-        //        //TODO: Clean up socket, stream, etc.
-        //        stream?.Dispose();
-
-        //        if (isDisposing)
-        //            GC.SuppressFinalize(this);
-        //    }
-        //}
     }
 }

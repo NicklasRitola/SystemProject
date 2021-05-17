@@ -28,15 +28,19 @@ namespace ClientUI
             }
         }
 
-        protected override async Task ReceiverLoop()
+        public override void AttachSocket(Socket socket)
         {
+            stream = new NetworkStream(socket, true);
+            //receiverTask = Task.Run(ReceiverLoop, cancel.Token);
+        }
+
+        public async Task<Response> ReceiveResponse()
+        {
+            Response response = null;
             try
             {
-                while (!cancel.Token.IsCancellationRequested)
-                {
-                    JObject message = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
-                    await messageDispatcher.DispatchMessage(message);
-                }
+                JObject message = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
+                response = await messageDispatcher.DispatchMessage(message);
             }
             catch (System.IO.IOException)
             {
@@ -48,6 +52,30 @@ namespace ClientUI
                 //TODO: Send error to UI
                 Close();
             }
+            return response;
         }
+
+        //protected async Task ReceiverLoop()
+        //{
+        //    Response response = null;
+        //    try
+        //    {
+        //        while (!cancel.Token.IsCancellationRequested)
+        //        {
+        //            JObject message = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
+        //            response =  await messageDispatcher.DispatchMessage(message);
+        //        }
+        //    }
+        //    catch (System.IO.IOException)
+        //    {
+        //        //TODO: Send error to UI
+        //        Close();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        //TODO: Send error to UI
+        //        Close();
+        //    }
+        //}
     }
 }

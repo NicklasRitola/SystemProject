@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using Shared;
 
 namespace ClientUI
@@ -25,6 +26,10 @@ namespace ClientUI
         private int checkCounter;
         private string loginType;
 
+        private void ShowMessage(String caption, String body)
+        {
+            MessageBox.Show(body, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
         private async void RegisterProfile_Click(object sender, EventArgs e)
         {
@@ -34,9 +39,16 @@ namespace ClientUI
             judge.FirstName = textboxFirstName.Text;
             judge.Surname = textboxSurname.Text;
             await channel.SendAsync(judge);
+
+            //TODO: Test if this works!
+            Response response = await channel.ReceiveResponse();
+            string JSONString = JsonConvert.SerializeObject(response);
+            ResultResponse testReq = JsonConvert.DeserializeObject<ResultResponse>(JSONString);
+            ShowMessage(testReq.message, "Registration result");
         }
         private void checkCounterFunction(object sender, EventArgs e)
-        {// Increase or decrease the check counter
+        {
+            // Increase or decrease the check counter
             CheckBox box = (CheckBox)sender;
             if (box.Checked)
                 checkCounter++;
