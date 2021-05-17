@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ClientSide;
 
 namespace ClientUI
 {
-    public partial class Login : SuperForm
+    public partial class Login : ClientHandler
     {
 
         public Login()
@@ -50,7 +51,8 @@ namespace ClientUI
         private void buttonMainMenu_Click(object sender, EventArgs e)
         {
             Form1 form1Form = new Form1();
-            OpenForm(form1Form, this);
+            this.Hide();
+            form1Form.Show();
         }
     }
 }

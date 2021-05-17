@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ClientSide;
 
 namespace ClientUI
 {
-    public partial class Spectator : SuperForm
+    public partial class Spectator : ClientHandler
     {
         public Spectator()
         {

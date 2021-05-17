@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClientSide;
 
 
 namespace ClientUI
 {
 
 
-    public partial class Form1 : SuperForm
+    public partial class Form1 : ClientHandler
     {
         public Form1()
         {

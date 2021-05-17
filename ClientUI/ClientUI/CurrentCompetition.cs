@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ClientSide;
 
 namespace ClientUI
 {
-    public partial class CurrentCompetition : SuperForm
+    public partial class CurrentCompetition : ClientHandler
     {
         public CurrentCompetition()
         {

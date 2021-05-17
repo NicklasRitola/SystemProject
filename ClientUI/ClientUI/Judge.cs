@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ClientSide;
 
 namespace ClientUI
 {
-    public partial class Judge : SuperForm
+    public partial class Judge : ClientHandler
     {
         public Judge()
         {

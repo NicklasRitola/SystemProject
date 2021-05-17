@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Shared;
+using ClientSide;
 
 namespace ClientUI
 {
-    public partial class CreateCompetition : SuperForm
+    public partial class CreateCompetition : ClientHandler
     {
         public CreateCompetition()
         {
@@ -92,17 +93,14 @@ namespace ClientUI
         private void RegisterProfile_Click(object sender, EventArgs e)
         {
 
-                CreateCompetitionRequest request = new CreateCompetitionRequest();
-                request.Location = textBoxLocation.Text;
-                request.Start_Date = textBoxDate.Text; //
-                //request.Name = textBoxName.Text;
-                request.ID = Int32.Parse(textBoxID.Text);
+            CreateCompetitionRequest request = new CreateCompetitionRequest();
+            request.Location = textBoxLocation.Text;
+            request.Start_Date = textBoxDate.Text;
+            request.End_Date = textBoxEndDate.Text;
+            //request.Name = textBoxName.Text;
+            request.ID = Int32.Parse(textBoxID.Text);
 
-                request.Type = checkType; //Local comp
-
-
-
-       
+            request.Type = checkType; //Local comp       
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

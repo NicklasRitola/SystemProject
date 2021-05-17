@@ -5,10 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using ClientSide;
+using Shared;
 
 namespace ClientUI
 {
-    public partial class CreateLogin : SuperForm
+    public partial class CreateLogin : ClientHandler
     {
         public CreateLogin()
         {
@@ -26,10 +28,12 @@ namespace ClientUI
 
         private void RegisterProfile_Click(object sender, EventArgs e)
         {
-
-
-            string chosenUsername = textBoxUsername.Text;
-            string chosenPassword = textBoxPassword.Text;
+            RegisterJudgeRequest judge = new RegisterJudgeRequest();
+            judge.SSN = textBoxUsername.Text;
+            judge.Password = textBoxPassword.Text;
+            judge.FirstName = textboxFirstName.Text;
+            judge.Surname = textboxSurname.Text;
+            ClientRegisterJudge(judge);
         }
         private void checkCounterFunction(object sender, EventArgs e)
         {// Increase or decrease the check counter
@@ -59,6 +63,11 @@ namespace ClientUI
 
             checkCounterFunction(sender, e);
             loginType = "Admin";
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -102,8 +102,6 @@ namespace Shared
         public string SSN;
         public string FirstName;
         public string Surname;
-        public string Gender;
-        public int In_Competition;
         public string Password;
         public RegisterJudgeRequest()
         {

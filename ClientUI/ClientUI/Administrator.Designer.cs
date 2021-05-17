@@ -38,9 +38,10 @@ namespace ClientUI
             // 
             // buttonMainMenu
             // 
-            this.buttonMainMenu.Location = new System.Drawing.Point(12, 12);
+            this.buttonMainMenu.Location = new System.Drawing.Point(14, 16);
+            this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
-            this.buttonMainMenu.Size = new System.Drawing.Size(76, 35);
+            this.buttonMainMenu.Size = new System.Drawing.Size(87, 34);
             this.buttonMainMenu.TabIndex = 30;
             this.buttonMainMenu.Text = "Main Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@ namespace ClientUI
             // 
             // CreateCompetition
             // 
-            this.CreateCompetition.Location = new System.Drawing.Point(157, 65);
+            this.CreateCompetition.Location = new System.Drawing.Point(194, 92);
+            this.CreateCompetition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreateCompetition.Name = "CreateCompetition";
-            this.CreateCompetition.Size = new System.Drawing.Size(136, 54);
+            this.CreateCompetition.Size = new System.Drawing.Size(155, 72);
             this.CreateCompetition.TabIndex = 35;
             this.CreateCompetition.Text = "Create Competition";
             this.CreateCompetition.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@ namespace ClientUI
             // 
             // CreateSchedule
             // 
-            this.CreateSchedule.Location = new System.Drawing.Point(16, 65);
+            this.CreateSchedule.Location = new System.Drawing.Point(33, 92);
+            this.CreateSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreateSchedule.Name = "CreateSchedule";
-            this.CreateSchedule.Size = new System.Drawing.Size(136, 54);
+            this.CreateSchedule.Size = new System.Drawing.Size(155, 72);
             this.CreateSchedule.TabIndex = 34;
             this.CreateSchedule.Text = "Create Schedule";
             this.CreateSchedule.UseVisualStyleBackColor = true;
@@ -68,19 +71,21 @@ namespace ClientUI
             // 
             // nextDive
             // 
-            this.nextDive.Location = new System.Drawing.Point(298, 65);
+            this.nextDive.Location = new System.Drawing.Point(356, 92);
+            this.nextDive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nextDive.Name = "nextDive";
-            this.nextDive.Size = new System.Drawing.Size(136, 54);
+            this.nextDive.Size = new System.Drawing.Size(155, 72);
             this.nextDive.TabIndex = 31;
-            this.nextDive.Text = "Start a Competition";
+            this.nextDive.Text = "Manage Competition";
             this.nextDive.UseVisualStyleBackColor = true;
             this.nextDive.Click += new System.EventHandler(this.NextDive_Click);
             // 
             // buttonCreateProfile
             // 
-            this.buttonCreateProfile.Location = new System.Drawing.Point(440, 65);
+            this.buttonCreateProfile.Location = new System.Drawing.Point(518, 92);
+            this.buttonCreateProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCreateProfile.Name = "buttonCreateProfile";
-            this.buttonCreateProfile.Size = new System.Drawing.Size(136, 54);
+            this.buttonCreateProfile.Size = new System.Drawing.Size(155, 72);
             this.buttonCreateProfile.TabIndex = 36;
             this.buttonCreateProfile.Text = "Create a profile";
             this.buttonCreateProfile.UseVisualStyleBackColor = true;
@@ -88,15 +93,16 @@ namespace ClientUI
             // 
             // Administrator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(622, 172);
+            this.ClientSize = new System.Drawing.Size(711, 229);
             this.Controls.Add(this.buttonCreateProfile);
             this.Controls.Add(this.CreateCompetition);
             this.Controls.Add(this.CreateSchedule);
             this.Controls.Add(this.nextDive);
             this.Controls.Add(this.buttonMainMenu);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Administrator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrator";

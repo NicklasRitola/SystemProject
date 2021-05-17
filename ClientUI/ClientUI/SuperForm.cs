@@ -6,7 +6,7 @@ using ClientSide;
 
 namespace ClientUI
 {
-    class LoginGlobalString
+    /*class LoginGlobalString
     {
         private static string LoginString = "";
         public static string GlobalString
@@ -29,10 +29,5 @@ namespace ClientUI
             
             NewForm.Show();
         }
-        
-        public void HideButton()
-        {
-
-        }
-    }
+    }*/
 }
