@@ -74,10 +74,20 @@ namespace ClientUI
 
         private void RegisterProfile_Click(object sender, EventArgs e)
         {
+            if (int.Parse(textBoxNumberOfJudge.Text)==3 || int.Parse(textBoxNumberOfJudge.Text) == 7) 
+            { 
             string compLocation = textBoxLocation.Text;
             string compDate = textBoxDate.Text;
             string compName = textBoxName.Text;
             string compID = textBoxID.Text;
+            int NumberOfJudge = int.Parse(textBoxNumberOfJudge.Text);
+        
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
