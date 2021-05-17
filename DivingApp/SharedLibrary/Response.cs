@@ -25,6 +25,10 @@ namespace Shared
     public class ResultResponse : Response //A response that tells the client if the request succeded/failed
     {
         public string message = "";
+        public ResultResponse()
+        {
+
+        }
         public ResultResponse(string type, bool result)
         {
             messageType = "resultresponse";
@@ -38,14 +42,14 @@ namespace Shared
         {
             message = type1;
             if (result1)
-                message += "succeeded!\n";
+                message += " succeeded!\n";
             else
-                message += "failed.\n";
+                message += " failed.\n";
             message += type2;
             if (result2)
-                message += "succeeded!";
+                message += " succeeded!";
             else
-                message += "failed.";
+                message += " failed.";
         }
     }
 

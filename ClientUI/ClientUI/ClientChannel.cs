@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Shared;
 
@@ -34,13 +35,13 @@ namespace ClientUI
             //receiverTask = Task.Run(ReceiverLoop, cancel.Token);
         }
 
-        public async Task<Response> ReceiveResponse()
+        public async Task<JObject> ReceiveResponse()
         {
-            Response response = null;
+            JObject response = null;
             try
             {
-                JObject message = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
-                response = await messageDispatcher.DispatchMessage(message);
+                response = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
+                //response = await messageDispatcher.DispatchMessage(message);
             }
             catch (System.IO.IOException)
             {

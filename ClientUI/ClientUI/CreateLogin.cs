@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Shared;
 
 namespace ClientUI
@@ -28,7 +29,7 @@ namespace ClientUI
 
         private void ShowMessage(String caption, String body)
         {
-            MessageBox.Show(body, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(caption, body, MessageBoxButtons.OK);
         }
 
         private async void RegisterProfile_Click(object sender, EventArgs e)
@@ -38,13 +39,10 @@ namespace ClientUI
             judge.Password = textBoxPassword.Text;
             judge.FirstName = textboxFirstName.Text;
             judge.Surname = textboxSurname.Text;
-            await channel.SendAsync(judge);
 
-            //TODO: Test if this works!
-            Response response = await channel.ReceiveResponse();
-            string JSONString = JsonConvert.SerializeObject(response);
-            ResultResponse testReq = JsonConvert.DeserializeObject<ResultResponse>(JSONString);
-            ShowMessage(testReq.message, "Registration result");
+            await channel.SendAsync(judge);
+            JObject response = await channel.ReceiveResponse();
+            ShowMessage(response.Value<string>("message"), "Registration result");
         }
         private void checkCounterFunction(object sender, EventArgs e)
         {

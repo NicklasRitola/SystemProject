@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json.Linq;
 using Shared;
 
 namespace ClientUI
@@ -21,6 +22,10 @@ namespace ClientUI
         {
             Administrator adminForm = new Administrator(channel);
             OpenForm(adminForm, this);
+        }
+        private void ShowMessage(String caption, String body)
+        {
+            MessageBox.Show(caption, body, MessageBoxButtons.OK);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -90,7 +95,7 @@ namespace ClientUI
             }
         }
 
-        private void RegisterProfile_Click(object sender, EventArgs e)
+        private async void RegisterProfile_Click(object sender, EventArgs e)
         {
             CreateCompetitionRequest request = new CreateCompetitionRequest();
             request.Location = textBoxLocation.Text;
@@ -99,7 +104,11 @@ namespace ClientUI
             //request.Name = textBoxName.Text;
             request.ID = Int32.Parse(textBoxID.Text);
 
-            request.Type = checkType; //Local comp       
+            request.Type = checkType; //Local comp
+
+            await channel.SendAsync(request);
+            JObject response = await channel.ReceiveResponse();
+            ShowMessage(response.Value<string>("message"), "Registration result");
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

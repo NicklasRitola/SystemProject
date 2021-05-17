@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Shared;
 
 namespace ClientUI
@@ -19,7 +21,7 @@ namespace ClientUI
 
         private void ShowMessage(String caption, String body)
         {
-            MessageBox.Show(body, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(caption, body, MessageBoxButtons.OK);
         }
 
         private void labelDifficulty_Click(object sender, EventArgs e)
@@ -46,7 +48,7 @@ namespace ClientUI
                 box.Checked = false;
             }
         }
-        private void RegisterProfile_Click(object sender, EventArgs e)
+        private async void RegisterProfile_Click(object sender, EventArgs e)
         {
             RegisterDiverRequest request = new RegisterDiverRequest();
             request.FirstName = textBoxFirst.Text;
@@ -69,6 +71,12 @@ namespace ClientUI
             {
                 MessageBox.Show("Password does not match!");
             }
+
+            await channel.SendAsync(request);
+            JObject response = await channel.ReceiveResponse();
+            //string JSONString = JsonConvert.SerializeObject(response);
+            //ResultResponse testReq = JsonConvert.DeserializeObject<ResultResponse>(JSONString);
+            ShowMessage(response.Value<string>("message"), "Registration result");
         }
 
         private void textBoxDifficulty_TextChanged(object sender, EventArgs e)
