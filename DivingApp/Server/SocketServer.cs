@@ -35,30 +35,6 @@ namespace Server
 
                 var channel = new Channel(messageDispatcher);
                 channel.AttachSocket(clientSocket);
-                //while (true) { }
-
-                //Socket clientSocket = listener.Accept();
-                //byte[] bytes = new byte[1024];
-                //string data = null;
-                //int noBytes = 0;
-                //noBytes = clientSocket.Receive(bytes, bytes.Length, 0);
-                //data += Encoding.ASCII.GetString(bytes,
-                //    0, noBytes);
-
-                //Request request = messageProtocol.DecodeRequest(data);
-
-                //Console.WriteLine("Text received:\n" +
-                //    "Id: {0}\n" +
-                //    "Message: {1}", request.requestId, request.message);
-
-                //Response response = new Response();
-
-                //byte[] encodedResponse = messageProtocol.Encode(response);
-
-                //clientSocket.Send(encodedResponse);
-
-                //clientSocket.Shutdown(SocketShutdown.Both);
-                //clientSocket.Dispose();
             } while (true);
         }
     }

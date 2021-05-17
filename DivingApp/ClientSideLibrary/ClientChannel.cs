@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 using Shared;
 
 namespace ClientSide
@@ -24,6 +25,29 @@ namespace ClientSide
             catch(Exception e)
             {
                 //TODO: Send error message
+                Console.WriteLine("ClientChannel connection error: "+ e);
+            }
+        }
+
+        protected override async Task ReceiverLoop()
+        {
+            try
+            {
+                while (!cancel.Token.IsCancellationRequested)
+                {
+                    JObject message = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
+                    await messageDispatcher.DispatchMessage(message);
+                }
+            }
+            catch (System.IO.IOException)
+            {
+                Console.WriteLine("Channel closed by server");
+                Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Channel error: " + e);
+                Close();
             }
         }
     }

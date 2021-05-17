@@ -15,12 +15,12 @@ namespace Shared
         protected bool disposed = false;
         protected bool closed = false;
 
-        readonly JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
-        readonly CancellationTokenSource cancel = new CancellationTokenSource();
+        public JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
+        public CancellationTokenSource cancel = new CancellationTokenSource();
         public MessageDispatcher messageDispatcher = null;
 
         //Func<Message, Task> callback;
-        NetworkStream stream;
+        public NetworkStream stream;
         Task receiverTask;
         
         public Channel(MessageDispatcher messageDispatcher)

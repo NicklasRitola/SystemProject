@@ -6,6 +6,12 @@ namespace ClientSide
 {
     class ClientHandler
     {
+        private ClientChannel channel;
+
+        public ClientHandler(ClientChannel channel)
+        {
+            this.channel = channel;
+        }
         public void CreateCompetition()
         {
 
