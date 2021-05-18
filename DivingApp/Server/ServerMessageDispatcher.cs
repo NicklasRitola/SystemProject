@@ -193,7 +193,7 @@ namespace Server
         {
             //TODO: Sent to databse and check if login is found
             Console.WriteLine("Login request received");
-            LoginResponse response = await responseBuilder.LoginResponse(true);
+            LoginResponse response = await responseBuilder.LoginResponse(password_database.LoginChecker(request));
             return response;
         }
     }

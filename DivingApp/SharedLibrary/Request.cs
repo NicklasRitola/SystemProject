@@ -26,6 +26,7 @@ namespace Shared
     {
         public string SSN;
         public string Password;
+        public string LoginType;
 
         public LoginRequest()
         {

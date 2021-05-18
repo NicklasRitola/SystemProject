@@ -23,7 +23,7 @@ namespace ClientUI
         public async void LoginButton_Click(object sender, EventArgs e)
         {
             List<string> NoEmptyFields = new List<String>();
-            /*bool resp = false;
+            bool resp = false;
             if (Username.Text == "")
             {
                 NoEmptyFields.Add("Username");
@@ -38,10 +38,11 @@ namespace ClientUI
                 LoginRequest login = new LoginRequest();
                 login.SSN = Username.Text;
                 login.Password = Password.Text;
+                login.LoginType = LoginGlobalString.GlobalString;
 
                 await channel.SendAsync(login);
                 JObject response = await channel.ReceiveResponse();
-                resp = response.Value<bool>("Success"); //Funkar inte helt än
+                resp = response.Value<bool>("Success"); 
             }
             else
             {
@@ -51,9 +52,9 @@ namespace ClientUI
                     output += ("- " + NoEmptyFields[i] + "\n");
                 }
                 MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
 
-            if(/*resp &&*/ NoEmptyFields.Count == 0)
+            if(resp && NoEmptyFields.Count == 0)
             {
                 if (LoginGlobalString.GlobalString == "Admin")
                 {
