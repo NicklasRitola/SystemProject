@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Shared;
 
 namespace ClientUI
 {
@@ -40,7 +41,6 @@ namespace ClientUI
         {
             CurrentCompetition currentCompForm = new CurrentCompetition(channel);
             OpenForm(currentCompForm, this);
-
         }
 
         private void buttonCreateProfile_Click(object sender, EventArgs e)
