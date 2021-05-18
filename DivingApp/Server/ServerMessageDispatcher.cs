@@ -104,13 +104,12 @@ namespace Server
             Console.WriteLine("SERVER RECEIVED: " + request.Location);
             return await responseBuilder.CreateCompetitionResponse(database.CreateCompetitionInDatabase(request));
         }
-        public async Task<ResultResponse> DispatchMessage(CreateScheduleRequest request)
 
+        public async Task<ResultResponse> DispatchMessage(CreateScheduleRequest request)
         {
             Console.WriteLine("Create Schedule request received");
             ResultResponse response = await responseBuilder.CreateScheduleResponse(database.CreateScheduleInDatabase(request));
             return response;
-
         }
 
         public async Task DispatchMessage(NextDiverRequest request)
