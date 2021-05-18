@@ -71,10 +71,15 @@ namespace Server
             return response;
         }
 
-        public async Task ViewScheduleResponse(bool result)
-        {
-            //TODO: Create a schedule response message to return
-        }
+        //public async Task<CompetitionScheduleResponse> ViewScheduleResponse(List<Dive> dives)
+        //{
+        //    //TODO: Create a schedule response message to return
+        //    CompetitionScheduleResponse response = new CompetitionScheduleResponse();
+        //    foreach (var dive in dives)
+        //    {
+        //        response.AddItem(dive);
+        //    }
+        //}
 
         public async Task ViewCurrentDiverResponse(bool result)
         {

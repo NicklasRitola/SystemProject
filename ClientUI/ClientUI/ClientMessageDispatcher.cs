@@ -25,7 +25,7 @@ namespace ClientUI
                     await DispatchMessage(ResResp);
                     break;
                 case "scheduleresponse":
-                    ScheduleResponse SchResp = JsonConvert.DeserializeObject<ScheduleResponse>(JSONString);
+                    CompetitionScheduleResponse SchResp = JsonConvert.DeserializeObject<CompetitionScheduleResponse>(JSONString);
                     await DispatchMessage(SchResp);
                     break;
                 case "diverinforesponse":
@@ -53,7 +53,7 @@ namespace ClientUI
         {
 
         }
-        public async Task DispatchMessage(ScheduleResponse response)
+        public async Task DispatchMessage(CompetitionScheduleResponse response)
         {
 
         }

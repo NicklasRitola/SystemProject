@@ -144,7 +144,7 @@ namespace Shared
     //Spectator
     public class ViewScheduleRequest : Request
     {
-        public int ID;
+        public int Competition_ID;
         public ViewScheduleRequest()
         {
             messageType = "viewschedulerequest";

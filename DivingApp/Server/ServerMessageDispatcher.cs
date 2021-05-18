@@ -186,9 +186,11 @@ namespace Server
             return await responseBuilder.JudgePointResponse(result);
         }
 
-        public async Task DispatchMessage(ViewScheduleRequest request)
+        public async Task<CompetitionScheduleResponse> DispatchMessage(ViewScheduleRequest request)
         {
             Console.WriteLine("View Schedule request received");
+            CompetitionScheduleResponse response = new CompetitionScheduleResponse(database.GetCompetitionDives(request.Competition_ID));
+            return response;
         }
 
         public async Task DispatchMessage(ViewCurrentDiverRequest request)

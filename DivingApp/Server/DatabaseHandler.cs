@@ -331,5 +331,11 @@ namespace Server
         {
             return false;
         }
+
+        public List<CompetitionDive> GetCompetitionDives(int Competition_ID)
+        {
+            //TODO:
+            return null;
+        }
     }
 }

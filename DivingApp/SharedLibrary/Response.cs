@@ -52,34 +52,47 @@ namespace Shared
                 message += " failed.";
         }
     }
-    public class ScheduleResponseItem : Response
+    public class CompetitionDive : Response
     {
-        public string Person { get; set; }
-        public string Current { get; set; }
-        public int Diff { get; set; }
-        public int DiveGroup { get; set; }
-        public int jumpID { get; set; }
-        public int Tower { get; set; }
+        public int DiveId;
+        public float Difficulty;
+        public string Group;
+        public int Tower;
+        public string DiverName;
+        public string Time;
 
-
-        public ScheduleResponseItem()
+        //Dyk i databasen: int ID, float SCORE, float DIFFICULTY, string GROUP, int TOWER,
+        //int COMPETITION_ID, string DIVER_ID, string TIME
+        public CompetitionDive()
         {
-            messageType = "ScheduleResponseItem";
+            messageType = "CompetitionDiveItem";
+        }
+
+        public CompetitionDive(int diveID, float difficulty, string group, int tower, string diverID, string time)
+        {
+            messageType = "CompetitionDiveItem";
+            this.DiveId = diveID;
+            this.Difficulty = difficulty;
+            this.Group = group;
+            this.Tower = tower;
+            this.DiverName = diverID;
+            this.Time = time;
         }
     }
-    public class ScheduleResponse : Response
+    public class CompetitionScheduleResponse : Response
     {
-        public List<ScheduleResponseItem> ScheduleItems;
+        public List<CompetitionDive> ScheduleItems;
 
 
-        public ScheduleResponse()
+        public CompetitionScheduleResponse()
         {
-            ScheduleItems = new List<ScheduleResponseItem>();
+            ScheduleItems = null;
             messageType = "ScheduleResponse";
         }
-        public void AddItem(ScheduleResponseItem Item)
+
+        public CompetitionScheduleResponse(List<CompetitionDive> dives)
         {
-            ScheduleItems.Add(Item);
+            ScheduleItems = dives;
         }
     }
 
