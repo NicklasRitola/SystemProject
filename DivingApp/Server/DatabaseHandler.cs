@@ -237,7 +237,7 @@ namespace Server
         {
             try
             {
-                string query = "insert into Give_Points values (" + data.Dive + "," + data.Point + ",'" + data.Judge + "');";
+                string query = "insert into Give_Points values (" + data.DiveID + "," + data.Point + ",'" + data.Judge + "');";
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 dataReader.Close();

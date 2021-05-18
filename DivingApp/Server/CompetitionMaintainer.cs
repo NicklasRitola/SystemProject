@@ -18,7 +18,7 @@ namespace Server
             this.CompetitionType = database.GetCompetitionType(CompetitionID);
 
         }
-        public void DiveScoreCalculater(int Dive_ID)
+        public void DiveScoreCalculater(int Dive_ID, float difficulty)
         {
             List<int> points = CollectPointsFromJudge(Dive_ID);
             if(points != null)
@@ -30,7 +30,7 @@ namespace Server
                         {
                             if(points.Count == 3) //Should be points from 3 judges 
                             {
-                                DiveScore = CompetitionType_1_Calculation(points);
+                                DiveScore = CompetitionType_1_Calculation(points, difficulty);
                             }
                             break;
                         }
@@ -38,7 +38,7 @@ namespace Server
                         {
                             if (points.Count == 7) //Should be points from 7 judges 
                             {
-                                DiveScore = CompetitionType_2_Calculation(points);
+                                DiveScore = CompetitionType_2_Calculation(points, difficulty);
                             }
                             break;
                         }
@@ -72,13 +72,23 @@ namespace Server
                 return null;
             }
         }
-        private float CompetitionType_1_Calculation(List<int> points)
+        private float CompetitionType_1_Calculation(List<int> points, float difficulty)
         {
-            return 0;
+            points.Sort();
+            points.RemoveAt(2);
+            points.RemoveAt(0);
+            //Middle point * 3 * difficulty
+            return points[0] * 3;
         }
-        private float CompetitionType_2_Calculation(List<int> points)
+        private float CompetitionType_2_Calculation(List<int> points, float difficulty)
         {
-            return 0;
+            //Middle 3 * difficulty
+            points.Sort();
+            points.RemoveAt(6);
+            points.RemoveAt(5);
+            points.RemoveAt(0);
+            points.RemoveAt(0);
+            return (points[0] + points[1] + points[2]) * difficulty;
         }
     }
 

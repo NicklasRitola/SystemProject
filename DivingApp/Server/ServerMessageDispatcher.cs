@@ -69,8 +69,7 @@ namespace Server
                     break;
                 case "viewschedulerequest":
                     ViewScheduleRequest ViewSchReq = JsonConvert.DeserializeObject<ViewScheduleRequest>(JSONString);
-                    //TODO: Implement response for schedule request
-                    //response = await DispatchMessage(ViewSchReq);
+                    response = await DispatchMessage(ViewSchReq);
                     break;
                 case "viewcurrentdiverrequest":
                     ViewCurrentDiverRequest ViewCurrDiverReq = JsonConvert.DeserializeObject<ViewCurrentDiverRequest>(JSONString);
@@ -91,6 +90,11 @@ namespace Server
             return response;
         }
 
+        public T Deserialize<T>(T request, string JSONString)
+        {
+            T req = JsonConvert.DeserializeObject<T>(JSONString);
+            return req;
+        }
 
         public async Task<TestResponse> DispatchMessage(TestRequest request)
         {
@@ -193,7 +197,7 @@ namespace Server
             {
                 //Successfully registered 
                 CompetitionMaintainer CM = new CompetitionMaintainer(request.In_Competition, database);
-                CM.DiveScoreCalculater(request.Dive); //Tries to calculate dive score
+                CM.DiveScoreCalculater(request.DiveID, database.GetDiveDifficulty(request.DiveID)); //Tries to calculate dive score
             }
             return await responseBuilder.JudgePointResponse(result);
         }

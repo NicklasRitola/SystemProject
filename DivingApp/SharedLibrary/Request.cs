@@ -133,7 +133,7 @@ namespace Shared
     //Judge
     public class JudgePointRequest : Request
     {
-        public int Dive;
+        public int DiveID;
         public int Point;
         public string Judge;
         public int In_Competition;
