@@ -76,6 +76,7 @@ namespace Shared
         public string Gender;
         public int Age;
         public int Team;
+        public string Password;
         public RegisterDiverRequest()
         {
             messageType = "registerdiverrequest";
@@ -90,6 +91,7 @@ namespace Shared
         public int In_Competition;
         public string Diver;
         public string DiveGroup;
+        public string Date;
         public RegisterDiveRequest()
         {
             messageType = "registerdiverequest";

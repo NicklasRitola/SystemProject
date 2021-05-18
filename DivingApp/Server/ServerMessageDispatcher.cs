@@ -119,8 +119,20 @@ namespace Server
 
         public async Task<ResultResponse> DispatchMessage(RegisterDiverRequest request)
         {
+            //TODO: Add so that password get sent to the database also and gets return
             Console.WriteLine("Register Diver request received");
-            return await responseBuilder.RegisterDiverResponse(database.RegisterDiverInDatabase(request));
+            bool dataRegistered = false;
+            bool passwordRegistered = false;
+            if (database.RegisterDiverInDatabase(request)) // Data
+            {
+                dataRegistered = true;
+            }
+            if (dataRegistered && password_database.RegisterDiverInDatabase(request)) // Password
+            {
+                passwordRegistered = true;
+            }
+            
+            return await responseBuilder.RegisterDiverResponse(dataRegistered, passwordRegistered);
         } 
 
         public async Task<ResultResponse> DispatchMessage(RegisterDiveRequest request)
@@ -145,7 +157,7 @@ namespace Server
                 //Registration succeeded
                 dataRegistered = true;
             }
-            if (password_database.RegisterJudgeInDatabase(request)) //Password
+            if (dataRegistered && password_database.RegisterJudgeInDatabase(request)) //Password
             {
                 //Registration succeeded
                 passwordRegistered = true;
@@ -164,7 +176,7 @@ namespace Server
                 //Registration succeeded
                 dataRegistered = true;
             }
-            if (password_database.RegisterAdminInDatabase(request)) //Password
+            if (dataRegistered && password_database.RegisterAdminInDatabase(request)) //Password
             {
                 //Registration succeeded
                 passwordRegistered = true;

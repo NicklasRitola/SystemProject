@@ -50,33 +50,46 @@ namespace ClientUI
         }
         private async void RegisterProfile_Click(object sender, EventArgs e)
         {
-            RegisterDiverRequest request = new RegisterDiverRequest();
-            request.FirstName = textBoxFirst.Text;
-            request.Surname = textBoxSur.Text;
-            request.Age = Int32.Parse(textBoxAge.Text);
-            request.Team = Int32.Parse(textBoxTeam.Text);
-            request.Gender = checkGender;
-            // = textBoxUsername.Text;
-            // = textBoxPassword.Text;
+            //Check to see that all required field are filled
+            List<string> NoEmptyFields = new List<String>();
+            if(textBoxTeam.Text == ""){ NoEmptyFields.Add("Team ID"); }
+            if(textBoxFirst.Text == ""){ NoEmptyFields.Add("First name"); }
+            if(textBoxSur.Text == ""){ NoEmptyFields.Add("Surname"); }
+            if(textBoxAge.Text == ""){ NoEmptyFields.Add("Age"); }
+            if(checkBoxMale.Checked == false && checkBoxFemale.Checked == false){ NoEmptyFields.Add("No gender selected"); }
+            if(textBoxUsername.Text == ""){ NoEmptyFields.Add("Social security number"); }
+            if(textBoxPassword.Text == ""){ NoEmptyFields.Add("Password"); }
+            if(textBoxPassword.Text != "" && textBoxConfirm.Text == "") { NoEmptyFields.Add("Confirm password"); }
+            if(textBoxPassword.Text != textBoxConfirm.Text && textBoxPassword.Text != "") { NoEmptyFields.Add("Password doesn't match"); }
 
-            if (textBoxUsername.Text == "")
+            // Creations of the diver profile 
+            if(NoEmptyFields.Count == 0)
             {
-                MessageBox.Show("Enter a Username");
-            }
-            if (textBoxPassword.Text == "")
-            {
-                MessageBox.Show("Enter a Password");
-            }
-            if (textBoxConfirm.Text != textBoxPassword.Text)
-            {
-                MessageBox.Show("Password does not match!");
-            }
+                RegisterDiverRequest request = new RegisterDiverRequest();
+                request.FirstName = textBoxFirst.Text;
+                request.Surname = textBoxSur.Text;
+                request.Age = Int32.Parse(textBoxAge.Text);
+                request.Team = Int32.Parse(textBoxTeam.Text);
+                request.Gender = checkGender;
+                request.SSN = textBoxUsername.Text;
+                request.Password = textBoxPassword.Text;
 
-            await channel.SendAsync(request);
-            JObject response = await channel.ReceiveResponse();
-            //string JSONString = JsonConvert.SerializeObject(response);
-            //ResultResponse testReq = JsonConvert.DeserializeObject<ResultResponse>(JSONString);
-            ShowMessage(response.Value<string>("message"), "Registration result");
+                await channel.SendAsync(request);
+                JObject response = await channel.ReceiveResponse();
+                //string JSONString = JsonConvert.SerializeObject(response);
+                //ResultResponse testReq = JsonConvert.DeserializeObject<ResultResponse>(JSONString);
+                ShowMessage(response.Value<string>("message"), "Registration result");
+            }
+            else
+            {
+                string output = "";
+                for (int i = 0; i < NoEmptyFields.Count; i++)
+                {
+                    output += ("- " + NoEmptyFields[i] + "\n");
+                }
+                MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            NoEmptyFields.Clear();
         }
 
         private void textBoxDifficulty_TextChanged(object sender, EventArgs e)

@@ -48,5 +48,11 @@ namespace ClientUI
             CreateLogin createLoginForm = new CreateLogin(channel);
             OpenForm(createLoginForm, this);
         }
+
+        private void buttonCreateTeam_Click(object sender, EventArgs e)
+        {
+            CreateTeam createTeamForm = new CreateTeam(channel);
+            OpenForm(createTeamForm, this);
+        }
     }
 }

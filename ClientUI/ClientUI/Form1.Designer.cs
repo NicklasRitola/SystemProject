@@ -38,9 +38,10 @@ namespace ClientUI
             // 
             // Administrator
             // 
-            this.Administrator.Location = new System.Drawing.Point(336, 182);
+            this.Administrator.Location = new System.Drawing.Point(384, 243);
+            this.Administrator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Administrator.Name = "Administrator";
-            this.Administrator.Size = new System.Drawing.Size(136, 54);
+            this.Administrator.Size = new System.Drawing.Size(155, 72);
             this.Administrator.TabIndex = 1;
             this.Administrator.Text = "Administrator";
             this.Administrator.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@ namespace ClientUI
             // 
             // Diver
             // 
-            this.Diver.Location = new System.Drawing.Point(477, 182);
+            this.Diver.Location = new System.Drawing.Point(545, 243);
+            this.Diver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Diver.Name = "Diver";
-            this.Diver.Size = new System.Drawing.Size(136, 54);
+            this.Diver.Size = new System.Drawing.Size(155, 72);
             this.Diver.TabIndex = 2;
             this.Diver.Text = "Diver";
             this.Diver.UseVisualStyleBackColor = true;
@@ -58,9 +60,10 @@ namespace ClientUI
             // 
             // Spectator
             // 
-            this.Spectator.Location = new System.Drawing.Point(54, 182);
+            this.Spectator.Location = new System.Drawing.Point(62, 243);
+            this.Spectator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Spectator.Name = "Spectator";
-            this.Spectator.Size = new System.Drawing.Size(136, 54);
+            this.Spectator.Size = new System.Drawing.Size(155, 72);
             this.Spectator.TabIndex = 5;
             this.Spectator.Text = "Spectator";
             this.Spectator.UseVisualStyleBackColor = true;
@@ -68,9 +71,10 @@ namespace ClientUI
             // 
             // Judge
             // 
-            this.Judge.Location = new System.Drawing.Point(195, 182);
+            this.Judge.Location = new System.Drawing.Point(223, 243);
+            this.Judge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Judge.Name = "Judge";
-            this.Judge.Size = new System.Drawing.Size(136, 54);
+            this.Judge.Size = new System.Drawing.Size(155, 72);
             this.Judge.TabIndex = 6;
             this.Judge.Text = "Judge";
             this.Judge.UseVisualStyleBackColor = true;
@@ -78,25 +82,27 @@ namespace ClientUI
             // 
             // CreateDiver
             // 
-            this.CreateDiver.Location = new System.Drawing.Point(619, 182);
+            this.CreateDiver.Location = new System.Drawing.Point(707, 243);
+            this.CreateDiver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreateDiver.Name = "CreateDiver";
-            this.CreateDiver.Size = new System.Drawing.Size(136, 54);
+            this.CreateDiver.Size = new System.Drawing.Size(155, 72);
             this.CreateDiver.TabIndex = 7;
-            this.CreateDiver.Text = "Create a dive profile";
+            this.CreateDiver.Text = "Create a diver profile";
             this.CreateDiver.UseVisualStyleBackColor = true;
             this.CreateDiver.Click += new System.EventHandler(this.CreateDiver_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 600);
             this.Controls.Add(this.CreateDiver);
             this.Controls.Add(this.Judge);
             this.Controls.Add(this.Spectator);
             this.Controls.Add(this.Diver);
             this.Controls.Add(this.Administrator);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Swimming competition";

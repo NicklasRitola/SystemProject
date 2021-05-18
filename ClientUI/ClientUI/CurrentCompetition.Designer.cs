@@ -38,13 +38,16 @@ namespace ClientUI
             this.label3 = new System.Windows.Forms.Label();
             this.labelCurrentDiver = new System.Windows.Forms.Label();
             this.labelNextDiver = new System.Windows.Forms.Label();
+            this.textBoxCurrentDiver = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // AdminMenu
             // 
-            this.AdminMenu.Location = new System.Drawing.Point(12, 12);
+            this.AdminMenu.Location = new System.Drawing.Point(14, 16);
+            this.AdminMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdminMenu.Name = "AdminMenu";
-            this.AdminMenu.Size = new System.Drawing.Size(86, 35);
+            this.AdminMenu.Size = new System.Drawing.Size(98, 47);
             this.AdminMenu.TabIndex = 32;
             this.AdminMenu.Text = "Admin Menu";
             this.AdminMenu.UseVisualStyleBackColor = true;
@@ -52,9 +55,10 @@ namespace ClientUI
             // 
             // ButtonSelectComp
             // 
-            this.ButtonSelectComp.Location = new System.Drawing.Point(131, 63);
+            this.ButtonSelectComp.Location = new System.Drawing.Point(123, 84);
+            this.ButtonSelectComp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtonSelectComp.Name = "ButtonSelectComp";
-            this.ButtonSelectComp.Size = new System.Drawing.Size(136, 54);
+            this.ButtonSelectComp.Size = new System.Drawing.Size(155, 72);
             this.ButtonSelectComp.TabIndex = 38;
             this.ButtonSelectComp.Text = "Select Competition";
             this.ButtonSelectComp.UseVisualStyleBackColor = true;
@@ -62,9 +66,10 @@ namespace ClientUI
             // 
             // buttonNextDive
             // 
-            this.buttonNextDive.Location = new System.Drawing.Point(131, 147);
+            this.buttonNextDive.Location = new System.Drawing.Point(123, 196);
+            this.buttonNextDive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonNextDive.Name = "buttonNextDive";
-            this.buttonNextDive.Size = new System.Drawing.Size(136, 54);
+            this.buttonNextDive.Size = new System.Drawing.Size(155, 72);
             this.buttonNextDive.TabIndex = 37;
             this.buttonNextDive.Text = "Next Diver";
             this.buttonNextDive.UseVisualStyleBackColor = true;
@@ -72,60 +77,84 @@ namespace ClientUI
             // 
             // textBoxCompID
             // 
-            this.textBoxCompID.Location = new System.Drawing.Point(377, 79);
+            this.textBoxCompID.Location = new System.Drawing.Point(455, 108);
+            this.textBoxCompID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxCompID.Name = "textBoxCompID";
-            this.textBoxCompID.Size = new System.Drawing.Size(100, 23);
+            this.textBoxCompID.Size = new System.Drawing.Size(114, 27);
             this.textBoxCompID.TabIndex = 39;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(283, 83);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(340, 111);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 15);
+            this.label1.Size = new System.Drawing.Size(114, 20);
             this.label1.TabIndex = 40;
             this.label1.Text = "Competition ID:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(283, 147);
+            this.label2.Location = new System.Drawing.Point(355, 199);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 15);
+            this.label2.Size = new System.Drawing.Size(99, 20);
             this.label2.TabIndex = 41;
             this.label2.Text = "Current Diver:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(283, 186);
+            this.label3.Location = new System.Drawing.Point(372, 251);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 15);
+            this.label3.Size = new System.Drawing.Size(82, 20);
             this.label3.TabIndex = 42;
             this.label3.Text = "Next Diver:";
             // 
             // labelCurrentDiver
             // 
             this.labelCurrentDiver.AutoSize = true;
-            this.labelCurrentDiver.Location = new System.Drawing.Point(369, 147);
+            this.labelCurrentDiver.Location = new System.Drawing.Point(446, 199);
             this.labelCurrentDiver.Name = "labelCurrentDiver";
-            this.labelCurrentDiver.Size = new System.Drawing.Size(0, 15);
+            this.labelCurrentDiver.Size = new System.Drawing.Size(0, 20);
             this.labelCurrentDiver.TabIndex = 43;
             // 
             // labelNextDiver
             // 
             this.labelNextDiver.AutoSize = true;
-            this.labelNextDiver.Location = new System.Drawing.Point(369, 186);
+            this.labelNextDiver.Location = new System.Drawing.Point(446, 251);
             this.labelNextDiver.Name = "labelNextDiver";
-            this.labelNextDiver.Size = new System.Drawing.Size(0, 15);
+            this.labelNextDiver.Size = new System.Drawing.Size(0, 20);
             this.labelNextDiver.TabIndex = 44;
+            // 
+            // textBoxCurrentDiver
+            // 
+            this.textBoxCurrentDiver.Enabled = false;
+            this.textBoxCurrentDiver.Location = new System.Drawing.Point(455, 196);
+            this.textBoxCurrentDiver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxCurrentDiver.Name = "textBoxCurrentDiver";
+            this.textBoxCurrentDiver.ReadOnly = true;
+            this.textBoxCurrentDiver.Size = new System.Drawing.Size(114, 27);
+            this.textBoxCurrentDiver.TabIndex = 45;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(455, 251);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(114, 27);
+            this.textBox1.TabIndex = 46;
             // 
             // CurrentCompetition
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(623, 249);
+            this.ClientSize = new System.Drawing.Size(712, 332);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxCurrentDiver);
             this.Controls.Add(this.labelNextDiver);
             this.Controls.Add(this.labelCurrentDiver);
             this.Controls.Add(this.label3);
@@ -135,6 +164,7 @@ namespace ClientUI
             this.Controls.Add(this.ButtonSelectComp);
             this.Controls.Add(this.buttonNextDive);
             this.Controls.Add(this.AdminMenu);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CurrentCompetition";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CurrentCompetition";
@@ -154,5 +184,7 @@ namespace ClientUI
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelCurrentDiver;
         private System.Windows.Forms.Label labelNextDiver;
+        private System.Windows.Forms.TextBox textBoxCurrentDiver;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

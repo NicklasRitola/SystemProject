@@ -54,7 +54,7 @@ namespace ClientUI
             // Gender
             // 
             this.Gender.AutoSize = true;
-            this.Gender.Location = new System.Drawing.Point(240, 224);
+            this.Gender.Location = new System.Drawing.Point(124, 224);
             this.Gender.Name = "Gender";
             this.Gender.Size = new System.Drawing.Size(60, 20);
             this.Gender.TabIndex = 23;
@@ -62,7 +62,7 @@ namespace ClientUI
             // 
             // textBoxFirst
             // 
-            this.textBoxFirst.Location = new System.Drawing.Point(363, 104);
+            this.textBoxFirst.Location = new System.Drawing.Point(247, 104);
             this.textBoxFirst.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxFirst.Name = "textBoxFirst";
             this.textBoxFirst.Size = new System.Drawing.Size(313, 27);
@@ -71,7 +71,7 @@ namespace ClientUI
             // labelAge
             // 
             this.labelAge.AutoSize = true;
-            this.labelAge.Location = new System.Drawing.Point(240, 185);
+            this.labelAge.Location = new System.Drawing.Point(124, 185);
             this.labelAge.Name = "labelAge";
             this.labelAge.Size = new System.Drawing.Size(39, 20);
             this.labelAge.TabIndex = 21;
@@ -80,7 +80,7 @@ namespace ClientUI
             // 
             // textBoxAge
             // 
-            this.textBoxAge.Location = new System.Drawing.Point(363, 181);
+            this.textBoxAge.Location = new System.Drawing.Point(247, 181);
             this.textBoxAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(313, 27);
@@ -90,7 +90,7 @@ namespace ClientUI
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(240, 108);
+            this.labelName.Location = new System.Drawing.Point(124, 108);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(80, 20);
             this.labelName.TabIndex = 19;
@@ -99,7 +99,7 @@ namespace ClientUI
             // labelSur
             // 
             this.labelSur.AutoSize = true;
-            this.labelSur.Location = new System.Drawing.Point(240, 147);
+            this.labelSur.Location = new System.Drawing.Point(124, 147);
             this.labelSur.Name = "labelSur";
             this.labelSur.Size = new System.Drawing.Size(70, 20);
             this.labelSur.TabIndex = 18;
@@ -107,7 +107,7 @@ namespace ClientUI
             // 
             // textBoxSur
             // 
-            this.textBoxSur.Location = new System.Drawing.Point(363, 143);
+            this.textBoxSur.Location = new System.Drawing.Point(247, 143);
             this.textBoxSur.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxSur.Name = "textBoxSur";
             this.textBoxSur.Size = new System.Drawing.Size(313, 27);
@@ -115,7 +115,7 @@ namespace ClientUI
             // 
             // RegisterProfile
             // 
-            this.RegisterProfile.Location = new System.Drawing.Point(35, 120);
+            this.RegisterProfile.Location = new System.Drawing.Point(825, 198);
             this.RegisterProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RegisterProfile.Name = "RegisterProfile";
             this.RegisterProfile.Size = new System.Drawing.Size(155, 72);
@@ -127,7 +127,7 @@ namespace ClientUI
             // checkBoxMale
             // 
             this.checkBoxMale.AutoSize = true;
-            this.checkBoxMale.Location = new System.Drawing.Point(411, 224);
+            this.checkBoxMale.Location = new System.Drawing.Point(295, 224);
             this.checkBoxMale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxMale.Name = "checkBoxMale";
             this.checkBoxMale.Size = new System.Drawing.Size(64, 24);
@@ -139,7 +139,7 @@ namespace ClientUI
             // checkBoxFemale
             // 
             this.checkBoxFemale.AutoSize = true;
-            this.checkBoxFemale.Location = new System.Drawing.Point(543, 224);
+            this.checkBoxFemale.Location = new System.Drawing.Point(427, 224);
             this.checkBoxFemale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxFemale.Name = "checkBoxFemale";
             this.checkBoxFemale.Size = new System.Drawing.Size(79, 24);
@@ -150,7 +150,7 @@ namespace ClientUI
             // 
             // textBoxTeam
             // 
-            this.textBoxTeam.Location = new System.Drawing.Point(363, 65);
+            this.textBoxTeam.Location = new System.Drawing.Point(247, 65);
             this.textBoxTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxTeam.Name = "textBoxTeam";
             this.textBoxTeam.Size = new System.Drawing.Size(313, 27);
@@ -159,17 +159,17 @@ namespace ClientUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(240, 69);
+            this.label1.Location = new System.Drawing.Point(124, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 27;
-            this.label1.Text = "Team:";
+            this.label1.Text = "Team ID:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ErrorMessages
             // 
             this.ErrorMessages.AutoSize = true;
-            this.ErrorMessages.Location = new System.Drawing.Point(271, 272);
+            this.ErrorMessages.Location = new System.Drawing.Point(155, 272);
             this.ErrorMessages.Name = "ErrorMessages";
             this.ErrorMessages.Size = new System.Drawing.Size(0, 20);
             this.ErrorMessages.TabIndex = 28;
@@ -179,7 +179,7 @@ namespace ClientUI
             this.buttonMainMenu.Location = new System.Drawing.Point(14, 16);
             this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
-            this.buttonMainMenu.Size = new System.Drawing.Size(87, 29);
+            this.buttonMainMenu.Size = new System.Drawing.Size(87, 50);
             this.buttonMainMenu.TabIndex = 29;
             this.buttonMainMenu.Text = "Main Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
@@ -187,16 +187,17 @@ namespace ClientUI
             // 
             // textBoxConfirm
             // 
-            this.textBoxConfirm.Location = new System.Drawing.Point(867, 143);
+            this.textBoxConfirm.Location = new System.Drawing.Point(751, 143);
             this.textBoxConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxConfirm.Name = "textBoxConfirm";
+            this.textBoxConfirm.PasswordChar = '*';
             this.textBoxConfirm.Size = new System.Drawing.Size(313, 27);
             this.textBoxConfirm.TabIndex = 52;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(743, 147);
+            this.label2.Location = new System.Drawing.Point(627, 147);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 20);
             this.label2.TabIndex = 51;
@@ -205,7 +206,7 @@ namespace ClientUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(699, 68);
+            this.label3.Location = new System.Drawing.Point(583, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(163, 20);
             this.label3.TabIndex = 50;
@@ -213,7 +214,7 @@ namespace ClientUI
             // 
             // textBoxUsername
             // 
-            this.textBoxUsername.Location = new System.Drawing.Point(868, 65);
+            this.textBoxUsername.Location = new System.Drawing.Point(752, 65);
             this.textBoxUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.PlaceholderText = "123456-0000";
@@ -223,16 +224,17 @@ namespace ClientUI
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(867, 104);
+            this.textBoxPassword.Location = new System.Drawing.Point(751, 104);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(313, 27);
             this.textBoxPassword.TabIndex = 48;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(744, 108);
+            this.label4.Location = new System.Drawing.Point(628, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 20);
             this.label4.TabIndex = 47;
@@ -243,7 +245,7 @@ namespace ClientUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1223, 320);
+            this.ClientSize = new System.Drawing.Size(1116, 320);
             this.Controls.Add(this.textBoxConfirm);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
