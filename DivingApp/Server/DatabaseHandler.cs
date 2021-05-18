@@ -126,6 +126,23 @@ namespace Server
                 return false;
             }
         }
+        public bool CreateScheduleInDatabase(CreateScheduleRequest data)
+        {
+            try
+            {
+                string query = "insert into Schedule values (" + data.CompetitionID + "," + data.DiveID + "," + data.DiverID + "," + data.count + "); ";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database - Competition has been created");
+                return true;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("Error - " + err);
+                return false;
+            }
+        }
         public bool RegisterDiverInDatabase(RegisterDiverRequest data)
         {
             try
