@@ -137,17 +137,17 @@ namespace Server
         {
             bool dataRegistered = false;
             bool passwordRegistered = false;
-            //Fill in with admin database registration as done with RegisterJudge
-            //if ()) //Data
-            //{
-            //    //Registration succeeded
-            //    dataRegistered = true;
-            //}
-            //if () //Password
-            //{
-            //    //Registration succeeded
-            //    passwordRegistered = true;
-            //}
+            //TODO: Fill in with admin database registration as done with RegisterJudge
+            if (database.RegisterAdminInDatabase(request)) //Data
+            {
+                //Registration succeeded
+                dataRegistered = true;
+            }
+            if (password_database.RegisterAdminInDatabase(request)) //Password
+            {
+                //Registration succeeded
+                passwordRegistered = true;
+            }
             return await responseBuilder.RegisterAdminResponse(dataRegistered, passwordRegistered);
         }
         public async Task<ResultResponse> DispatchMessage(JudgePointRequest request)
