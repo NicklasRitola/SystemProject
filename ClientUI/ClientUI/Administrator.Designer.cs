@@ -35,6 +35,7 @@ namespace ClientUI
             this.nextDive = new System.Windows.Forms.Button();
             this.buttonCreateProfile = new System.Windows.Forms.Button();
             this.buttonCreateTeam = new System.Windows.Forms.Button();
+            this.buttonRegisterDive = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonMainMenu
@@ -61,13 +62,14 @@ namespace ClientUI
             // 
             // CreateSchedule
             // 
+            this.CreateSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.CreateSchedule.Location = new System.Drawing.Point(33, 92);
             this.CreateSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreateSchedule.Name = "CreateSchedule";
             this.CreateSchedule.Size = new System.Drawing.Size(155, 72);
             this.CreateSchedule.TabIndex = 34;
             this.CreateSchedule.Text = "Create Schedule";
-            this.CreateSchedule.UseVisualStyleBackColor = true;
+            this.CreateSchedule.UseVisualStyleBackColor = false;
             this.CreateSchedule.Click += new System.EventHandler(this.CreateSchedule_Click);
             // 
             // nextDive
@@ -83,7 +85,7 @@ namespace ClientUI
             // 
             // buttonCreateProfile
             // 
-            this.buttonCreateProfile.Location = new System.Drawing.Point(109, 172);
+            this.buttonCreateProfile.Location = new System.Drawing.Point(33, 172);
             this.buttonCreateProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCreateProfile.Name = "buttonCreateProfile";
             this.buttonCreateProfile.Size = new System.Drawing.Size(155, 72);
@@ -94,7 +96,7 @@ namespace ClientUI
             // 
             // buttonCreateTeam
             // 
-            this.buttonCreateTeam.Location = new System.Drawing.Point(270, 172);
+            this.buttonCreateTeam.Location = new System.Drawing.Point(194, 172);
             this.buttonCreateTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCreateTeam.Name = "buttonCreateTeam";
             this.buttonCreateTeam.Size = new System.Drawing.Size(155, 72);
@@ -103,12 +105,24 @@ namespace ClientUI
             this.buttonCreateTeam.UseVisualStyleBackColor = true;
             this.buttonCreateTeam.Click += new System.EventHandler(this.buttonCreateTeam_Click);
             // 
+            // buttonRegisterDive
+            // 
+            this.buttonRegisterDive.Location = new System.Drawing.Point(356, 172);
+            this.buttonRegisterDive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonRegisterDive.Name = "buttonRegisterDive";
+            this.buttonRegisterDive.Size = new System.Drawing.Size(155, 72);
+            this.buttonRegisterDive.TabIndex = 38;
+            this.buttonRegisterDive.Text = "Register dive";
+            this.buttonRegisterDive.UseVisualStyleBackColor = true;
+            this.buttonRegisterDive.Click += new System.EventHandler(this.buttonRegisterDive_Click);
+            // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(559, 288);
+            this.Controls.Add(this.buttonRegisterDive);
             this.Controls.Add(this.buttonCreateTeam);
             this.Controls.Add(this.buttonCreateProfile);
             this.Controls.Add(this.CreateCompetition);
@@ -131,5 +145,6 @@ namespace ClientUI
         private System.Windows.Forms.Button nextDive;
         private System.Windows.Forms.Button buttonCreateProfile;
         private System.Windows.Forms.Button buttonCreateTeam;
+        private System.Windows.Forms.Button buttonRegisterDive;
     }
 }

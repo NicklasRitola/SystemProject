@@ -22,7 +22,9 @@ namespace TestClient
 
             await ConnectToServer();
 
-            TestRequest request = new TestRequest();
+            //TestRequest request = new TestRequest();
+            ViewScheduleRequest request = new ViewScheduleRequest();
+            request.Competition_ID = 5;
             await channel.SendAsync(request);
 
             Console.ReadLine();

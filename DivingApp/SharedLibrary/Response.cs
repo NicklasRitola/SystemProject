@@ -59,6 +59,7 @@ namespace Shared
         public string Group;
         public int Tower;
         public string DiverName;
+        public string DiverSSN;
         public string Time;
 
         //Dyk i databasen: int ID, float SCORE, float DIFFICULTY, string GROUP, int TOWER,

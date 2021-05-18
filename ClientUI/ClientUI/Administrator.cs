@@ -54,5 +54,11 @@ namespace ClientUI
             CreateTeam createTeamForm = new CreateTeam(channel);
             OpenForm(createTeamForm, this);
         }
+
+        private void buttonRegisterDive_Click(object sender, EventArgs e)
+        {
+            Diver diverForm = new Diver(channel);
+            OpenForm(diverForm, this);
+        }
     }
 }

@@ -43,9 +43,10 @@ namespace ClientUI
             // 
             // AdminMenu
             // 
-            this.AdminMenu.Location = new System.Drawing.Point(12, 12);
+            this.AdminMenu.Location = new System.Drawing.Point(14, 16);
+            this.AdminMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdminMenu.Name = "AdminMenu";
-            this.AdminMenu.Size = new System.Drawing.Size(86, 35);
+            this.AdminMenu.Size = new System.Drawing.Size(98, 47);
             this.AdminMenu.TabIndex = 32;
             this.AdminMenu.Text = "Admin Menu";
             this.AdminMenu.UseVisualStyleBackColor = true;
@@ -53,9 +54,10 @@ namespace ClientUI
             // 
             // buttonChoseComp
             // 
-            this.buttonChoseComp.Location = new System.Drawing.Point(129, 12);
+            this.buttonChoseComp.Location = new System.Drawing.Point(147, 16);
+            this.buttonChoseComp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonChoseComp.Name = "buttonChoseComp";
-            this.buttonChoseComp.Size = new System.Drawing.Size(88, 46);
+            this.buttonChoseComp.Size = new System.Drawing.Size(101, 61);
             this.buttonChoseComp.TabIndex = 33;
             this.buttonChoseComp.Text = "Chose Competiton";
             this.buttonChoseComp.UseVisualStyleBackColor = true;
@@ -63,30 +65,34 @@ namespace ClientUI
             // 
             // textBoxChoseCompID
             // 
-            this.textBoxChoseCompID.Location = new System.Drawing.Point(317, 24);
+            this.textBoxChoseCompID.Location = new System.Drawing.Point(378, 33);
+            this.textBoxChoseCompID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxChoseCompID.Name = "textBoxChoseCompID";
-            this.textBoxChoseCompID.Size = new System.Drawing.Size(100, 23);
+            this.textBoxChoseCompID.Size = new System.Drawing.Size(114, 27);
             this.textBoxChoseCompID.TabIndex = 34;
             // 
             // textBoxDiverID
             // 
-            this.textBoxDiverID.Location = new System.Drawing.Point(317, 104);
+            this.textBoxDiverID.Location = new System.Drawing.Point(378, 140);
+            this.textBoxDiverID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDiverID.Name = "textBoxDiverID";
-            this.textBoxDiverID.Size = new System.Drawing.Size(100, 23);
+            this.textBoxDiverID.Size = new System.Drawing.Size(114, 27);
             this.textBoxDiverID.TabIndex = 35;
             // 
             // textBoxDiveID
             // 
-            this.textBoxDiveID.Location = new System.Drawing.Point(317, 133);
+            this.textBoxDiveID.Location = new System.Drawing.Point(378, 178);
+            this.textBoxDiveID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDiveID.Name = "textBoxDiveID";
-            this.textBoxDiveID.Size = new System.Drawing.Size(100, 23);
+            this.textBoxDiveID.Size = new System.Drawing.Size(114, 27);
             this.textBoxDiveID.TabIndex = 36;
             // 
             // buttonInsert
             // 
-            this.buttonInsert.Location = new System.Drawing.Point(129, 104);
+            this.buttonInsert.Location = new System.Drawing.Point(147, 139);
+            this.buttonInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonInsert.Name = "buttonInsert";
-            this.buttonInsert.Size = new System.Drawing.Size(88, 46);
+            this.buttonInsert.Size = new System.Drawing.Size(101, 61);
             this.buttonInsert.TabIndex = 37;
             this.buttonInsert.Text = "Insert";
             this.buttonInsert.UseVisualStyleBackColor = true;
@@ -95,45 +101,45 @@ namespace ClientUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(254, 27);
+            this.label1.Location = new System.Drawing.Point(260, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 15);
+            this.label1.Size = new System.Drawing.Size(114, 20);
             this.label1.TabIndex = 38;
-            this.label1.Text = "Chose ID:";
+            this.label1.Text = "Competition ID:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(260, 107);
+            this.label2.Location = new System.Drawing.Point(313, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 15);
+            this.label2.Size = new System.Drawing.Size(66, 20);
             this.label2.TabIndex = 39;
             this.label2.Text = "Diver ID:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(260, 136);
+            this.label3.Location = new System.Drawing.Point(313, 182);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 15);
+            this.label3.Size = new System.Drawing.Size(61, 20);
             this.label3.TabIndex = 40;
             this.label3.Text = "Dive ID:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(254, 71);
+            this.label4.Location = new System.Drawing.Point(274, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(256, 15);
+            this.label4.Size = new System.Drawing.Size(323, 20);
             this.label4.TabIndex = 41;
             this.label4.Text = "Insert ID in the wished order of the competition";
             // 
             // CreateSchedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(539, 181);
+            this.ClientSize = new System.Drawing.Size(641, 241);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -144,6 +150,7 @@ namespace ClientUI
             this.Controls.Add(this.textBoxChoseCompID);
             this.Controls.Add(this.buttonChoseComp);
             this.Controls.Add(this.AdminMenu);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CreateSchedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateSchedule";
