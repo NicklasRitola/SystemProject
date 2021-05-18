@@ -19,11 +19,6 @@ namespace ClientUI
             this.channel = channel;
         }
 
-        private void ShowMessage(String caption, String body)
-        {
-            MessageBox.Show(caption, body, MessageBoxButtons.OK);
-        }
-
         private void labelDifficulty_Click(object sender, EventArgs e)
         {
 
@@ -35,7 +30,8 @@ namespace ClientUI
 
         }
         private void checkCounterFunction(object sender, EventArgs e)
-        {// Increase or decrease the check counter
+        {
+            // Increase or decrease the check counter
             CheckBox box = (CheckBox)sender;
             if (box.Checked)
                 checkCounter++;
@@ -76,8 +72,6 @@ namespace ClientUI
 
                 await channel.SendAsync(request);
                 JObject response = await channel.ReceiveResponse();
-                //string JSONString = JsonConvert.SerializeObject(response);
-                //ResultResponse testReq = JsonConvert.DeserializeObject<ResultResponse>(JSONString);
                 ShowMessage(response.Value<string>("message"), "Registration result");
             }
             else
@@ -101,7 +95,6 @@ namespace ClientUI
         {
             Form1 form1Form = new Form1(channel);
             OpenForm(form1Form, this);
-
         }
 
         private void checkBoxMale_CheckedChanged(object sender, EventArgs e)

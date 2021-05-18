@@ -135,7 +135,6 @@ namespace Server
 
         public async Task<ResultResponse> DispatchMessage(RegisterDiverRequest request)
         {
-            //TODO: Add so that password get sent to the database also and gets return
             Console.WriteLine("Register Diver request received");
             bool dataRegistered = false;
             bool passwordRegistered = false;
@@ -186,7 +185,6 @@ namespace Server
             Console.WriteLine("Register Admin request received");
             bool dataRegistered = false;
             bool passwordRegistered = false;
-            //TODO: Fill in with admin database registration as done with RegisterJudge
             if (database.RegisterAdminInDatabase(request)) //Data
             {
                 //Registration succeeded
@@ -203,7 +201,6 @@ namespace Server
         public async Task<ResultResponse> DispatchMessage(JudgePointRequest request)
         {
             Console.WriteLine("Judge point registration request received");
-            //TODO: Calculate score, and register, store result in "result" boolean
             bool result = false;
             if (database.SendJudgePointToDatabase(request))
             {
