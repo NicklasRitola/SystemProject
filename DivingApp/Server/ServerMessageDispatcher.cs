@@ -41,9 +41,9 @@ namespace Server
                     break;
                 case "nextdiverrequest":
                     NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
-                    if(AdminsDiveOrder.Count == 0)
+                    List<CompetitionDive> schedule = database.GetCompetitionDives(NexDivReq.CompetitionID);
+                    if (AdminsDiveOrder.Count == 0 && schedule != null)
                     {
-                        List<CompetitionDive> schedule = database.GetCompetitionDives(NexDivReq.CompetitionID);
                         foreach (var dive in schedule)
                         {
                             AdminsDiveOrder.Add(dive.DiveId);
