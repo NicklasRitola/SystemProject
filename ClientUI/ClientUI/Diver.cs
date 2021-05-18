@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Shared;
 
 namespace ClientUI
 {
@@ -31,12 +34,19 @@ namespace ClientUI
 
         }
 
-        private void RegisterDive_Click(object sender, EventArgs e)
+        private async void RegisterDive_Click(object sender, EventArgs e)
         {
-            string diverCopmetition = textBoxComp.Text;
-            string diverGroup = textBoxDiveGrp.Text;
-            string diverDifficulty = textBoxDifficulty.Text;
-            string diverTower = textBoxTower.Text;
+            RegisterDiveRequest request = new RegisterDiveRequest();
+            request.Dive_ID = int.Parse(textBoxID.Text);
+            request.Difficulty = int.Parse(textBoxDifficulty.Text);
+            request.In_Competition = int.Parse(textBoxComp.Text);
+            request.Tower = int.Parse(textBoxTower.Text);
+            request.DiveGroup = textBoxDiveGrp.Text;
+
+            await channel.SendAsync(request);
+            JObject response = await channel.ReceiveResponse();
+            MessageBox.Show(response.Value<string>("message"), "Registration result", MessageBoxButtons.OK);
+
         }
 
         private void buttonMainMenu_Click(object sender, EventArgs e)

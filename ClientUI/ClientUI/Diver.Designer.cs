@@ -39,6 +39,8 @@ namespace ClientUI
             this.textBoxComp = new System.Windows.Forms.TextBox();
             this.labelTower = new System.Windows.Forms.Label();
             this.buttonMainMenu = new System.Windows.Forms.Button();
+            this.textBoxID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // RegisterDive
@@ -127,12 +129,30 @@ namespace ClientUI
             this.buttonMainMenu.UseVisualStyleBackColor = true;
             this.buttonMainMenu.Click += new System.EventHandler(this.buttonMainMenu_Click);
             // 
+            // textBoxID
+            // 
+            this.textBoxID.Location = new System.Drawing.Point(321, 24);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(274, 23);
+            this.textBoxID.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(213, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 15);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "ID:";
+            // 
             // Diver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(642, 229);
+            this.Controls.Add(this.textBoxID);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonMainMenu);
             this.Controls.Add(this.labelTower);
             this.Controls.Add(this.textBoxComp);
@@ -164,5 +184,7 @@ namespace ClientUI
         private System.Windows.Forms.TextBox textBoxComp;
         private System.Windows.Forms.Label labelTower;
         private System.Windows.Forms.Button buttonMainMenu;
+        private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.Label label1;
     }
 }
