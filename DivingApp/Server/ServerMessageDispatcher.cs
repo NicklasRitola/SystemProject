@@ -82,6 +82,11 @@ namespace Server
                     //TODO: Implement response for score table response
                     //response = await DispatchMessage(ViewScoTableReq);
                     break;
+                case "loginrequest":
+                    LoginRequest LoginReq = JsonConvert.DeserializeObject<LoginRequest>(JSONString);
+                    //TODO: Implement response for score table response
+                    //response = await DispatchMessage(ViewScoTableReq);
+                    break;
             }
             return response;
         }
@@ -178,6 +183,14 @@ namespace Server
         }
         public async Task DispatchMessage(ViewScoreTableRequest request)
         {
+            
+        }
+
+        public async Task<LoginResponse> DispatchMessage(LoginRequest request)
+        {
+            //TODO: Sent to databse and check if login is found
+            LoginResponse response = await responseBuilder.LoginResponse(true);
+            return response;
             
         }
     }

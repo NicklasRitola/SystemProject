@@ -39,41 +39,45 @@ namespace ClientUI
             // 
             // Username
             // 
-            this.Username.Location = new System.Drawing.Point(73, 75);
+            this.Username.Location = new System.Drawing.Point(83, 100);
+            this.Username.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(100, 23);
+            this.Username.PlaceholderText = "123456-0000";
+            this.Username.Size = new System.Drawing.Size(114, 27);
             this.Username.TabIndex = 0;
             // 
             // Password
             // 
-            this.Password.Location = new System.Drawing.Point(73, 143);
+            this.Password.Location = new System.Drawing.Point(83, 191);
+            this.Password.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(100, 23);
+            this.Password.Size = new System.Drawing.Size(114, 27);
             this.Password.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 54);
+            this.label1.Location = new System.Drawing.Point(82, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 15);
+            this.label1.Size = new System.Drawing.Size(158, 20);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Username";
+            this.label1.Text = "Social security number";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 122);
+            this.label2.Location = new System.Drawing.Point(81, 174);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 15);
+            this.label2.Size = new System.Drawing.Size(70, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Password";
             // 
             // LoginButton
             // 
-            this.LoginButton.Location = new System.Drawing.Point(85, 201);
+            this.LoginButton.Location = new System.Drawing.Point(97, 268);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(66, 34);
+            this.LoginButton.Size = new System.Drawing.Size(75, 45);
             this.LoginButton.TabIndex = 4;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
@@ -81,9 +85,10 @@ namespace ClientUI
             // 
             // buttonMainMenu
             // 
-            this.buttonMainMenu.Location = new System.Drawing.Point(12, 12);
+            this.buttonMainMenu.Location = new System.Drawing.Point(14, 16);
+            this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
-            this.buttonMainMenu.Size = new System.Drawing.Size(76, 35);
+            this.buttonMainMenu.Size = new System.Drawing.Size(87, 47);
             this.buttonMainMenu.TabIndex = 30;
             this.buttonMainMenu.Text = "Main Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
@@ -91,16 +96,17 @@ namespace ClientUI
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(276, 270);
+            this.ClientSize = new System.Drawing.Size(315, 360);
             this.Controls.Add(this.buttonMainMenu);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Username);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

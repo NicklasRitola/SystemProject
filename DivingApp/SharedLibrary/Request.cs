@@ -47,11 +47,24 @@ namespace Shared
             messageType = "createcompetitionrequest";
         }
     }
+    public class CreateScheduleRequestItems : Request
+    {
+        //public List<string> Dive;
+        public int CompetitionID;
+        public int count;
+        public int DiveID;
+        public int DiverID;
+        public CreateScheduleRequestItems()
+        {
+            messageType = "CreateScheduleRequestItems";
+        }
+    }
     public class CreateScheduleRequest : Request
     {
-        public List<string> Dive;
+        public List<CreateScheduleRequestItems> schedule;
         public CreateScheduleRequest()
         {
+            schedule = new List<CreateScheduleRequestItems>();
             messageType = "createschedulerequest";
         }
     }
@@ -83,6 +96,7 @@ namespace Shared
         public int Tower;
         public int In_Competition;
         public string Diver;
+        public string DiveGroup;
         public RegisterDiveRequest()
         {
             messageType = "registerdiverequest";

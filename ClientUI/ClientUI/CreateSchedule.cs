@@ -5,11 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Shared;
 
 namespace ClientUI
 {
     public partial class CreateSchedule : ClientHandler
     {
+        public int counter = 0;
         public CreateSchedule(ClientChannel channel) 
         {
             InitializeComponent();
@@ -27,10 +31,18 @@ namespace ClientUI
             string chosenCompID = textBoxChoseCompID.Text;
         }
 
-        private void buttonInsert_Click(object sender, EventArgs e)
+        private async void buttonInsert_Click(object sender, EventArgs e)
         {
-            string chosenDiverID = textBoxDiverID.Text;
-            string chosenDiveID = textBoxDiveID.Text;
+            CreateScheduleRequest request = new CreateScheduleRequest();
+            request.schedule[counter].DiveID = int.Parse(textBoxDiveID.Text);
+            request.schedule[counter].DiverID = int.Parse(textBoxDiverID.Text);
+            request.schedule[counter].CompetitionID = int.Parse(textBoxChoseCompID.Text);
+            request.schedule[counter].count = counter;
+            counter++;
+
+            await channel.SendAsync(request);
+            JObject response = await channel.ReceiveResponse();
+            MessageBox.Show(response.Value<string>("message"), "Registration result");
         }
     }
 }

@@ -54,9 +54,23 @@ namespace Server
                 return false;
             }
         }
-        public override bool RegisterAdminInDatabase(RegisterAdminRequest request)
+
+        public override bool RegisterAdminInDatabase(RegisterAdminRequest data)
         {
-            return true;
+            try
+            {
+                string query = "insert into Admin values ('" + data.SSN + "','" + data.Password + "'); ";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database Password - Admin has been registerd");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error - " + e);
+                return false;
+            }
         }
     }
 }

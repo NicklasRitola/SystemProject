@@ -52,13 +52,34 @@ namespace Shared
                 message += " failed.";
         }
     }
+    public class ScheduleResponseItem : Response
+    {
+        public string Person { get; set; }
+        public string Current { get; set; }
+        public int Diff { get; set; }
+        public int DiveGroup { get; set; }
+        public int jumpID { get; set; }
+        public int Tower { get; set; }
 
+
+        public ScheduleResponseItem()
+        {
+            messageType = "ScheduleResponseItem";
+        }
+    }
     public class ScheduleResponse : Response
     {
+        public List<ScheduleResponseItem> ScheduleItems;
+
 
         public ScheduleResponse()
         {
-            messageType = "scheduleresponse";
+            ScheduleItems = new List<ScheduleResponseItem>();
+            messageType = "ScheduleResponse";
+        }
+        public void AddItem(ScheduleResponseItem Item)
+        {
+            ScheduleItems.Add(Item);
         }
     }
 

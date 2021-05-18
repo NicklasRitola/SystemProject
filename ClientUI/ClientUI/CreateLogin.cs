@@ -27,10 +27,7 @@ namespace ClientUI
         private int checkCounter;
         private string loginType;
 
-        private void ShowMessage(String caption, String body)
-        {
-            MessageBox.Show(caption, body, MessageBoxButtons.OK);
-        }
+
 
         private async void RegisterProfile_Click(object sender, EventArgs e)
         {

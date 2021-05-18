@@ -72,5 +72,11 @@ namespace Server
         {
             //TODO: Create a score table response to return
         }
+        public async Task<LoginResponse> LoginResponse(bool result)
+        {
+            LoginResponse response = new LoginResponse();
+            response.Success = result;
+            return response;
+        }
     }
 }
