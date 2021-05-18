@@ -36,6 +36,8 @@ namespace ClientUI
             this.Difficulty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Divegroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Jump = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBoxEnterID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.viewSchedule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,12 +106,30 @@ namespace ClientUI
             this.Jump.Name = "Jump";
             this.Jump.ReadOnly = true;
             // 
+            // textBoxEnterID
+            // 
+            this.textBoxEnterID.Location = new System.Drawing.Point(614, 408);
+            this.textBoxEnterID.Name = "textBoxEnterID";
+            this.textBoxEnterID.Size = new System.Drawing.Size(100, 23);
+            this.textBoxEnterID.TabIndex = 33;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(487, 411);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 15);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Enter Competition ID:";
+            // 
             // Spectator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxEnterID);
             this.Controls.Add(this.viewSchedule);
             this.Controls.Add(this.Refresh);
             this.Controls.Add(this.buttonMainMenu);
@@ -118,6 +138,7 @@ namespace ClientUI
             this.Text = "Spectator";
             ((System.ComponentModel.ISupportInitialize)(this.viewSchedule)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -131,5 +152,7 @@ namespace ClientUI
         private System.Windows.Forms.DataGridViewTextBoxColumn Difficulty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Divegroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn Jump;
+        private System.Windows.Forms.TextBox textBoxEnterID;
+        private System.Windows.Forms.Label label1;
     }
 }
