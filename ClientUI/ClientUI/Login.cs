@@ -23,7 +23,7 @@ namespace ClientUI
         public async void LoginButton_Click(object sender, EventArgs e)
         {
             List<string> NoEmptyFields = new List<String>();
-            bool resp = false;
+            /*bool resp = false;
             if (Username.Text == "")
             {
                 NoEmptyFields.Add("Username");
@@ -51,9 +51,9 @@ namespace ClientUI
                     output += ("- " + NoEmptyFields[i] + "\n");
                 }
                 MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
 
-            if(resp && NoEmptyFields.Count == 0)
+            if(/*resp &&*/ NoEmptyFields.Count == 0)
             {
                 if (LoginGlobalString.GlobalString == "Admin")
                 {
@@ -67,6 +67,7 @@ namespace ClientUI
                 }
                 if (LoginGlobalString.GlobalString == "Diver")
                 {
+                    LoginGlobalString.SSN = Username.Text;
                     Diver diverForm = new Diver(channel);
                     diverForm.Show();
                 }
