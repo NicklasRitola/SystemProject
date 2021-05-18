@@ -137,7 +137,7 @@ namespace Server
         {
             bool dataRegistered = false;
             bool passwordRegistered = false;
-            //Fill in with admind database registration as done with RegisterJudge
+            //Fill in with admin database registration as done with RegisterJudge
             //if ()) //Data
             //{
             //    //Registration succeeded
@@ -159,6 +159,7 @@ namespace Server
                 //Successfully registered 
                 CompetitionMaintainer CM = new CompetitionMaintainer(request.In_Competition, database);
                 CM.DiveScoreCalculater(request.Dive); //Tries to calculate dive score
+                //TODO: Call response builder
             }
             else
             {
