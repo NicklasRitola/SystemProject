@@ -13,6 +13,7 @@ namespace ClientUI
 {
     public class ClientChannel : Channel
     {
+        //A version of the Channel class that is adapted to function for the Client
         public ClientChannel(MessageDispatcher messageDispatcher) : base(messageDispatcher) { }
 
         public async Task ConnectAsync(IPEndPoint endPoint)
@@ -31,17 +32,17 @@ namespace ClientUI
 
         public override void AttachSocket(Socket socket)
         {
+            //Attach the socket to the channel
             stream = new NetworkStream(socket, true);
-            //receiverTask = Task.Run(ReceiverLoop, cancel.Token);
         }
 
         public async Task<JObject> ReceiveResponse()
         {
+            //Receives a single message from the channel
             JObject response = null;
             try
             {
                 response = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
-                //response = await messageDispatcher.DispatchMessage(message);
             }
             catch (System.IO.IOException)
             {
@@ -55,28 +56,5 @@ namespace ClientUI
             }
             return response;
         }
-
-        //protected async Task ReceiverLoop()
-        //{
-        //    Response response = null;
-        //    try
-        //    {
-        //        while (!cancel.Token.IsCancellationRequested)
-        //        {
-        //            JObject message = await messageProtocol.ReceiveAsync(stream).ConfigureAwait(false);
-        //            response =  await messageDispatcher.DispatchMessage(message);
-        //        }
-        //    }
-        //    catch (System.IO.IOException)
-        //    {
-        //        //TODO: Send error to UI
-        //        Close();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        //TODO: Send error to UI
-        //        Close();
-        //    }
-        //}
     }
 }
