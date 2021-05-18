@@ -36,7 +36,7 @@ namespace Server
                 case "createschedulerequest":
                     CreateScheduleRequest CreSchReq = JsonConvert.DeserializeObject<CreateScheduleRequest>(JSONString);
                     //TODO: Implement a response and response builder for schedule creation requests
-                    //response = await DispatchMessage(CreSchReq);
+                    response = await DispatchMessage(CreSchReq);
                     break;
                 case "nextdiverrequest":
                     NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
@@ -103,11 +103,12 @@ namespace Server
             Console.WriteLine("SERVER RECEIVED: " + request.Location);
             return await responseBuilder.CreateCompetitionResponse(database.CreateCompetitionInDatabase(request));
         }
-        public async Task/*<ScheduleResponse>*/ DispatchMessage(CreateScheduleRequest request)
+        public async Task<ResultResponse> DispatchMessage(CreateScheduleRequest request)
         {
             Console.WriteLine("Create Schedule request received");
-            //TODO: return  result response with following call:
-            //return await responseBuilder.CreateScheduleResponse(INSERT DATABASE FUNCTION WHICH RETURNS BOOL);
+            ResultResponse response = await responseBuilder.CreateScheduleResponse(database.CreateScheduleInDatabase(request));
+            return response;
+
         }
         public async Task DispatchMessage(NextDiverRequest request)
         {
