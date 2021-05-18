@@ -85,7 +85,7 @@ namespace Server
                 case "loginrequest":
                     LoginRequest LoginReq = JsonConvert.DeserializeObject<LoginRequest>(JSONString);
                     //TODO: Implement response for score table response
-                    //response = await DispatchMessage(ViewScoTableReq);
+                    response = await DispatchMessage(LoginReq);
                     break;
             }
             return response;
@@ -94,36 +94,43 @@ namespace Server
 
         public async Task<TestResponse> DispatchMessage(TestRequest request)
         {
+            Console.WriteLine("View Schedule request received");
             return await responseBuilder.CreateTestResponse();
         }
         public async Task<ResultResponse> DispatchMessage(CreateCompetitionRequest request)
         {
+            Console.WriteLine("View Schedule request received");
             Console.WriteLine("SERVER RECEIVED: " + request.Location);
             return await responseBuilder.CreateCompetitionResponse(database.CreateCompetitionInDatabase(request));
         }
-        public async Task/*<ResultResponse>*/ DispatchMessage(CreateScheduleRequest request)
+        public async Task/*<ScheduleResponse>*/ DispatchMessage(CreateScheduleRequest request)
         {
+            Console.WriteLine("Create Schedule request received");
             //TODO: return  result response with following call:
             //return await responseBuilder.CreateScheduleResponse(INSERT DATABASE FUNCTION WHICH RETURNS BOOL);
         }
         public async Task DispatchMessage(NextDiverRequest request)
         {
-
+            Console.WriteLine("Next Diver request received");
         }
         public async Task<ResultResponse> DispatchMessage(RegisterDiverRequest request)
         {
+            Console.WriteLine("Register Diver request received");
             return await responseBuilder.RegisterDiverResponse(database.RegisterDiverInDatabase(request));
         } 
         public async Task<ResultResponse> DispatchMessage(RegisterDiveRequest request)
         {
+            Console.WriteLine("Register Dive request received");
             return await responseBuilder.RegisterDiveResponse(database.RegisterDiveInDatabase(request));
         }        
         public async Task<ResultResponse> DispatchMessage(RegisterTeamRequest request)
         {
+            Console.WriteLine("Register Team request received");
             return await responseBuilder.RegisterTeamResponse(database.RegisterTeamInDatabase(request));
         }
         public async Task<ResultResponse> DispatchMessage(RegisterJudgeRequest request)
         {
+            Console.WriteLine("Register Judge request received");
             bool dataRegistered = false;
             bool passwordRegistered = false;
             if (database.RegisterJudgeInDatabase(request)) //Data
@@ -140,6 +147,7 @@ namespace Server
         }
         public async Task<ResultResponse> DispatchMessage(RegisterAdminRequest request)
         {
+            Console.WriteLine("Register Admin request received");
             bool dataRegistered = false;
             bool passwordRegistered = false;
             //TODO: Fill in with admin database registration as done with RegisterJudge
@@ -157,6 +165,7 @@ namespace Server
         }
         public async Task<ResultResponse> DispatchMessage(JudgePointRequest request)
         {
+            Console.WriteLine("Judge point registration request received");
             //TODO: Calculate score, and register, store result in "result" boolean
             bool result = false;
             if (database.SendJudgePointToDatabase(request))
@@ -164,34 +173,28 @@ namespace Server
                 //Successfully registered 
                 CompetitionMaintainer CM = new CompetitionMaintainer(request.In_Competition, database);
                 CM.DiveScoreCalculater(request.Dive); //Tries to calculate dive score
-                //TODO: Call response builder
-            }
-            else
-            {
-                //Failed to registered 
-                //Should send back to client that something went wrong 
             }
             return await responseBuilder.JudgePointResponse(result);
         }
         public async Task DispatchMessage(ViewScheduleRequest request)
         {
-
+            Console.WriteLine("View Schedule request received");
         }
         public async Task DispatchMessage(ViewCurrentDiverRequest request)
         {
-
+            Console.WriteLine("View Current Diver request received");
         }
         public async Task DispatchMessage(ViewScoreTableRequest request)
         {
-            
+            Console.WriteLine("View Score Table request received");
         }
 
         public async Task<LoginResponse> DispatchMessage(LoginRequest request)
         {
             //TODO: Sent to databse and check if login is found
+            Console.WriteLine("Login request received");
             LoginResponse response = await responseBuilder.LoginResponse(true);
             return response;
-            
         }
     }
 }

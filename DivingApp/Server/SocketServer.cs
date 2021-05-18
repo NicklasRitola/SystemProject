@@ -32,7 +32,7 @@ namespace Server
                     new Func<AsyncCallback, object, IAsyncResult>(listener.BeginAccept),
                     new Func<IAsyncResult, Socket>(listener.EndAccept),
                     null).ConfigureAwait(false);
-
+                Console.WriteLine("Connection received");
                 var channel = new Channel(messageDispatcher);
                 channel.AttachSocket(clientSocket);
             } while (true);
