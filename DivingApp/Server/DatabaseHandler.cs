@@ -327,5 +327,9 @@ namespace Server
                 return null;
             }
         }
+        public virtual bool LoginChecker(LoginRequest data)
+        {
+            return false;
+        }
     }
 }

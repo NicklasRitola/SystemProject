@@ -54,7 +54,6 @@ namespace Server
                 return false;
             }
         }
-
         public override bool RegisterAdminInDatabase(RegisterAdminRequest data)
         {
             try
@@ -69,6 +68,28 @@ namespace Server
             catch (Exception e)
             {
                 Console.WriteLine("Error - " + e);
+                return false;
+            }
+        }
+        public override bool LoginChecker(LoginRequest data)
+        {
+            try
+            {
+                string query = "select * from " + data.LoginType + " where SSN = '" + data.SSN + "' and Password = '" + data.Password + "';";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    dataReader.Close();
+                    return true;
+                }
+                dataReader.Close();
+                return false;
+            }
+            catch(Exception err)
+            {
+                Console.WriteLine("Error - " + err);
                 return false;
             }
         }
