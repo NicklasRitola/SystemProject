@@ -54,7 +54,7 @@ namespace Server
                 return false;
             }
         }
-        public override bool RegisterAdminInDatabase()
+        public override bool RegisterAdminInDatabase(RegisterAdminRequest request)
         {
             return true;
         }

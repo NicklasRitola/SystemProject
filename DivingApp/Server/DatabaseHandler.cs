@@ -194,7 +194,7 @@ namespace Server
                 return false;
             }
         }
-        public virtual bool RegisterAdminInDatabase()
+        public virtual bool RegisterAdminInDatabase(RegisterAdminRequest data)
         {
             return true;
         }
