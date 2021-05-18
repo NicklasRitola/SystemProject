@@ -30,9 +30,10 @@ namespace Server
             return response;
         }
 
-        public async Task NextDiverResponse(bool result)
+        public async Task<ResultResponse> NextDiverResponse(bool result)
         {
-            //TODO: Get next diver, create response to return
+            ResultResponse response = new ResultResponse("Current diver update", result);
+            return response;
         }
 
         public async Task<ResultResponse> RegisterDiverResponse(bool data, bool pass)

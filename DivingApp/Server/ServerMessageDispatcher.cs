@@ -17,6 +17,7 @@ namespace Server
         private readonly DatabaseHandler database = new DatabaseHandler();
         private readonly DatabaseHandler password_database = new PasswordDatabaseHandler();
         private readonly ResponseBuilder responseBuilder = new ResponseBuilder();
+        private List<int> AdminsDiveOrder = new List<int>();
 
         public override async Task<Response> DispatchMessage(JObject message)
         {
@@ -40,8 +41,19 @@ namespace Server
                     break;
                 case "nextdiverrequest":
                     NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
-                    //TODO: Implement a response and response builder for next diver requests
-                    //response = await DispatchMessage(NexDivReq);
+                    List<CompetitionDive> schedule = database.GetCompetitionDives(NexDivReq.CompetitionID);
+                    if (AdminsDiveOrder.Count == 0 && schedule != null)
+                    {
+                        foreach (var dive in schedule)
+                        {
+                            AdminsDiveOrder.Add(dive.DiveId);
+                        }
+                    }
+                    else
+                    {
+                        AdminsDiveOrder.RemoveAt(0);
+                    }
+                    response = await DispatchMessage(NexDivReq);
                     break;
                 case "registerdiverrequest":
                     RegisterDiverRequest RegDiverReq = JsonConvert.DeserializeObject<RegisterDiverRequest>(JSONString);
@@ -83,17 +95,10 @@ namespace Server
                     break;
                 case "loginrequest":
                     LoginRequest LoginReq = JsonConvert.DeserializeObject<LoginRequest>(JSONString);
-                    //TODO: Implement response for score table response
                     response = await DispatchMessage(LoginReq);
                     break;
             }
             return response;
-        }
-
-        public T Deserialize<T>(T request, string JSONString)
-        {
-            T req = JsonConvert.DeserializeObject<T>(JSONString);
-            return req;
         }
 
         public async Task<TestResponse> DispatchMessage(TestRequest request)
@@ -112,18 +117,24 @@ namespace Server
         public async Task<ResultResponse> DispatchMessage(CreateScheduleRequest request)
         {
             Console.WriteLine("Create Schedule request received");
+            List<CompetitionDive> schedule = database.GetCompetitionDives(request.CompetitionID);
+            foreach(var dive in schedule)
+            {
+                AdminsDiveOrder.Add(dive.DiveId);
+            }
             ResultResponse response = await responseBuilder.CreateScheduleResponse(database.CreateScheduleInDatabase(request));
             return response;
         }
 
-        public async Task DispatchMessage(NextDiverRequest request)
+        public async Task<ResultResponse> DispatchMessage(NextDiverRequest request)
         {
             Console.WriteLine("Next Diver request received");
+            ResultResponse response = await responseBuilder.NextDiverResponse(true);
+            return response;
         }
 
         public async Task<ResultResponse> DispatchMessage(RegisterDiverRequest request)
         {
-            //TODO: Add so that password get sent to the database also and gets return
             Console.WriteLine("Register Diver request received");
             bool dataRegistered = false;
             bool passwordRegistered = false;
@@ -174,7 +185,6 @@ namespace Server
             Console.WriteLine("Register Admin request received");
             bool dataRegistered = false;
             bool passwordRegistered = false;
-            //TODO: Fill in with admin database registration as done with RegisterJudge
             if (database.RegisterAdminInDatabase(request)) //Data
             {
                 //Registration succeeded
@@ -191,7 +201,6 @@ namespace Server
         public async Task<ResultResponse> DispatchMessage(JudgePointRequest request)
         {
             Console.WriteLine("Judge point registration request received");
-            //TODO: Calculate score, and register, store result in "result" boolean
             bool result = false;
             if (database.SendJudgePointToDatabase(request))
             {
@@ -205,7 +214,7 @@ namespace Server
         public async Task<CompetitionScheduleResponse> DispatchMessage(ViewScheduleRequest request)
         {
             Console.WriteLine("View Schedule request received");
-            CompetitionScheduleResponse response = new CompetitionScheduleResponse(database.GetCompetitionDives(request.Competition_ID));
+            CompetitionScheduleResponse response = new CompetitionScheduleResponse(AdminsDiveOrder[0], database.GetCompetitionDives(request.Competition_ID));
             return response;
         }
 

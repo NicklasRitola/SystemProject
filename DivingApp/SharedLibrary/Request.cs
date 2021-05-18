@@ -63,8 +63,10 @@ namespace Shared
     }
     public class NextDiverRequest : Request
     {
-        public NextDiverRequest()
+        public int CompetitionID;
+        public NextDiverRequest(int id)
         {
+            this.CompetitionID = id;
             messageType = "nextdiverrequest";
         }
     }

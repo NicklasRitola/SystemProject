@@ -83,7 +83,7 @@ namespace Shared
     public class CompetitionScheduleResponse : Response
     {
         public List<CompetitionDive> ScheduleItems;
-
+        public int currentDiveID;
 
         public CompetitionScheduleResponse()
         {
@@ -91,8 +91,9 @@ namespace Shared
             messageType = "ScheduleResponse";
         }
 
-        public CompetitionScheduleResponse(List<CompetitionDive> dives)
+        public CompetitionScheduleResponse(int currentDiveId ,List<CompetitionDive> dives)
         {
+            this.currentDiveID = currentDiveId;
             ScheduleItems = dives;
         }
     }
