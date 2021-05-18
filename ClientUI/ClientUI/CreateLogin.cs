@@ -34,15 +34,81 @@ namespace ClientUI
 
         private async void RegisterProfile_Click(object sender, EventArgs e)
         {
-            RegisterJudgeRequest judge = new RegisterJudgeRequest();
-            judge.SSN = textBoxUsername.Text;
-            judge.Password = textBoxPassword.Text;
-            judge.FirstName = textboxFirstName.Text;
-            judge.Surname = textboxSurname.Text;
+            //Check to see that all field are filed
+            List<string> NoEmptyFields = new List<String>();
+            if (textboxFirstName.Text == "")
+            {
+                NoEmptyFields.Add("First name");
+            }
+            if (textboxSurname.Text == "")
+            {
+                NoEmptyFields.Add("Surname");
+            }
+            if (textBoxUsername.Text == "")
+            {
+                NoEmptyFields.Add("Social security number");
+            }
+            if(textBoxPassword.Text == "")
+            {
+                NoEmptyFields.Add("Password");
+            }
+            if (textBoxConfirm.Text == "" && textBoxUsername.Text != "")
+            {
+                NoEmptyFields.Add("Confirm password");
+            }
+            if (textBoxConfirm.Text == textBoxPassword.Text && textBoxPassword.Text != "")
+            {
+                NoEmptyFields.Add("Password doesn't match");
+            }
+            if (checkBoxAdmin.Checked == false && checkBoxJudge.Checked == false)
+            {
+                NoEmptyFields.Add("Type of profile");
+            }
 
-            await channel.SendAsync(judge);
-            JObject response = await channel.ReceiveResponse();
-            ShowMessage(response.Value<string>("message"), "Registration result");
+            // Creations of the profiles 
+            if (NoEmptyFields.Count == 0)
+            {
+                if (checkBoxAdmin.Checked)
+                {
+                    RegisterAdminRequest admin = new RegisterAdminRequest();
+                    admin.SSN = textBoxUsername.Text;
+                    admin.Password = textBoxPassword.Text;
+                    admin.FirstName = textboxFirstName.Text;
+                    admin.Surname = textboxSurname.Text;
+
+                    await channel.SendAsync(admin);
+                    JObject response = await channel.ReceiveResponse();
+                    ShowMessage(response.Value<string>("message"), "Registration result");
+
+                    Administrator adminForm = new Administrator(channel);
+                    OpenForm(adminForm, this);
+                }
+                else if (checkBoxJudge.Checked)
+                {
+                    RegisterJudgeRequest judge = new RegisterJudgeRequest();
+                    judge.SSN = textBoxUsername.Text;
+                    judge.Password = textBoxPassword.Text;
+                    judge.FirstName = textboxFirstName.Text;
+                    judge.Surname = textboxSurname.Text;
+
+                    await channel.SendAsync(judge);
+                    JObject response = await channel.ReceiveResponse();
+                    ShowMessage(response.Value<string>("message"), "Registration result");
+
+                    Administrator adminForm = new Administrator(channel);
+                    OpenForm(adminForm, this);
+                }
+            }
+            else
+            {
+                string output = "";
+                for(int i = 0; i < NoEmptyFields.Count; i++)
+                {
+                    output += ("- " + NoEmptyFields[i] + "\n");
+                }
+                MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            NoEmptyFields.Clear();
         }
         private void checkCounterFunction(object sender, EventArgs e)
         {
