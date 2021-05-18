@@ -14,9 +14,9 @@ namespace Server
     {
         //Finds the type of the message and sends it to the appropriate handler method
 
-        private DatabaseHandler database = new DatabaseHandler();
-        private DatabaseHandler password_database = new PasswordDatabaseHandler();
-        private ResponseBuilder responseBuilder = new ResponseBuilder();
+        private readonly DatabaseHandler database = new DatabaseHandler();
+        private readonly DatabaseHandler password_database = new PasswordDatabaseHandler();
+        private readonly ResponseBuilder responseBuilder = new ResponseBuilder();
 
         public override async Task<Response> DispatchMessage(JObject message)
         {
@@ -97,6 +97,7 @@ namespace Server
             Console.WriteLine("View Schedule request received");
             return await responseBuilder.CreateTestResponse();
         }
+
         public async Task<ResultResponse> DispatchMessage(CreateCompetitionRequest request)
         {
             Console.WriteLine("View Schedule request received");
@@ -104,31 +105,37 @@ namespace Server
             return await responseBuilder.CreateCompetitionResponse(database.CreateCompetitionInDatabase(request));
         }
         public async Task<ResultResponse> DispatchMessage(CreateScheduleRequest request)
+
         {
             Console.WriteLine("Create Schedule request received");
             ResultResponse response = await responseBuilder.CreateScheduleResponse(database.CreateScheduleInDatabase(request));
             return response;
 
         }
+
         public async Task DispatchMessage(NextDiverRequest request)
         {
             Console.WriteLine("Next Diver request received");
         }
+
         public async Task<ResultResponse> DispatchMessage(RegisterDiverRequest request)
         {
             Console.WriteLine("Register Diver request received");
             return await responseBuilder.RegisterDiverResponse(database.RegisterDiverInDatabase(request));
         } 
+
         public async Task<ResultResponse> DispatchMessage(RegisterDiveRequest request)
         {
             Console.WriteLine("Register Dive request received");
             return await responseBuilder.RegisterDiveResponse(database.RegisterDiveInDatabase(request));
         }        
+
         public async Task<ResultResponse> DispatchMessage(RegisterTeamRequest request)
         {
             Console.WriteLine("Register Team request received");
             return await responseBuilder.RegisterTeamResponse(database.RegisterTeamInDatabase(request));
         }
+
         public async Task<ResultResponse> DispatchMessage(RegisterJudgeRequest request)
         {
             Console.WriteLine("Register Judge request received");
@@ -146,6 +153,7 @@ namespace Server
             }
             return await responseBuilder.RegisterJudgeResponse(dataRegistered, passwordRegistered);
         }
+
         public async Task<ResultResponse> DispatchMessage(RegisterAdminRequest request)
         {
             Console.WriteLine("Register Admin request received");
@@ -164,6 +172,7 @@ namespace Server
             }
             return await responseBuilder.RegisterAdminResponse(dataRegistered, passwordRegistered);
         }
+
         public async Task<ResultResponse> DispatchMessage(JudgePointRequest request)
         {
             Console.WriteLine("Judge point registration request received");
@@ -177,14 +186,17 @@ namespace Server
             }
             return await responseBuilder.JudgePointResponse(result);
         }
+
         public async Task DispatchMessage(ViewScheduleRequest request)
         {
             Console.WriteLine("View Schedule request received");
         }
+
         public async Task DispatchMessage(ViewCurrentDiverRequest request)
         {
             Console.WriteLine("View Current Diver request received");
         }
+
         public async Task DispatchMessage(ViewScoreTableRequest request)
         {
             Console.WriteLine("View Score Table request received");
