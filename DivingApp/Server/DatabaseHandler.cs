@@ -278,6 +278,34 @@ namespace Server
                 return 0;
             }
         }
+        public float GetDiveDifficulty(int DiveID)
+        {
+            try
+            {
+                string query = "select Difficulty from dive where dive_id = " + DiveID + ";";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    int output = 0;
+                    while (dataReader.Read())
+                    {
+                        output = Int32.Parse("" + dataReader.GetValue(0));
+                    }
+                    dataReader.Close();
+                    return output;
+                }
+                dataReader.Close();
+                return 0;
+
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("Error - " + err.Message);
+                return 0;
+            }
+        }
         public bool SendDiveScoreToDatabase(float? DiveScore, int Dive_ID)
         {
             try
