@@ -30,5 +30,13 @@ namespace ClientUI
             get { return LoginString; }
             set { LoginString = value; }
         }
+
+        private static string ssn = "";
+        public static string SSN
+        {
+            get { return ssn; }
+            set { ssn = value; }
+        }
+
     }
 }

@@ -42,6 +42,8 @@ namespace ClientUI
             request.In_Competition = int.Parse(textBoxComp.Text);
             request.Tower = int.Parse(textBoxTower.Text);
             request.DiveGroup = textBoxDiveGrp.Text;
+            request.Diver = LoginGlobalString.SSN;
+            request.Score = null;
 
             await channel.SendAsync(request);
             JObject response = await channel.ReceiveResponse();

@@ -147,7 +147,12 @@ namespace Server
         {
             try
             {
-                string query = "insert into Dive values (" + data.Dive_ID + "," + data.Score + "'," + data.Difficulty + "," + data.Tower + "," + data.In_Competition + ",'" + data.Diver + "'); ";
+                string temp = "";
+                if(data.Score == null) { temp = "null"; }
+                else { temp = data.Score.ToString(); }
+
+                string query = "insert into Dive values (" + data.Dive_ID + "," + temp + "," + data.Difficulty + ",'" + data.DiveGroup + "'," + data.Tower + "," + data.In_Competition + ",'" + data.Diver + "'); ";
+                Console.WriteLine(query);
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 dataReader.Close();
