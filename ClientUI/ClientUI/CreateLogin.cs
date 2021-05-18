@@ -31,7 +31,7 @@ namespace ClientUI
 
         private async void RegisterProfile_Click(object sender, EventArgs e)
         {
-            //Check to see that all field are filed
+            //Check to see that all field are filled
             List<string> NoEmptyFields = new List<String>();
             if (textboxFirstName.Text == "")
             {
@@ -53,7 +53,7 @@ namespace ClientUI
             {
                 NoEmptyFields.Add("Confirm password");
             }
-            if (textBoxConfirm.Text == textBoxPassword.Text && textBoxPassword.Text != "")
+            if (textBoxConfirm.Text != textBoxPassword.Text && textBoxPassword.Text != "")
             {
                 NoEmptyFields.Add("Password doesn't match");
             }

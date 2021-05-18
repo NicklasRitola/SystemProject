@@ -49,7 +49,7 @@ namespace ClientUI
             this.AdminMenu.Location = new System.Drawing.Point(14, 16);
             this.AdminMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdminMenu.Name = "AdminMenu";
-            this.AdminMenu.Size = new System.Drawing.Size(98, 35);
+            this.AdminMenu.Size = new System.Drawing.Size(98, 44);
             this.AdminMenu.TabIndex = 31;
             this.AdminMenu.Text = "Admin Menu";
             this.AdminMenu.UseVisualStyleBackColor = true;

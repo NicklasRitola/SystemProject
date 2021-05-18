@@ -35,9 +35,9 @@ namespace Server
             //TODO: Get next diver, create response to return
         }
 
-        public async Task<ResultResponse> RegisterDiverResponse(bool result)
+        public async Task<ResultResponse> RegisterDiverResponse(bool data, bool pass)
         {
-            ResultResponse response = new ResultResponse("Diver registration", result);
+            ResultResponse response = new ResultResponse("Diver data registration", "Password registration", data, pass);
             return response;
         }
 

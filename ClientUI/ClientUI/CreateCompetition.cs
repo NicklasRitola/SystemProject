@@ -97,18 +97,38 @@ namespace ClientUI
 
         private async void RegisterProfile_Click(object sender, EventArgs e)
         {
-            CreateCompetitionRequest request = new CreateCompetitionRequest();
-            request.Location = textBoxLocation.Text;
-            request.Start_Date = textBoxDate.Text;
-            request.End_Date = textBoxEndDate.Text;
-            //request.Name = textBoxName.Text;
-            request.ID = Int32.Parse(textBoxID.Text);
+            //Check to see that all required field are filled
+            List<string> NoEmptyFields = new List<String>();
+            if (textBoxLocation.Text == "") { NoEmptyFields.Add("Location"); }
+            if (textBoxDate.Text == "") { NoEmptyFields.Add("Start date"); }
+            if (textBoxEndDate.Text == "") { NoEmptyFields.Add("End date"); }
+            if (textBoxID.Text == "") { NoEmptyFields.Add("ID"); }
+            if (checkBoxGlobal.Checked == false && checkBoxLocal.Checked == false) { NoEmptyFields.Add("No competition type selected"); }
 
-            request.Type = checkType; //Local comp
+            if(NoEmptyFields.Count == 0)
+            {
+                CreateCompetitionRequest request = new CreateCompetitionRequest();
+                request.Location = textBoxLocation.Text;
+                request.Start_Date = textBoxDate.Text;
+                request.End_Date = textBoxEndDate.Text;
+                request.ID = Int32.Parse(textBoxID.Text);
+                request.Type = checkType;
 
-            await channel.SendAsync(request);
-            JObject response = await channel.ReceiveResponse();
-            ShowMessage(response.Value<string>("message"), "Registration result");
+                await channel.SendAsync(request);
+                JObject response = await channel.ReceiveResponse();
+                ShowMessage(response.Value<string>("message"), "Registration result");
+            }
+            else
+            {
+                string output = "";
+                for (int i = 0; i < NoEmptyFields.Count; i++)
+                {
+                    output += ("- " + NoEmptyFields[i] + "\n");
+                }
+                MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            NoEmptyFields.Clear();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

@@ -101,6 +101,7 @@ namespace ClientUI
             this.textBoxPassword.Location = new System.Drawing.Point(362, 104);
             this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(313, 27);
             this.textBoxPassword.TabIndex = 36;
             // 
@@ -141,6 +142,7 @@ namespace ClientUI
             this.textBoxConfirm.Location = new System.Drawing.Point(362, 143);
             this.textBoxConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxConfirm.Name = "textBoxConfirm";
+            this.textBoxConfirm.PasswordChar = '*';
             this.textBoxConfirm.Size = new System.Drawing.Size(313, 27);
             this.textBoxConfirm.TabIndex = 46;
             // 

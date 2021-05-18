@@ -36,6 +36,8 @@ namespace ClientUI
 
         private async void RegisterDive_Click(object sender, EventArgs e)
         {
+            //TODO: Control that checks if all textboxes are filled
+
             RegisterDiveRequest request = new RegisterDiveRequest();
             request.Dive_ID = int.Parse(textBoxID.Text);
             request.Difficulty = int.Parse(textBoxDifficulty.Text);
@@ -44,6 +46,7 @@ namespace ClientUI
             request.DiveGroup = textBoxDiveGrp.Text;
             request.Diver = LoginGlobalString.SSN;
             request.Score = null;
+            request.Date = textBoxDate.Text;
 
             await channel.SendAsync(request);
             JObject response = await channel.ReceiveResponse();

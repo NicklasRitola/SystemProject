@@ -93,5 +93,22 @@ namespace Server
                 return false;
             }
         }
+        public override bool RegisterDiverInDatabase(RegisterDiverRequest data)
+        {
+            try
+            {
+                string query = "insert into Diver values ('" + data.SSN + "','" + data.Password + "'); ";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database Password - Diver has been registerd");
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error - " + e);
+                return false;
+            }
+        }
     }
 }

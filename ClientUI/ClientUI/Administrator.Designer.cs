@@ -34,6 +34,7 @@ namespace ClientUI
             this.CreateSchedule = new System.Windows.Forms.Button();
             this.nextDive = new System.Windows.Forms.Button();
             this.buttonCreateProfile = new System.Windows.Forms.Button();
+            this.buttonCreateTeam = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonMainMenu
@@ -82,7 +83,7 @@ namespace ClientUI
             // 
             // buttonCreateProfile
             // 
-            this.buttonCreateProfile.Location = new System.Drawing.Point(518, 92);
+            this.buttonCreateProfile.Location = new System.Drawing.Point(109, 172);
             this.buttonCreateProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCreateProfile.Name = "buttonCreateProfile";
             this.buttonCreateProfile.Size = new System.Drawing.Size(155, 72);
@@ -91,12 +92,24 @@ namespace ClientUI
             this.buttonCreateProfile.UseVisualStyleBackColor = true;
             this.buttonCreateProfile.Click += new System.EventHandler(this.buttonCreateProfile_Click);
             // 
+            // buttonCreateTeam
+            // 
+            this.buttonCreateTeam.Location = new System.Drawing.Point(270, 172);
+            this.buttonCreateTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonCreateTeam.Name = "buttonCreateTeam";
+            this.buttonCreateTeam.Size = new System.Drawing.Size(155, 72);
+            this.buttonCreateTeam.TabIndex = 37;
+            this.buttonCreateTeam.Text = "Create a team";
+            this.buttonCreateTeam.UseVisualStyleBackColor = true;
+            this.buttonCreateTeam.Click += new System.EventHandler(this.buttonCreateTeam_Click);
+            // 
             // Administrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(711, 229);
+            this.ClientSize = new System.Drawing.Size(559, 288);
+            this.Controls.Add(this.buttonCreateTeam);
             this.Controls.Add(this.buttonCreateProfile);
             this.Controls.Add(this.CreateCompetition);
             this.Controls.Add(this.CreateSchedule);
@@ -117,5 +130,6 @@ namespace ClientUI
         private System.Windows.Forms.Button CreateSchedule;
         private System.Windows.Forms.Button nextDive;
         private System.Windows.Forms.Button buttonCreateProfile;
+        private System.Windows.Forms.Button buttonCreateTeam;
     }
 }
