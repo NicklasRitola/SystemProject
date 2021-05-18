@@ -109,7 +109,7 @@ namespace Shared
         }
     }
 
-    public class LoginResponse : Request
+    public class LoginResponse : Response
     {
         public bool Success;
 

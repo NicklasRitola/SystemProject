@@ -85,7 +85,7 @@ namespace Server
                 case "loginrequest":
                     LoginRequest LoginReq = JsonConvert.DeserializeObject<LoginRequest>(JSONString);
                     //TODO: Implement response for score table response
-                    //response = await DispatchMessage(ViewScoTableReq);
+                    response = await DispatchMessage(LoginReq);
                     break;
             }
             return response;
@@ -189,6 +189,7 @@ namespace Server
         public async Task<LoginResponse> DispatchMessage(LoginRequest request)
         {
             //TODO: Sent to databse and check if login is found
+            Console.WriteLine("Login request received");
             LoginResponse response = await responseBuilder.LoginResponse(true);
             return response;
             
