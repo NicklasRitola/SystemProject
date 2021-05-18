@@ -9,7 +9,7 @@ namespace Server
 {
     class ResponseBuilder
     {
-        //Takes a request and a stream, creates a response, sends response back
+        //Takes a request and a stream, creates a response, returns response
 
         public async Task<TestResponse> CreateTestResponse()
         {
@@ -60,7 +60,7 @@ namespace Server
             ResultResponse response = new ResultResponse("Point registration", result);
             return response;
         }
-        public async Task ViewScheduleResponse(NetworkStream stream, bool result)
+        public async Task ViewScheduleResponse(bool result)
         {
             //TODO: Create a schedule response message to return
         }
