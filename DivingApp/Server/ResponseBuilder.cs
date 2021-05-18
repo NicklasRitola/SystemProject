@@ -13,7 +13,6 @@ namespace Server
 
         public async Task<TestResponse> CreateTestResponse()
         {
-            Console.WriteLine("Test request received");
             return new TestResponse();
         }
         public async Task<ResultResponse> CreateCompetitionResponse(bool result)
