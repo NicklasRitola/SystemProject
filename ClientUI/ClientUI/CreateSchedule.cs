@@ -34,10 +34,10 @@ namespace ClientUI
         private async void buttonInsert_Click(object sender, EventArgs e)
         {
             CreateScheduleRequest request = new CreateScheduleRequest();
-            request.schedule[counter].DiveID = int.Parse(textBoxDiveID.Text);
-            request.schedule[counter].DiverID = int.Parse(textBoxDiverID.Text);
-            request.schedule[counter].CompetitionID = int.Parse(textBoxChoseCompID.Text);
-            request.schedule[counter].count = counter;
+            request.DiveID = int.Parse(textBoxDiveID.Text);
+            request.DiverID = int.Parse(textBoxDiverID.Text);
+            request.CompetitionID = int.Parse(textBoxChoseCompID.Text);
+            request.count = counter;
             counter++;
 
             await channel.SendAsync(request);
