@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Shared;
 
 namespace ClientUI
 {
@@ -17,35 +20,63 @@ namespace ClientUI
             this.channel = channel;
         }
 
-        public void LoginButton_Click(object sender, EventArgs e)
+        public async void LoginButton_Click(object sender, EventArgs e)
         {
-             //Fixa så den kollar lösen + namn med databas (så att det existerar).
-
-
-            string loginName = Username.Text;
-            string loginPassword = Password.Text;
-
-
-            if(LoginGlobalString.GlobalString == "Admin")
+            List<string> NoEmptyFields = new List<String>();
+            bool resp = false;
+            if (Username.Text == "")
             {
-                Administrator adminForm = new Administrator(channel);
-                adminForm.Show();
+                NoEmptyFields.Add("Username");
             }
-            if (LoginGlobalString.GlobalString == "Judge")
+            if (Username.Text == "")
             {
-                Judge judgeForm = new Judge(channel);
-                judgeForm.Show();
-            }
-            if (LoginGlobalString.GlobalString == "Diver")
-            {
-                Diver diverForm = new Diver(channel);
-                diverForm.Show();
+                NoEmptyFields.Add("Password");
             }
 
+            if(NoEmptyFields.Count == 0)
+            {
+                LoginRequest login = new LoginRequest();
+                login.SSN = Username.Text;
+                login.Password = Password.Text;
 
+                await channel.SendAsync(login);
+                JObject response = await channel.ReceiveResponse();
+                resp = response.Value<bool>("Success"); //Funkar inte helt än
+            }
+            else
+            {
+                string output = "";
+                for (int i = 0; i < NoEmptyFields.Count; i++)
+                {
+                    output += ("- " + NoEmptyFields[i] + "\n");
+                }
+                MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            this.Hide();
-            
+            if(resp && NoEmptyFields.Count == 0)
+            {
+                if (LoginGlobalString.GlobalString == "Admin")
+                {
+                    Administrator adminForm = new Administrator(channel);
+                    adminForm.Show();
+                }
+                if (LoginGlobalString.GlobalString == "Judge")
+                {
+                    Judge judgeForm = new Judge(channel);
+                    judgeForm.Show();
+                }
+                if (LoginGlobalString.GlobalString == "Diver")
+                {
+                    Diver diverForm = new Diver(channel);
+                    diverForm.Show();
+                }
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Failed to login", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            NoEmptyFields.Clear();
         }
 
         private void buttonMainMenu_Click(object sender, EventArgs e)

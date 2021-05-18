@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 using Shared;
 
 namespace ClientUI
@@ -9,10 +10,15 @@ namespace ClientUI
     {
         protected ClientChannel channel;
 
-        public void OpenForm(ClientHandler NewForm, ClientHandler CurrentForm)
+        protected void OpenForm(ClientHandler NewForm, ClientHandler CurrentForm)
         {
             CurrentForm.Hide();
             NewForm.Show();
+        }
+
+        protected void ShowMessage(String caption, String body)
+        {
+            MessageBox.Show(caption, body, MessageBoxButtons.OK);
         }
     }
 

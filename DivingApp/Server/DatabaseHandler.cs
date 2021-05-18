@@ -194,9 +194,22 @@ namespace Server
                 return false;
             }
         }
-        public virtual bool RegisterAdminInDatabase()
+        public virtual bool RegisterAdminInDatabase(RegisterAdminRequest data)
         {
-            return true;
+            try
+            {
+                string query = "insert into Admin values ('" + data.SSN + "','" + data.FirstName + "','" + data.Surname + "'); ";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                Console.WriteLine("Database - Admin has been registerd");
+                return true;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("Error - " + err);
+                return false;
+            }
         }
         public bool SendJudgePointToDatabase(JudgePointRequest data)
         {
