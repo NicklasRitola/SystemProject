@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Shared;
 
 namespace ClientUI
 {
@@ -22,13 +25,20 @@ namespace ClientUI
             OpenForm(form1Form, this);
         }
 
-        private void Refresh_Click(object sender, EventArgs e)
+        private async void Refresh_Click(object sender, EventArgs e)
         {
-            int index = viewSchedule.Rows.Add();
+            ViewScheduleRequest request = new ViewScheduleRequest();
+            request.ID = int.Parse(textBoxEnterID.Text);
+
+            /*int index = viewSchedule.Rows.Add();
             viewSchedule.Rows[index].Cells[0].Value = "Adrian Steneryd";
             viewSchedule.Rows[index].Cells[1].Value = 1.1;
             viewSchedule.Rows[index].Cells[2].Value = 2;
-            viewSchedule.Rows[index].Cells[3].Value = "Superflip";
+            viewSchedule.Rows[index].Cells[3].Value = "Superflip";*/
+
+            await channel.SendAsync(request);
+            JObject response = await channel.ReceiveResponse();
+            MessageBox.Show(response.Value<string>("message"), "Registration result", MessageBoxButtons.OK);
 
 
         }
