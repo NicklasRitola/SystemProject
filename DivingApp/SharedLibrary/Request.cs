@@ -138,10 +138,18 @@ namespace Shared
         public int DiveID;
         public int Point;
         public string Judge;
-        public int In_Competition;
+        public int CompetitionID;
         public JudgePointRequest()
         {
             messageType = "judgepointrequest";
+        }
+
+        public JudgePointRequest(int diveID, int point, string judge, int compID)
+        {
+            this.DiveID = diveID;
+            this.Point = point;
+            this.Judge = judge;
+            this.CompetitionID = compID;
         }
     }
 

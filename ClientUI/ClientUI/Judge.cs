@@ -55,7 +55,6 @@ namespace ClientUI
         {
             ViewCurrentDiverRequest request = new ViewCurrentDiverRequest(int.Parse(textBoxComp.Text));
             await channel.SendAsync(request);
-            
 
             JObject response = await channel.ReceiveResponse();
             string JSONString = JsonConvert.SerializeObject(response);
@@ -65,8 +64,6 @@ namespace ClientUI
             labelSetCurrentDiff.Text = CurrentResponse.Difficulty.ToString();
             labelSetCurrentGroup.Text = CurrentResponse.DiveGroup;
             labelSetCurrentTower.Text = CurrentResponse.Tower.ToString();
-
-
         }
     }
 }
