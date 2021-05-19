@@ -16,6 +16,12 @@ namespace Server
             return new TestResponse();
         }
 
+        public async Task<ResultResponse> ViewCurrentResultResponse(bool result)
+        {
+            ResultResponse response = new ResultResponse("Get Current Diver request", result);
+            return response;
+        }
+
         public async Task<ResultResponse> CreateCompetitionResponse(bool result)
         {
             //Returns a tailored result response
