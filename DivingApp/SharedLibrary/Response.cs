@@ -146,27 +146,11 @@ namespace Shared
 
         public CurrentDiverResponse()
         {
-            messageType = "currentdiverresponse";
-        }
-        public CurrentDiverResponse(CurrentDiverResponse diver)
-        {
-            try
-            {
-                this.CurrentID = diver.CurrentID;
-                this.Difficulty = diver.Difficulty;
-                this.DiveGroup = diver.DiveGroup;
-                this.Tower = diver.Tower;
-            }
-            catch
-            {
-
-            }
 
         }
 
         public CurrentDiverResponse(int id, float difficulty, string group, int tower)
         {
-            messageType = "currentdiverresponse";
             this.CurrentID = id;
             this.Difficulty = difficulty;
             this.DiveGroup = group;

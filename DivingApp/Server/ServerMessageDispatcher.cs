@@ -213,7 +213,7 @@ namespace Server
             return response;
         }
 
-        public async Task<CurrentDiverResponse> DispatchMessage(ViewCurrentDiverRequest request)
+        public async Task<Response> DispatchMessage(ViewCurrentDiverRequest request)
         {
             Console.WriteLine("View Current Diver request received");
             CurrentDiverResponse temp = database.GetDiveInformation(AdminsDiveOrder[0]);
@@ -224,9 +224,7 @@ namespace Server
             }
             else
             {
-                ResultResponse ResResp = new ResultResponse();
-                ResResp.message = "";
-                return null;
+                return await responseBuilder.ViewCurrentResultResponse(false);
             }
         }
 
