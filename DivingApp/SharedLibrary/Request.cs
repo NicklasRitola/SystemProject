@@ -136,7 +136,7 @@ namespace Shared
     public class JudgePointRequest : Request
     {
         public int DiveID;
-        public int Point;
+        public float Point;
         public string Judge;
         public int CompetitionID;
         public JudgePointRequest()
@@ -144,12 +144,13 @@ namespace Shared
             messageType = "judgepointrequest";
         }
 
-        public JudgePointRequest(int diveID, int point, string judge, int compID)
+        public JudgePointRequest(int diveID, float point, string judge, int compID)
         {
             this.DiveID = diveID;
             this.Point = point;
             this.Judge = judge;
             this.CompetitionID = compID;
+            messageType = "judgepointrequest";
         }
     }
 

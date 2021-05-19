@@ -41,14 +41,14 @@ namespace ClientUI
 
         private async void ButtonSetScore_Click(object sender, EventArgs e)
         {
-
-            JudgePointRequest request = new JudgePointRequest(float.parse(textBoxSetScore.Text));
+            JudgePointRequest request = new JudgePointRequest(currentID, float.Parse(textBoxSetScore.Text),LoginGlobalString.SSN, int.Parse(textBoxComp.Text));
             await channel.SendAsync(request);
 
             JObject response = await channel.ReceiveResponse();
             MessageBox.Show(response.Value<string>("message"), "Registration result", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
+        public int currentID;
 
 
         private async void buttonRefresh_Click(object sender, EventArgs e)
@@ -61,9 +61,13 @@ namespace ClientUI
             CurrentDiverResponse CurrentResponse = JsonConvert.DeserializeObject<CurrentDiverResponse>(JSONString);
 
             labelSetCurrentDiver.Text = CurrentResponse.CurrentID.ToString();
+            currentID = CurrentResponse.CurrentID;
             labelSetCurrentDiff.Text = CurrentResponse.Difficulty.ToString();
+
             labelSetCurrentGroup.Text = CurrentResponse.DiveGroup;
+
             labelSetCurrentTower.Text = CurrentResponse.Tower.ToString();
+
         }
     }
 }
