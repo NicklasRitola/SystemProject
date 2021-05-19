@@ -40,6 +40,7 @@ namespace ClientUI
             this.labelSetCurrentGroup = new System.Windows.Forms.Label();
             this.labelSetCurrentDiff = new System.Windows.Forms.Label();
             this.labelSetCurrentDiver = new System.Windows.Forms.Label();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonMainMenu
@@ -138,12 +139,23 @@ namespace ClientUI
             this.labelSetCurrentDiver.Size = new System.Drawing.Size(0, 15);
             this.labelSetCurrentDiver.TabIndex = 37;
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Location = new System.Drawing.Point(13, 213);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.TabIndex = 41;
+            this.buttonRefresh.Text = "Refresh";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // Judge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(735, 248);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.labelSetCurrentTower);
             this.Controls.Add(this.labelSetCurrentGroup);
             this.Controls.Add(this.labelSetCurrentDiff);
@@ -177,5 +189,6 @@ namespace ClientUI
         private System.Windows.Forms.Label labelSetCurrentGroup;
         private System.Windows.Forms.Label labelSetCurrentDiff;
         private System.Windows.Forms.Label labelSetCurrentDiver;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }

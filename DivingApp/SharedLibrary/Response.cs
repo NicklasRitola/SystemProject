@@ -59,9 +59,15 @@ namespace Shared
         public string Group;
         public int Tower;
         public string DiverName;
+
+        //TODO: Remove SSN from here and database request
         public string DiverSSN;
+
+        //TODO: Remove time from here and database request?
         public string Time;
         public float? Score = null;
+
+        public bool Current;
 
         //Dyk i databasen: int ID, float SCORE, float DIFFICULTY, string GROUP, int TOWER,
         //int COMPETITION_ID, string DIVER_ID, string TIME
@@ -79,23 +85,28 @@ namespace Shared
             this.Tower = tower;
             this.DiverName = diverID;
             this.Time = time;
+            this.Current = false;
         }
     }
     public class CompetitionScheduleResponse : Response
     {
-        public List<CompetitionDive> ScheduleItems;
-        public int currentDiveID;
+        public List<CompetitionDive> CompetitionDives;
 
         public CompetitionScheduleResponse()
         {
-            ScheduleItems = null;
+            CompetitionDives = null;
             messageType = "ScheduleResponse";
         }
 
         public CompetitionScheduleResponse(int currentDiveId ,List<CompetitionDive> dives)
         {
-            this.currentDiveID = currentDiveId;
-            ScheduleItems = dives;
+            CompetitionDives = dives;
+            //CompetitionDives.Sort
+            foreach(var dive in CompetitionDives)
+            {
+                if (dive.DiveId == currentDiveId)
+                    dive.Current = true;
+            }
         }
     }
 
@@ -132,6 +143,22 @@ namespace Shared
         public LoginResponse()
         {
             messageType = "loginresponse";
+        }
+    }
+
+    public class CurrentDiverResponse : Response
+    {
+        public int CurrentID;
+        public float Difficulty;
+        public string DiveGroup;
+        public int Tower;
+
+        CurrentDiverResponse(int id, float difficulty, string group, int tower)
+        {
+            this.CurrentID = id;
+            this.Difficulty = difficulty;
+            this.DiveGroup = group;
+            this.Tower = tower;
         }
     }
 }
