@@ -88,11 +88,6 @@ namespace Server
                     //TODO: Implement response for current diver
                     //response = await DispatchMessage(ViewCurrDiverReq);
                     break;
-                case "viewscoretablerequest":
-                    ViewScoreTableRequest ViewScoTableReq = JsonConvert.DeserializeObject<ViewScoreTableRequest>(JSONString);
-                    //TODO: Implement response for score table response
-                    //response = await DispatchMessage(ViewScoTableReq);
-                    break;
                 case "loginrequest":
                     LoginRequest LoginReq = JsonConvert.DeserializeObject<LoginRequest>(JSONString);
                     response = await DispatchMessage(LoginReq);
@@ -221,12 +216,7 @@ namespace Server
         public async Task DispatchMessage(ViewCurrentDiverRequest request)
         {
             Console.WriteLine("View Current Diver request received");
-            //Response response = new CurrentDiverResponse(database.GetDiveInformation(request));
-        }
-
-        public async Task DispatchMessage(ViewScoreTableRequest request)
-        {
-            Console.WriteLine("View Score Table request received");
+            //Response response = new CurrentDiverResponse(database.GetDiveInformation(AdminsDiveOrder[0]));
         }
 
         public async Task<LoginResponse> DispatchMessage(LoginRequest request)

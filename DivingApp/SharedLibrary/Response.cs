@@ -127,15 +127,6 @@ namespace Shared
         }
     }
 
-    public class ScoreTableResponse : Response
-    {
-
-        public ScoreTableResponse()
-        {
-            messageType = "scoretableresponse";
-        }
-    }
-
     public class LoginResponse : Response
     {
         public bool Success;

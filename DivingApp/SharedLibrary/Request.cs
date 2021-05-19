@@ -167,11 +167,4 @@ namespace Shared
             this.CompetitionID = compId;
         }
     }
-    public class ViewScoreTableRequest : Request
-    {
-        public ViewScoreTableRequest()
-        {
-            messageType = "viewscoretablerequest";
-        }
-    }
 }
