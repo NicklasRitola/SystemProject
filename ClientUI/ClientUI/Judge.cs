@@ -49,12 +49,20 @@ namespace ClientUI
 
         private async void buttonRefresh_Click(object sender, EventArgs e)
         {
-            ViewCurrentDiverRequest request = new ViewCurrentDiverRequest();
+            ViewCurrentDiverRequest request = new ViewCurrentDiverRequest(int.Parse(textBoxComp.Text));
             await channel.SendAsync(request);
+            
 
             JObject response = await channel.ReceiveResponse();
             string JSONString = JsonConvert.SerializeObject(response);
-            CompetitionScheduleResponse responseSchedule = JsonConvert.DeserializeObject<CompetitionScheduleResponse>(JSONString);
+            CurrentDiverResponse CurrentResponse = JsonConvert.DeserializeObject<CurrentDiverResponse>(JSONString);
+
+            labelSetCurrentDiver.Text = CurrentResponse.CurrentID.ToString();
+            labelSetCurrentDiff.Text = CurrentResponse.Difficulty.ToString();
+            labelSetCurrentGroup.Text = CurrentResponse.DiveGroup;
+            labelSetCurrentTower.Text = CurrentResponse.Tower.ToString();
+
+
         }
     }
 }
