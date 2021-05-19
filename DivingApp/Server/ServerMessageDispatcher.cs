@@ -221,6 +221,7 @@ namespace Server
         public async Task DispatchMessage(ViewCurrentDiverRequest request)
         {
             Console.WriteLine("View Current Diver request received");
+            //Response response = new CurrentDiverResponse(database.GetDiveInformation(request));
         }
 
         public async Task DispatchMessage(ViewScoreTableRequest request)

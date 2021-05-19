@@ -156,9 +156,15 @@ namespace Shared
     }
     public class ViewCurrentDiverRequest : Request
     {
+        public int CompetitionID;
         public ViewCurrentDiverRequest()
         {
             messageType = "viewcurrentdiverrequest";
+        }
+
+        public ViewCurrentDiverRequest(int compId)
+        {
+            this.CompetitionID = compId;
         }
     }
     public class ViewScoreTableRequest : Request

@@ -35,14 +35,14 @@ namespace ClientUI
             string JSONString = JsonConvert.SerializeObject(response);
             CompetitionScheduleResponse responseSchedule = JsonConvert.DeserializeObject<CompetitionScheduleResponse>(JSONString);
 
-            foreach(var diver in responseSchedule.ScheduleItems)
+            foreach(var diver in responseSchedule.CompetitionDives)
             {
                 int index = viewSchedule.Rows.Add();
-                viewSchedule.Rows[index].Cells[0].Value = diver.Time;
+                viewSchedule.Rows[index].Cells[0].Value = diver.Current;
                 viewSchedule.Rows[index].Cells[1].Value = diver.DiverName;
                 viewSchedule.Rows[index].Cells[2].Value = diver.Difficulty;
                 viewSchedule.Rows[index].Cells[3].Value = diver.Group;
-                viewSchedule.Rows[index].Cells[4].Value = diver.DiveId;
+                viewSchedule.Rows[index].Cells[4].Value = "";
                 viewSchedule.Rows[index].Cells[5].Value = diver.Tower;
             }
         }
