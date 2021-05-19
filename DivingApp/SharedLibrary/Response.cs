@@ -146,7 +146,7 @@ namespace Shared
 
         public CurrentDiverResponse()
         {
-
+            messageType = "currentdiverresponse";
         }
         public CurrentDiverResponse(CurrentDiverResponse diver)
         {
@@ -166,6 +166,7 @@ namespace Shared
 
         public CurrentDiverResponse(int id, float difficulty, string group, int tower)
         {
+            messageType = "currentdiverresponse";
             this.CurrentID = id;
             this.Difficulty = difficulty;
             this.DiveGroup = group;

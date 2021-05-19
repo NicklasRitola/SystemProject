@@ -57,17 +57,23 @@ namespace ClientUI
             await channel.SendAsync(request);
 
             JObject response = await channel.ReceiveResponse();
-            string JSONString = JsonConvert.SerializeObject(response);
-            CurrentDiverResponse CurrentResponse = JsonConvert.DeserializeObject<CurrentDiverResponse>(JSONString);
+            if (response.Value<string>("messageType").ToLower() == "CurrentDiverResponse")
+            {
+                string JSONString = JsonConvert.SerializeObject(response);
+                CurrentDiverResponse CurrentResponse = JsonConvert.DeserializeObject<CurrentDiverResponse>(JSONString);
 
-            labelSetCurrentDiver.Text = CurrentResponse.CurrentID.ToString();
-            currentID = CurrentResponse.CurrentID;
-            labelSetCurrentDiff.Text = CurrentResponse.Difficulty.ToString();
+                labelSetCurrentDiver.Text = CurrentResponse.CurrentID.ToString();
+                currentID = CurrentResponse.CurrentID;
+                labelSetCurrentDiff.Text = CurrentResponse.Difficulty.ToString();
 
-            labelSetCurrentGroup.Text = CurrentResponse.DiveGroup;
+                labelSetCurrentGroup.Text = CurrentResponse.DiveGroup;
 
-            labelSetCurrentTower.Text = CurrentResponse.Tower.ToString();
-
+                labelSetCurrentTower.Text = CurrentResponse.Tower.ToString();
+            }
+            else
+            {
+                ShowMessage()
+            }
         }
     }
 }
