@@ -39,10 +39,14 @@ namespace ClientUI
 
         }
 
-        private void ButtonSetScore_Click(object sender, EventArgs e)
+        private async void ButtonSetScore_Click(object sender, EventArgs e)
         {
-            float JudgeScore = float.Parse(textBoxSetScore.Text); // poängen som skrivs in.
-            //måste lägga in funktion som skickar iväg poäng till servern
+
+            JudgePointRequest request = new JudgePointRequest(float.parse(textBoxSetScore.Text));
+            await channel.SendAsync(request);
+
+            JObject response = await channel.ReceiveResponse();
+            MessageBox.Show(response.Value<string>("message"), "Registration result", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 

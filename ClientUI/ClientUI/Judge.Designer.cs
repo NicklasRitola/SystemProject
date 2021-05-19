@@ -154,7 +154,8 @@ namespace ClientUI
             // 
             this.textBoxComp.Location = new System.Drawing.Point(95, 213);
             this.textBoxComp.Name = "textBoxComp";
-            this.textBoxComp.Size = new System.Drawing.Size(100, 23);
+            this.textBoxComp.PlaceholderText = "Enter Competition ID";
+            this.textBoxComp.Size = new System.Drawing.Size(142, 23);
             this.textBoxComp.TabIndex = 42;
             // 
             // Judge
