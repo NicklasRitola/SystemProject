@@ -144,7 +144,7 @@ namespace Shared
         public string DiveGroup;
         public int Tower;
 
-        CurrentDiverResponse(int id, float difficulty, string group, int tower)
+        public CurrentDiverResponse(int id, float difficulty, string group, int tower)
         {
             this.CurrentID = id;
             this.Difficulty = difficulty;

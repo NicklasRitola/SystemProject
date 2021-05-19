@@ -200,7 +200,7 @@ namespace Server
             if (database.SendJudgePointToDatabase(request))
             {
                 //Successfully registered 
-                CompetitionMaintainer CM = new CompetitionMaintainer(request.In_Competition, database);
+                CompetitionMaintainer CM = new CompetitionMaintainer(request.CompetitionID, database);
                 CM.DiveScoreCalculater(request.DiveID, database.GetDiveDifficulty(request.DiveID)); //Tries to calculate dive score
             }
             return await responseBuilder.JudgePointResponse(result);
