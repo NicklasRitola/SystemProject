@@ -5,6 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Shared;
 
 namespace ClientUI
 {
@@ -42,12 +45,16 @@ namespace ClientUI
             //måste lägga in funktion som skickar iväg poäng till servern
 
         }
-        public void UpdateCurrentDiver(string CurrentDiver,string Currentdifficulty,string CurrentGroup, string CurrentTower) // uppdaterar informationen om hoppet och diver
+
+
+        private async void buttonRefresh_Click(object sender, EventArgs e)
         {
-            labelSetCurrentDiff.Text = Currentdifficulty;
-            labelSetCurrentDiver.Text = CurrentDiver;
-            labelSetCurrentGroup.Text = CurrentGroup;
-            labelSetCurrentTower.Text = CurrentTower;
+            ViewCurrentDiverRequest request = new ViewCurrentDiverRequest();
+            await channel.SendAsync(request);
+
+            JObject response = await channel.ReceiveResponse();
+            string JSONString = JsonConvert.SerializeObject(response);
+            CompetitionScheduleResponse responseSchedule = JsonConvert.DeserializeObject<CompetitionScheduleResponse>(JSONString);
         }
     }
 }
