@@ -127,15 +127,6 @@ namespace Shared
         }
     }
 
-    public class ScoreTableResponse : Response
-    {
-
-        public ScoreTableResponse()
-        {
-            messageType = "scoretableresponse";
-        }
-    }
-
     public class LoginResponse : Response
     {
         public bool Success;
@@ -157,7 +148,8 @@ namespace Shared
         {
 
         }
-        CurrentDiverResponse(int id, float difficulty, string group, int tower)
+
+        public CurrentDiverResponse(int id, float difficulty, string group, int tower)
         {
             this.CurrentID = id;
             this.Difficulty = difficulty;

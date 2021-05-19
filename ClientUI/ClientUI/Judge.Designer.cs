@@ -41,6 +41,7 @@ namespace ClientUI
             this.labelSetCurrentDiff = new System.Windows.Forms.Label();
             this.labelSetCurrentDiver = new System.Windows.Forms.Label();
             this.buttonRefresh = new System.Windows.Forms.Button();
+            this.textBoxComp = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonMainMenu
@@ -149,12 +150,21 @@ namespace ClientUI
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
+            // textBoxComp
+            // 
+            this.textBoxComp.Location = new System.Drawing.Point(95, 213);
+            this.textBoxComp.Name = "textBoxComp";
+            this.textBoxComp.PlaceholderText = "Enter Competition ID";
+            this.textBoxComp.Size = new System.Drawing.Size(142, 23);
+            this.textBoxComp.TabIndex = 42;
+            // 
             // Judge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(735, 248);
+            this.Controls.Add(this.textBoxComp);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.labelSetCurrentTower);
             this.Controls.Add(this.labelSetCurrentGroup);
@@ -190,5 +200,6 @@ namespace ClientUI
         private System.Windows.Forms.Label labelSetCurrentDiff;
         private System.Windows.Forms.Label labelSetCurrentDiver;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.TextBox textBoxComp;
     }
 }

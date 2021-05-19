@@ -63,6 +63,7 @@ namespace ClientUI
                 }
                 if (LoginGlobalString.GlobalString == "Judge")
                 {
+                    LoginGlobalString.SSN = Username.Text;
                     Judge judgeForm = new Judge(channel);
                     judgeForm.Show();
                 }

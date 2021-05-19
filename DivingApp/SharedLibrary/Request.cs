@@ -136,11 +136,20 @@ namespace Shared
     public class JudgePointRequest : Request
     {
         public int DiveID;
-        public int Point;
+        public float Point;
         public string Judge;
-        public int In_Competition;
+        public int CompetitionID;
         public JudgePointRequest()
         {
+            messageType = "judgepointrequest";
+        }
+
+        public JudgePointRequest(int diveID, float point, string judge, int compID)
+        {
+            this.DiveID = diveID;
+            this.Point = point;
+            this.Judge = judge;
+            this.CompetitionID = compID;
             messageType = "judgepointrequest";
         }
     }
@@ -165,13 +174,6 @@ namespace Shared
         public ViewCurrentDiverRequest(int compId)
         {
             this.CompetitionID = compId;
-        }
-    }
-    public class ViewScoreTableRequest : Request
-    {
-        public ViewScoreTableRequest()
-        {
-            messageType = "viewscoretablerequest";
         }
     }
 }

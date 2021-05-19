@@ -39,22 +39,35 @@ namespace ClientUI
 
         }
 
-        private void ButtonSetScore_Click(object sender, EventArgs e)
+        private async void ButtonSetScore_Click(object sender, EventArgs e)
         {
-            float JudgeScore = float.Parse(textBoxSetScore.Text); // poängen som skrivs in.
-            //måste lägga in funktion som skickar iväg poäng till servern
+            JudgePointRequest request = new JudgePointRequest(currentID, float.Parse(textBoxSetScore.Text),LoginGlobalString.SSN, int.Parse(textBoxComp.Text));
+            await channel.SendAsync(request);
+
+            JObject response = await channel.ReceiveResponse();
+            MessageBox.Show(response.Value<string>("message"), "Registration result", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
+        public int currentID;
 
 
         private async void buttonRefresh_Click(object sender, EventArgs e)
         {
-            ViewCurrentDiverRequest request = new ViewCurrentDiverRequest();
+            ViewCurrentDiverRequest request = new ViewCurrentDiverRequest(int.Parse(textBoxComp.Text));
             await channel.SendAsync(request);
 
             JObject response = await channel.ReceiveResponse();
             string JSONString = JsonConvert.SerializeObject(response);
-            CompetitionScheduleResponse responseSchedule = JsonConvert.DeserializeObject<CompetitionScheduleResponse>(JSONString);
+            CurrentDiverResponse CurrentResponse = JsonConvert.DeserializeObject<CurrentDiverResponse>(JSONString);
+
+            labelSetCurrentDiver.Text = CurrentResponse.CurrentID.ToString();
+            currentID = CurrentResponse.CurrentID;
+            labelSetCurrentDiff.Text = CurrentResponse.Difficulty.ToString();
+
+            labelSetCurrentGroup.Text = CurrentResponse.DiveGroup;
+
+            labelSetCurrentTower.Text = CurrentResponse.Tower.ToString();
+
         }
     }
 }
