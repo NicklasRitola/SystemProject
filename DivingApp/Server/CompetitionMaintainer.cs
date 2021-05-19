@@ -18,12 +18,13 @@ namespace Server
             this.CompetitionType = database.GetCompetitionType(CompetitionID);
 
         }
-        public void DiveScoreCalculater(int Dive_ID, float difficulty)
+        public float? DiveScoreCalculater(int Dive_ID, float difficulty)
         {
             List<int> points = CollectPointsFromJudge(Dive_ID);
+            float? DiveScore = null;
             if(points != null)
             {
-                float? DiveScore = null;
+                DiveScore = null;
                 switch (CompetitionType)
                 {
                     case 1: // Competition Type 1
@@ -58,6 +59,7 @@ namespace Server
                         
                 }
             }
+            return DiveScore;
         }
         private List<int> CollectPointsFromJudge(int Dive_ID) 
         {
@@ -91,5 +93,4 @@ namespace Server
             return (points[0] + points[1] + points[2]) * difficulty;
         }
     }
-
 }
