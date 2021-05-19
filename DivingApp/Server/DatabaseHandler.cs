@@ -4,7 +4,6 @@ using System.Text;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using Shared;
-using System.Linq;
 
 namespace Server
 {
@@ -420,6 +419,37 @@ namespace Server
             catch (Exception err)
             {
                 Console.Out.WriteLine("\nERROR - " + err.Message);
+                return null;
+            }
+        }
+
+        public CurrentDiverResponse GetDiveInformation(int Dive_ID)
+        {
+            try
+            {
+                CurrentDiverResponse diver = new CurrentDiverResponse();
+                diver.CurrentID = Dive_ID;
+
+                string query = "select Difficulty, Dive_Group, Tower from Dive where Dive_ID = " + Dive_ID + ";";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+
+                if (dataReader.HasRows)
+                {
+                    List<int> points = new List<int>();
+                    while (dataReader.Read())
+                    {
+                        diver.Difficulty = float.Parse("" + dataReader.GetValue(0));
+                        diver.DiveGroup = ("" + dataReader.GetValue(1));
+                        diver.Tower = Int32.Parse("" + dataReader.GetValue(2));
+                    }
+                    dataReader.Close();
+                }
+                 return diver;
+            }
+            catch(Exception err)
+            {
+                Console.WriteLine("Error -" + err);
                 return null;
             }
         }
