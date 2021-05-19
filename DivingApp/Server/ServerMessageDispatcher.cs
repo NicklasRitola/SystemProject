@@ -214,7 +214,7 @@ namespace Server
         public async Task<CompetitionScheduleResponse> DispatchMessage(ViewScheduleRequest request)
         {
             Console.WriteLine("View Schedule request received");
-            CompetitionScheduleResponse response = new CompetitionScheduleResponse(AdminsDiveOrder[0], database.GetCompetitionDives(request.Competition_ID));
+            CompetitionScheduleResponse response = new CompetitionScheduleResponse(/*AdminsDiveOrder[0]*/0, database.GetCompetitionDives(request.Competition_ID));
             return response;
         }
 

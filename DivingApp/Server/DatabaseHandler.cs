@@ -360,7 +360,6 @@ namespace Server
         {
             return false;
         }
-
         public List<CompetitionDive> GetCompetitionDives(int Competition_ID)
         {
             try
@@ -368,7 +367,8 @@ namespace Server
                 List<CompetitionDive> list = new List<CompetitionDive>();
 
                 //Get all divs that has the matching competition id
-                string query = "select Dive_ID, Difficulty, Dive_Group, Tower, Date, Diver from Dive where In_Competition = " + Competition_ID + ";";
+                string query = "select Dive_ID, Difficulty, Dive_Group, Tower, Date, Diver, Score from Dive where In_Competition = " + Competition_ID + " order by Date DESC;";
+                Console.WriteLine(query);
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 if (dataReader.HasRows)
@@ -383,8 +383,16 @@ namespace Server
                         temp.Tower = Int32.Parse("" + dataReader.GetValue(3));
                         temp.Time = ("" + dataReader.GetValue(4));
                         temp.DiverSSN = ("" + dataReader.GetValue(5));
+                        string score = ("" + dataReader.GetValue(6));
+                        if(score == "")
+                        {
+                            temp.Score = null;
+                        }
+                        else
+                        {
+                            temp.Score = float.Parse(score);
+                        }
                         list.Add(temp);
-
                     }
                     dataReader.Close();
                 }

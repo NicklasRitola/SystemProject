@@ -61,6 +61,7 @@ namespace Shared
         public string DiverName;
         public string DiverSSN;
         public string Time;
+        public float? Score = null;
 
         //Dyk i databasen: int ID, float SCORE, float DIFFICULTY, string GROUP, int TOWER,
         //int COMPETITION_ID, string DIVER_ID, string TIME
