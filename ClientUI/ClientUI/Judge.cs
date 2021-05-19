@@ -57,7 +57,7 @@ namespace ClientUI
             await channel.SendAsync(request);
 
             JObject response = await channel.ReceiveResponse();
-            if (response.Value<string>("messageType").ToLower() == "CurrentDiverResponse")
+            if (response.Value<string>("messageType").ToLower() == "currentdiverresponse")
             {
                 string JSONString = JsonConvert.SerializeObject(response);
                 CurrentDiverResponse CurrentResponse = JsonConvert.DeserializeObject<CurrentDiverResponse>(JSONString);
@@ -72,7 +72,7 @@ namespace ClientUI
             }
             else
             {
-                ShowMessage()
+                ShowMessage("Update current diver result", response.Value<string>("message"));
             }
         }
     }
