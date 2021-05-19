@@ -13,7 +13,7 @@ namespace ClientUI
         public override async Task<Response> DispatchMessage(JObject message)
         {
             string JSONString = JsonConvert.SerializeObject(message);
-            switch((message.Value<string>("messageType")).ToLower())
+            switch ((message.Value<string>("messageType")).ToLower())
             {
                 //Response
                 case "testresponse":
@@ -27,10 +27,6 @@ namespace ClientUI
                 case "scheduleresponse":
                     CompetitionScheduleResponse SchResp = JsonConvert.DeserializeObject<CompetitionScheduleResponse>(JSONString);
                     await DispatchMessage(SchResp);
-                    break;
-                case "diverinforesponse":
-                    ScoreTableResponse ScoreTableResp = JsonConvert.DeserializeObject<ScoreTableResponse>(JSONString);
-                    await DispatchMessage(ScoreTableResp);
                     break;
                 case "scoretableresponse":
                     DiverInfoResponse DiverInfoResp = JsonConvert.DeserializeObject<DiverInfoResponse>(JSONString);
@@ -47,7 +43,7 @@ namespace ClientUI
         // Response messages from server
         public async Task DispatchMessage(TestResponse response)
         {
-            
+
         }
         public async Task DispatchMessage(ResultResponse response)
         {
@@ -61,10 +57,7 @@ namespace ClientUI
         {
 
         }
-        public async Task DispatchMessage(ScoreTableResponse response)
-        {
-
-        }
+        
         public async Task DispatchMessage(LoginResponse response)
         {
 
