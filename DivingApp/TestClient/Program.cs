@@ -12,7 +12,7 @@ namespace TestClient
 {
     class Program
     {
-        static private ClientMessageDispatcher messageDispatcher = new ClientMessageDispatcher();
+        static private ClientMessageDispatcher messageDispatcher = null;
         static ClientChannel channel = new ClientChannel(messageDispatcher);
 
         static async Task Main(string[] args)
