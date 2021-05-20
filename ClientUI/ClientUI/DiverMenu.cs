@@ -18,7 +18,7 @@ namespace ClientUI
 
         private void buttonRegisterDive_Click(object sender, EventArgs e)
         {
-            Diver diverForm = new Diver(channel);
+            Diver diverForm = new Diver(channel, "diver");
             OpenForm(diverForm, this);
         }
 

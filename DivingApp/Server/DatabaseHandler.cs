@@ -130,11 +130,45 @@ namespace Server
         {
             try
             {
-                //string query = "insert into Schedule values (" + data.CompetitionID + "," + data.DiveID + "," + data.DiverID + "," + data.count + "); ";
-                string query = "insert into Schedule values (" + data.CompetitionID + ");";
-                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                //TODO:  Controls the database to see if the current schedule already exist 
+
+                string query_2 = "select In_Competition, Dive_ID, Difficulty, Dive_Group, Tower, Date from dive where In_Competition = " + data.CompetitionID + " ORDER BY UNIX_TIMESTAMP(date) ASC;";
+                MySqlCommand sqlQuery = new MySqlCommand(query_2, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
-                dataReader.Close();
+                List<CompetitionDive> list = new List<CompetitionDive>();
+
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        CompetitionDive temp = new CompetitionDive();
+                        temp.Competition_ID = int.Parse("" + dataReader.GetValue(0));
+                        temp.DiveId = int.Parse("" + dataReader.GetValue(1));
+                        temp.Difficulty = float.Parse("" + dataReader.GetValue(2));
+                        temp.Group = ("" + dataReader.GetValue(3));
+                        temp.Tower = int.Parse("" + dataReader.GetValue(4));
+                        temp.Time = "" + dataReader.GetValue(5);
+                        list.Insert(0, temp); //Add to front
+                    }
+                    dataReader.Close();
+                }
+
+                foreach(var dive in list)
+                {
+                    string query_3 = "insert into Schedule (";
+                    query_2 += dive.Competition_ID + ",";
+                    query_2 += dive.DiveId + ",";
+                    query_2 += dive.Difficulty + ",'";
+                    query_2 += dive.Group + "',";
+                    query_2 += dive.Tower + ",'";
+                    query_2 += dive.Time + "');";
+
+                    sqlQuery = new MySqlCommand(query_3, this.databaseConnection);
+                    dataReader = sqlQuery.ExecuteReader();
+                    dataReader.Close();
+                }
+
+
                 Console.WriteLine("Database - Schedule has been created");
                 return true;
             }
@@ -452,7 +486,6 @@ namespace Server
                 return null;
             }
         }
-
         public bool DeleteCompetitionInDatabase(int Competition_ID)
         {
             try

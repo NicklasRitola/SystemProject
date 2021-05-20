@@ -69,6 +69,8 @@ namespace Shared
 
         public bool Current;
 
+        public int Competition_ID; // For database request
+
         //Dyk i databasen: int ID, float SCORE, float DIFFICULTY, string GROUP, int TOWER,
         //int COMPETITION_ID, string DIVER_ID, string TIME
         public CompetitionDive()
