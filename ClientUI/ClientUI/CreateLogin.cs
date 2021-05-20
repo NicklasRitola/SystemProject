@@ -35,23 +35,23 @@ namespace ClientUI
             List<string> NoEmptyFields = new List<String>();
             if (textboxFirstName.Text == "")
             {
-                NoEmptyFields.Add("First name");
+                NoEmptyFields.Add("First name - Empty field");
             }
             if (textboxSurname.Text == "")
             {
-                NoEmptyFields.Add("Surname");
+                NoEmptyFields.Add("Surname - Empty field");
             }
             if (textBoxUsername.Text == "")
             {
-                NoEmptyFields.Add("Social security number");
+                NoEmptyFields.Add("Social security number - Empty field");
             }
             if(textBoxPassword.Text == "")
             {
-                NoEmptyFields.Add("Password");
+                NoEmptyFields.Add("Password - Empty field");
             }
             if (textBoxConfirm.Text == "" && textBoxUsername.Text != "")
             {
-                NoEmptyFields.Add("Confirm password");
+                NoEmptyFields.Add("Confirm password - Empty field");
             }
             if (textBoxConfirm.Text != textBoxPassword.Text && textBoxPassword.Text != "")
             {
@@ -59,7 +59,7 @@ namespace ClientUI
             }
             if (checkBoxAdmin.Checked == false && checkBoxJudge.Checked == false)
             {
-                NoEmptyFields.Add("Type of profile");
+                NoEmptyFields.Add("Type of profile needs to be selected");
             }
 
             // Creations of the profiles 
@@ -101,7 +101,7 @@ namespace ClientUI
                 string output = "";
                 for(int i = 0; i < NoEmptyFields.Count; i++)
                 {
-                    output += ("- " + NoEmptyFields[i] + "\n");
+                    output += ("• " + NoEmptyFields[i] + "\n");
                 }
                 MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

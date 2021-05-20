@@ -99,10 +99,11 @@ namespace ClientUI
         {
             //Check to see that all required field are filled
             List<string> NoEmptyFields = new List<String>();
-            if (textBoxLocation.Text == "") { NoEmptyFields.Add("Location"); }
-            if (textBoxDate.Text == "") { NoEmptyFields.Add("Start date"); }
-            if (textBoxEndDate.Text == "") { NoEmptyFields.Add("End date"); }
-            if (textBoxID.Text == "") { NoEmptyFields.Add("ID"); }
+            if (textBoxLocation.Text == "") { NoEmptyFields.Add("Location - Empty field"); }
+            if (textBoxDate.Text == "") { NoEmptyFields.Add("Start date - Empty field"); }
+            if (textBoxEndDate.Text == "") { NoEmptyFields.Add("End date - Empty field"); }
+            if (textBoxID.Text == "") { NoEmptyFields.Add("ID - Empty field"); }
+            else if (!(int.TryParse(textBoxID.Text, out _))) { NoEmptyFields.Add("ID - Not an integer"); }
             if (checkBoxGlobal.Checked == false && checkBoxLocal.Checked == false) { NoEmptyFields.Add("No competition type selected"); }
 
             if(NoEmptyFields.Count == 0)
@@ -123,7 +124,7 @@ namespace ClientUI
                 string output = "";
                 for (int i = 0; i < NoEmptyFields.Count; i++)
                 {
-                    output += ("- " + NoEmptyFields[i] + "\n");
+                    output += ("• " + NoEmptyFields[i] + "\n");
                 }
                 MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

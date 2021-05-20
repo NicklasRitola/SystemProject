@@ -13,7 +13,7 @@ namespace ClientUI
 {
     public partial class CreateSchedule : ClientHandler
     {
-        public int counter = 0;
+        //public int counter = 0;
         public CreateSchedule(ClientChannel channel) 
         {
             InitializeComponent();
@@ -33,16 +33,32 @@ namespace ClientUI
 
         private async void buttonInsert_Click(object sender, EventArgs e)
         {
-            CreateScheduleRequest request = new CreateScheduleRequest();
-            request.DiveID = int.Parse(textBoxDiveID.Text);
-            request.DiverID = int.Parse(textBoxDiverID.Text);
-            request.CompetitionID = int.Parse(textBoxChoseCompID.Text);
-            request.count = counter;
-            counter++;
+            if(textBoxChoseCompID.Text == "")
+            {
+                MessageBox.Show("Invalid input: \n• Competition ID - Empty Field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!(int.TryParse(textBoxChoseCompID.Text, out _)))
+            {
+                MessageBox.Show("Invalid input: \n• Competition ID - Not an integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                CreateScheduleRequest request = new CreateScheduleRequest();
+                request.CompetitionID = int.Parse(textBoxChoseCompID.Text);
 
-            await channel.SendAsync(request);
-            JObject response = await channel.ReceiveResponse();
-            MessageBox.Show(response.Value<string>("message"), "Registration result");
+                await channel.SendAsync(request);
+                JObject response = await channel.ReceiveResponse();
+                MessageBox.Show(response.Value<string>("message"), "Registration result");
+
+                Administrator adminForm = new Administrator(channel);
+                OpenForm(adminForm, this);
+            }
+            
+            //request.DiveID = int.Parse(textBoxDiveID.Text);
+            //request.DiverID = int.Parse(textBoxDiverID.Text);
+            
+            //request.count = counter;
+            //counter++;
         }
     }
 }

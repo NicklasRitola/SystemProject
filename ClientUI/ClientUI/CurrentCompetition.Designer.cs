@@ -55,6 +55,7 @@ namespace ClientUI
             // 
             // ButtonSelectComp
             // 
+            this.ButtonSelectComp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ButtonSelectComp.Location = new System.Drawing.Point(123, 84);
             this.ButtonSelectComp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtonSelectComp.Name = "ButtonSelectComp";
@@ -66,6 +67,7 @@ namespace ClientUI
             // 
             // buttonNextDive
             // 
+            this.buttonNextDive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonNextDive.Location = new System.Drawing.Point(123, 196);
             this.buttonNextDive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonNextDive.Name = "buttonNextDive";
@@ -151,7 +153,7 @@ namespace ClientUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(712, 332);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBoxCurrentDiver);

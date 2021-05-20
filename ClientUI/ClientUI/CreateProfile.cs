@@ -48,14 +48,16 @@ namespace ClientUI
         {
             //Check to see that all required field are filled
             List<string> NoEmptyFields = new List<String>();
-            if(textBoxTeam.Text == ""){ NoEmptyFields.Add("Team ID"); }
-            if(textBoxFirst.Text == ""){ NoEmptyFields.Add("First name"); }
-            if(textBoxSur.Text == ""){ NoEmptyFields.Add("Surname"); }
-            if(textBoxAge.Text == ""){ NoEmptyFields.Add("Age"); }
-            if(checkBoxMale.Checked == false && checkBoxFemale.Checked == false){ NoEmptyFields.Add("No gender selected"); }
-            if(textBoxUsername.Text == ""){ NoEmptyFields.Add("Social security number"); }
-            if(textBoxPassword.Text == ""){ NoEmptyFields.Add("Password"); }
-            if(textBoxPassword.Text != "" && textBoxConfirm.Text == "") { NoEmptyFields.Add("Confirm password"); }
+            if(textBoxTeam.Text == ""){ NoEmptyFields.Add("Team ID - Empty field"); }
+            else if (!(int.TryParse(textBoxTeam.Text, out _))) { NoEmptyFields.Add("Team ID - Not an integer"); }
+            if(textBoxFirst.Text == ""){ NoEmptyFields.Add("First name - Empty field"); }
+            if(textBoxSur.Text == ""){ NoEmptyFields.Add("Surname - Empty field"); }
+            if(textBoxAge.Text == ""){ NoEmptyFields.Add("Age - Empty field"); }
+            else if (!(int.TryParse(textBoxAge.Text, out _))) { NoEmptyFields.Add("Age - Not an integer"); }
+            if (checkBoxMale.Checked == false && checkBoxFemale.Checked == false){ NoEmptyFields.Add("No gender selected"); }
+            if(textBoxUsername.Text == ""){ NoEmptyFields.Add("Social security number - Empty field"); }
+            if(textBoxPassword.Text == ""){ NoEmptyFields.Add("Password - Empty field"); }
+            if(textBoxPassword.Text != "" && textBoxConfirm.Text == "") { NoEmptyFields.Add("Confirm password - Empty field"); }
             if(textBoxPassword.Text != textBoxConfirm.Text && textBoxPassword.Text != "") { NoEmptyFields.Add("Password doesn't match"); }
 
             // Creations of the diver profile 
@@ -79,7 +81,7 @@ namespace ClientUI
                 string output = "";
                 for (int i = 0; i < NoEmptyFields.Count; i++)
                 {
-                    output += ("- " + NoEmptyFields[i] + "\n");
+                    output += ("• " + NoEmptyFields[i] + "\n");
                 }
                 MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -46,9 +46,10 @@ namespace ClientUI
             // 
             // buttonMainMenu
             // 
-            this.buttonMainMenu.Location = new System.Drawing.Point(12, 12);
+            this.buttonMainMenu.Location = new System.Drawing.Point(14, 16);
+            this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
-            this.buttonMainMenu.Size = new System.Drawing.Size(76, 35);
+            this.buttonMainMenu.Size = new System.Drawing.Size(87, 47);
             this.buttonMainMenu.TabIndex = 30;
             this.buttonMainMenu.Text = "Main Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
@@ -56,9 +57,11 @@ namespace ClientUI
             // 
             // ButtonSetScore
             // 
-            this.ButtonSetScore.Location = new System.Drawing.Point(31, 90);
+            this.ButtonSetScore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ButtonSetScore.Location = new System.Drawing.Point(35, 120);
+            this.ButtonSetScore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ButtonSetScore.Name = "ButtonSetScore";
-            this.ButtonSetScore.Size = new System.Drawing.Size(136, 54);
+            this.ButtonSetScore.Size = new System.Drawing.Size(155, 72);
             this.ButtonSetScore.TabIndex = 31;
             this.ButtonSetScore.Text = "Set Score";
             this.ButtonSetScore.UseVisualStyleBackColor = true;
@@ -66,35 +69,36 @@ namespace ClientUI
             // 
             // textBoxSetScore
             // 
-            this.textBoxSetScore.Location = new System.Drawing.Point(199, 107);
+            this.textBoxSetScore.Location = new System.Drawing.Point(227, 143);
+            this.textBoxSetScore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxSetScore.Name = "textBoxSetScore";
-            this.textBoxSetScore.Size = new System.Drawing.Size(100, 23);
+            this.textBoxSetScore.Size = new System.Drawing.Size(114, 27);
             this.textBoxSetScore.TabIndex = 32;
             // 
             // Label
             // 
             this.Label.AutoSize = true;
-            this.Label.Location = new System.Drawing.Point(317, 74);
+            this.Label.Location = new System.Drawing.Point(362, 99);
             this.Label.Name = "Label";
-            this.Label.Size = new System.Drawing.Size(80, 15);
+            this.Label.Size = new System.Drawing.Size(99, 20);
             this.Label.TabIndex = 33;
             this.Label.Text = "Current Diver:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(317, 98);
+            this.label1.Location = new System.Drawing.Point(362, 131);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
+            this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 34;
             this.label1.Text = "Difficulty:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(317, 123);
+            this.label2.Location = new System.Drawing.Point(362, 164);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 15);
+            this.label2.Size = new System.Drawing.Size(87, 20);
             this.label2.TabIndex = 35;
             this.label2.Text = "Dive Group:";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -102,49 +106,50 @@ namespace ClientUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(317, 147);
+            this.label3.Location = new System.Drawing.Point(362, 196);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 15);
+            this.label3.Size = new System.Drawing.Size(52, 20);
             this.label3.TabIndex = 36;
             this.label3.Text = "Tower:";
             // 
             // labelSetCurrentTower
             // 
             this.labelSetCurrentTower.AutoSize = true;
-            this.labelSetCurrentTower.Location = new System.Drawing.Point(403, 147);
+            this.labelSetCurrentTower.Location = new System.Drawing.Point(461, 196);
             this.labelSetCurrentTower.Name = "labelSetCurrentTower";
-            this.labelSetCurrentTower.Size = new System.Drawing.Size(0, 15);
+            this.labelSetCurrentTower.Size = new System.Drawing.Size(0, 20);
             this.labelSetCurrentTower.TabIndex = 40;
             // 
             // labelSetCurrentGroup
             // 
             this.labelSetCurrentGroup.AutoSize = true;
-            this.labelSetCurrentGroup.Location = new System.Drawing.Point(403, 123);
+            this.labelSetCurrentGroup.Location = new System.Drawing.Point(461, 164);
             this.labelSetCurrentGroup.Name = "labelSetCurrentGroup";
-            this.labelSetCurrentGroup.Size = new System.Drawing.Size(0, 15);
+            this.labelSetCurrentGroup.Size = new System.Drawing.Size(0, 20);
             this.labelSetCurrentGroup.TabIndex = 39;
             // 
             // labelSetCurrentDiff
             // 
             this.labelSetCurrentDiff.AutoSize = true;
-            this.labelSetCurrentDiff.Location = new System.Drawing.Point(403, 98);
+            this.labelSetCurrentDiff.Location = new System.Drawing.Point(461, 131);
             this.labelSetCurrentDiff.Name = "labelSetCurrentDiff";
-            this.labelSetCurrentDiff.Size = new System.Drawing.Size(0, 15);
+            this.labelSetCurrentDiff.Size = new System.Drawing.Size(0, 20);
             this.labelSetCurrentDiff.TabIndex = 38;
             // 
             // labelSetCurrentDiver
             // 
             this.labelSetCurrentDiver.AutoSize = true;
-            this.labelSetCurrentDiver.Location = new System.Drawing.Point(403, 74);
+            this.labelSetCurrentDiver.Location = new System.Drawing.Point(461, 99);
             this.labelSetCurrentDiver.Name = "labelSetCurrentDiver";
-            this.labelSetCurrentDiver.Size = new System.Drawing.Size(0, 15);
+            this.labelSetCurrentDiver.Size = new System.Drawing.Size(0, 20);
             this.labelSetCurrentDiver.TabIndex = 37;
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(13, 213);
+            this.buttonRefresh.Location = new System.Drawing.Point(15, 284);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefresh.Size = new System.Drawing.Size(86, 31);
             this.buttonRefresh.TabIndex = 41;
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.UseVisualStyleBackColor = true;
@@ -152,18 +157,19 @@ namespace ClientUI
             // 
             // textBoxComp
             // 
-            this.textBoxComp.Location = new System.Drawing.Point(95, 213);
+            this.textBoxComp.Location = new System.Drawing.Point(109, 284);
+            this.textBoxComp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxComp.Name = "textBoxComp";
             this.textBoxComp.PlaceholderText = "Enter Competition ID";
-            this.textBoxComp.Size = new System.Drawing.Size(142, 23);
+            this.textBoxComp.Size = new System.Drawing.Size(162, 27);
             this.textBoxComp.TabIndex = 42;
             // 
             // Judge
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(735, 248);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
+            this.ClientSize = new System.Drawing.Size(840, 331);
             this.Controls.Add(this.textBoxComp);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.labelSetCurrentTower);
@@ -177,6 +183,7 @@ namespace ClientUI
             this.Controls.Add(this.textBoxSetScore);
             this.Controls.Add(this.ButtonSetScore);
             this.Controls.Add(this.buttonMainMenu);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Judge";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Judge";

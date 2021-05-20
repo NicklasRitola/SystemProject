@@ -51,7 +51,8 @@ namespace ClientUI
             // 
             // CreateCompetition
             // 
-            this.CreateCompetition.Location = new System.Drawing.Point(194, 92);
+            this.CreateCompetition.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CreateCompetition.Location = new System.Drawing.Point(206, 93);
             this.CreateCompetition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreateCompetition.Name = "CreateCompetition";
             this.CreateCompetition.Size = new System.Drawing.Size(155, 72);
@@ -62,19 +63,21 @@ namespace ClientUI
             // 
             // CreateSchedule
             // 
-            this.CreateSchedule.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.CreateSchedule.Location = new System.Drawing.Point(33, 92);
+            this.CreateSchedule.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CreateSchedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CreateSchedule.Location = new System.Drawing.Point(45, 93);
             this.CreateSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreateSchedule.Name = "CreateSchedule";
             this.CreateSchedule.Size = new System.Drawing.Size(155, 72);
             this.CreateSchedule.TabIndex = 34;
             this.CreateSchedule.Text = "Create Schedule";
-            this.CreateSchedule.UseVisualStyleBackColor = false;
+            this.CreateSchedule.UseVisualStyleBackColor = true;
             this.CreateSchedule.Click += new System.EventHandler(this.CreateSchedule_Click);
             // 
             // nextDive
             // 
-            this.nextDive.Location = new System.Drawing.Point(356, 92);
+            this.nextDive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.nextDive.Location = new System.Drawing.Point(368, 93);
             this.nextDive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nextDive.Name = "nextDive";
             this.nextDive.Size = new System.Drawing.Size(155, 72);
@@ -85,7 +88,8 @@ namespace ClientUI
             // 
             // buttonCreateProfile
             // 
-            this.buttonCreateProfile.Location = new System.Drawing.Point(33, 172);
+            this.buttonCreateProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCreateProfile.Location = new System.Drawing.Point(45, 173);
             this.buttonCreateProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCreateProfile.Name = "buttonCreateProfile";
             this.buttonCreateProfile.Size = new System.Drawing.Size(155, 72);
@@ -96,7 +100,8 @@ namespace ClientUI
             // 
             // buttonCreateTeam
             // 
-            this.buttonCreateTeam.Location = new System.Drawing.Point(194, 172);
+            this.buttonCreateTeam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonCreateTeam.Location = new System.Drawing.Point(206, 173);
             this.buttonCreateTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCreateTeam.Name = "buttonCreateTeam";
             this.buttonCreateTeam.Size = new System.Drawing.Size(155, 72);
@@ -107,7 +112,8 @@ namespace ClientUI
             // 
             // buttonRegisterDive
             // 
-            this.buttonRegisterDive.Location = new System.Drawing.Point(356, 172);
+            this.buttonRegisterDive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonRegisterDive.Location = new System.Drawing.Point(368, 173);
             this.buttonRegisterDive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRegisterDive.Name = "buttonRegisterDive";
             this.buttonRegisterDive.Size = new System.Drawing.Size(155, 72);
@@ -120,7 +126,7 @@ namespace ClientUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(559, 288);
             this.Controls.Add(this.buttonRegisterDive);
             this.Controls.Add(this.buttonCreateTeam);
