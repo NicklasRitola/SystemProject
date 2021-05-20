@@ -14,8 +14,6 @@ namespace ClientUI
     public class ClientChannel : Channel
     {
         //A version of the Channel class that is adapted to function for the Client
-        public ClientChannel() { messageDispatcher = null; }
-        public ClientChannel(MessageDispatcher messageDispatcher) : base(messageDispatcher) { }
 
         public async Task ConnectAsync(IPEndPoint endPoint)
         {

@@ -52,6 +52,7 @@ namespace Shared
                 message += " failed.";
         }
     }
+
     public class CompetitionDive : Response
     {
         public int DiveId;
@@ -59,18 +60,11 @@ namespace Shared
         public string Group;
         public int Tower;
         public string DiverName;
-
-        //TODO: Remove SSN from here and database request
         public string DiverSSN;
-
-        //TODO: Remove time from here and database request?
         public string Time;
         public float? Score = null;
-
         public bool Current;
 
-        //Dyk i databasen: int ID, float SCORE, float DIFFICULTY, string GROUP, int TOWER,
-        //int COMPETITION_ID, string DIVER_ID, string TIME
         public CompetitionDive()
         {
             messageType = "CompetitionDiveItem";
