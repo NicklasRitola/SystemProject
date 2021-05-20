@@ -13,10 +13,20 @@ namespace ClientUI
 {
     public partial class Diver : ClientHandler
     {
-        public Diver(ClientChannel channel) 
+        private string fromForm;
+        public Diver(ClientChannel channel, string fromForm) 
         {
             InitializeComponent();
             this.channel = channel;
+            this.fromForm = fromForm;
+            if(fromForm == "admin")
+            {
+                this.buttonMainMenu.Text = "Admin Menu";
+            }
+            else if (fromForm == "diver")
+            {
+                this.buttonMainMenu.Text = "Diver Menu";
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -78,8 +88,17 @@ namespace ClientUI
 
         private void buttonMainMenu_Click(object sender, EventArgs e)
         {
-            DiverMenu diverMenuForm = new DiverMenu(channel);
-            OpenForm(diverMenuForm, this);
+            if(fromForm == "admin")
+            {
+                Administrator adminMenuForm = new Administrator(channel);
+                OpenForm(adminMenuForm, this);
+            }
+            else
+            {
+                DiverMenu diverMenuForm = new DiverMenu(channel);
+                OpenForm(diverMenuForm, this);
+            }
+            
         }
     }
 }
