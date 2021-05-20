@@ -12,7 +12,6 @@ namespace Server
     public class SocketHandler
     {
         private static IPHostEntry ipHost = null;
-        private static IPAddress ipAddr = null;
         private static IPEndPoint localEndPoint = null;
         private Socket listener = null;
 
@@ -22,7 +21,6 @@ namespace Server
             // Creation TCP/IP socket
 
             ipHost = Dns.GetHostEntry(Dns.GetHostName());
-            //ipAddr = ipHost.AddressList[0];
             localEndPoint = new IPEndPoint(IPAddress.Loopback, 11111);
             listener = new Socket(localEndPoint.AddressFamily,
                     SocketType.Stream, ProtocolType.Tcp);

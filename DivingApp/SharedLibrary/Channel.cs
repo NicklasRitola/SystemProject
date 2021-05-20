@@ -22,6 +22,8 @@ namespace Shared
         public NetworkStream stream;
         public Task receiverTask;
         
+        public Channel() { messageDispatcher = null; }
+
         public Channel(MessageDispatcher messageDispatcher)
         {
             this.messageDispatcher = messageDispatcher;

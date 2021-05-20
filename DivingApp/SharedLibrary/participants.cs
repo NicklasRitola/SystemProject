@@ -6,8 +6,6 @@ namespace Shared
 {
     public class Participants
     {
-
-
         public string first;
         public string last;
         public int gend;
@@ -24,6 +22,5 @@ namespace Shared
             gend = gender;
             age = Age;
         }
-        
     }
 }

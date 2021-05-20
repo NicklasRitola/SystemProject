@@ -42,8 +42,7 @@ namespace ClientUI
                 viewSchedule.Rows[index].Cells[1].Value = diver.DiverName;
                 viewSchedule.Rows[index].Cells[2].Value = diver.Difficulty;
                 viewSchedule.Rows[index].Cells[3].Value = diver.Group;
-                viewSchedule.Rows[index].Cells[4].Value = "";
-                viewSchedule.Rows[index].Cells[5].Value = diver.Tower;
+                viewSchedule.Rows[index].Cells[4].Value = diver.Tower;
             }
         }
 

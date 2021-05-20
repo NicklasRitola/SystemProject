@@ -12,13 +12,7 @@ namespace ClientUI
 {
     class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        /// 
-        static MessageDispatcher messageDispatcher = new ClientMessageDispatcher();
-        static ClientChannel channel = new ClientChannel(messageDispatcher);
-        static IPEndPoint localEndPoint = null;
+        static ClientChannel channel = new ClientChannel();
 
         [STAThread]
         static async Task Main()

@@ -23,10 +23,6 @@ namespace ClientUI
             Administrator adminForm = new Administrator(channel);
             OpenForm(adminForm, this);
         }
-        private void ShowMessage(String caption, String body)
-        {
-            MessageBox.Show(caption, body, MessageBoxButtons.OK);
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {

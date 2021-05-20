@@ -25,9 +25,6 @@ namespace ClientUI
             OpenForm(adminForm, this);
         }
         private int checkCounter;
-        private string loginType;
-
-
 
         private async void RegisterProfile_Click(object sender, EventArgs e)
         {
@@ -125,17 +122,12 @@ namespace ClientUI
 
         private void checkBoxJudge_CheckedChanged(object sender, EventArgs e)
         {
-
             checkCounterFunction(sender, e);
-
-            loginType = "Judge";
         }
 
         private void checkBoxAdmin_CheckedChanged(object sender, EventArgs e)
         {
-
             checkCounterFunction(sender, e);
-            loginType = "Admin";
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -17,7 +17,8 @@ namespace Server
         private readonly DatabaseHandler database = new DatabaseHandler();
         private readonly DatabaseHandler password_database = new PasswordDatabaseHandler();
         private readonly ResponseBuilder responseBuilder = new ResponseBuilder();
-        private List<int> AdminsDiveOrder = new List<int>();
+        //private List<int> AdminsDiveOrder = new List<int>();
+        static Dictionary<int, List<int>> currentDivers = new Dictionary<int, List<int>>();
 
         public override async Task<Response> DispatchMessage(JObject message)
         {
@@ -41,18 +42,7 @@ namespace Server
                     break;
                 case "nextdiverrequest":
                     NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
-                    List<CompetitionDive> schedule = database.GetCompetitionDives(NexDivReq.CompetitionID);
-                    if (AdminsDiveOrder.Count == 0 && schedule != null)
-                    {
-                        foreach (var dive in schedule)
-                        {
-                            AdminsDiveOrder.Add(dive.DiveId);
-                        }
-                    }
-                    else
-                    {
-                        AdminsDiveOrder.RemoveAt(0);
-                    }
+                    updateCurrentDiver(NexDivReq.CompetitionID);
                     response = await DispatchMessage(NexDivReq);
                     break;
                 case "registerdiverrequest":
@@ -115,13 +105,33 @@ namespace Server
 
         public async Task<ResultResponse> DispatchMessage(CreateScheduleRequest request)
         {
+            ResultResponse response = await responseBuilder.CreateScheduleResponse(database.CreateScheduleInDatabase(request));
+            List<int> compDiveOrder = new List<int>();
             Console.WriteLine("Create Schedule request received");
             List<CompetitionDive> schedule = database.GetCompetitionDives(request.CompetitionID);
             foreach(var dive in schedule)
             {
-                AdminsDiveOrder.Add(dive.DiveId);
+                compDiveOrder.Add(dive.DiveId);
+                try
+                {
+                    currentDivers.Add(request.CompetitionID, compDiveOrder);
+                }
+                catch(ArgumentException e)
+                {
+                    List<int> competitionOrder;
+                    //That schedule already exists
+                    if(currentDivers.TryGetValue(request.CompetitionID, out competitionOrder))
+                    {
+                        if(competitionOrder.Count == 0)
+                        {
+                            //If schedule exists but is empty (has reached end of tournament)
+                            currentDivers.Remove(request.CompetitionID);
+                        }
+                    }
+                    Console.WriteLine("Error when creating schedule: ");
+                    Console.WriteLine(e);
+                }
             }
-            ResultResponse response = await responseBuilder.CreateScheduleResponse(database.CreateScheduleInDatabase(request));
             return response;
         }
 
@@ -210,20 +220,21 @@ namespace Server
             return await responseBuilder.JudgePointResponse(result);
         }
 
-        public async Task<CompetitionScheduleResponse> DispatchMessage(ViewScheduleRequest request)
+        public Task<CompetitionScheduleResponse> DispatchMessage(ViewScheduleRequest request)
         {
             Console.WriteLine("View Schedule request received");
-            CompetitionScheduleResponse response = new CompetitionScheduleResponse(/*AdminsDiveOrder[0]*/0, database.GetCompetitionDives(request.Competition_ID));
-            return response;
+            CompetitionScheduleResponse response = new CompetitionScheduleResponse(fetchCurrentDiver(request.Competition_ID), database.GetCompetitionDives(request.Competition_ID));
+            return Task.FromResult(response);
+
         }
         public async Task<Response> DispatchMessage(ViewCurrentDiverRequest request)
         {
             Console.WriteLine("View Current Diver request received");
-            CurrentDiverResponse temp = database.GetDiveInformation(AdminsDiveOrder[0]);
+            CurrentDiverResponse response = database.GetDiveInformation(request.CompetitionID);
 
-            if(database.GetDiveInformation(AdminsDiveOrder[0]) != null)
+            if (response != null)
             {
-                return temp;
+                return response;
             }
             else
             {
@@ -242,6 +253,26 @@ namespace Server
         {
             Console.WriteLine("Delete competition request received");
             return await responseBuilder.DeleteCompetitionResponse(database.DeleteCompetitionInDatabase(request.ID));
+        }
+
+        private void updateCurrentDiver(int competitionID)
+        {
+            List<int> competitionList;
+            if(currentDivers.TryGetValue(competitionID, out competitionList))
+            {
+                competitionList.RemoveAt(0);
+            }
+        }
+
+        private int fetchCurrentDiver(int competitionID)
+        {
+            int currentID = 0;
+            List<int> competitionList;
+            if(currentDivers.TryGetValue(competitionID, out competitionList))
+            {
+                currentID = competitionList[0];
+            }
+            return currentID;
         }
     }
 }
