@@ -52,6 +52,7 @@ namespace Shared
                 message += " failed.";
         }
     }
+
     public class CompetitionDive : Response
     {
         public int DiveId;
@@ -59,14 +60,9 @@ namespace Shared
         public string Group;
         public int Tower;
         public string DiverName;
-
-        //TODO: Remove SSN from here and database request
         public string DiverSSN;
-
-        //TODO: Remove time from here and database request?
         public string Time;
         public float? Score = null;
-
         public bool Current;
 
         public int Competition_ID; // For database request
