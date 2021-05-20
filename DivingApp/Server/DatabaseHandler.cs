@@ -64,7 +64,6 @@ namespace Server
                 Console.WriteLine("\nError - " + err.Message);
             }
         }
-
         public string SQLExecuteQuery(string query)
         {
             try
@@ -182,7 +181,7 @@ namespace Server
         {
             try
             {
-                string query = "insert into Diver values ('" + data.SSN + "','" + data.FirstName + "','" + data.Surname + "','" + data.Gender + "'," + data.Age + "); ";
+                string query = "insert into Diver values ('" + data.SSN + "','" + data.FirstName + "','" + data.Surname + "','" + data.Gender + "'," + data.Age + "," + data.Team + "); ";
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 dataReader.Close();
@@ -503,6 +502,38 @@ namespace Server
                 Console.WriteLine("Error - " + err);
                 return false;
             }
+        }
+
+
+
+        public ScheduleResponse FetchScheduleFromDatabase(int Competition_ID)
+        {
+            try
+            {
+                string query = "select * from Schedule where Competition_ID = " + Competition_ID + " ;";
+                
+                return null;
+            }
+            catch(Exception err)
+            {
+                Console.WriteLine("Error - " + err);
+                return null;
+            }
+        }
+
+        public ScoreboardResponse FetchScoreboardFromDatabase(int Competition_ID)
+        {
+            try
+            {
+                string query = "select * from Dive where Competition_ID = " + Competition_ID + " ;";
+                return null;
+            }
+            catch(Exception err)
+            {
+                Console.WriteLine("Error - " + err);
+                return null;
+            }
+            
         }
     }
 }

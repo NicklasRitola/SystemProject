@@ -43,6 +43,7 @@ namespace ClientUI
             this.buttonMainMenu.TabIndex = 2;
             this.buttonMainMenu.Text = "Main Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
+            this.buttonMainMenu.Click += new System.EventHandler(this.buttonMainMenu_Click);
             // 
             // buttonRegisterDive
             // 

@@ -27,5 +27,11 @@ namespace ClientUI
             Spectator specForm = new Spectator(channel);
             OpenForm(specForm, this);
         }
+
+        private void buttonMainMenu_Click(object sender, EventArgs e)
+        {
+            Diver diverForm = new Diver(channel, "admin");
+            OpenForm(diverForm, this);
+        }
     }
 }

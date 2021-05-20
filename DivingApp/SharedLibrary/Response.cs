@@ -110,8 +110,8 @@ namespace Shared
                     dive.Current = true;
             }
         }
-    }
 
+    }
     public class DiverInfoResponse : Response
     {
         public string SSN;
@@ -157,6 +157,28 @@ namespace Shared
             this.Difficulty = difficulty;
             this.DiveGroup = group;
             this.Tower = tower;
+        }
+    }
+
+
+
+    //Philip test
+    public class ScheduleResponse : Response 
+    {
+        public List<CompetitionDive> schedule;
+        public ScheduleResponse(List<CompetitionDive> schedule)
+        {
+            messageType = "CompetitionDiveItem";
+            this.schedule = schedule;
+        }
+    }
+    public class ScoreboardResponse : Response
+    {
+        public List<CompetitionDive> scoreboard;
+        public ScoreboardResponse(List<CompetitionDive> scoreboard)
+        {
+            messageType = "CompetitionDiveItem";
+            this.scoreboard = scoreboard;
         }
     }
 }
