@@ -50,7 +50,7 @@ namespace ClientUI
             this.AdminMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdminMenu.Name = "AdminMenu";
             this.AdminMenu.Size = new System.Drawing.Size(98, 49);
-            this.AdminMenu.TabIndex = 31;
+            this.AdminMenu.TabIndex = 7;
             this.AdminMenu.Text = "Admin Menu";
             this.AdminMenu.UseVisualStyleBackColor = true;
             this.AdminMenu.Click += new System.EventHandler(this.AdminMenu_Click);
@@ -71,7 +71,7 @@ namespace ClientUI
             this.textBoxLocation.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxLocation.Name = "textBoxLocation";
             this.textBoxLocation.Size = new System.Drawing.Size(313, 27);
-            this.textBoxLocation.TabIndex = 42;
+            this.textBoxLocation.TabIndex = 0;
             this.textBoxLocation.TextChanged += new System.EventHandler(this.textBoxTeam_TextChanged);
             // 
             // textBoxDate
@@ -81,7 +81,7 @@ namespace ClientUI
             this.textBoxDate.Name = "textBoxDate";
             this.textBoxDate.PlaceholderText = "YYYY-MM-DD HH:MM:SS";
             this.textBoxDate.Size = new System.Drawing.Size(313, 27);
-            this.textBoxDate.TabIndex = 38;
+            this.textBoxDate.TabIndex = 1;
             this.textBoxDate.TextChanged += new System.EventHandler(this.textBoxFirst_TextChanged);
             // 
             // labelAge
@@ -100,7 +100,7 @@ namespace ClientUI
             this.textBoxID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(313, 27);
-            this.textBoxID.TabIndex = 36;
+            this.textBoxID.TabIndex = 3;
             this.textBoxID.TextChanged += new System.EventHandler(this.textBoxAge_TextChanged);
             // 
             // labelName
@@ -120,7 +120,7 @@ namespace ClientUI
             this.RegisterProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RegisterProfile.Name = "RegisterProfile";
             this.RegisterProfile.Size = new System.Drawing.Size(155, 72);
-            this.RegisterProfile.TabIndex = 32;
+            this.RegisterProfile.TabIndex = 6;
             this.RegisterProfile.Text = "Register";
             this.RegisterProfile.UseVisualStyleBackColor = true;
             this.RegisterProfile.Click += new System.EventHandler(this.RegisterProfile_Click);
@@ -132,7 +132,7 @@ namespace ClientUI
             this.textBoxEndDate.Name = "textBoxEndDate";
             this.textBoxEndDate.PlaceholderText = "YYYY-MM-DD HH:MM:SS";
             this.textBoxEndDate.Size = new System.Drawing.Size(313, 27);
-            this.textBoxEndDate.TabIndex = 46;
+            this.textBoxEndDate.TabIndex = 2;
             // 
             // label3
             // 
@@ -150,7 +150,7 @@ namespace ClientUI
             this.checkBoxGlobal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxGlobal.Name = "checkBoxGlobal";
             this.checkBoxGlobal.Size = new System.Drawing.Size(75, 24);
-            this.checkBoxGlobal.TabIndex = 47;
+            this.checkBoxGlobal.TabIndex = 4;
             this.checkBoxGlobal.Text = "Global";
             this.checkBoxGlobal.UseVisualStyleBackColor = true;
             this.checkBoxGlobal.CheckedChanged += new System.EventHandler(this.checkBoxGlobal_CheckedChanged);
@@ -162,7 +162,7 @@ namespace ClientUI
             this.checkBoxLocal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxLocal.Name = "checkBoxLocal";
             this.checkBoxLocal.Size = new System.Drawing.Size(66, 24);
-            this.checkBoxLocal.TabIndex = 48;
+            this.checkBoxLocal.TabIndex = 5;
             this.checkBoxLocal.Text = "Local";
             this.checkBoxLocal.UseVisualStyleBackColor = true;
             this.checkBoxLocal.CheckedChanged += new System.EventHandler(this.checkBoxLocal_CheckedChanged);

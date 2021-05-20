@@ -50,7 +50,7 @@ namespace ClientUI
             this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
             this.buttonMainMenu.Size = new System.Drawing.Size(87, 47);
-            this.buttonMainMenu.TabIndex = 30;
+            this.buttonMainMenu.TabIndex = 2;
             this.buttonMainMenu.Text = "Main Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
             this.buttonMainMenu.Click += new System.EventHandler(this.buttonMainMenu_Click);
@@ -61,7 +61,7 @@ namespace ClientUI
             this.Refresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Refresh.Name = "Refresh";
             this.Refresh.Size = new System.Drawing.Size(78, 52);
-            this.Refresh.TabIndex = 31;
+            this.Refresh.TabIndex = 1;
             this.Refresh.Text = "Refresh";
             this.Refresh.UseVisualStyleBackColor = true;
             this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
@@ -145,7 +145,7 @@ namespace ClientUI
             this.textBoxEnterID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxEnterID.Name = "textBoxEnterID";
             this.textBoxEnterID.Size = new System.Drawing.Size(114, 27);
-            this.textBoxEnterID.TabIndex = 33;
+            this.textBoxEnterID.TabIndex = 0;
             // 
             // label1
             // 

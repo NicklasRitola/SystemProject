@@ -63,7 +63,7 @@ namespace ClientUI
             this.textBoxTower.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxTower.Name = "textBoxTower";
             this.textBoxTower.Size = new System.Drawing.Size(313, 27);
-            this.textBoxTower.TabIndex = 7;
+            this.textBoxTower.TabIndex = 4;
             // 
             // textBoxDiveGrp
             // 
@@ -71,7 +71,7 @@ namespace ClientUI
             this.textBoxDiveGrp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDiveGrp.Name = "textBoxDiveGrp";
             this.textBoxDiveGrp.Size = new System.Drawing.Size(313, 27);
-            this.textBoxDiveGrp.TabIndex = 8;
+            this.textBoxDiveGrp.TabIndex = 2;
             // 
             // labelDive
             // 
@@ -98,7 +98,7 @@ namespace ClientUI
             this.textBoxDifficulty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDifficulty.Name = "textBoxDifficulty";
             this.textBoxDifficulty.Size = new System.Drawing.Size(313, 27);
-            this.textBoxDifficulty.TabIndex = 11;
+            this.textBoxDifficulty.TabIndex = 3;
             this.textBoxDifficulty.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // labelDifficulty
@@ -116,7 +116,7 @@ namespace ClientUI
             this.textBoxComp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxComp.Name = "textBoxComp";
             this.textBoxComp.Size = new System.Drawing.Size(313, 27);
-            this.textBoxComp.TabIndex = 13;
+            this.textBoxComp.TabIndex = 1;
             // 
             // labelTower
             // 
@@ -133,7 +133,7 @@ namespace ClientUI
             this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
             this.buttonMainMenu.Size = new System.Drawing.Size(87, 47);
-            this.buttonMainMenu.TabIndex = 30;
+            this.buttonMainMenu.TabIndex = 7;
             this.buttonMainMenu.Text = "Diver Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
             this.buttonMainMenu.Click += new System.EventHandler(this.buttonMainMenu_Click);
@@ -144,7 +144,7 @@ namespace ClientUI
             this.textBoxID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(313, 27);
-            this.textBoxID.TabIndex = 32;
+            this.textBoxID.TabIndex = 0;
             // 
             // label1
             // 
@@ -171,7 +171,7 @@ namespace ClientUI
             this.textBoxDate.Name = "textBoxDate";
             this.textBoxDate.PlaceholderText = "YYYY-MM-DD HH:MM:SS";
             this.textBoxDate.Size = new System.Drawing.Size(313, 27);
-            this.textBoxDate.TabIndex = 33;
+            this.textBoxDate.TabIndex = 5;
             // 
             // Diver
             // 

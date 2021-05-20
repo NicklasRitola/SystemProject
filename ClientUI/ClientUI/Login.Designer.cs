@@ -86,7 +86,7 @@ namespace ClientUI
             this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(164, 45);
-            this.LoginButton.TabIndex = 4;
+            this.LoginButton.TabIndex = 3;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);

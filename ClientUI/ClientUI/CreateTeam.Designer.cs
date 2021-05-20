@@ -43,7 +43,7 @@ namespace ClientUI
             this.AdminMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdminMenu.Name = "AdminMenu";
             this.AdminMenu.Size = new System.Drawing.Size(98, 45);
-            this.AdminMenu.TabIndex = 32;
+            this.AdminMenu.TabIndex = 3;
             this.AdminMenu.Text = "Admin Menu";
             this.AdminMenu.UseVisualStyleBackColor = true;
             this.AdminMenu.Click += new System.EventHandler(this.AdminMenu_Click);
@@ -63,7 +63,7 @@ namespace ClientUI
             this.textBoxTeamID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxTeamID.Name = "textBoxTeamID";
             this.textBoxTeamID.Size = new System.Drawing.Size(196, 27);
-            this.textBoxTeamID.TabIndex = 47;
+            this.textBoxTeamID.TabIndex = 0;
             // 
             // textBoxName
             // 
@@ -71,7 +71,7 @@ namespace ClientUI
             this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(196, 27);
-            this.textBoxName.TabIndex = 46;
+            this.textBoxName.TabIndex = 1;
             // 
             // labelName
             // 
@@ -89,7 +89,7 @@ namespace ClientUI
             this.RegisterProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RegisterProfile.Name = "RegisterProfile";
             this.RegisterProfile.Size = new System.Drawing.Size(155, 72);
-            this.RegisterProfile.TabIndex = 44;
+            this.RegisterProfile.TabIndex = 2;
             this.RegisterProfile.Text = "Register";
             this.RegisterProfile.UseVisualStyleBackColor = true;
             this.RegisterProfile.Click += new System.EventHandler(this.RegisterProfile_Click);

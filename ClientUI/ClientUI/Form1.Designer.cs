@@ -47,7 +47,7 @@ namespace ClientUI
             this.Administrator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Administrator.Name = "Administrator";
             this.Administrator.Size = new System.Drawing.Size(155, 72);
-            this.Administrator.TabIndex = 1;
+            this.Administrator.TabIndex = 3;
             this.Administrator.Text = "Administrator";
             this.Administrator.UseVisualStyleBackColor = true;
             this.Administrator.Click += new System.EventHandler(this.Administrator_Click);
@@ -60,7 +60,7 @@ namespace ClientUI
             this.Diver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Diver.Name = "Diver";
             this.Diver.Size = new System.Drawing.Size(155, 72);
-            this.Diver.TabIndex = 2;
+            this.Diver.TabIndex = 4;
             this.Diver.Text = "Diver";
             this.Diver.UseVisualStyleBackColor = true;
             this.Diver.Click += new System.EventHandler(this.Diver_Click);
@@ -73,7 +73,7 @@ namespace ClientUI
             this.Spectator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Spectator.Name = "Spectator";
             this.Spectator.Size = new System.Drawing.Size(477, 72);
-            this.Spectator.TabIndex = 5;
+            this.Spectator.TabIndex = 1;
             this.Spectator.Text = "Spectator";
             this.Spectator.UseVisualStyleBackColor = true;
             this.Spectator.Click += new System.EventHandler(this.Spectator_Click);
@@ -86,7 +86,7 @@ namespace ClientUI
             this.Judge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Judge.Name = "Judge";
             this.Judge.Size = new System.Drawing.Size(155, 72);
-            this.Judge.TabIndex = 6;
+            this.Judge.TabIndex = 2;
             this.Judge.Text = "Judge";
             this.Judge.UseVisualStyleBackColor = true;
             this.Judge.Click += new System.EventHandler(this.Judge_Click);

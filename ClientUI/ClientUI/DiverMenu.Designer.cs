@@ -40,7 +40,7 @@ namespace ClientUI
             this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
             this.buttonMainMenu.Size = new System.Drawing.Size(87, 51);
-            this.buttonMainMenu.TabIndex = 31;
+            this.buttonMainMenu.TabIndex = 2;
             this.buttonMainMenu.Text = "Main Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
             // 
@@ -51,7 +51,7 @@ namespace ClientUI
             this.buttonRegisterDive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRegisterDive.Name = "buttonRegisterDive";
             this.buttonRegisterDive.Size = new System.Drawing.Size(155, 72);
-            this.buttonRegisterDive.TabIndex = 39;
+            this.buttonRegisterDive.TabIndex = 0;
             this.buttonRegisterDive.Text = "Register dive";
             this.buttonRegisterDive.UseVisualStyleBackColor = true;
             this.buttonRegisterDive.Click += new System.EventHandler(this.buttonRegisterDive_Click);
@@ -63,7 +63,7 @@ namespace ClientUI
             this.buttonSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSchedule.Name = "buttonSchedule";
             this.buttonSchedule.Size = new System.Drawing.Size(155, 72);
-            this.buttonSchedule.TabIndex = 40;
+            this.buttonSchedule.TabIndex = 1;
             this.buttonSchedule.Text = "Schedule";
             this.buttonSchedule.UseVisualStyleBackColor = true;
             this.buttonSchedule.Click += new System.EventHandler(this.button1_Click);

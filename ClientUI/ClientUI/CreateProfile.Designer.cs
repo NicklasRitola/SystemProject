@@ -66,7 +66,7 @@ namespace ClientUI
             this.textBoxFirst.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxFirst.Name = "textBoxFirst";
             this.textBoxFirst.Size = new System.Drawing.Size(313, 27);
-            this.textBoxFirst.TabIndex = 22;
+            this.textBoxFirst.TabIndex = 1;
             // 
             // labelAge
             // 
@@ -84,7 +84,7 @@ namespace ClientUI
             this.textBoxAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(313, 27);
-            this.textBoxAge.TabIndex = 20;
+            this.textBoxAge.TabIndex = 3;
             this.textBoxAge.TextChanged += new System.EventHandler(this.textBoxDifficulty_TextChanged);
             // 
             // labelName
@@ -111,7 +111,7 @@ namespace ClientUI
             this.textBoxSur.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxSur.Name = "textBoxSur";
             this.textBoxSur.Size = new System.Drawing.Size(313, 27);
-            this.textBoxSur.TabIndex = 17;
+            this.textBoxSur.TabIndex = 2;
             // 
             // RegisterProfile
             // 
@@ -120,7 +120,7 @@ namespace ClientUI
             this.RegisterProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RegisterProfile.Name = "RegisterProfile";
             this.RegisterProfile.Size = new System.Drawing.Size(155, 72);
-            this.RegisterProfile.TabIndex = 15;
+            this.RegisterProfile.TabIndex = 9;
             this.RegisterProfile.Text = "Register";
             this.RegisterProfile.UseVisualStyleBackColor = true;
             this.RegisterProfile.Click += new System.EventHandler(this.RegisterProfile_Click);
@@ -132,7 +132,7 @@ namespace ClientUI
             this.checkBoxMale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxMale.Name = "checkBoxMale";
             this.checkBoxMale.Size = new System.Drawing.Size(64, 24);
-            this.checkBoxMale.TabIndex = 24;
+            this.checkBoxMale.TabIndex = 4;
             this.checkBoxMale.Text = "Male";
             this.checkBoxMale.UseVisualStyleBackColor = true;
             this.checkBoxMale.CheckedChanged += new System.EventHandler(this.checkBoxMale_CheckedChanged);
@@ -144,7 +144,7 @@ namespace ClientUI
             this.checkBoxFemale.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkBoxFemale.Name = "checkBoxFemale";
             this.checkBoxFemale.Size = new System.Drawing.Size(79, 24);
-            this.checkBoxFemale.TabIndex = 25;
+            this.checkBoxFemale.TabIndex = 5;
             this.checkBoxFemale.Text = "Female";
             this.checkBoxFemale.UseVisualStyleBackColor = true;
             this.checkBoxFemale.CheckedChanged += new System.EventHandler(this.checkBoxFemale_CheckedChanged);
@@ -155,7 +155,7 @@ namespace ClientUI
             this.textBoxTeam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxTeam.Name = "textBoxTeam";
             this.textBoxTeam.Size = new System.Drawing.Size(313, 27);
-            this.textBoxTeam.TabIndex = 26;
+            this.textBoxTeam.TabIndex = 0;
             // 
             // label1
             // 
@@ -181,7 +181,7 @@ namespace ClientUI
             this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
             this.buttonMainMenu.Size = new System.Drawing.Size(87, 50);
-            this.buttonMainMenu.TabIndex = 29;
+            this.buttonMainMenu.TabIndex = 10;
             this.buttonMainMenu.Text = "Main Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
             this.buttonMainMenu.Click += new System.EventHandler(this.buttonMainMenu_Click);
@@ -193,7 +193,7 @@ namespace ClientUI
             this.textBoxConfirm.Name = "textBoxConfirm";
             this.textBoxConfirm.PasswordChar = '*';
             this.textBoxConfirm.Size = new System.Drawing.Size(313, 27);
-            this.textBoxConfirm.TabIndex = 52;
+            this.textBoxConfirm.TabIndex = 8;
             // 
             // label2
             // 
@@ -220,7 +220,7 @@ namespace ClientUI
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.PlaceholderText = "123456-0000";
             this.textBoxUsername.Size = new System.Drawing.Size(313, 27);
-            this.textBoxUsername.TabIndex = 49;
+            this.textBoxUsername.TabIndex = 6;
             this.textBoxUsername.TextChanged += new System.EventHandler(this.textBoxUsername_TextChanged);
             // 
             // textBoxPassword
@@ -230,7 +230,7 @@ namespace ClientUI
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(313, 27);
-            this.textBoxPassword.TabIndex = 48;
+            this.textBoxPassword.TabIndex = 7;
             // 
             // label4
             // 

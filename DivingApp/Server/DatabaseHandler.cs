@@ -452,5 +452,24 @@ namespace Server
                 return null;
             }
         }
+
+        public bool DeleteCompetitionInDatabase(int Competition_ID)
+        {
+            try
+            {
+                string query = "delete from competition where id = " + Competition_ID + ";";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+
+                dataReader.Close();
+                Console.WriteLine("Database -  Competition {0} has been deleted", Competition_ID);
+                return true;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("Error - " + err);
+                return false;
+            }
+        }
     }
 }

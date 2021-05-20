@@ -35,10 +35,38 @@ namespace ClientUI
             labelNextDiver.Text = ""; // fyller i detta när vi har funktioner från serversidan
             if (textBoxCompID.Text != "")
             {
+                this.textBoxCurrentDiver.Text = "";
+                this.textBoxNextDiver.Text = "";
+
                 NextDiverRequest nextDiverRequest = new NextDiverRequest(Int32.Parse(textBoxCompID.Text));
                 await channel.SendAsync(nextDiverRequest);
                 JObject response = await channel.ReceiveResponse();
                 ShowMessage(response.Value<string>("message"), "Diver update request");
+
+                //TODO: Update textbox current and next diver after responds.
+
+            }
+            
+        }
+
+        private void buttonDeleteCompetition_Click(object sender, EventArgs e)
+        {
+            if(textBoxCompID.Text == "")
+            {
+                MessageBox.Show("No competition ID entered!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(!(int.TryParse(textBoxCompID.Text, out _)))
+            {
+                MessageBox.Show("Competition ID must be an integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DeleteCompetition deleteForm = new DeleteCompetition(channel, int.Parse(textBoxCompID.Text));
+                deleteForm.Show();
+
+                this.textBoxCurrentDiver.Text = "";
+                this.textBoxNextDiver.Text = "";
+                this.textBoxCompID.Text = "";
             }
         }
     }

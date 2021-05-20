@@ -47,7 +47,7 @@ namespace ClientUI
             this.AdminMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdminMenu.Name = "AdminMenu";
             this.AdminMenu.Size = new System.Drawing.Size(98, 47);
-            this.AdminMenu.TabIndex = 32;
+            this.AdminMenu.TabIndex = 2;
             this.AdminMenu.Text = "Admin Menu";
             this.AdminMenu.UseVisualStyleBackColor = true;
             this.AdminMenu.Click += new System.EventHandler(this.AdminMenu_Click);
@@ -70,7 +70,7 @@ namespace ClientUI
             this.textBoxChoseCompID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxChoseCompID.Name = "textBoxChoseCompID";
             this.textBoxChoseCompID.Size = new System.Drawing.Size(114, 27);
-            this.textBoxChoseCompID.TabIndex = 34;
+            this.textBoxChoseCompID.TabIndex = 0;
             // 
             // textBoxDiverID
             // 
@@ -97,7 +97,7 @@ namespace ClientUI
             this.buttonInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(101, 61);
-            this.buttonInsert.TabIndex = 37;
+            this.buttonInsert.TabIndex = 1;
             this.buttonInsert.Text = "Insert";
             this.buttonInsert.UseVisualStyleBackColor = true;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
