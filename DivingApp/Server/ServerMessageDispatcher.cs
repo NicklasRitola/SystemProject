@@ -17,7 +17,6 @@ namespace Server
         private readonly DatabaseHandler database = new DatabaseHandler();
         private readonly DatabaseHandler password_database = new PasswordDatabaseHandler();
         private readonly ResponseBuilder responseBuilder = new ResponseBuilder();
-        //private List<int> AdminsDiveOrder = new List<int>();
         static Dictionary<int, List<int>> currentDivers = new Dictionary<int, List<int>>();
 
         public override async Task<Response> DispatchMessage(JObject message)
@@ -37,7 +36,6 @@ namespace Server
                     break;
                 case "createschedulerequest":
                     CreateScheduleRequest CreSchReq = JsonConvert.DeserializeObject<CreateScheduleRequest>(JSONString);
-                    //TODO: Implement a response and response builder for schedule creation requests
                     response = await DispatchMessage(CreSchReq);
                     break;
                 case "nextdiverrequest":
@@ -225,8 +223,8 @@ namespace Server
             Console.WriteLine("View Schedule request received");
             CompetitionScheduleResponse response = new CompetitionScheduleResponse(fetchCurrentDiver(request.Competition_ID), database.GetCompetitionDives(request.Competition_ID));
             return Task.FromResult(response);
-
         }
+
         public async Task<Response> DispatchMessage(ViewCurrentDiverRequest request)
         {
             Console.WriteLine("View Current Diver request received");
@@ -249,6 +247,7 @@ namespace Server
             LoginResponse response = await responseBuilder.LoginResponse(password_database.LoginChecker(request));
             return response;
         }
+
         public async Task<ResultResponse> DispatchMessage(DeleteCompetitionRequest request)
         {
             Console.WriteLine("Delete competition request received");

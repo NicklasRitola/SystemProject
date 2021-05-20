@@ -40,6 +40,7 @@ namespace ClientUI
             this.Difficulty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Divegroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tower = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.viewSchedule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,8 @@ namespace ClientUI
             this.Person,
             this.Difficulty,
             this.Divegroup,
-            this.Tower});
+            this.Tower,
+            this.Score});
             this.viewSchedule.Location = new System.Drawing.Point(71, 68);
             this.viewSchedule.Name = "viewSchedule";
             this.viewSchedule.ReadOnly = true;
@@ -153,6 +155,12 @@ namespace ClientUI
             this.Tower.ReadOnly = true;
             this.Tower.Width = 125;
             // 
+            // Score
+            // 
+            this.Score.HeaderText = "Score";
+            this.Score.Name = "Score";
+            this.Score.ReadOnly = true;
+            // 
             // Spectator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -187,5 +195,6 @@ namespace ClientUI
         private System.Windows.Forms.DataGridViewTextBoxColumn Difficulty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Divegroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tower;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Score;
     }
 }
