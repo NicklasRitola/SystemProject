@@ -47,6 +47,7 @@ namespace ClientUI
             // 
             // RegisterDive
             // 
+            this.RegisterDive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RegisterDive.Location = new System.Drawing.Point(48, 107);
             this.RegisterDive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RegisterDive.Name = "RegisterDive";
@@ -62,7 +63,7 @@ namespace ClientUI
             this.textBoxTower.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxTower.Name = "textBoxTower";
             this.textBoxTower.Size = new System.Drawing.Size(313, 27);
-            this.textBoxTower.TabIndex = 7;
+            this.textBoxTower.TabIndex = 4;
             // 
             // textBoxDiveGrp
             // 
@@ -70,16 +71,16 @@ namespace ClientUI
             this.textBoxDiveGrp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDiveGrp.Name = "textBoxDiveGrp";
             this.textBoxDiveGrp.Size = new System.Drawing.Size(313, 27);
-            this.textBoxDiveGrp.TabIndex = 8;
+            this.textBoxDiveGrp.TabIndex = 2;
             // 
             // labelDive
             // 
             this.labelDive.AutoSize = true;
             this.labelDive.Location = new System.Drawing.Point(243, 111);
             this.labelDive.Name = "labelDive";
-            this.labelDive.Size = new System.Drawing.Size(84, 20);
+            this.labelDive.Size = new System.Drawing.Size(87, 20);
             this.labelDive.TabIndex = 9;
-            this.labelDive.Text = "Dive Group";
+            this.labelDive.Text = "Dive Group:";
             this.labelDive.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelComp
@@ -87,9 +88,9 @@ namespace ClientUI
             this.labelComp.AutoSize = true;
             this.labelComp.Location = new System.Drawing.Point(243, 72);
             this.labelComp.Name = "labelComp";
-            this.labelComp.Size = new System.Drawing.Size(92, 20);
+            this.labelComp.Size = new System.Drawing.Size(114, 20);
             this.labelComp.TabIndex = 10;
-            this.labelComp.Text = "Competition";
+            this.labelComp.Text = "Competition ID:";
             // 
             // textBoxDifficulty
             // 
@@ -97,7 +98,7 @@ namespace ClientUI
             this.textBoxDifficulty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDifficulty.Name = "textBoxDifficulty";
             this.textBoxDifficulty.Size = new System.Drawing.Size(313, 27);
-            this.textBoxDifficulty.TabIndex = 11;
+            this.textBoxDifficulty.TabIndex = 3;
             this.textBoxDifficulty.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // labelDifficulty
@@ -105,9 +106,9 @@ namespace ClientUI
             this.labelDifficulty.AutoSize = true;
             this.labelDifficulty.Location = new System.Drawing.Point(243, 149);
             this.labelDifficulty.Name = "labelDifficulty";
-            this.labelDifficulty.Size = new System.Drawing.Size(69, 20);
+            this.labelDifficulty.Size = new System.Drawing.Size(72, 20);
             this.labelDifficulty.TabIndex = 12;
-            this.labelDifficulty.Text = "Difficulty";
+            this.labelDifficulty.Text = "Difficulty:";
             // 
             // textBoxComp
             // 
@@ -115,16 +116,16 @@ namespace ClientUI
             this.textBoxComp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxComp.Name = "textBoxComp";
             this.textBoxComp.Size = new System.Drawing.Size(313, 27);
-            this.textBoxComp.TabIndex = 13;
+            this.textBoxComp.TabIndex = 1;
             // 
             // labelTower
             // 
             this.labelTower.AutoSize = true;
             this.labelTower.Location = new System.Drawing.Point(243, 188);
             this.labelTower.Name = "labelTower";
-            this.labelTower.Size = new System.Drawing.Size(49, 20);
+            this.labelTower.Size = new System.Drawing.Size(52, 20);
             this.labelTower.TabIndex = 14;
-            this.labelTower.Text = "Tower";
+            this.labelTower.Text = "Tower:";
             // 
             // buttonMainMenu
             // 
@@ -132,8 +133,8 @@ namespace ClientUI
             this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMainMenu.Name = "buttonMainMenu";
             this.buttonMainMenu.Size = new System.Drawing.Size(87, 47);
-            this.buttonMainMenu.TabIndex = 30;
-            this.buttonMainMenu.Text = "Main Menu";
+            this.buttonMainMenu.TabIndex = 7;
+            this.buttonMainMenu.Text = "Diver Menu";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
             this.buttonMainMenu.Click += new System.EventHandler(this.buttonMainMenu_Click);
             // 
@@ -143,25 +144,25 @@ namespace ClientUI
             this.textBoxID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(313, 27);
-            this.textBoxID.TabIndex = 32;
+            this.textBoxID.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(243, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 20);
+            this.label1.Size = new System.Drawing.Size(61, 20);
             this.label1.TabIndex = 31;
-            this.label1.Text = "ID:";
+            this.label1.Text = "Dive ID:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(243, 226);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 20);
+            this.label2.Size = new System.Drawing.Size(44, 20);
             this.label2.TabIndex = 34;
-            this.label2.Text = "Date";
+            this.label2.Text = "Date:";
             // 
             // textBoxDate
             // 
@@ -170,13 +171,13 @@ namespace ClientUI
             this.textBoxDate.Name = "textBoxDate";
             this.textBoxDate.PlaceholderText = "YYYY-MM-DD HH:MM:SS";
             this.textBoxDate.Size = new System.Drawing.Size(313, 27);
-            this.textBoxDate.TabIndex = 33;
+            this.textBoxDate.TabIndex = 5;
             // 
             // Diver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(734, 273);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxDate);
@@ -195,7 +196,7 @@ namespace ClientUI
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Diver";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Diver";
+            this.Text = "Register a dive";
             this.Load += new System.EventHandler(this.Diver_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

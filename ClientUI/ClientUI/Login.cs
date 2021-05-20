@@ -70,8 +70,8 @@ namespace ClientUI
                 if (LoginGlobalString.GlobalString == "Diver")
                 {
                     LoginGlobalString.SSN = Username.Text;
-                    Diver diverForm = new Diver(channel);
-                    diverForm.Show();
+                    DiverMenu diverMenuForm = new DiverMenu(channel);
+                    diverMenuForm.Show();
                 }
                 this.Hide();
             }

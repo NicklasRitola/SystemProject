@@ -130,11 +130,12 @@ namespace Server
         {
             try
             {
-                string query = "insert into Schedule values (" + data.CompetitionID + "," + data.DiveID + "," + data.DiverID + "," + data.count + "); ";
+                //string query = "insert into Schedule values (" + data.CompetitionID + "," + data.DiveID + "," + data.DiverID + "," + data.count + "); ";
+                string query = "insert into Schedule values (" + data.CompetitionID + ");";
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 dataReader.Close();
-                Console.WriteLine("Database - Competition has been created");
+                Console.WriteLine("Database - Schedule has been created");
                 return true;
             }
             catch (Exception err)
@@ -367,7 +368,6 @@ namespace Server
 
                 //Get all divs that has the matching competition id
                 string query = "select Dive_ID, Difficulty, Dive_Group, Tower, Date, Diver, Score from Dive where In_Competition = " + Competition_ID + " order by Date DESC;";
-                Console.WriteLine(query);
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 if (dataReader.HasRows)
@@ -422,7 +422,6 @@ namespace Server
                 return null;
             }
         }
-
         public CurrentDiverResponse GetDiveInformation(int Dive_ID)
         {
             try
@@ -451,6 +450,25 @@ namespace Server
             {
                 Console.WriteLine("Error -" + err);
                 return null;
+            }
+        }
+
+        public bool DeleteCompetitionInDatabase(int Competition_ID)
+        {
+            try
+            {
+                string query = "delete from competition where id = " + Competition_ID + ";";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+
+                dataReader.Close();
+                Console.WriteLine("Database -  Competition {0} has been deleted", Competition_ID);
+                return true;
+            }
+            catch (Exception err)
+            {
+                Console.WriteLine("Error - " + err);
+                return false;
             }
         }
     }

@@ -92,6 +92,10 @@ namespace Server
                     LoginRequest LoginReq = JsonConvert.DeserializeObject<LoginRequest>(JSONString);
                     response = await DispatchMessage(LoginReq);
                     break;
+                case "deletecompetitionrequest":
+                    DeleteCompetitionRequest DelCompReq = JsonConvert.DeserializeObject<DeleteCompetitionRequest>(JSONString);
+                    response = await DispatchMessage(DelCompReq);
+                    break;
             }
             return response;
         }
@@ -212,7 +216,6 @@ namespace Server
             CompetitionScheduleResponse response = new CompetitionScheduleResponse(/*AdminsDiveOrder[0]*/0, database.GetCompetitionDives(request.Competition_ID));
             return response;
         }
-
         public async Task<Response> DispatchMessage(ViewCurrentDiverRequest request)
         {
             Console.WriteLine("View Current Diver request received");
@@ -234,6 +237,11 @@ namespace Server
             Console.WriteLine("Login request received");
             LoginResponse response = await responseBuilder.LoginResponse(password_database.LoginChecker(request));
             return response;
+        }
+        public async Task<ResultResponse> DispatchMessage(DeleteCompetitionRequest request)
+        {
+            Console.WriteLine("Delete competition request received");
+            return await responseBuilder.DeleteCompetitionResponse(database.DeleteCompetitionInDatabase(request.ID));
         }
     }
 }

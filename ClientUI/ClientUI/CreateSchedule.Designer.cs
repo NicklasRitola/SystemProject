@@ -47,20 +47,21 @@ namespace ClientUI
             this.AdminMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdminMenu.Name = "AdminMenu";
             this.AdminMenu.Size = new System.Drawing.Size(98, 47);
-            this.AdminMenu.TabIndex = 32;
+            this.AdminMenu.TabIndex = 2;
             this.AdminMenu.Text = "Admin Menu";
             this.AdminMenu.UseVisualStyleBackColor = true;
             this.AdminMenu.Click += new System.EventHandler(this.AdminMenu_Click);
             // 
             // buttonChoseComp
             // 
+            this.buttonChoseComp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.buttonChoseComp.Location = new System.Drawing.Point(147, 16);
             this.buttonChoseComp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonChoseComp.Name = "buttonChoseComp";
             this.buttonChoseComp.Size = new System.Drawing.Size(101, 61);
             this.buttonChoseComp.TabIndex = 33;
             this.buttonChoseComp.Text = "Chose Competiton";
-            this.buttonChoseComp.UseVisualStyleBackColor = true;
+            this.buttonChoseComp.UseVisualStyleBackColor = false;
             this.buttonChoseComp.Click += new System.EventHandler(this.buttonChoseComp_Click);
             // 
             // textBoxChoseCompID
@@ -69,10 +70,11 @@ namespace ClientUI
             this.textBoxChoseCompID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxChoseCompID.Name = "textBoxChoseCompID";
             this.textBoxChoseCompID.Size = new System.Drawing.Size(114, 27);
-            this.textBoxChoseCompID.TabIndex = 34;
+            this.textBoxChoseCompID.TabIndex = 0;
             // 
             // textBoxDiverID
             // 
+            this.textBoxDiverID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.textBoxDiverID.Location = new System.Drawing.Point(378, 140);
             this.textBoxDiverID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDiverID.Name = "textBoxDiverID";
@@ -81,6 +83,7 @@ namespace ClientUI
             // 
             // textBoxDiveID
             // 
+            this.textBoxDiveID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.textBoxDiveID.Location = new System.Drawing.Point(378, 178);
             this.textBoxDiveID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxDiveID.Name = "textBoxDiveID";
@@ -89,11 +92,12 @@ namespace ClientUI
             // 
             // buttonInsert
             // 
+            this.buttonInsert.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonInsert.Location = new System.Drawing.Point(147, 139);
             this.buttonInsert.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonInsert.Name = "buttonInsert";
             this.buttonInsert.Size = new System.Drawing.Size(101, 61);
-            this.buttonInsert.TabIndex = 37;
+            this.buttonInsert.TabIndex = 1;
             this.buttonInsert.Text = "Insert";
             this.buttonInsert.UseVisualStyleBackColor = true;
             this.buttonInsert.Click += new System.EventHandler(this.buttonInsert_Click);
@@ -128,7 +132,7 @@ namespace ClientUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(274, 96);
+            this.label4.Location = new System.Drawing.Point(274, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(323, 20);
             this.label4.TabIndex = 41;
@@ -138,7 +142,7 @@ namespace ClientUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(641, 241);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);

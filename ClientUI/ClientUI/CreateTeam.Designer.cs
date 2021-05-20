@@ -43,7 +43,7 @@ namespace ClientUI
             this.AdminMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AdminMenu.Name = "AdminMenu";
             this.AdminMenu.Size = new System.Drawing.Size(98, 45);
-            this.AdminMenu.TabIndex = 32;
+            this.AdminMenu.TabIndex = 3;
             this.AdminMenu.Text = "Admin Menu";
             this.AdminMenu.UseVisualStyleBackColor = true;
             this.AdminMenu.Click += new System.EventHandler(this.AdminMenu_Click);
@@ -63,7 +63,7 @@ namespace ClientUI
             this.textBoxTeamID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxTeamID.Name = "textBoxTeamID";
             this.textBoxTeamID.Size = new System.Drawing.Size(196, 27);
-            this.textBoxTeamID.TabIndex = 47;
+            this.textBoxTeamID.TabIndex = 0;
             // 
             // textBoxName
             // 
@@ -71,7 +71,7 @@ namespace ClientUI
             this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(196, 27);
-            this.textBoxName.TabIndex = 46;
+            this.textBoxName.TabIndex = 1;
             // 
             // labelName
             // 
@@ -84,11 +84,12 @@ namespace ClientUI
             // 
             // RegisterProfile
             // 
+            this.RegisterProfile.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RegisterProfile.Location = new System.Drawing.Point(245, 138);
             this.RegisterProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RegisterProfile.Name = "RegisterProfile";
             this.RegisterProfile.Size = new System.Drawing.Size(155, 72);
-            this.RegisterProfile.TabIndex = 44;
+            this.RegisterProfile.TabIndex = 2;
             this.RegisterProfile.Text = "Register";
             this.RegisterProfile.UseVisualStyleBackColor = true;
             this.RegisterProfile.Click += new System.EventHandler(this.RegisterProfile_Click);
@@ -97,7 +98,7 @@ namespace ClientUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(504, 245);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxTeamID);

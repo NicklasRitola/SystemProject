@@ -17,6 +17,7 @@ namespace ClientUI
         public Form1(ClientChannel channel)
         {
             InitializeComponent();
+            buttonRegisterDiver.BackColor = Color.Transparent;
             this.channel = channel;
         }
 
@@ -63,6 +64,13 @@ namespace ClientUI
         private void CreateDiver_Click(object sender, EventArgs e)
         {
 
+            CreateProfile createForm = new CreateProfile(channel);
+            OpenForm(createForm, this);
+
+        }
+
+        private void buttonRegisterDiver_Click(object sender, EventArgs e)
+        {
             CreateProfile createForm = new CreateProfile(channel);
             OpenForm(createForm, this);
 

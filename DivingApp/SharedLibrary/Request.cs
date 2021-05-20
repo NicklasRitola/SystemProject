@@ -48,13 +48,23 @@ namespace Shared
             messageType = "createcompetitionrequest";
         }
     }
+    public class DeleteCompetitionRequest : Request
+    {
+        public int ID;
+
+        public DeleteCompetitionRequest()
+        {
+            messageType = "deletecompetitionrequest";
+        }
+    }
 
     public class CreateScheduleRequest : Request
     {
         public int CompetitionID;
-        public int count;
+        /*public int count;
         public int DiveID;
-        public int DiverID;
+        public int DiverID;*/
+
         public CreateScheduleRequest()
         {
 

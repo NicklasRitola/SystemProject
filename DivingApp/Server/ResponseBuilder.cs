@@ -78,6 +78,12 @@ namespace Server
             return response;
         }
 
+        public async Task<ResultResponse> DeleteCompetitionResponse(bool result)
+        {
+            ResultResponse response = new ResultResponse("Delete competition", result);
+            return response;
+        }
+
         //public async Task<CompetitionScheduleResponse> ViewScheduleResponse(List<Dive> dives)
         //{
         //    //TODO: Create a schedule response message to return

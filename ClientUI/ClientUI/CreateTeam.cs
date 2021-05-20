@@ -21,8 +21,9 @@ namespace ClientUI
         private async void RegisterProfile_Click(object sender, EventArgs e)
         {
             List<string> NoEmptyFields = new List<String>();
-            if (textBoxTeamID.Text == "") { NoEmptyFields.Add("Team ID"); }
-            if (textBoxName.Text == "") { NoEmptyFields.Add("Name"); }
+            if (textBoxTeamID.Text == "") { NoEmptyFields.Add("Team ID - Empty field"); }
+            else if (!(int.TryParse(textBoxTeamID.Text, out _))) { NoEmptyFields.Add("Team ID - Not an integer"); }
+            if (textBoxName.Text == "") { NoEmptyFields.Add("Name - Empty field"); }
 
             if(NoEmptyFields.Count == 0)
             {
@@ -39,7 +40,7 @@ namespace ClientUI
                 string output = "";
                 for (int i = 0; i < NoEmptyFields.Count; i++)
                 {
-                    output += ("- " + NoEmptyFields[i] + "\n");
+                    output += ("• " + NoEmptyFields[i] + "\n");
                 }
                 MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
