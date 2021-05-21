@@ -33,10 +33,6 @@ namespace Server
                     CreateCompetitionRequest CreCompReq = JsonConvert.DeserializeObject<CreateCompetitionRequest>(JSONString);
                     response = await DispatchMessage(CreCompReq);
                     break;
-                case "createschedulerequest":
-                    CreateScheduleRequest CreSchReq = JsonConvert.DeserializeObject<CreateScheduleRequest>(JSONString);
-                    response = await DispatchMessage(CreSchReq);
-                    break;
                 case "nextdiverrequest":
                     NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
                     response = await DispatchMessage(NexDivReq);
@@ -92,38 +88,6 @@ namespace Server
             Console.WriteLine("View Schedule request received");
             Console.WriteLine("SERVER RECEIVED: " + request.Location);
             return await responseBuilder.CreateCompetitionResponse(database.CreateCompetitionInDatabase(request));
-        }
-
-        public async Task<ResultResponse> DispatchMessage(CreateScheduleRequest request)
-        {
-            ResultResponse response = await responseBuilder.CreateScheduleResponse(database.CreateScheduleInDatabase(request));
-            List<int> compDiveOrder = new List<int>();
-            Console.WriteLine("Create Schedule request received");
-            List<CompetitionDive> schedule = database.GetCompetitionDives(request.CompetitionID);
-            foreach(var dive in schedule)
-            {
-                compDiveOrder.Add(dive.DiveId);
-                try
-                {
-                    currentDivers.Add(request.CompetitionID, compDiveOrder);
-                }
-                catch(ArgumentException e)
-                {
-                    List<int> competitionOrder;
-                    //That schedule already exists
-                    if(currentDivers.TryGetValue(request.CompetitionID, out competitionOrder))
-                    {
-                        if(competitionOrder.Count == 0)
-                        {
-                            //If schedule exists but is empty (has reached end of tournament)
-                            currentDivers.Remove(request.CompetitionID);
-                        }
-                    }
-                    Console.WriteLine("Error when creating schedule: ");
-                    Console.WriteLine(e);
-                }
-            }
-            return response;
         }
 
         public async Task<ResultResponse> DispatchMessage(NextDiverRequest request)
