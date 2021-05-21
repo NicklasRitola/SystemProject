@@ -20,6 +20,7 @@ namespace ClientUI
             this.channel = channel;
             this.Competition_ID = Competition_ID;
             this.label2.Text = "Of Competition " + Competition_ID;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
             updateSchedule();
         }

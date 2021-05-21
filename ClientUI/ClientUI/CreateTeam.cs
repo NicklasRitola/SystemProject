@@ -15,6 +15,7 @@ namespace ClientUI
         public CreateTeam(ClientChannel channel)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.channel = channel;
         }
 

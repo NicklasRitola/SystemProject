@@ -18,6 +18,7 @@ namespace ClientUI
         {
             InitializeComponent();
             buttonRegisterDiver.BackColor = Color.Transparent;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.channel = channel;
         }
 

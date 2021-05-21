@@ -17,6 +17,7 @@ namespace ClientUI
         {
             InitializeComponent();
             this.channel = channel;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.CompetitionID = CompetitionID;
             this.label1.Text = "Are you sure you want to delete competition " + CompetitionID + "?";
         }

@@ -16,6 +16,7 @@ namespace ClientUI
         public CreateProfile(ClientChannel channel) 
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.channel = channel;
         }
 

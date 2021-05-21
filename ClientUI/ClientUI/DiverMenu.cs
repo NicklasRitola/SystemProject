@@ -14,6 +14,7 @@ namespace ClientUI
         {
             InitializeComponent();
             this.channel = channel;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void buttonRegisterDive_Click(object sender, EventArgs e)

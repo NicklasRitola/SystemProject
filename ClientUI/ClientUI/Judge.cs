@@ -18,6 +18,7 @@ namespace ClientUI
         {
             InitializeComponent();
             this.channel = channel;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void buttonMainMenu_Click(object sender, EventArgs e)

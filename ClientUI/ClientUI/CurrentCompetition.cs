@@ -16,6 +16,7 @@ namespace ClientUI
         public CurrentCompetition(ClientChannel channel)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.channel = channel;
         }
 

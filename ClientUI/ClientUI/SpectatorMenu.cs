@@ -14,7 +14,8 @@ namespace ClientUI
         {
             InitializeComponent();
             this.channel = channel;
-            if(Competition_ID != 0)
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            if (Competition_ID != 0)
             {
                 this.textBoxCompetitionID.Text = Competition_ID.ToString();
             }

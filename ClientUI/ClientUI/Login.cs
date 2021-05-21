@@ -18,6 +18,7 @@ namespace ClientUI
         {
             InitializeComponent();
             this.channel = channel;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         public async void LoginButton_Click(object sender, EventArgs e)

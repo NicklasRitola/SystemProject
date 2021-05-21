@@ -19,7 +19,8 @@ namespace ClientUI
             InitializeComponent();
             this.channel = channel;
             this.fromForm = fromForm;
-            if(fromForm == "admin")
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            if (fromForm == "admin")
             {
                 this.buttonMainMenu.Text = "Admin Menu";
             }
