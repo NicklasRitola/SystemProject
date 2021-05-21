@@ -191,17 +191,17 @@ namespace Server
         }
 
         //Philip test
-        public async Task<ScheduleResponse> DispatchMessage(ScheduleRequest request)
+        public Task<ScheduleResponse> DispatchMessage(ScheduleRequest request)
         {
             Console.WriteLine("Schedule request received");
             ScheduleResponse response = database.FetchScheduleFromDatabase(request.Competition_ID);
-            return response;
+            return Task.FromResult(response);
         }
-        public async Task<ScoreboardResponse> DispatchMessage(ScoreboardRequest request)
+        public Task<ScoreboardResponse> DispatchMessage(ScoreboardRequest request)
         {
             Console.WriteLine("Scoreboard request received");
             ScoreboardResponse response = database.FetchScoreboardFromDatabase(request.Competition_ID);
-            return response;
+            return Task.FromResult(response);
         }
     }
 }
