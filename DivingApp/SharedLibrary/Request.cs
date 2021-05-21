@@ -61,9 +61,6 @@ namespace Shared
     public class CreateScheduleRequest : Request
     {
         public int CompetitionID;
-        /*public int count;
-        public int DiveID;
-        public int DiverID;*/
 
         public CreateScheduleRequest()
         {
