@@ -23,7 +23,7 @@ namespace ClientUI
                 await socket.ConnectAsync(endPoint).ConfigureAwait(false);
                 AttachSocket(socket);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 //TODO: Send error message
             }
@@ -48,7 +48,7 @@ namespace ClientUI
                 //TODO: Send error to UI
                 Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //TODO: Send error to UI
                 Close();

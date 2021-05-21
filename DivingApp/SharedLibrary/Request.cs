@@ -48,6 +48,7 @@ namespace Shared
             messageType = "createcompetitionrequest";
         }
     }
+
     public class DeleteCompetitionRequest : Request
     {
         public int ID;
@@ -78,6 +79,7 @@ namespace Shared
             messageType = "nextdiverrequest";
         }
     }
+
     public class RegisterDiverRequest : Request
     {
         public string SSN;
@@ -92,6 +94,7 @@ namespace Shared
             messageType = "registerdiverrequest";
         }
     }
+
     public class RegisterDiveRequest : Request
     {
         public int Dive_ID;
@@ -107,6 +110,7 @@ namespace Shared
             messageType = "registerdiverequest";
         }
     }
+
     public class RegisterTeamRequest : Request
     {
         public int Team_ID;
@@ -116,6 +120,7 @@ namespace Shared
             messageType = "registerteamrequest";
         }
     }
+
     public class RegisterJudgeRequest : Request
     {
         public string SSN;
@@ -127,6 +132,7 @@ namespace Shared
             messageType = "registerjudgerequest";
         }
     }
+
     public class RegisterAdminRequest : Request
     {
         public string SSN;
@@ -162,7 +168,6 @@ namespace Shared
         }
     }
 
-    //Philip test
     public class ScheduleRequest : Request
     {
         public int Competition_ID;

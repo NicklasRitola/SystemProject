@@ -180,7 +180,7 @@ namespace ClientUI
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView viewSchedule;
-        private System.Windows.Forms.Button Refresh;
+        private new System.Windows.Forms.Button Refresh;
         private System.Windows.Forms.Button buttonMainMenu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;

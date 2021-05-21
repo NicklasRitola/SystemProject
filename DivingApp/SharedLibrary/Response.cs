@@ -126,10 +126,7 @@ namespace Shared
         public string DiveGroup;
         public int Tower;
 
-        public CurrentDiverResponse()
-        {
-
-        }
+        public CurrentDiverResponse() { }
 
         public CurrentDiverResponse(int id, float difficulty, string group, int tower)
         {
@@ -140,7 +137,6 @@ namespace Shared
         }
     }
 
-    //Philip test
     public class ScheduleResponse : Response
     {
         public List<CompetitionDive> Schedule;
