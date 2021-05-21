@@ -31,7 +31,6 @@ namespace ClientUI
         {
             this.buttonMainMenu = new System.Windows.Forms.Button();
             this.CreateCompetition = new System.Windows.Forms.Button();
-            this.CreateSchedule = new System.Windows.Forms.Button();
             this.nextDive = new System.Windows.Forms.Button();
             this.buttonCreateProfile = new System.Windows.Forms.Button();
             this.buttonCreateTeam = new System.Windows.Forms.Button();
@@ -53,7 +52,7 @@ namespace ClientUI
             // CreateCompetition
             // 
             this.CreateCompetition.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreateCompetition.Location = new System.Drawing.Point(206, 93);
+            this.CreateCompetition.Location = new System.Drawing.Point(126, 93);
             this.CreateCompetition.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CreateCompetition.Name = "CreateCompetition";
             this.CreateCompetition.Size = new System.Drawing.Size(155, 72);
@@ -62,23 +61,10 @@ namespace ClientUI
             this.CreateCompetition.UseVisualStyleBackColor = true;
             this.CreateCompetition.Click += new System.EventHandler(this.CreateCompetition_Click);
             // 
-            // CreateSchedule
-            // 
-            this.CreateSchedule.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.CreateSchedule.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CreateSchedule.Location = new System.Drawing.Point(45, 93);
-            this.CreateSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.CreateSchedule.Name = "CreateSchedule";
-            this.CreateSchedule.Size = new System.Drawing.Size(155, 72);
-            this.CreateSchedule.TabIndex = 0;
-            this.CreateSchedule.Text = "Create Schedule";
-            this.CreateSchedule.UseVisualStyleBackColor = true;
-            this.CreateSchedule.Click += new System.EventHandler(this.CreateSchedule_Click);
-            // 
             // nextDive
             // 
             this.nextDive.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nextDive.Location = new System.Drawing.Point(368, 93);
+            this.nextDive.Location = new System.Drawing.Point(288, 93);
             this.nextDive.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nextDive.Name = "nextDive";
             this.nextDive.Size = new System.Drawing.Size(155, 72);
@@ -145,7 +131,6 @@ namespace ClientUI
             this.Controls.Add(this.buttonCreateTeam);
             this.Controls.Add(this.buttonCreateProfile);
             this.Controls.Add(this.CreateCompetition);
-            this.Controls.Add(this.CreateSchedule);
             this.Controls.Add(this.nextDive);
             this.Controls.Add(this.buttonMainMenu);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -161,7 +146,6 @@ namespace ClientUI
 
         private System.Windows.Forms.Button buttonMainMenu;
         private System.Windows.Forms.Button CreateCompetition;
-        private System.Windows.Forms.Button CreateSchedule;
         private System.Windows.Forms.Button nextDive;
         private System.Windows.Forms.Button buttonCreateProfile;
         private System.Windows.Forms.Button buttonCreateTeam;

@@ -208,7 +208,7 @@ namespace Server
                 if (data.Score == null) { temp = "null"; }
                 else { temp = data.Score.ToString(); }
 
-                string query = "insert into Dive values (" + data.Dive_ID + "," + temp + "," + data.Difficulty + ",'" + data.DiveGroup + "'," + data.Tower + "," + data.In_Competition + ",'" + data.Diver + "', '" + data.Date + "'); ";
+                string query = "insert into Dive values (" + data.Dive_ID + "," + temp + "," + data.Difficulty + ",'" + data.DiveGroup + "'," + data.Tower + "," + data.In_Competition + ",'" + data.Diver + "', '" + data.Date + "', false); ";
                 Console.WriteLine(query);
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
@@ -520,8 +520,6 @@ namespace Server
             }
         }
 
-
-        //Philip test (using dive_2)
         public ScheduleResponse FetchScheduleFromDatabase(int Competition_ID)
         {
             try
@@ -529,7 +527,7 @@ namespace Server
                 List<CompetitionDive> list = new List<CompetitionDive>();
 
                 //Get all divs that has the matching competition id
-                string query = "select Dive_ID, Difficulty, Dive_Group, Tower, Date, Diver, Score from Dive_2 where In_Competition = " + Competition_ID + " and Performed = false ORDER BY UNIX_TIMESTAMP(date) ASC;";
+                string query = "select Dive_ID, Difficulty, Dive_Group, Tower, Date, Diver, Score from Dive where In_Competition = " + Competition_ID + " and Performed = false ORDER BY UNIX_TIMESTAMP(date) ASC;";
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 if (dataReader.HasRows)
@@ -590,7 +588,7 @@ namespace Server
         {
             try
             {
-                string query = "select Diver from Dive_2 where In_Competition = " + Competition_ID + ";"; //Extract all the divers in the competition
+                string query = "select Diver from Dive where In_Competition = " + Competition_ID + ";"; //Extract all the divers in the competition
                 
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
@@ -621,7 +619,7 @@ namespace Server
                 List<CompetitionDive> list = new List<CompetitionDive>();
                 foreach(var diver in divers)
                 {
-                    query = "select Diver, sum(Score) from Dive_2 where (In_Competition = " + Competition_ID + " and Diver = '"+ diver + "');";
+                    query = "select Diver, sum(Score) from Dive where (In_Competition = " + Competition_ID + " and Diver = '"+ diver + "');";
                     sqlQuery = new MySqlCommand(query, this.databaseConnection);
                     dataReader = sqlQuery.ExecuteReader();
                     CompetitionDive temp = new CompetitionDive();
@@ -674,7 +672,7 @@ namespace Server
             {
                 ScheduleResponse currentSchedule = FetchScheduleFromDatabase(Competition_ID);
                 if(currentSchedule == null) { return false; }
-                string query = "update dive_2 set Performed=true where Dive_ID = " + currentSchedule.Schedule[0].DiveId + ";"; //Updates current diver to performed=true
+                string query = "update Dive set Performed=true where Dive_ID = " + currentSchedule.Schedule[0].DiveId + ";"; //Updates current diver to performed=true
                 Console.WriteLine(query);
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();

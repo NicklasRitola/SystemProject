@@ -23,13 +23,6 @@ namespace ClientUI
             OpenForm(form1Form, this);
         }
 
-        private void CreateSchedule_Click(object sender, EventArgs e)
-        {
-            CreateSchedule scheduleForm = new CreateSchedule(channel);
-            OpenForm(scheduleForm, this);
-
-        }
-
         private void CreateCompetition_Click(object sender, EventArgs e)
         {
             CreateCompetition compForm = new CreateCompetition(channel);
