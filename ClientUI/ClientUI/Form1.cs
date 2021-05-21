@@ -50,8 +50,11 @@ namespace ClientUI
 
         private void Spectator_Click(object sender, EventArgs e)
         {
-            Spectator specForm = new Spectator(channel);
-            OpenForm(specForm, this);
+            //Spectator specForm = new Spectator(channel);
+            //OpenForm(specForm, this);
+
+            SpectatorMenu specMenuForm = new SpectatorMenu(channel, 0);
+            OpenForm(specMenuForm, this);
         }
 
         private void Judge_Click(object sender, EventArgs e)

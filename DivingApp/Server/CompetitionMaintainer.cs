@@ -18,7 +18,7 @@ namespace Server
             this.CompetitionType = database.GetCompetitionType(CompetitionID);
 
         }
-        public float? DiveScoreCalculater(int Dive_ID, float difficulty)
+        public bool DiveScoreCalculater(int Dive_ID, float difficulty)
         {
             List<int> points = CollectPointsFromJudge(Dive_ID);
             float? DiveScore = null;
@@ -50,16 +50,17 @@ namespace Server
                 {
                     try
                     {
-                        database.SendDiveScoreToDatabase(DiveScore, Dive_ID); // Call database handler 
+                        return database.SendDiveScoreToDatabase(DiveScore, Dive_ID); // Call database handler
                     }
                     catch(Exception err)
                     {
                         Console.WriteLine("Error - "+ err);
+                        return false;
                     }
                         
                 }
             }
-            return DiveScore;
+            return false;
         }
         private List<int> CollectPointsFromJudge(int Dive_ID) 
         {

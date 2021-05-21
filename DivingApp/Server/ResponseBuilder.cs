@@ -38,7 +38,7 @@ namespace Server
 
         public Task<ResultResponse> NextDiverResponse(bool result)
         {
-            ResultResponse response = new ResultResponse("Current diver update", result);
+            ResultResponse response = new ResultResponse("Next diver request", result);
             return Task.FromResult(response);
         }
 

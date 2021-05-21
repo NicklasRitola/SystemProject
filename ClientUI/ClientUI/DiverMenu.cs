@@ -24,8 +24,8 @@ namespace ClientUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Spectator specForm = new Spectator(channel);
-            OpenForm(specForm, this);
+            SpectatorMenu specMenuForm = new SpectatorMenu(channel, 0);
+            OpenForm(specMenuForm, this);
         }
 
         private void buttonMainMenu_Click(object sender, EventArgs e)

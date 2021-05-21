@@ -42,6 +42,7 @@ namespace ClientUI
             this.textBoxNextDiver = new System.Windows.Forms.TextBox();
             this.buttonDeleteCompetition = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,9 +84,10 @@ namespace ClientUI
             // 
             // textBoxCompID
             // 
-            this.textBoxCompID.Location = new System.Drawing.Point(351, 40);
+            this.textBoxCompID.Location = new System.Drawing.Point(446, 36);
             this.textBoxCompID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxCompID.Name = "textBoxCompID";
+            this.textBoxCompID.PlaceholderText = "ID";
             this.textBoxCompID.Size = new System.Drawing.Size(153, 27);
             this.textBoxCompID.TabIndex = 0;
             // 
@@ -94,11 +96,11 @@ namespace ClientUI
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(221, 43);
+            this.label1.Location = new System.Drawing.Point(316, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 23);
+            this.label1.Size = new System.Drawing.Size(109, 23);
             this.label1.TabIndex = 40;
-            this.label1.Text = "Competition ID:";
+            this.label1.Text = "Competition:";
             // 
             // label2
             // 
@@ -146,6 +148,7 @@ namespace ClientUI
             this.textBoxCurrentDiver.ReadOnly = true;
             this.textBoxCurrentDiver.Size = new System.Drawing.Size(153, 27);
             this.textBoxCurrentDiver.TabIndex = 45;
+            this.textBoxCurrentDiver.TextChanged += new System.EventHandler(this.textBoxCurrentDiver_TextChanged);
             // 
             // textBoxNextDiver
             // 
@@ -179,12 +182,25 @@ namespace ClientUI
             this.pictureBox1.TabIndex = 48;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(150, 25);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 46);
+            this.button1.TabIndex = 49;
+            this.button1.Text = "Refresh";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CurrentCompetition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
             this.ClientSize = new System.Drawing.Size(712, 351);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxCompID);
             this.Controls.Add(this.textBoxNextDiver);
             this.Controls.Add(this.textBoxCurrentDiver);
@@ -223,5 +239,6 @@ namespace ClientUI
         private System.Windows.Forms.TextBox textBoxNextDiver;
         private System.Windows.Forms.Button buttonDeleteCompetition;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -26,6 +26,7 @@ namespace ClientUI
             else if (fromForm == "diver")
             {
                 this.buttonMainMenu.Text = "Diver Menu";
+                this.textBoxDiverID.Text = LoginGlobalString.SSN;
             }
         }
 
@@ -57,8 +58,9 @@ namespace ClientUI
             if (textBoxTower.Text == "") { NoEmptyFields.Add("Tower - Empty field"); }
             else if (!(float.TryParse(textBoxTower.Text, out _))) { NoEmptyFields.Add("Tower - Not an integer"); }
             if (textBoxDate.Text == "") { NoEmptyFields.Add("Date - Empty field"); }
+            if (fromForm == "admin" && textBoxDiverID.Text == "") { NoEmptyFields.Add("Diver ID - Empty field"); }
 
-            if(NoEmptyFields.Count == 0)
+            if (NoEmptyFields.Count == 0)
             {
                 RegisterDiveRequest request = new RegisterDiveRequest();
                 request.Dive_ID = int.Parse(textBoxID.Text);
@@ -66,7 +68,8 @@ namespace ClientUI
                 request.In_Competition = int.Parse(textBoxComp.Text);
                 request.Tower = int.Parse(textBoxTower.Text);
                 request.DiveGroup = textBoxDiveGrp.Text;
-                request.Diver = LoginGlobalString.SSN;
+                request.Diver = textBoxDiverID.Text;
+
                 request.Score = null;
                 request.Date = textBoxDate.Text;
 

@@ -159,22 +159,23 @@ namespace Shared
 
 
     //Philip test
-    public class ScheduleResponse : Response 
+    public class ScheduleResponse : Response
     {
-        public List<CompetitionDive> schedule;
+        public List<CompetitionDive> Schedule;
+
         public ScheduleResponse(List<CompetitionDive> schedule)
         {
-            messageType = "CompetitionDiveItem";
-            this.schedule = schedule;
+            messageType = "scheduleresponse";
+            this.Schedule = schedule;
         }
     }
     public class ScoreboardResponse : Response
     {
-        public List<CompetitionDive> scoreboard;
+        public List<CompetitionDive> Scoreboard;
         public ScoreboardResponse(List<CompetitionDive> scoreboard)
         {
-            messageType = "CompetitionDiveItem";
-            this.scoreboard = scoreboard;
+            messageType = "scoreboardresponse";
+            this.Scoreboard = scoreboard;
         }
     }
 }

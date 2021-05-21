@@ -42,6 +42,10 @@ namespace ClientUI
             this.labelSetCurrentDiver = new System.Windows.Forms.Label();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.textBoxComp = new System.Windows.Forms.TextBox();
+            this.textBoxCurrentDiver = new System.Windows.Forms.TextBox();
+            this.textBoxDifficulty = new System.Windows.Forms.TextBox();
+            this.textBoxDiveGroup = new System.Windows.Forms.TextBox();
+            this.textBoxTower = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonMainMenu
@@ -69,9 +73,10 @@ namespace ClientUI
             // 
             // textBoxSetScore
             // 
-            this.textBoxSetScore.Location = new System.Drawing.Point(227, 143);
+            this.textBoxSetScore.Location = new System.Drawing.Point(214, 146);
             this.textBoxSetScore.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxSetScore.Name = "textBoxSetScore";
+            this.textBoxSetScore.PlaceholderText = "Enter a score";
             this.textBoxSetScore.Size = new System.Drawing.Size(114, 27);
             this.textBoxSetScore.TabIndex = 32;
             // 
@@ -87,7 +92,7 @@ namespace ClientUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(362, 131);
+            this.label1.Location = new System.Drawing.Point(362, 133);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 34;
@@ -96,7 +101,7 @@ namespace ClientUI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(362, 164);
+            this.label2.Location = new System.Drawing.Point(362, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 20);
             this.label2.TabIndex = 35;
@@ -106,7 +111,7 @@ namespace ClientUI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(362, 196);
+            this.label3.Location = new System.Drawing.Point(362, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 20);
             this.label3.TabIndex = 36;
@@ -146,7 +151,7 @@ namespace ClientUI
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(15, 284);
+            this.buttonRefresh.Location = new System.Drawing.Point(15, 282);
             this.buttonRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(86, 31);
@@ -164,12 +169,52 @@ namespace ClientUI
             this.textBoxComp.Size = new System.Drawing.Size(162, 27);
             this.textBoxComp.TabIndex = 42;
             // 
+            // textBoxCurrentDiver
+            // 
+            this.textBoxCurrentDiver.Location = new System.Drawing.Point(467, 96);
+            this.textBoxCurrentDiver.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxCurrentDiver.Name = "textBoxCurrentDiver";
+            this.textBoxCurrentDiver.ReadOnly = true;
+            this.textBoxCurrentDiver.Size = new System.Drawing.Size(137, 27);
+            this.textBoxCurrentDiver.TabIndex = 43;
+            // 
+            // textBoxDifficulty
+            // 
+            this.textBoxDifficulty.Location = new System.Drawing.Point(467, 131);
+            this.textBoxDifficulty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxDifficulty.Name = "textBoxDifficulty";
+            this.textBoxDifficulty.ReadOnly = true;
+            this.textBoxDifficulty.Size = new System.Drawing.Size(137, 27);
+            this.textBoxDifficulty.TabIndex = 44;
+            // 
+            // textBoxDiveGroup
+            // 
+            this.textBoxDiveGroup.Location = new System.Drawing.Point(467, 166);
+            this.textBoxDiveGroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxDiveGroup.Name = "textBoxDiveGroup";
+            this.textBoxDiveGroup.ReadOnly = true;
+            this.textBoxDiveGroup.Size = new System.Drawing.Size(137, 27);
+            this.textBoxDiveGroup.TabIndex = 45;
+            // 
+            // textBoxTower
+            // 
+            this.textBoxTower.Location = new System.Drawing.Point(467, 201);
+            this.textBoxTower.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxTower.Name = "textBoxTower";
+            this.textBoxTower.ReadOnly = true;
+            this.textBoxTower.Size = new System.Drawing.Size(137, 27);
+            this.textBoxTower.TabIndex = 46;
+            // 
             // Judge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
-            this.ClientSize = new System.Drawing.Size(840, 331);
+            this.ClientSize = new System.Drawing.Size(652, 331);
+            this.Controls.Add(this.textBoxTower);
+            this.Controls.Add(this.textBoxDiveGroup);
+            this.Controls.Add(this.textBoxDifficulty);
+            this.Controls.Add(this.textBoxCurrentDiver);
             this.Controls.Add(this.textBoxComp);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.labelSetCurrentTower);
@@ -208,5 +253,9 @@ namespace ClientUI
         private System.Windows.Forms.Label labelSetCurrentDiver;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.TextBox textBoxComp;
+        private System.Windows.Forms.TextBox textBoxCurrentDiver;
+        private System.Windows.Forms.TextBox textBoxDifficulty;
+        private System.Windows.Forms.TextBox textBoxDiveGroup;
+        private System.Windows.Forms.TextBox textBoxTower;
     }
 }

@@ -13,6 +13,7 @@ namespace ClientUI
 {
     public partial class Judge : ClientHandler
     {
+        public int Current_Dive_ID;
         public Judge(ClientChannel channel) 
         {
             InitializeComponent();
@@ -41,39 +42,83 @@ namespace ClientUI
 
         private async void ButtonSetScore_Click(object sender, EventArgs e)
         {
-            JudgePointRequest request = new JudgePointRequest(currentID, float.Parse(textBoxSetScore.Text),LoginGlobalString.SSN, int.Parse(textBoxComp.Text));
-            await channel.SendAsync(request);
-
-            JObject response = await channel.ReceiveResponse();
-            MessageBox.Show(response.Value<string>("message"), "Registration result", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        }
-        public int currentID;
-
-
-        private async void buttonRefresh_Click(object sender, EventArgs e)
-        {
-            ViewCurrentDiverRequest request = new ViewCurrentDiverRequest(int.Parse(textBoxComp.Text));
-            await channel.SendAsync(request);
-
-            JObject response = await channel.ReceiveResponse();
-            if (response.Value<string>("messageType").ToLower() == "currentdiverresponse")
+            List<string> NoEmptyFields = new List<String>();
+            if (textBoxComp.Text == "")
             {
-                string JSONString = JsonConvert.SerializeObject(response);
-                CurrentDiverResponse CurrentResponse = JsonConvert.DeserializeObject<CurrentDiverResponse>(JSONString);
+                NoEmptyFields.Add("Competition ID field is empty");
+            }
+            else if (!(int.TryParse(textBoxComp.Text, out _)))
+            {
+                NoEmptyFields.Add("Competition ID must be an integer");
+            }
+            if(textBoxSetScore.Text == "")
+            {
+                NoEmptyFields.Add("Score field is empty");
+            }
+            else if(!(float.TryParse(textBoxSetScore.Text, out _)))
+            {
+                NoEmptyFields.Add("Score must be an float");
+            }
+            
+            if(NoEmptyFields.Count == 0)
+            {
+                JudgePointRequest request = new JudgePointRequest(Current_Dive_ID, float.Parse(textBoxSetScore.Text), LoginGlobalString.SSN, int.Parse(textBoxComp.Text));
+                await channel.SendAsync(request);
 
-                labelSetCurrentDiver.Text = CurrentResponse.CurrentID.ToString();
-                currentID = CurrentResponse.CurrentID;
-                labelSetCurrentDiff.Text = CurrentResponse.Difficulty.ToString();
+                JObject response = await channel.ReceiveResponse();
+                MessageBox.Show(response.Value<string>("message"), "Registration result", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                labelSetCurrentGroup.Text = CurrentResponse.DiveGroup;
-
-                labelSetCurrentTower.Text = CurrentResponse.Tower.ToString();
+                UpdateTextBoxes();
             }
             else
             {
-                ShowMessage("Update current diver result", response.Value<string>("message"));
+                string output = "";
+                for (int i = 0; i < NoEmptyFields.Count; i++)
+                {
+                    output += ("• " + NoEmptyFields[i] + "\n");
+                }
+                MessageBox.Show("Invalid input: \n" + output, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            NoEmptyFields.Clear();
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            if (textBoxComp.Text == "")
+            {
+                MessageBox.Show("Competition ID field is empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!(int.TryParse(textBoxComp.Text, out _)))
+            {
+                MessageBox.Show("Competition ID must be an integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                UpdateTextBoxes();
+            }
+        }
+
+        private async void UpdateTextBoxes()
+        {
+            ScheduleRequest request = new ScheduleRequest(int.Parse(textBoxComp.Text));
+            await channel.SendAsync(request);
+
+            JObject response = await channel.ReceiveResponse();
+            string JSONString = JsonConvert.SerializeObject(response);
+            ScheduleResponse responseSchedule = JsonConvert.DeserializeObject<ScheduleResponse>(JSONString);
+            if (responseSchedule == null)
+            {
+                MessageBox.Show("Couldn't load schedule for competition " + int.Parse(textBoxComp.Text), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.textBoxCurrentDiver.Text = responseSchedule.Schedule[0].DiverName;
+                this.textBoxDifficulty.Text = responseSchedule.Schedule[0].Difficulty.ToString();
+                this.textBoxDiveGroup.Text = responseSchedule.Schedule[0].Group;
+                this.textBoxTower.Text = responseSchedule.Schedule[0].Tower.ToString();
+                this.Current_Dive_ID = responseSchedule.Schedule[0].DiveId;
+            }
+
         }
     }
 }

@@ -13,10 +13,12 @@ namespace ClientUI
 {
     public partial class Spectator : ClientHandler
     {
+        private int Competition_ID;
         public Spectator(ClientChannel channel) 
         {
             InitializeComponent();
             this.channel = channel;
+            //this.Competition_ID = Competition_ID;
         }
 
         private void buttonMainMenu_Click(object sender, EventArgs e)

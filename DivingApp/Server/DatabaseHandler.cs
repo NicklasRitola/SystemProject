@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using System.Linq;
 using Shared;
 
 namespace Server
@@ -52,6 +53,7 @@ namespace Server
                 return null;
             }
         }
+
         private void CloseConnectionToDatabase(MySqlConnection databaseConnection)
         {
             try
@@ -64,6 +66,7 @@ namespace Server
                 Console.WriteLine("\nError - " + err.Message);
             }
         }
+
         public string SQLExecuteQuery(string query)
         {
             try
@@ -125,6 +128,7 @@ namespace Server
                 return false;
             }
         }
+
         public bool CreateScheduleInDatabase(CreateScheduleRequest data)
         {
             try
@@ -177,6 +181,7 @@ namespace Server
                 return false;
             }
         }
+
         public virtual bool RegisterDiverInDatabase(RegisterDiverRequest data)
         {
             try
@@ -194,6 +199,7 @@ namespace Server
                 return false;
             }
         }
+
         public bool RegisterDiveInDatabase(RegisterDiveRequest data)
         {
             try
@@ -202,7 +208,7 @@ namespace Server
                 if (data.Score == null) { temp = "null"; }
                 else { temp = data.Score.ToString(); }
 
-                string query = "insert into Dive values (" + data.Dive_ID + "," + temp + "," + data.Difficulty + ",'" + data.DiveGroup + "'," + data.Tower + "," + data.In_Competition + ",'" + data.Diver + "', " + data.Date + "); ";
+                string query = "insert into Dive values (" + data.Dive_ID + "," + temp + "," + data.Difficulty + ",'" + data.DiveGroup + "'," + data.Tower + "," + data.In_Competition + ",'" + data.Diver + "', '" + data.Date + "'); ";
                 Console.WriteLine(query);
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
@@ -216,6 +222,7 @@ namespace Server
                 return false;
             }
         }
+
         public bool RegisterTeamInDatabase(RegisterTeamRequest data)
         {
             try
@@ -233,6 +240,7 @@ namespace Server
                 return false;
             }
         }
+
         public virtual bool RegisterJudgeInDatabase(RegisterJudgeRequest data)
         {
             try
@@ -250,6 +258,7 @@ namespace Server
                 return false;
             }
         }
+
         public virtual bool RegisterAdminInDatabase(RegisterAdminRequest data)
         {
             try
@@ -267,6 +276,7 @@ namespace Server
                 return false;
             }
         }
+
         public bool SendJudgePointToDatabase(JudgePointRequest data)
         {
             try
@@ -284,6 +294,7 @@ namespace Server
                 return false;
             }
         }
+
         public int GetCompetitionType(int CompetitionID)
         {
             try
@@ -312,6 +323,7 @@ namespace Server
                 return 0;
             }
         }
+
         public float GetDiveDifficulty(int DiveID)
         {
             try
@@ -320,18 +332,16 @@ namespace Server
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
 
+                float output = 0;
                 if (dataReader.HasRows)
                 {
-                    int output = 0;
                     while (dataReader.Read())
                     {
-                        output = Int32.Parse("" + dataReader.GetValue(0));
+                        output = float.Parse("" + dataReader.GetValue(0));
                     }
-                    dataReader.Close();
-                    return output;
                 }
                 dataReader.Close();
-                return 0;
+                return output;
 
             }
             catch (Exception err)
@@ -340,6 +350,7 @@ namespace Server
                 return 0;
             }
         }
+
         public bool SendDiveScoreToDatabase(float? DiveScore, int Dive_ID)
         {
             try
@@ -358,6 +369,7 @@ namespace Server
                 return false;
             }
         }
+
         public List<int> CollectPointsForDiveFromJudges(int Dive_ID)
         {
             try
@@ -365,10 +377,11 @@ namespace Server
                 string query = "select Point from Give_Points where dive = " + Dive_ID + ";";
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                List<int> points = new List<int>();
 
                 if (dataReader.HasRows)
                 {
-                    List<int> points = new List<int>();
+                    
                     while (dataReader.Read())
                     {
                         for (int i = 0; i < dataReader.FieldCount; i++)
@@ -376,11 +389,9 @@ namespace Server
                             points.Add(Int32.Parse(("" + dataReader.GetValue(i))));
                         }
                     }
-                    dataReader.Close();
-                    return points;
                 }
                 dataReader.Close();
-                return null;
+                return points;
 
             }
             catch (Exception err)
@@ -389,10 +400,12 @@ namespace Server
                 return null;
             }
         }
+
         public virtual bool LoginChecker(LoginRequest data)
         {
             return false;
         }
+
         public List<CompetitionDive> GetCompetitionDives(int Competition_ID)
         {
             try
@@ -400,7 +413,8 @@ namespace Server
                 List<CompetitionDive> list = new List<CompetitionDive>();
 
                 //Get all divs that has the matching competition id
-                string query = "select Dive_ID, Difficulty, Dive_Group, Tower, Date, Diver, Score from Dive where In_Competition = " + Competition_ID + " order by Date DESC;";
+                string query = "select Dive_ID, Difficulty, Dive_Group, Tower, Date, Diver, Score from Dive where In_Competition = " + Competition_ID + " ORDER BY UNIX_TIMESTAMP(date) ASC;";
+                Console.WriteLine(query);
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();
                 if (dataReader.HasRows)
@@ -455,6 +469,7 @@ namespace Server
                 return null;
             }
         }
+
         public CurrentDiverResponse GetDiveInformation(int Dive_ID)
         {
             try
@@ -485,6 +500,7 @@ namespace Server
                 return null;
             }
         }
+
         public bool DeleteCompetitionInDatabase(int Competition_ID)
         {
             try
@@ -505,18 +521,67 @@ namespace Server
         }
 
 
-
+        //Philip test (using dive_2)
         public ScheduleResponse FetchScheduleFromDatabase(int Competition_ID)
         {
             try
             {
-                string query = "select * from Schedule where Competition_ID = " + Competition_ID + " ;";
-                
-                return null;
+                List<CompetitionDive> list = new List<CompetitionDive>();
+
+                //Get all divs that has the matching competition id
+                string query = "select Dive_ID, Difficulty, Dive_Group, Tower, Date, Diver, Score from Dive_2 where In_Competition = " + Competition_ID + " and Performed = false ORDER BY UNIX_TIMESTAMP(date) ASC;";
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                if (dataReader.HasRows)
+                {
+                    while (dataReader.Read())
+                    {
+                        CompetitionDive temp = new CompetitionDive();
+
+                        temp.DiveId = Int32.Parse("" + dataReader.GetValue(0));
+                        temp.Difficulty = float.Parse("" + dataReader.GetValue(1));
+                        temp.Group = ("" + dataReader.GetValue(2));
+                        temp.Tower = Int32.Parse("" + dataReader.GetValue(3));
+                        temp.Time = ("" + dataReader.GetValue(4));
+                        temp.DiverSSN = ("" + dataReader.GetValue(5));
+                        string score = ("" + dataReader.GetValue(6));
+                        if (score == "")
+                        {
+                            temp.Score = null;
+                        }
+                        else
+                        {
+                            temp.Score = float.Parse(score);
+                        }
+                        list.Add(temp);
+                    }
+                    dataReader.Close();
+                }
+
+                //Get name of diver that perform dive 
+                for (int i = 0; i < list.Count; i++)
+                {
+                    query = "select Firstname, Surname from Diver where SSN = '" + list[i].DiverSSN + "';";
+                    sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                    dataReader = sqlQuery.ExecuteReader();
+
+                    if (dataReader.HasRows)
+                    {
+                        while (dataReader.Read())
+                        {
+                            string name = "";
+                            name += dataReader.GetValue(0) + " " + dataReader.GetValue(1);
+                            list[i].DiverName = name;
+                        }
+                        dataReader.Close();
+                    }
+                }
+                ScheduleResponse response = new ScheduleResponse(list);
+                return response;
             }
-            catch(Exception err)
+            catch (Exception err)
             {
-                Console.WriteLine("Error - " + err);
+                Console.Out.WriteLine("\nERROR - " + err.Message);
                 return null;
             }
         }
@@ -525,15 +590,102 @@ namespace Server
         {
             try
             {
-                string query = "select * from Dive where Competition_ID = " + Competition_ID + " ;";
+                string query = "select Diver from Dive_2 where In_Competition = " + Competition_ID + ";"; //Extract all the divers in the competition
+                
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                List<string> divers = new List<string>();
+
+                if (dataReader.Read())
+                {
+                    while (dataReader.Read())
+                    {
+                        bool add = true;
+                        string temp = ("" + dataReader.GetValue(0));
+                        for (int i = 0; i < divers.Count; i++)
+                        {
+                            if(divers[i] == temp)
+                            {
+                                add = false;
+                            }
+                        }
+                        if(add == true)
+                        {
+                            divers.Add(temp);
+                        }
+                        
+                    }
+                }
+                dataReader.Close();
+
+                List<CompetitionDive> list = new List<CompetitionDive>();
+                foreach(var diver in divers)
+                {
+                    query = "select Diver, sum(Score) from Dive_2 where (In_Competition = " + Competition_ID + " and Diver = '"+ diver + "');";
+                    sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                    dataReader = sqlQuery.ExecuteReader();
+                    CompetitionDive temp = new CompetitionDive();
+
+                    if (dataReader.Read())
+                    {
+                        temp.DiverSSN = ("" + dataReader.GetValue(0));
+                        string floatConverter = ("" + dataReader.GetValue(1));
+                        if (floatConverter == "") { temp.Score = 0; }
+                        else { temp.Score = float.Parse(floatConverter); }
+                        list.Add(temp);
+                    }
+                    dataReader.Close();
+                }
+
+                //Get name of diver that perform dive 
+                for (int i = 0; i < list.Count; i++)
+                {
+                    query = "select Firstname, Surname from Diver where SSN = '" + list[i].DiverSSN + "';";
+                    sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                    dataReader = sqlQuery.ExecuteReader();
+
+                    if (dataReader.HasRows)
+                    {
+                        while (dataReader.Read())
+                        {
+                            string name = "";
+                            name += dataReader.GetValue(0) + " " + dataReader.GetValue(1);
+                            list[i].DiverName = name;
+                        }
+                    }
+                    dataReader.Close();
+                }
+                List<CompetitionDive> sortedList = list.OrderByDescending(obj => obj.Score).ToList(); //Order list by the score
+
+                ScoreboardResponse response = new ScoreboardResponse(sortedList);
+                return response;
+            }
+            catch (Exception err)
+            {
+                Console.Out.WriteLine("\nERROR - " + err.Message);
                 return null;
+            }
+
+        }
+
+        public bool NextDiverInCompetition(int Competition_ID)
+        {
+            try
+            {
+                ScheduleResponse currentSchedule = FetchScheduleFromDatabase(Competition_ID);
+                if(currentSchedule == null) { return false; }
+                string query = "update dive_2 set Performed=true where Dive_ID = " + currentSchedule.Schedule[0].DiveId + ";"; //Updates current diver to performed=true
+                Console.WriteLine(query);
+                MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
+                MySqlDataReader dataReader = sqlQuery.ExecuteReader();
+                dataReader.Close();
+                return true;
             }
             catch(Exception err)
             {
                 Console.WriteLine("Error - " + err);
-                return null;
+                return false;
             }
-            
         }
     }
 }

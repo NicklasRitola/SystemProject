@@ -71,11 +71,6 @@ namespace Server
                     ViewScheduleRequest ViewSchReq = JsonConvert.DeserializeObject<ViewScheduleRequest>(JSONString);
                     response = await DispatchMessage(ViewSchReq);
                     break;
-                case "viewcurrentdiverrequest":
-                    ViewCurrentDiverRequest ViewCurrDiverReq = JsonConvert.DeserializeObject<ViewCurrentDiverRequest>(JSONString);
-                    //TODO: Implement response for current diver
-                    //response = await DispatchMessage(ViewCurrDiverReq);
-                    break;
                 case "loginrequest":
                     LoginRequest LoginReq = JsonConvert.DeserializeObject<LoginRequest>(JSONString);
                     response = await DispatchMessage(LoginReq);
@@ -83,6 +78,14 @@ namespace Server
                 case "deletecompetitionrequest":
                     DeleteCompetitionRequest DelCompReq = JsonConvert.DeserializeObject<DeleteCompetitionRequest>(JSONString);
                     response = await DispatchMessage(DelCompReq);
+                    break;
+                case "schedulerequest":
+                    ScheduleRequest SchReq = JsonConvert.DeserializeObject<ScheduleRequest>(JSONString);
+                    response = await DispatchMessage(SchReq);
+                    break;
+                case "scoreboardrequest":
+                    ScoreboardRequest ScoReq = JsonConvert.DeserializeObject<ScoreboardRequest>(JSONString);
+                    response = await DispatchMessage(ScoReq);
                     break;
             }
             return response;
@@ -136,7 +139,7 @@ namespace Server
         public async Task<ResultResponse> DispatchMessage(NextDiverRequest request)
         {
             Console.WriteLine("Next Diver request received");
-            ResultResponse response = await responseBuilder.NextDiverResponse(true);
+            ResultResponse response = await responseBuilder.NextDiverResponse(database.NextDiverInCompetition(request.CompetitionID));
             return response;
         }
 
@@ -214,6 +217,7 @@ namespace Server
                 //Successfully registered 
                 CompetitionMaintainer CM = new CompetitionMaintainer(request.CompetitionID, database);
                 CM.DiveScoreCalculater(request.DiveID, database.GetDiveDifficulty(request.DiveID)); //Tries to calculate dive score
+                result = true;
             }
             return await responseBuilder.JudgePointResponse(result);
         }
@@ -272,6 +276,21 @@ namespace Server
                 currentID = competitionList[0];
             }
             return currentID;
+        }
+
+
+        //Philip test
+        public async Task<ScheduleResponse> DispatchMessage(ScheduleRequest request)
+        {
+            Console.WriteLine("Schedule request received");
+            ScheduleResponse response = database.FetchScheduleFromDatabase(request.Competition_ID);
+            return response;
+        }
+        public async Task<ScoreboardResponse> DispatchMessage(ScoreboardRequest request)
+        {
+            Console.WriteLine("Scoreboard request received");
+            ScoreboardResponse response = database.FetchScoreboardFromDatabase(request.Competition_ID);
+            return response;
         }
     }
 }

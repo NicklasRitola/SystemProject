@@ -186,4 +186,27 @@ namespace Shared
             this.CompetitionID = compId;
         }
     }
+
+
+    //Philip test
+    public class ScheduleRequest : Request
+    {
+        public int Competition_ID;
+
+        public ScheduleRequest(int Competition_ID)
+        {
+            messageType = "schedulerequest";
+            this.Competition_ID = Competition_ID;
+        }
+    }
+    public class ScoreboardRequest : Request
+    {
+        public int Competition_ID;
+
+        public ScoreboardRequest(int Competition_ID)
+        {
+            messageType = "scoreboardrequest";
+            this.Competition_ID = Competition_ID;
+        }
+    }
 }

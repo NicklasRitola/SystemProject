@@ -43,6 +43,8 @@ namespace ClientUI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxDate = new System.Windows.Forms.TextBox();
+            this.labelDiverID = new System.Windows.Forms.Label();
+            this.textBoxDiverID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // RegisterDive
@@ -173,12 +175,32 @@ namespace ClientUI
             this.textBoxDate.Size = new System.Drawing.Size(313, 27);
             this.textBoxDate.TabIndex = 5;
             // 
+            // labelDiverID
+            // 
+            this.labelDiverID.AutoSize = true;
+            this.labelDiverID.Location = new System.Drawing.Point(243, 257);
+            this.labelDiverID.Name = "labelDiverID";
+            this.labelDiverID.Size = new System.Drawing.Size(66, 20);
+            this.labelDiverID.TabIndex = 36;
+            this.labelDiverID.Text = "Diver ID:";
+            // 
+            // textBoxDiverID
+            // 
+            this.textBoxDiverID.Location = new System.Drawing.Point(367, 257);
+            this.textBoxDiverID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxDiverID.Name = "textBoxDiverID";
+            this.textBoxDiverID.PlaceholderText = "Social security number of diver";
+            this.textBoxDiverID.Size = new System.Drawing.Size(313, 27);
+            this.textBoxDiverID.TabIndex = 35;
+            // 
             // Diver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
-            this.ClientSize = new System.Drawing.Size(734, 273);
+            this.ClientSize = new System.Drawing.Size(734, 314);
+            this.Controls.Add(this.labelDiverID);
+            this.Controls.Add(this.textBoxDiverID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxDate);
             this.Controls.Add(this.textBoxID);
@@ -219,5 +241,7 @@ namespace ClientUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxDate;
+        private System.Windows.Forms.Label labelDiverID;
+        private System.Windows.Forms.TextBox textBoxDiverID;
     }
 }

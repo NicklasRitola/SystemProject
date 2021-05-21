@@ -65,7 +65,7 @@ namespace ClientUI
             this.buttonSchedule.Name = "buttonSchedule";
             this.buttonSchedule.Size = new System.Drawing.Size(155, 72);
             this.buttonSchedule.TabIndex = 1;
-            this.buttonSchedule.Text = "Schedule";
+            this.buttonSchedule.Text = "Spectator panel";
             this.buttonSchedule.UseVisualStyleBackColor = true;
             this.buttonSchedule.Click += new System.EventHandler(this.button1_Click);
             // 
