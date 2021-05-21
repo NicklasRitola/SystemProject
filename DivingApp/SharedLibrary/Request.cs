@@ -68,6 +68,7 @@ namespace Shared
             messageType = "createschedulerequest";
         }
     }
+
     public class NextDiverRequest : Request
     {
         public int CompetitionID;
@@ -160,30 +161,6 @@ namespace Shared
             messageType = "judgepointrequest";
         }
     }
-
-    //Spectator
-    public class ViewScheduleRequest : Request
-    {
-        public int Competition_ID;
-        public ViewScheduleRequest()
-        {
-            messageType = "viewschedulerequest";
-        }
-    }
-    public class ViewCurrentDiverRequest : Request
-    {
-        public int CompetitionID;
-        public ViewCurrentDiverRequest()
-        {
-            messageType = "viewcurrentdiverrequest";
-        }
-
-        public ViewCurrentDiverRequest(int compId)
-        {
-            this.CompetitionID = compId;
-        }
-    }
-
 
     //Philip test
     public class ScheduleRequest : Request
