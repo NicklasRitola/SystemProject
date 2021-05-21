@@ -10,7 +10,7 @@ using Shared;
 
 namespace Shared
 {
-    public class Channel
+    public class Channel //TODO: Make disposable so that future channel groomer can dispose "dead" channels
     {
         protected bool disposed = false;
         protected bool closed = false;
