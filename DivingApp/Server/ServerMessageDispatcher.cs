@@ -47,10 +47,6 @@ namespace Server
                     RegisterDiverRequest RegDiverReq = JsonConvert.DeserializeObject<RegisterDiverRequest>(JSONString);
                     response = await DispatchMessage(RegDiverReq);
                     break;
-                case "registerdiverequest":
-                    RegisterDiveRequest RegDiveReq = JsonConvert.DeserializeObject<RegisterDiveRequest>(JSONString);
-                    response = await DispatchMessage(RegDiveReq);
-                    break;
                 case "registerteamrequest":
                     RegisterTeamRequest RegTeamReq = JsonConvert.DeserializeObject<RegisterTeamRequest>(JSONString);
                     response = await DispatchMessage(RegTeamReq);
