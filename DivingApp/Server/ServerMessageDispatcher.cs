@@ -17,7 +17,6 @@ namespace Server
         private readonly DatabaseHandler database = new DatabaseHandler();
         private readonly DatabaseHandler password_database = new PasswordDatabaseHandler();
         private readonly ResponseBuilder responseBuilder = new ResponseBuilder();
-        static Dictionary<int, List<int>> currentDivers = new Dictionary<int, List<int>>();
 
         public override async Task<Response> DispatchMessage(JObject message)
         {
@@ -40,7 +39,6 @@ namespace Server
                     break;
                 case "nextdiverrequest":
                     NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
-                    updateCurrentDiver(NexDivReq.CompetitionID);
                     response = await DispatchMessage(NexDivReq);
                     break;
                 case "registerdiverrequest":
@@ -62,10 +60,6 @@ namespace Server
                 case "judgepointrequest":
                     JudgePointRequest JudgePointReq = JsonConvert.DeserializeObject<JudgePointRequest>(JSONString);
                     response = await DispatchMessage(JudgePointReq);
-                    break;
-                case "viewschedulerequest":
-                    ViewScheduleRequest ViewSchReq = JsonConvert.DeserializeObject<ViewScheduleRequest>(JSONString);
-                    response = await DispatchMessage(ViewSchReq);
                     break;
                 case "loginrequest":
                     LoginRequest LoginReq = JsonConvert.DeserializeObject<LoginRequest>(JSONString);
@@ -218,28 +212,6 @@ namespace Server
             return await responseBuilder.JudgePointResponse(result);
         }
 
-        public Task<CompetitionScheduleResponse> DispatchMessage(ViewScheduleRequest request)
-        {
-            Console.WriteLine("View Schedule request received");
-            CompetitionScheduleResponse response = new CompetitionScheduleResponse(fetchCurrentDiver(request.Competition_ID), database.GetCompetitionDives(request.Competition_ID));
-            return Task.FromResult(response);
-        }
-
-        public async Task<Response> DispatchMessage(ViewCurrentDiverRequest request)
-        {
-            Console.WriteLine("View Current Diver request received");
-            CurrentDiverResponse response = database.GetDiveInformation(request.CompetitionID);
-
-            if (response != null)
-            {
-                return response;
-            }
-            else
-            {
-                return await responseBuilder.ViewCurrentResultResponse(false);
-            }
-        }
-
         public async Task<LoginResponse> DispatchMessage(LoginRequest request)
         {
             //TODO: Sent to databse and check if login is found
@@ -253,27 +225,6 @@ namespace Server
             Console.WriteLine("Delete competition request received");
             return await responseBuilder.DeleteCompetitionResponse(database.DeleteCompetitionInDatabase(request.ID));
         }
-
-        private void updateCurrentDiver(int competitionID)
-        {
-            List<int> competitionList;
-            if(currentDivers.TryGetValue(competitionID, out competitionList))
-            {
-                competitionList.RemoveAt(0);
-            }
-        }
-
-        private int fetchCurrentDiver(int competitionID)
-        {
-            int currentID = 0;
-            List<int> competitionList;
-            if(currentDivers.TryGetValue(competitionID, out competitionList))
-            {
-                currentID = competitionList[0];
-            }
-            return currentID;
-        }
-
 
         //Philip test
         public async Task<ScheduleResponse> DispatchMessage(ScheduleRequest request)

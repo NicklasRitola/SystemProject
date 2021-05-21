@@ -16,12 +16,6 @@ namespace Server
             return Task.FromResult(new TestResponse());
         }
 
-        public Task<ResultResponse> ViewCurrentResultResponse(bool result)
-        {
-            ResultResponse response = new ResultResponse("Get Current Diver request", result);
-            return Task.FromResult(response);
-        }
-
         public Task<ResultResponse> CreateCompetitionResponse(bool result)
         {
             //Returns a tailored result response

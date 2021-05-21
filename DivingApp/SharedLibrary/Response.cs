@@ -108,22 +108,6 @@ namespace Shared
         }
 
     }
-    public class DiverInfoResponse : Response
-    {
-        public string SSN;
-        public string FirstName;
-        public string Surname;
-        public string Gender;
-        public int Age;
-        public int Team;
-        public int Team_ID;
-        public int Diver_ID;
-
-        public DiverInfoResponse()
-        {
-            messageType = "diverinforesponse";
-        }
-    }
 
     public class LoginResponse : Response
     {
@@ -155,8 +139,6 @@ namespace Shared
             this.Tower = tower;
         }
     }
-
-
 
     //Philip test
     public class ScheduleResponse : Response
