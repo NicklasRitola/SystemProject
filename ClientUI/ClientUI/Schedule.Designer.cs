@@ -47,9 +47,9 @@ namespace ClientUI
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(352, 18);
+            this.label3.Location = new System.Drawing.Point(308, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 54);
+            this.label3.Size = new System.Drawing.Size(151, 45);
             this.label3.TabIndex = 41;
             this.label3.Text = "Schedule";
             // 
@@ -68,22 +68,20 @@ namespace ClientUI
             this.Difficulty,
             this.Divegroup,
             this.Tower});
-            this.viewSchedule.Location = new System.Drawing.Point(37, 111);
-            this.viewSchedule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.viewSchedule.Location = new System.Drawing.Point(32, 83);
             this.viewSchedule.MultiSelect = false;
             this.viewSchedule.Name = "viewSchedule";
             this.viewSchedule.ReadOnly = true;
             this.viewSchedule.RowHeadersWidth = 51;
             this.viewSchedule.RowTemplate.Height = 25;
-            this.viewSchedule.Size = new System.Drawing.Size(789, 383);
+            this.viewSchedule.Size = new System.Drawing.Size(683, 287);
             this.viewSchedule.TabIndex = 39;
             // 
             // Refresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(739, 523);
-            this.Refresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Refresh.Location = new System.Drawing.Point(639, 385);
             this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(87, 52);
+            this.Refresh.Size = new System.Drawing.Size(76, 39);
             this.Refresh.TabIndex = 0;
             this.Refresh.Text = "Refresh Schedule";
             this.Refresh.UseVisualStyleBackColor = true;
@@ -91,10 +89,9 @@ namespace ClientUI
             // 
             // buttonMainMenu
             // 
-            this.buttonMainMenu.Location = new System.Drawing.Point(30, 29);
-            this.buttonMainMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonMainMenu.Location = new System.Drawing.Point(26, 22);
             this.buttonMainMenu.Name = "buttonMainMenu";
-            this.buttonMainMenu.Size = new System.Drawing.Size(87, 52);
+            this.buttonMainMenu.Size = new System.Drawing.Size(76, 39);
             this.buttonMainMenu.TabIndex = 1;
             this.buttonMainMenu.Text = "Spectator panel";
             this.buttonMainMenu.UseVisualStyleBackColor = true;
@@ -105,9 +102,9 @@ namespace ClientUI
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(346, 67);
+            this.label2.Location = new System.Drawing.Point(303, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(201, 32);
+            this.label2.Size = new System.Drawing.Size(157, 25);
             this.label2.TabIndex = 42;
             this.label2.Text = "Of Competition X";
             // 
@@ -136,7 +133,7 @@ namespace ClientUI
             this.Difficulty.Name = "Difficulty";
             this.Difficulty.ReadOnly = true;
             this.Difficulty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Difficulty.Width = 125;
+            this.Difficulty.Width = 90;
             // 
             // Divegroup
             // 
@@ -145,7 +142,7 @@ namespace ClientUI
             this.Divegroup.Name = "Divegroup";
             this.Divegroup.ReadOnly = true;
             this.Divegroup.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Divegroup.Width = 125;
+            this.Divegroup.Width = 90;
             // 
             // Tower
             // 
@@ -154,19 +151,20 @@ namespace ClientUI
             this.Tower.Name = "Tower";
             this.Tower.ReadOnly = true;
             this.Tower.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Tower.Width = 125;
+            this.Tower.Width = 90;
             // 
             // Schedule
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(160)))), ((int)(((byte)(205)))));
-            this.ClientSize = new System.Drawing.Size(876, 599);
+            this.ClientSize = new System.Drawing.Size(751, 440);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.viewSchedule);
             this.Controls.Add(this.Refresh);
             this.Controls.Add(this.buttonMainMenu);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Schedule";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedule";
