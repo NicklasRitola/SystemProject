@@ -11,7 +11,7 @@ namespace Server
     class DatabaseHandler
     {
         protected MySqlConnection databaseConnection;
-        protected string IP = "89.160.69.12";
+        protected string IP = "31.208.84.24";
         public DatabaseHandler() //Constructor
         {
             try
