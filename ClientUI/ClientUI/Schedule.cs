@@ -22,6 +22,12 @@ namespace ClientUI
             this.label2.Text = "Of Competition " + Competition_ID;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
 
+            viewSchedule.Columns[0].Width = 180;
+            viewSchedule.Columns[1].Width = 180;
+            viewSchedule.Columns[2].Width = 90;
+            viewSchedule.Columns[3].Width = 90;
+            viewSchedule.Columns[4].Width = 90;
+
             updateSchedule();
         }
 
