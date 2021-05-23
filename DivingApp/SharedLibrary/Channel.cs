@@ -12,7 +12,7 @@ namespace Shared
 {
     public class Channel //TODO: Make disposable so that future channel groomer can dispose "dead" channels
     {
-        protected bool disposed = false;
+        //protected bool disposed = false;
         protected bool closed = false;
 
         public JsonMessageProtocol messageProtocol = new JsonMessageProtocol();
