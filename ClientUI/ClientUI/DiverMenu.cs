@@ -31,8 +31,8 @@ namespace ClientUI
 
         private void buttonMainMenu_Click(object sender, EventArgs e)
         {
-            Diver diverForm = new Diver(channel, "admin");
-            OpenForm(diverForm, this);
+            Form1 mainMenuForm = new Form1(channel);
+            OpenForm(mainMenuForm, this);
         }
     }
 }

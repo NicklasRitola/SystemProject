@@ -77,6 +77,12 @@ namespace ClientUI
                 await channel.SendAsync(request);
                 JObject response = await channel.ReceiveResponse();
                 MessageBox.Show(response.Value<string>("message"), "Registration result", MessageBoxButtons.OK);
+
+                this.textBoxID.Text = "";
+                this.textBoxDifficulty.Text = "";
+                this.textBoxDiveGrp.Text = "";
+                this.textBoxTower.Text = "";
+                this.textBoxDate.Text = "";
             }
             else
             {
