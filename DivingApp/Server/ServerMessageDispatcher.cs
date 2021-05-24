@@ -37,6 +37,10 @@ namespace Server
                     NextDiverRequest NexDivReq = JsonConvert.DeserializeObject<NextDiverRequest>(JSONString);
                     response = await DispatchMessage(NexDivReq);
                     break;
+                case "registerdiverequest":
+                    RegisterDiveRequest RegDivReq = JsonConvert.DeserializeObject<RegisterDiveRequest>(JSONString);
+                    response = await DispatchMessage(RegDivReq);
+                    break;
                 case "registerdiverrequest":
                     RegisterDiverRequest RegDiverReq = JsonConvert.DeserializeObject<RegisterDiverRequest>(JSONString);
                     response = await DispatchMessage(RegDiverReq);

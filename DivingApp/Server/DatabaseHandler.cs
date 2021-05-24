@@ -151,11 +151,14 @@ namespace Server
         {
             try
             {
-                string temp = "";
-                if (data.Score == null) { temp = "null"; }
-                else { temp = data.Score.ToString(); }
+                string tempDifficulty = data.Difficulty.ToString("0.0");
+                tempDifficulty = tempDifficulty.Replace(',', '.');
 
-                string query = "insert into Dive values (" + data.Dive_ID + "," + temp + "," + data.Difficulty + ",'" + data.DiveGroup + "'," + data.Tower + "," + data.In_Competition + ",'" + data.Diver + "', '" + data.Date + "', false); ";
+                string tempScore = "";
+                if (data.Score == null) { tempScore = "null"; }
+                else { tempScore = data.Score.ToString(); }
+
+                string query = "insert into Dive values (" + data.Dive_ID + "," + tempScore + "," + tempDifficulty + ",'" + data.DiveGroup + "'," + data.Tower + "," + data.In_Competition + ",'" + data.Diver + "', '" + data.Date + "', false); ";
                 Console.WriteLine(query);
                 MySqlCommand sqlQuery = new MySqlCommand(query, this.databaseConnection);
                 MySqlDataReader dataReader = sqlQuery.ExecuteReader();

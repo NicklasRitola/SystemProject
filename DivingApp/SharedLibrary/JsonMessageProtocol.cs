@@ -35,9 +35,10 @@ namespace Shared
 
         public async Task<JObject> ReceiveAsync(NetworkStream stream)
         {
-            byte[] bytes = new byte[1024];
+            int numOfBytes = 2048;
+            byte[] bytes = new byte[numOfBytes];
             int bytesRead = 0;
-            bytesRead = await stream.ReadAsync(bytes, 0, 1024).ConfigureAwait(false);
+            bytesRead = await stream.ReadAsync(bytes, 0, numOfBytes).ConfigureAwait(false);
             if(bytesRead == 0)
             {
                 throw new Exception("Connection has closed");
